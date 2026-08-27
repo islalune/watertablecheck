@@ -2391,7 +2391,7 @@ fips,county,state,state_name,lat,lon,land_sq_mi,population,has_data,well_id,well
 46109,Roberts County,SD,South Dakota,45.6234,-96.9476,1101.055,10283,0,,,,,,,,,,,
 05105,Perry County,AR,Arkansas,34.9464,-92.9269,551.336,10251,0,,,,,,,,,,,
 38099,Walsh County,ND,North Dakota,48.377,-97.7222,1281.607,10214,0,,,,,,,,,,,
-30085,Roosevelt County,MT,Montana,48.2827,-104.9952,2354.602,10197,0,,,,,,,,,,,
+30085,Roosevelt County,MT,Montana,48.2827,-104.9952,2354.602,10197,1,USGS-480844104382601,28N55E29CDAB01 FK-01,14,1949-11-02,2026-05-05,76.5,21.3,0.01,0,0,stable
 13235,Pulaski County,GA,Georgia,32.2388,-83.4818,249.261,10180,1,USGS-322245083290101,18T001,237,1981-06-23,2026-06-25,45,67.9,3.16,3.2,9.5,declining
 49015,Emery County,UT,Utah,39.009,-110.7211,4462.635,10161,0,,,,,,,,,,,
 29089,Howard County,MO,Missouri,39.1434,-92.6959,463.801,10150,0,,,,,,,,,,,
