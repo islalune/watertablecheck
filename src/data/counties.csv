@@ -114,7 +114,7 @@ fips,county,state,state_name,lat,lon,land_sq_mi,population,has_data,well_id,well
 20091,Johnson County,KS,Kansas,38.8839,-94.8223,473.629,632276,0,,,,,,,,,,,
 41067,Washington County,OR,Oregon,45.5535,-123.0976,724.272,611272,0,,,,,,,,,,,
 12127,Volusia County,FL,Florida,29.0578,-81.1618,1101.222,602772,0,,,,,,,,,,,
-24003,Anne Arundel County,MD,Maryland,38.9916,-76.5609,414.808,602350,0,,,,,,,,,,,
+24003,Anne Arundel County,MD,Maryland,38.9916,-76.5609,414.808,602350,1,USGS-385915076340401,AA De 1,292,1939-01-01,2025-09-10,86.7,32.4,2.31,2.3,6.9,declining
 31055,Douglas County,NE,Nebraska,41.2971,-96.1541,326.54,601158,0,,,,,,,,,,,
 34039,Union County,NJ,New Jersey,40.6599,-74.3087,102.767,594160,0,,,,,,,,,,,
 25005,Bristol County,MA,Massachusetts,41.7486,-71.0889,553.118,588593,0,,,,,,,,,,,
@@ -2886,7 +2886,7 @@ fips,county,state,state_name,lat,lon,land_sq_mi,population,has_data,well_id,well
 27069,Kittson County,MN,Minnesota,48.776,-96.7803,1099,3992,0,,,,,,,,,,,
 48319,Mason County,TX,Texas,30.7039,-99.2373,928.836,3987,0,,,,,,,,,,,
 46025,Clark County,SD,South Dakota,44.8552,-97.7249,957.512,3974,0,,,,,,,,,,,
-35023,Hidalgo County,NM,New Mexico,31.8981,-108.7519,3438.551,3966,0,,,,,,,,,,,
+35023,Hidalgo County,NM,New Mexico,31.8981,-108.7519,3438.551,3966,1,USGS-321041108515101,24S.20W.35.214,82,1948-03-25,2026-01-28,77.8,59.9,6.44,6.4,19.3,declining
 21189,Owsley County,KY,Kentucky,37.4236,-83.6916,197.402,3928,0,,,,,,,,,,,
 35059,Union County,NM,New Mexico,36.4881,-103.4757,3825.05,3926,1,USGS-361314103183301,23N.34E.16.442 105,30,1954-05-14,2026-01-14,71.7,176.9,2.67,2.7,8,declining
 20185,Stafford County,KS,Kansas,38.0356,-98.7199,792.046,3901,0,,,,,,,,,,,
