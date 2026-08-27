@@ -7,7 +7,7 @@ fips,county,state,state_name,lat,lon,land_sq_mi,population,has_data,well_id,well
 06059,Orange County,CA,California,33.6757,-117.7772,793.249,3170435,0,,,,,,,,,,,
 12086,Miami-Dade County,FL,Florida,25.616,-80.5037,1899.988,2838461,1,USGS-254217080171801,F  - 319,323,1940-01-11,2026-06-30,86.5,10.3,-0.03,0,-0.1,stable
 48113,Dallas County,TX,Texas,32.767,-96.7784,873.188,2656028,0,,,,,,,,,,,
-36047,Kings County,NY,New York,40.635,-73.9506,69.377,2617631,0,,,,,,,,,,,
+36047,Kings County,NY,New York,40.635,-73.9506,69.377,2617631,1,USGS-403612073573208,K  3159. 1,195,1970-07-24,2026-04-09,55.7,15.7,0.07,0.1,0.2,stable
 06065,Riverside County,CA,California,33.7298,-116.0022,7209.021,2529933,0,,,,,,,,,,,
 32003,Clark County,NV,Nevada,36.2141,-115.0144,7891.661,2398871,1,USGS-360349115100001,212  S22 E61 04BCB 1 (M Fitz),3381,1938-08-14,2026-05-15,87.8,105.4,12.14,12.1,36.4,declining
 53033,King County,WA,Washington,47.4906,-121.834,2115.75,2340211,0,,,,,,,,,,,
@@ -140,7 +140,7 @@ fips,county,state,state_name,lat,lon,land_sq_mi,population,has_data,well_id,well
 34007,Camden County,NJ,New Jersey,39.8024,-74.9612,221.365,533988,0,,,,,,,,,,,
 53011,Clark County,WA,Washington,45.7717,-122.486,628.509,527269,0,,,,,,,,,,,
 34031,Passaic County,NJ,New Jersey,41.0367,-74.2994,186.132,526597,0,,,,,,,,,,,
-34027,Morris County,NJ,New Jersey,40.8589,-74.5473,461.027,523053,0,,,,,,,,,,,
+34027,Morris County,NJ,New Jersey,40.8589,-74.5473,461.027,523053,1,USGS-404510074240201,270017-- Madison 4 Obs,306,1955-04-01,2026-05-08,71.1,16.3,0.06,0.1,0.2,stable
 17089,Kane County,IL,Illinois,41.9396,-88.428,519.361,520997,0,,,,,,,,,,,
 19153,Polk County,IA,Iowa,41.6848,-93.569,572.72,516185,0,,,,,,,,,,,
 04021,Pinal County,AZ,Arizona,32.9185,-111.3663,5366.684,513862,0,,,,,,,,,,,
@@ -193,7 +193,7 @@ fips,county,state,state_name,lat,lon,land_sq_mi,population,has_data,well_id,well
 18003,Allen County,IN,Indiana,41.0919,-85.0718,657.146,399295,0,,,,,,,,,,,
 37067,Forsyth County,NC,North Carolina,36.1325,-80.257,408.046,398143,0,,,,,,,,,,,
 08035,Douglas County,CO,Colorado,39.3254,-104.926,840.888,393995,0,,,,,,,,,,,
-34021,Mercer County,NJ,New Jersey,40.2825,-74.7037,224.482,392138,0,,,,,,,,,,,
+34021,Mercer County,NJ,New Jersey,40.2825,-74.7037,224.482,392138,1,USGS-401622074313301,210084-- Hightstown PW 2,11,1947-10-01,2023-10-02,76,27.3,-0.35,-0.3,-1,stable
 12111,St. Lucie County,FL,Florida,27.3798,-80.4435,571.874,390670,0,,,,,,,,,,,
 51041,Chesterfield County,VA,Virginia,37.3784,-77.5858,423.51,389793,0,,,,,,,,,,,
 47065,Hamilton County,TN,Tennessee,35.1592,-85.2023,542.165,386256,0,,,,,,,,,,,
@@ -1424,7 +1424,7 @@ fips,county,state,state_name,lat,lon,land_sq_mi,population,has_data,well_id,well
 18169,Wabash County,IN,Indiana,40.8437,-85.7952,412.539,30777,0,,,,,,,,,,,
 49039,Sanpete County,UT,Utah,39.3734,-111.5769,1589.816,30732,0,,,,,,,,,,,
 54045,Logan County,WV,West Virginia,37.8306,-81.9409,452.904,30560,0,,,,,,,,,,,
-50005,Caledonia County,VT,Vermont,44.4688,-72.1122,649.214,30535,0,,,,,,,,,,,
+50005,Caledonia County,VT,Vermont,44.4688,-72.1122,649.214,30535,1,USGS-442937072093402,VT-WBW   36,475,1991-10-30,2026-07-15,34.7,9.5,0.3,0.3,0.9,stable
 21177,Muhlenberg County,KY,Kentucky,37.2138,-87.1341,467.281,30512,0,,,,,,,,,,,
 55029,Door County,WI,Wisconsin,45.0934,-87.0487,481.936,30512,0,,,,,,,,,,,
 20125,Montgomery County,KS,Kansas,37.1895,-95.7424,643.594,30459,0,,,,,,,,,,,
