@@ -61,23 +61,43 @@ const POP = 'https://www2.census.gov/programs-surveys/popest/datasets/2020-2024/
 
 const sleep = (ms) => new Promise((r) => setTimeout(r, ms));
 
-/** GET with retry/backoff. 429 and 5xx are retried, other 4xx is not. */
-async function getWithRetry(url, { tries = 5, headers = {} } = {}) {
+/** Thrown when the API's hourly quota (1000 req/hr/IP, confirmed via
+ * X-RateLimit-* headers - there is no key, unauthenticated is the norm
+ * for every source in this factory) is hit or nearly hit. Caught at the
+ * top level: everything so far is already cached, so the script just
+ * stops cleanly rather than blocking the whole run through a
+ * multi-hundred-second Retry-After sleep. Next run resumes from cache. */
+class RateLimited extends Error {}
+
+/** GET with retry/backoff. 429 and 5xx are retried once briefly (transient
+ * blips); a 429 that repeats means the hourly quota is actually exhausted,
+ * so it gives up fast instead of sleeping out a ~15min Retry-After. */
+async function getWithRetry(url, { tries = 2, headers = {} } = {}) {
   for (let attempt = 1; attempt <= tries; attempt++) {
+    let res;
     try {
-      const res = await fetch(url, { redirect: 'follow', headers: { 'user-agent': 'watertablecheck-fetch/1.0', ...headers } });
-      if (res.status === 429 || res.status >= 500) {
-        const retryAfter = Number(res.headers.get('retry-after')) || null;
-        throw Object.assign(new Error(`HTTP ${res.status}`), { retryAfter });
-      }
-      if (!res.ok) throw Object.assign(new Error(`HTTP ${res.status} for ${url}`), { fatal: true, status: res.status });
-      return res;
+      res = await fetch(url, { redirect: 'follow', headers: { 'user-agent': 'watertablecheck-fetch/1.0', ...headers } });
     } catch (err) {
-      if (err.fatal || attempt === tries) throw err;
-      const wait = err.retryAfter ? err.retryAfter * 1000 : 1200 * attempt;
-      console.log(`  ${err.message} on ${url.slice(0, 90)}..., retry ${attempt}/${tries - 1} in ${wait}ms`);
-      await sleep(wait);
+      if (attempt === tries) throw err;
+      await sleep(1000 * attempt);
+      continue;
     }
+    if (res.status === 429) {
+      if (attempt < tries) { await sleep(2000); continue; }
+      const retryAfter = Number(res.headers.get('retry-after')) || null;
+      throw new RateLimited(`hourly quota exhausted (retry-after ${retryAfter}s)`);
+    }
+    if (res.status >= 500) {
+      if (attempt === tries) throw new Error(`HTTP ${res.status} for ${url}`);
+      await sleep(1500 * attempt);
+      continue;
+    }
+    if (!res.ok) throw Object.assign(new Error(`HTTP ${res.status} for ${url}`), { fatal: true, status: res.status });
+    const remaining = Number(res.headers.get('x-ratelimit-remaining'));
+    if (Number.isFinite(remaining) && remaining < 15) {
+      throw new RateLimited(`only ${remaining} requests left in the hourly quota - stopping with headroom`);
+    }
+    return res;
   }
 }
 
