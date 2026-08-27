@@ -321,7 +321,7 @@ async function main() {
   const reps = pickRepresentatives(candidates, resolved);
 
   console.log('\nFetching per-well histories and computing trends...');
-  let done = 0, insufficient = 0, failed = 0;
+  let done = 0, insufficient = 0, failed = 0, rateLimited = false;
   const wellData = new Map(); // fips -> computed row
   const repEntries = [...reps.entries()];
   for (const [fips, rep] of repEntries) {
@@ -329,6 +329,11 @@ async function main() {
     try {
       hist = await fetchWellHistory(rep.monitoring_location_id);
     } catch (err) {
+      if (err instanceof RateLimited) {
+        console.log(`\nSTOPPING (not failing): ${err.message}. ${done} wells done, ${repEntries.length - done - insufficient - failed} not yet attempted this run - every fetch so far is cached, so the next run resumes here and re-fetches nothing already done.`);
+        rateLimited = true;
+        break;
+      }
       failed++;
       console.log(`  FAILED ${rep.monitoring_location_id} (${fips}): ${err.message}`);
       continue;
