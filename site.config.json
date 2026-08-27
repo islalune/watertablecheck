@@ -1,0 +1,19 @@
+{
+  "name": "WaterTableCheck",
+  "host": "watertablecheck.com",
+  "gcpProject": "watertablecheck-site",
+  "candidate": "groundwater-well-depletion",
+  "dataset": "USGS National Water Information System (NWIS) groundwater levels + National Groundwater Monitoring Network (NGWMN)",
+  "secrets": {
+    "searchConsoleSA": "watertablecheck-seo-sa",
+    "pageSpeedKey": "watertablecheck-psi-key"
+  },
+  "vitalsUrls": [
+    "/"
+  ],
+  "uniqueness": {
+    "sample": 120,
+    "medianMin": 0.3,
+    "pageMin": 0.2
+  }
+}

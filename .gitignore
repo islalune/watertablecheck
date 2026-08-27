@@ -1,0 +1,12 @@
+node_modules/
+.DS_Store
+.firebase/
+src/data/_cache/
+
+# generated output - rebuilt by `node ../SiteFactory/factory/build.js`
+public/*.html
+public/**/*.html
+public/sitemap.xml
+public/robots.txt
+public/og/
+src/data/.page-hashes.json
