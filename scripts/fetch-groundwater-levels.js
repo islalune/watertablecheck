@@ -93,9 +93,16 @@ async function getWithRetry(url, { tries = 2, headers = {} } = {}) {
       continue;
     }
     if (!res.ok) throw Object.assign(new Error(`HTTP ${res.status} for ${url}`), { fatal: true, status: res.status });
-    const remaining = Number(res.headers.get('x-ratelimit-remaining'));
-    if (Number.isFinite(remaining) && remaining < 15) {
-      throw new RateLimited(`only ${remaining} requests left in the hourly quota - stopping with headroom`);
+    // A response missing this header (e.g. a CloudFront cache HIT) is NOT the
+    // same as 0 remaining - Number(null) is 0, which used to false-trip this
+    // on every cached response and made the script quit after ~93 chunks every
+    // single run, mistaking a cache hit for hourly-quota exhaustion.
+    const remainingHeader = res.headers.get('x-ratelimit-remaining');
+    if (remainingHeader !== null) {
+      const remaining = Number(remainingHeader);
+      if (Number.isFinite(remaining) && remaining < 15) {
+        throw new RateLimited(`only ${remaining} requests left in the hourly quota - stopping with headroom`);
+      }
     }
     return res;
   }
