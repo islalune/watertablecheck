@@ -1,10 +1,10 @@
 {
-  "retrieved": "2026-08-27T19:32:18.605Z",
+  "retrieved": "2026-08-27T20:27:58.849Z",
   "counties": 3222,
-  "countiesWithData": 33,
-  "coveragePct": 1,
+  "countiesWithData": 136,
+  "coveragePct": 4.2,
   "partialRun": true,
-  "countiesWithAQualifyingWellNotYetFetched": 1494,
+  "countiesWithAQualifyingWellNotYetFetched": 1386,
   "groundwaterLevels": {
     "api": "https://api.waterdata.usgs.gov/ogcapi/v0/collections/field-measurements",
     "metadataApi": "https://api.waterdata.usgs.gov/ogcapi/v0/collections/field-measurements-metadata",
@@ -13,7 +13,7 @@
     "parameterMeaning": "Water level, depth LSD - depth to water level, feet below land surface (confirmed via parameter-codes/items)",
     "gives": "Individual field-visit depth-to-water readings per well, fit to a simple linear trend (ordinary least squares, ft/year) over the well's full qualifying record.",
     "note": "Legacy waterservices.usgs.gov/nwis/gwlevels/ is decommissioned (confirmed: now 301s to USGS's own decommission notice); this uses the replacement OGC API at api.waterdata.usgs.gov, live-verified 2026-08-27.",
-    "qualifyingWellRule": "A well qualifies as a county's representative only with a field-measurements-metadata span >= 15 years AND a most-recent reading within the last 10 years (not an abandoned well from decades ago), AND >= 6 usable readings after the full history was actually fetched. 33 counties nationally have a qualifying well out of 3222 total - this uneven coverage is real, not a bug: candidates.json flagged it in advance (\"monitoring-well density is genuinely uneven\").",
+    "qualifyingWellRule": "A well qualifies as a county's representative only with a field-measurements-metadata span >= 15 years AND a most-recent reading within the last 10 years (not an abandoned well from decades ago), AND >= 6 usable readings after the full history was actually fetched. 137 counties nationally have a qualifying well out of 3222 total - this uneven coverage is real, not a bug: candidates.json flagged it in advance (\"monitoring-well density is genuinely uneven\").",
     "oneWellPerCounty": "Exactly one representative well (longest qualifying span, ties broken by most recent) stands in for the whole county. This is a real simplification - a single well is not the whole county's aquifer - and every page must say so, the same way FloodZoneCheck's pages disclose parcel-vs-county granularity.",
     "trendMethod": "Ordinary least-squares linear regression of depth-to-water (ft below land surface) against time (years) across every usable reading in the well's qualifying record. Positive slope = getting deeper = water table declining. decline_10yr_ft/decline_30yr_ft are the slope extrapolated forward, not a measured 10/30-year change for wells with a shorter or longer actual record - the model/template layer must present this as a rate-based projection, not a guarantee."
   },
