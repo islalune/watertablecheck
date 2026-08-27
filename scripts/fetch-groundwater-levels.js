@@ -389,6 +389,8 @@ async function main() {
     counties: rows.length,
     countiesWithData: withData,
     coveragePct: +((withData / rows.length) * 100).toFixed(1),
+    partialRun: rateLimited,
+    countiesWithAQualifyingWellNotYetFetched: rateLimited ? repEntries.length - done - insufficient - failed : 0,
     groundwaterLevels: {
       api: `${API}/collections/field-measurements`,
       metadataApi: `${API}/collections/field-measurements-metadata`,
@@ -425,6 +427,19 @@ async function main() {
     if (r) console.log(`  spot-check ${r.county}, ${r.state}: has_data=${r.has_data} direction=${r.direction || 'n/a'} trend=${r.trend_ft_per_decade || 'n/a'} ft/decade well=${r.well_id || 'none'} (${r.span_years || 0}y, ${r.n_measurements || 0} readings)`);
     else console.log(`  spot-check ${name}, ${st}: NOT FOUND in county list`);
   }
+
+  if (rateLimited) {
+    console.log(`\nPARTIAL RUN: hourly quota reached. counties.csv written with ${withData}/${rows.length} counties populated. Re-run this script (cache makes it free to resume) once the quota window resets to fill in the rest.`);
+  } else {
+    console.log('\nCOMPLETE: every county with a qualifying well has been fetched.');
+  }
 }
 
-main().catch((e) => { console.error(e); process.exit(1); });
+main().catch((e) => {
+  if (e instanceof RateLimited) {
+    console.log(`\nSTOPPING (not failing): ${e.message}. Everything fetched so far is cached under src/data/_cache/ - re-run once the hourly window resets to continue from here. No output file yet if this happened before the county-join step.`);
+    process.exit(0);
+  }
+  console.error(e);
+  process.exit(1);
+});
