@@ -225,7 +225,7 @@ fips,county,state,state_name,lat,lon,land_sq_mi,population,has_data,well_id,well
 42079,Luzerne County,PA,Pennsylvania,41.1731,-75.9761,889.807,331379,1,USGS-411756076162701,LU   294 Luzerne County Observation Well,275,1963-10-01,2026-10-19,63.1,34.3,-0.07,-0.1,-0.2,stable
 12033,Escambia County,FL,Florida,30.53,-87.3203,656.998,331275,0,,,,,,,,,,,
 08013,Boulder County,CO,Colorado,40.095,-105.3977,726.416,330262,0,,,,,,,,,,,
-21067,Fayette County,KY,Kentucky,38.0407,-84.4583,283.854,329437,0,,,,,,,,,,,
+21067,Fayette County,KY,Kentucky,38.0407,-84.4583,283.854,329437,1,USGS-375928084362001,F21B0045 - Lexington,121,1952-04-11,2024-05-16,72.1,13,0.29,0.3,0.9,stable
 48303,Lubbock County,TX,Texas,33.6115,-101.8199,895.644,327394,0,,,,,,,,,,,
 42095,Northampton County,PA,Pennsylvania,40.7528,-75.3074,369.787,322989,1,USGS-404745075184001,NP   820  Northampton County Observation Well,216,2001-03-23,2026-10-01,25.5,43.4,-0.58,-0.6,-1.7,rising
 33015,Rockingham County,NH,New Hampshire,42.9887,-71.0991,695.554,322433,1,USGS-430527071140101,NH-DDW   46,283,1984-11-06,2017-05-31,32.6,38.2,0.08,0.1,0.2,stable
@@ -248,7 +248,7 @@ fips,county,state,state_name,lat,lon,land_sq_mi,population,has_data,well_id,well
 13063,Clayton County,GA,Georgia,33.5522,-84.413,141.703,297703,0,,,,,,,,,,,
 06047,Merced County,CA,California,37.1948,-120.7228,1938.02,296774,1,USGS-372412120393401,006S012E21C001M,14,1977-07-30,2021-08-04,44,114.2,11.08,11.1,33.3,declining
 13057,Cherokee County,GA,Georgia,34.2443,-84.4751,420.956,293513,0,,,,,,,,,,,
-42043,Dauphin County,PA,Pennsylvania,40.4126,-76.7926,524.87,293029,0,,,,,,,,,,,
+42043,Dauphin County,PA,Pennsylvania,40.4126,-76.7926,524.87,293029,1,USGS-402255076422001,DA   868  Dauphin County Observation Well,202,2002-11-15,2026-08-04,23.7,17.3,-1.05,-1,-3.1,rising
 48209,Hays County,TX,Texas,30.0612,-98.0293,676.863,292029,1,USGS-295443097554201,LR-67-01-809 (Tipps),1361,1937-10-08,2024-03-15,86.4,27.3,-0.55,-0.5,-1.6,rising
 12001,Alachua County,FL,Florida,29.6757,-82.3572,875.668,291782,0,,,,,,,,,,,
 26065,Ingham County,MI,Michigan,42.6035,-84.3738,556.081,290427,1,USGS-423127084321901,04N 02W 16DAAA 01 INGHAM CO (CEDAR),152,2002-08-29,2026-10-21,24.1,19.2,-3.43,-3.4,-10.3,rising
@@ -320,7 +320,7 @@ fips,county,state,state_name,lat,lon,land_sq_mi,population,has_data,well_id,well
 06113,Yolo County,CA,California,38.6796,-121.9027,1012.988,225251,0,,,,,,,,,,,
 22017,Caddo Parish,LA,Louisiana,32.5801,-93.885,879.535,224893,1,USGS-324207093484801,Cd-336,498,1956-12-20,2026-08-31,69.7,18.2,-0.49,-0.5,-1.5,stable
 13139,Hall County,GA,Georgia,34.3176,-83.8185,392.508,221745,0,,,,,,,,,,,
-41029,Jackson County,OR,Oregon,42.4116,-122.6756,2783.255,221331,0,,,,,,,,,,,
+41029,Jackson County,OR,Oregon,42.4116,-122.6756,2783.255,221331,1,USGS-420825123040401,39S/03W-33BBA1,200,1987-06-27,2025-01-10,37.5,35.6,-0.71,-0.7,-2.1,rising
 12091,Okaloosa County,FL,Florida,30.6143,-86.5911,929.833,220483,0,,,,,,,,,,,
 04027,Yuma County,AZ,Arizona,32.7739,-113.9109,5513.82,220310,1,USGS-322737114415301,C-11-24 23BCB1,166,1963-02-25,2020-07-06,57.4,132.9,9.13,9.1,27.4,declining
 23031,York County,ME,Maine,43.426,-70.6684,991.194,220143,1,USGS-432310070393301,"ME-YW807 Sanford, Maine",381,1988-07-25,2026-10-07,38.2,21.1,-0.18,-0.2,-0.6,stable
@@ -712,7 +712,7 @@ fips,county,state,state_name,lat,lon,land_sq_mi,population,has_data,well_id,well
 51019,Bedford County,VA,Virginia,37.3123,-79.5272,760.115,82182,1,USGS-372150079422301,33G  2 SOW 225,86,2008-09-17,2026-07-30,17.9,40.6,-8.59,-8.6,-25.8,rising
 42039,Crawford County,PA,Pennsylvania,41.6879,-80.1078,1012.356,82089,1,USGS-413542080245002,CW   413 Crawford County Observation Well,141,1967-05-01,2026-07-10,59.2,50.5,-0.06,-0.1,-0.2,stable
 18043,Floyd County,IN,Indiana,38.3181,-85.9118,148.486,81931,0,,,,,,,,,,,
-55071,Manitowoc County,WI,Wisconsin,44.1561,-87.5774,589.309,81513,0,,,,,,,,,,,
+55071,Manitowoc County,WI,Wisconsin,44.1561,-87.5774,589.309,81513,1,USGS-440430087420401,MN-19/23E/35-0028,1389,1968-06-27,2023-04-19,54.8,24.9,-0.15,-0.2,-0.5,stable
 47001,Anderson County,TN,Tennessee,36.1167,-84.1954,337.206,81449,0,,,,,,,,,,,
 01121,Talladega County,AL,Alabama,33.3693,-86.1759,736.818,81375,0,,,,,,,,,,,
 48497,Wise County,TX,Texas,33.2193,-97.653,904.454,81275,0,,,,,,,,,,,
@@ -902,7 +902,7 @@ fips,county,state,state_name,lat,lon,land_sq_mi,population,has_data,well_id,well
 27025,Chisago County,MN,Minnesota,45.5054,-92.9038,414.903,59105,0,,,,,,,,,,,
 13039,Camden County,GA,Georgia,30.9134,-81.642,630.273,59099,1,USGS-310314081322301,33G005,24,1965-11-29,2026-02-03,60.2,-25,0.79,0.8,2.4,declining
 28109,Pearl River County,MS,Mississippi,30.7748,-89.5869,811.508,59030,0,,,,,,,,,,,
-39143,Sandusky County,OH,Ohio,41.3553,-83.1428,408.246,58866,0,,,,,,,,,,,
+39143,Sandusky County,OH,Ohio,41.3553,-83.1428,408.246,58866,1,OH015-411914083045300,S-3 OH,68,1969-11-01,2026-07-13,56.7,17,-0.06,-0.1,-0.2,stable
 01113,Russell County,AL,Alabama,32.2898,-85.187,641.182,58837,0,,,,,,,,,,,
 48323,Maverick County,TX,Texas,28.7298,-100.3167,1279.481,58829,0,,,,,,,,,,,
 01033,Colbert County,AL,Alabama,34.7031,-87.8015,592.953,58785,1,USGS-344036087320901,EHR-LUS28,17,2000-01-06,2026-03-23,26.2,10.1,-2.23,-2.2,-6.7,rising
@@ -2635,7 +2635,7 @@ fips,county,state,state_name,lat,lon,land_sq_mi,population,has_data,well_id,well
 31139,Pierce County,NE,Nebraska,42.2714,-97.611,573.249,7334,1,USGS-420653097263301,25N  1W28BC  1  NE-NP-SWR-B,96,1963-10-21,2024-04-24,60.5,4.3,-0.49,-0.5,-1.5,stable
 02240,Southeast Fairbanks Census Area,AK,Alaska,63.865,-143.2186,24839.23,7313,0,,,,,,,,,,,
 21129,Lee County,KY,Kentucky,37.6081,-83.7192,208.821,7313,0,,,,,,,,,,,
-19195,Worth County,IA,Iowa,43.3735,-93.2485,400.123,7307,0,,,,,,,,,,,
+19195,Worth County,IA,Iowa,43.3735,-93.2485,400.123,7307,1,USGS-432946093161901,100N20W12BDD        1996NAWQA,14,1997-08-18,2025-06-09,27.8,10.4,0.51,0.5,1.5,declining
 29203,Shannon County,MO,Missouri,37.1525,-91.3913,1003.82,7275,1,MO005-372153091322301,Akers,54,2001-08-01,2026-07-22,25,65.4,-1.27,-1.3,-3.8,rising
 21063,Elliott County,KY,Kentucky,38.1169,-83.0961,234.321,7263,0,,,,,,,,,,,
 16029,Caribou County,ID,Idaho,42.7861,-111.5443,1764.194,7239,1,USGS-424213111530701,08S 39E 27ACB1,7,1967-08-25,2023-04-03,55.6,120.8,1.3,1.3,3.9,declining
@@ -2726,7 +2726,7 @@ fips,county,state,state_name,lat,lon,land_sq_mi,population,has_data,well_id,well
 05039,Dallas County,AR,Arkansas,33.9678,-92.654,667.323,6076,1,USGS-334832092245502,10S13W34ACA2,55,1949-10-25,2026-05-12,76.5,150,4.78,4.8,14.3,declining
 17071,Henderson County,IL,Illinois,40.8145,-90.9412,378.793,6048,1,USGS-410252090541601,071-1-41-159,44,2005-03-14,2026-08-18,21.4,22.6,2.12,2.1,6.4,declining
 21057,Cumberland County,KY,Kentucky,36.7824,-85.3885,305.147,6047,0,,,,,,,,,,,
-50009,Essex County,VT,Vermont,44.724,-71.7327,662.371,6037,0,,,,,,,,,,,
+50009,Essex County,VT,Vermont,44.724,-71.7327,662.371,6037,1,USGS-444731071514701,VT-BIW    1,719,1966-11-01,2026-09-10,59.9,2.9,-0.22,-0.2,-0.7,stable
 19143,Osceola County,IA,Iowa,43.3785,-95.6338,398.687,6036,0,,,,,,,,,,,
 05073,Lafayette County,AR,Arkansas,33.2406,-93.6115,529.472,6015,1,USGS-330223093303301,20S23W05ADB1,50,1969-10-23,2026-05-13,56.6,36.4,-1.01,-1,-3,rising
 20145,Pawnee County,KS,Kansas,38.1815,-99.2348,754.263,6012,0,,,,,,,,,,,
@@ -3171,7 +3171,7 @@ fips,county,state,state_name,lat,lon,land_sq_mi,population,has_data,well_id,well
 72051,Dorado Municipio,PR,,18.4744,-66.262,23.116,,1,USGS-182526066165001,"PIEZOMETER SANTA ROSA 2 DORADO, PR",276,1995-01-05,2026-10-01,31.7,62.3,-0.81,-0.8,-2.4,rising
 72053,Fajardo Municipio,PR,,18.3864,-65.5885,29.907,,1,USGS-181817065391200,"PIEZOMETER USGS RF 10, FAJARDO, PR",183,1993-08-31,2026-10-14,33.1,9,-0.17,-0.2,-0.5,stable
 72054,Florida Municipio,PR,,18.3687,-66.5627,15.224,,1,USGS-182133066342800,"FLORIDA 7 WELL, FLORIDA, PR",182,1978-09-30,2026-10-15,48,128.6,0.3,0.3,0.9,stable
-72055,Guánica Municipio,PR,,17.9482,-66.9229,37.083,,0,,,,,,,,,,,
+72055,Guánica Municipio,PR,,17.9482,-66.9229,37.083,,1,USGS-180122066560300,"ARENAS 1 WELL, GUANICA, PR",117,1985-07-25,2026-10-22,41.2,11.4,0.31,0.3,0.9,stable
 72057,Guayama Municipio,PR,,17.9739,-66.1375,65.038,,1,USGS-175858066100200,"JUA 5 WELL, GUAYAMA, PR",547,1960-11-15,2026-08-11,65.7,62.6,2.11,2.1,6.3,declining
 72059,Guayanilla Municipio,PR,,18.0053,-66.7983,42.248,,1,USGS-180052066471000,"MER 3 WELL, GUAYANILLA, PR",189,1960-10-20,2026-10-22,66,9.3,-1.25,-1.2,-3.7,rising
 72061,Guaynabo Municipio,PR,,18.3444,-66.1141,27.585,,0,,,,,,,,,,,
