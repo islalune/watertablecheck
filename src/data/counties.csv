@@ -360,7 +360,7 @@ fips,county,state,state_name,lat,lon,land_sq_mi,population,has_data,well_id,well
 55101,Racine County,WI,Wisconsin,42.7804,-87.7716,332.614,198651,0,,,,,,,,,,,
 48257,Kaufman County,TX,Texas,32.5989,-96.2884,780.714,197829,0,,,,,,,,,,,
 26093,Livingston County,MI,Michigan,42.6025,-83.9117,565.29,196976,0,,,,,,,,,,,
-36007,Broome County,NY,New York,42.162,-75.8303,705.651,196397,0,,,,,,,,,,,
+36007,Broome County,NY,New York,42.162,-75.8303,705.651,196397,1,USGS-421138075511301,"Local number, Bm-128, Kattelville NY",291,1980-09-22,2026-10-13,46.1,27.8,-0.58,-0.6,-1.7,rising
 28033,DeSoto County,MS,Mississippi,34.8749,-89.9912,476.394,195871,0,,,,,,,,,,,
 55087,Outagamie County,WI,Wisconsin,44.4182,-88.465,637.557,195390,0,,,,,,,,,,,
 48187,Guadalupe County,TX,Texas,29.5827,-97.949,711.252,195166,0,,,,,,,,,,,
@@ -778,7 +778,7 @@ fips,county,state,state_name,lat,lon,land_sq_mi,population,has_data,well_id,well
 48203,Harrison County,TX,Texas,32.548,-94.3744,900.064,71370,0,,,,,,,,,,,
 17183,Vermilion County,IL,Illinois,40.1868,-87.7268,898.32,71106,0,,,,,,,,,,,
 21047,Christian County,KY,Kentucky,36.8921,-87.493,717.794,71006,0,,,,,,,,,,,
-25011,Franklin County,MA,Massachusetts,42.5845,-72.5918,699.209,70871,0,,,,,,,,,,,
+25011,Franklin County,MA,Massachusetts,42.5845,-72.5918,699.209,70871,1,USGS-423311072355801,"MA-DFW   44R DEERFIELD, MA",725,1964-12-01,2026-08-31,61.7,4.6,-0.07,-0.1,-0.2,stable
 27013,Blue Earth County,MN,Minnesota,44.0337,-94.064,747.837,70700,0,,,,,,,,,,,
 28075,Lauderdale County,MS,Mississippi,32.404,-88.6605,703.676,70588,0,,,,,,,,,,,
 45059,Laurens County,SC,South Carolina,34.4837,-82.0055,712.874,70545,0,,,,,,,,,,,
