@@ -280,7 +280,7 @@ fips,county,state,state_name,lat,lon,land_sq_mi,population,has_data,well_id,well
 37179,Union County,NC,North Carolina,34.9918,-80.5304,632.739,263386,0,,,,,,,,,,,
 29047,Clay County,MO,Missouri,39.3156,-94.4215,397.658,263370,1,USGS-390955094244001,INDEPENDENCE 16A,23,1998-06-05,2026-05-04,27.9,19.4,3.36,3.4,10.1,declining
 17119,Madison County,IL,Illinois,38.8271,-89.9002,715.522,263017,1,USGS-384659090003701,4N8W-20.4e1 (SIUE),55,2004-09-27,2026-06-10,21.7,27.8,-4.09,-4.1,-12.3,rising
-06087,Santa Cruz County,CA,California,37.0123,-122.0078,445.106,262406,0,,,,,,,,,,,
+06087,Santa Cruz County,CA,California,37.0123,-122.0078,445.106,262406,1,USGS-365425121452201,012S002E09C002M,390,1966-11-07,2020-08-19,53.8,36.3,10.18,10.2,30.6,declining
 01003,Baldwin County,AL,Alabama,30.6592,-87.7461,1589.943,261608,0,,,,,,,,,,,
 13151,Henry County,GA,Georgia,33.4529,-84.154,318.715,259315,0,,,,,,,,,,,
 53077,Yakima County,WA,Washington,46.4566,-120.7401,4294.512,258523,0,,,,,,,,,,,
@@ -1674,7 +1674,7 @@ fips,county,state,state_name,lat,lon,land_sq_mi,population,has_data,well_id,well
 18041,Fayette County,IN,Indiana,39.6397,-85.185,215.021,23335,0,,,,,,,,,,,
 29195,Saline County,MO,Missouri,39.1358,-93.2042,755.51,23325,0,,,,,,,,,,,
 56039,Teton County,WY,Wyoming,44.0487,-110.4261,3996.846,23272,1,USGS-433603110443501,42-116-14cbc01  JH-3,76,2008-09-16,2026-08-13,17.9,50.3,2.54,2.5,7.6,declining
-13107,Emanuel County,GA,Georgia,32.5912,-82.3002,680.574,23224,0,,,,,,,,,,,
+13107,Emanuel County,GA,Georgia,32.5912,-82.3002,680.574,23224,1,USGS-321946082154301,27S001,20,1965-12-01,2024-08-19,58.7,126.4,7.82,7.8,23.5,declining
 29177,Ray County,MO,Missouri,39.3084,-93.9957,568.979,23199,0,,,,,,,,,,,
 48299,Llano County,TX,Texas,30.7076,-98.6847,934.069,23163,0,,,,,,,,,,,
 18047,Franklin County,IN,Indiana,39.4098,-85.067,384.426,23136,1,USGS-392134084563200,MIAM NAWQA LUS WELL BVAS AG-24 AT CEDAR GROVE IN,15,2000-08-03,2024-09-25,24.1,37.1,-0.22,-0.2,-0.7,stable
@@ -1925,7 +1925,7 @@ fips,county,state,state_name,lat,lon,land_sq_mi,population,has_data,well_id,well
 01087,Macon County,AL,Alabama,32.387,-85.6929,608.665,18159,0,,,,,,,,,,,
 19059,Dickinson County,IA,Iowa,43.3896,-95.1961,380.532,18158,0,,,,,,,,,,,
 01067,Henry County,AL,Alabama,31.517,-85.24,561.927,18141,0,,,,,,,,,,,
-05135,Sharp County,AR,Arkansas,36.1734,-91.4711,604.637,18130,0,,,,,,,,,,,
+05135,Sharp County,AR,Arkansas,36.1734,-91.4711,604.637,18130,1,USGS-361325091363701,18N06W10CBC1,36,1966-05-10,2025-04-17,58.9,120.3,-1.22,-1.2,-3.7,rising
 42093,Montour County,PA,Pennsylvania,41.0293,-76.6652,130.331,18115,0,,,,,,,,,,,
 29003,Andrew County,MO,Missouri,39.9889,-94.8036,432.634,18091,0,,,,,,,,,,,
 30067,Park County,MT,Montana,45.4631,-110.5349,2802.479,18074,0,,,,,,,,,,,
