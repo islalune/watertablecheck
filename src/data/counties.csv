@@ -316,7 +316,7 @@ fips,county,state,state_name,lat,lon,land_sq_mi,population,has_data,well_id,well
 36065,Oneida County,NY,New York,43.2427,-75.4343,1212.442,228347,1,USGS-433112075091501,"Local number, Oe-151, at Woodgate NY",3396,1926-07-09,2026-07-09,100,21.5,0.06,0.1,0.2,stable
 04015,Mohave County,AZ,Arizona,35.7177,-113.7497,13332.121,226479,1,USGS-344408114260401,B-16-20H11CCD1,47,1950-09-14,2026-01-22,75.4,219.1,1.47,1.5,4.4,declining
 01101,Montgomery County,AL,Alabama,32.2029,-86.2045,785.355,225894,0,,,,,,,,,,,
-39099,Mahoning County,OH,Ohio,41.0109,-80.7704,411.521,225786,0,,,,,,,,,,,
+39099,Mahoning County,OH,Ohio,41.0109,-80.7704,411.521,225786,1,OH015-410042080453800,MA-1 OH,109,1965-10-01,2026-07-13,60.8,33.4,-0.58,-0.6,-1.7,rising
 06113,Yolo County,CA,California,38.6796,-121.9027,1012.988,225251,0,,,,,,,,,,,
 22017,Caddo Parish,LA,Louisiana,32.5801,-93.885,879.535,224893,1,USGS-324207093484801,Cd-336,498,1956-12-20,2026-08-31,69.7,18.2,-0.49,-0.5,-1.5,stable
 13139,Hall County,GA,Georgia,34.3176,-83.8185,392.508,221745,0,,,,,,,,,,,
@@ -762,7 +762,7 @@ fips,county,state,state_name,lat,lon,land_sq_mi,population,has_data,well_id,well
 18109,Morgan County,IN,Indiana,39.4826,-86.4475,403.84,73825,1,USGS-393423086161001,MORGAN 4 (MG 4),287,1983-07-27,2026-08-20,43.1,6,0.22,0.2,0.7,stable
 38035,Grand Forks County,ND,North Dakota,47.926,-97.4509,1436.216,73771,0,,,,,,,,,,,
 47059,Greene County,TN,Tennessee,36.1795,-82.8475,622.169,73398,0,,,,,,,,,,,
-13103,Effingham County,GA,Georgia,32.3617,-81.3434,478.887,73148,0,,,,,,,,,,,
+13103,Effingham County,GA,Georgia,32.3617,-81.3434,478.887,73148,1,USGS-321943081151401,35S008,152,1999-10-18,2026-10-07,27,44.9,-3.94,-3.9,-11.8,rising
 01049,DeKalb County,AL,Alabama,34.4609,-85.804,777.077,73122,0,,,,,,,,,,,
 20161,Riley County,KS,Kansas,39.2912,-96.7275,609.66,72557,1,USGS-390601096433801,RILEY CF97-401  11S 06E 14AABD01,137,1997-05-08,2020-12-28,23.6,17.1,-0.5,-0.5,-1.5,stable
 54081,Raleigh County,WV,West Virginia,37.7625,-81.2647,604.97,72379,0,,,,,,,,,,,
@@ -816,7 +816,7 @@ fips,county,state,state_name,lat,lon,land_sq_mi,population,has_data,well_id,well
 17199,Williamson County,IL,Illinois,37.7304,-88.93,420.216,67064,0,,,,,,,,,,,
 27027,Clay County,MN,Minnesota,46.8984,-96.4949,1045.176,66848,0,,,,,,,,,,,
 21199,Pulaski County,KY,Kentucky,37.1074,-84.577,658.106,66842,0,,,,,,,,,,,
-23003,Aroostook County,ME,Maine,46.7092,-68.6124,6671.22,66776,0,,,,,,,,,,,
+23003,Aroostook County,ME,Maine,46.7092,-68.6124,6671.22,66776,1,USGS-471457068353001,"ME-ARW890 Fort Kent, Maine",504,1976-11-19,2026-09-15,49.8,10.7,-0.53,-0.5,-1.6,rising
 40101,Muskogee County,OK,Oklahoma,35.6176,-95.3839,810.643,66752,0,,,,,,,,,,,
 28073,Lamar County,MS,Mississippi,31.1976,-89.5064,496.57,66734,0,,,,,,,,,,,
 48427,Starr County,TX,Texas,26.5309,-98.7402,1223.179,66587,0,,,,,,,,,,,
@@ -1884,7 +1884,7 @@ fips,county,state,state_name,lat,lon,land_sq_mi,population,has_data,well_id,well
 48035,Bosque County,TX,Texas,31.9008,-97.6376,982.976,19013,0,,,,,,,,,,,
 37199,Yancey County,NC,North Carolina,35.8893,-82.304,312.592,18993,0,,,,,,,,,,,
 48003,Andrews County,TX,Texas,32.3123,-102.6402,1500.686,18923,0,,,,,,,,,,,
-55113,Sawyer County,WI,Wisconsin,45.865,-91.1471,1257.604,18835,0,,,,,,,,,,,
+55113,Sawyer County,WI,Wisconsin,45.865,-91.1471,1257.604,18835,1,USGS-460005091291801,SW-41/09W/28-0007,5000,1937-04-09,2026-09-21,89.5,17.7,-0.01,0,0,stable
 06063,Plumas County,CA,California,39.9923,-120.8244,2553.062,18834,0,,,,,,,,,,,
 13025,Brantley County,GA,Georgia,31.1973,-81.983,443.241,18795,1,USGS-311233081573301,30H005,38,1976-01-12,2026-02-04,50.1,29.7,1.07,1.1,3.2,declining
 39125,Paulding County,OH,Ohio,41.1189,-84.5821,416.436,18755,0,,,,,,,,,,,
@@ -2150,7 +2150,7 @@ fips,county,state,state_name,lat,lon,land_sq_mi,population,has_data,well_id,well
 48353,Nolan County,TX,Texas,32.3123,-100.4181,911.994,14182,0,,,,,,,,,,,
 40023,Choctaw County,OK,Oklahoma,34.0277,-95.5541,770.383,14174,0,,,,,,,,,,,
 55107,Rusk County,WI,Wisconsin,45.4727,-91.1367,913.511,14168,0,,,,,,,,,,,
-19023,Butler County,IA,Iowa,42.7348,-92.7802,580.138,14156,0,,,,,,,,,,,
+19023,Butler County,IA,Iowa,42.7348,-92.7802,580.138,14156,1,USGS-423639092350901,090N15W14BAC        1997NAWQA Butler County,13,1997-06-17,2025-06-10,28,8.3,0.12,0.1,0.4,stable
 47061,Grundy County,TN,Tennessee,35.3934,-85.7104,360.444,14148,0,,,,,,,,,,,
 18111,Newton County,IN,Indiana,40.9624,-87.4022,401.755,14131,1,USGS-410428087231501,NEWTON 8 (NE 8),325,1976-02-25,2026-09-22,50.6,25.1,-1.09,-1.1,-3.3,rising
 05021,Clay County,AR,Arkansas,36.3673,-90.4187,639.224,14112,1,USGS-361938090311601,20N05E34DBA1,81,1953-04-22,2026-04-22,73,34,4.15,4.1,12.4,declining
@@ -2236,7 +2236,7 @@ fips,county,state,state_name,lat,lon,land_sq_mi,population,has_data,well_id,well
 16085,Valley County,ID,Idaho,44.856,-115.6181,3665.12,12777,0,,,,,,,,,,,
 21219,Todd County,KY,Kentucky,36.8403,-87.1836,374.518,12757,0,,,,,,,,,,,
 28013,Calhoun County,MS,Mississippi,33.9366,-89.3371,586.573,12754,0,,,,,,,,,,,
-16073,Owyhee County,ID,Idaho,42.5729,-116.1897,7668.204,12748,0,,,,,,,,,,,
+16073,Owyhee County,ID,Idaho,42.5729,-116.1897,7668.204,12748,1,USGS-421813115555801,13S 04E 12CDD1,41,1967-01-01,2026-10-27,59.8,22.5,1.25,1.3,3.8,declining
 19197,Wright County,IA,Iowa,42.733,-93.7347,580.412,12729,0,,,,,,,,,,,
 17017,Cass County,IL,Illinois,39.9692,-90.2457,375.754,12713,0,,,,,,,,,,,
 48279,Lamb County,TX,Texas,34.0689,-102.348,1016.181,12687,0,,,,,,,,,,,
@@ -2414,7 +2414,7 @@ fips,county,state,state_name,lat,lon,land_sq_mi,population,has_data,well_id,well
 29063,DeKalb County,MO,Missouri,39.8947,-94.4072,421.358,9884,0,,,,,,,,,,,
 31179,Wayne County,NE,Nebraska,42.2107,-97.1262,442.916,9870,1,USGS-421601097151001,27N  1E36DD  1,112,1950-08-15,2025-04-11,74.7,4.4,-1.41,-1.4,-4.2,rising
 01131,Wilcox County,AL,Alabama,31.9901,-87.3049,887.858,9865,0,,,,,,,,,,,
-18101,Martin County,IN,Indiana,38.7053,-86.8018,335.761,9864,0,,,,,,,,,,,
+18101,Martin County,IN,Indiana,38.7053,-86.8018,335.761,9864,1,USGS-383659086545901,MARTIN 5 (MT 5),282,1955-05-01,2026-09-23,71.4,26.1,-0.43,-0.4,-1.3,stable
 27063,Jackson County,MN,Minnesota,43.6711,-95.1497,702.972,9861,1,USGS-435014095060201,D21       104N36W01DBDDDD01             0000612771,25,1998-06-12,2016-09-20,18.3,8.6,-0.22,-0.2,-0.7,stable
 19107,Keokuk County,IA,Iowa,41.3312,-92.1677,579.175,9855,0,,,,,,,,,,,
 29111,Lewis County,MO,Missouri,40.0846,-91.7288,505.018,9852,1,MO005-401057091494501,Deer Ridge Wildlife Area,43,2009-04-01,2026-05-27,17.2,62.7,-0.65,-0.7,-2,rising
@@ -2780,7 +2780,7 @@ fips,county,state,state_name,lat,lon,land_sq_mi,population,has_data,well_id,well
 48411,San Saba County,TX,Texas,31.1551,-98.8193,1135.313,5508,0,,,,,,,,,,,
 40033,Cotton County,OK,Oklahoma,34.2907,-98.3734,632.637,5503,0,,,,,,,,,,,
 30065,Musselshell County,MT,Montana,46.5053,-108.4398,1868.958,5452,0,,,,,,,,,,,
-13037,Calhoun County,GA,Georgia,31.5213,-84.6263,280.384,5441,0,,,,,,,,,,,
+13037,Calhoun County,GA,Georgia,31.5213,-84.6263,280.384,5441,1,USGS-312853084275101,10K005,289,1980-05-12,2026-10-07,46.4,23,0.41,0.4,1.2,stable
 48207,Haskell County,TX,Texas,33.176,-99.7308,903.133,5435,0,,,,,,,,,,,
 40055,Greer County,OK,Oklahoma,34.9339,-99.553,639.285,5433,0,,,,,,,,,,,
 02016,Aleutians West Census Area,AK,Alaska,51.949,179.6212,4387.37,5424,0,,,,,,,,,,,
@@ -3023,7 +3023,7 @@ fips,county,state,state_name,lat,lon,land_sq_mi,population,has_data,well_id,well
 56027,Niobrara County,WY,Wyoming,43.0622,-104.4684,2626.028,2301,0,,,,,,,,,,,
 08115,Sedgwick County,CO,Colorado,40.8716,-102.3554,548.041,2257,1,USGS-404747102130400,SB01004435CAD,50,1950-09-15,2017-02-13,66.4,206.7,2.35,2.4,7.1,declining
 48109,Culberson County,TX,Texas,31.4459,-104.5269,3812.156,2254,0,,,,,,,,,,,
-38037,Grant County,ND,North Dakota,46.3578,-101.639,1659.233,2247,0,,,,,,,,,,,
+38037,Grant County,ND,North Dakota,46.3578,-101.639,1659.233,2247,1,USGS-463000101575102,135-090-23BBB2,206,1973-06-27,2021-05-12,47.9,149.3,-1,-1,-3,rising
 38039,Griggs County,ND,North Dakota,47.4563,-98.2323,708.685,2227,1,USGS-472412098261201,145-061-04DAD1,352,1970-12-01,2021-07-13,50.6,-0.1,-3.64,-3.6,-10.9,rising
 31077,Greeley County,NE,Nebraska,41.5676,-98.5306,569.826,2197,1,USGS-412613098283601,17N 10W21BAB 1,102,1954-11-17,2025-03-21,70.3,37.6,-2.79,-2.8,-8.4,rising
 26083,Keweenaw County,MI,Michigan,47.3673,-88.3513,540.112,2161,0,,,,,,,,,,,
