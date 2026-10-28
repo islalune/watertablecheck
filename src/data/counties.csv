@@ -166,7 +166,7 @@ fips,county,state,state_name,lat,lon,land_sq_mi,population,has_data,well_id,well
 22033,East Baton Rouge Parish,LA,Louisiana,30.5439,-91.0931,455.493,453022,1,USGS-302653091095701,EB-146,258,1916-03-25,2025-04-10,109,23.2,8.88,8.9,26.6,declining
 06083,Santa Barbara County,CA,California,34.5367,-120.0384,2733.941,444500,1,USGS-342549119510501,004N028W18F001S,95,1924-06-01,2022-04-05,97.8,12.2,-3.25,-3.2,-9.7,rising
 12069,Lake County,FL,Florida,28.7641,-81.7123,954.01,444204,0,,,,,,,,,,,
-51107,Loudoun County,VA,Virginia,39.0812,-77.6389,515.746,443380,0,,,,,,,,,,,
+51107,Loudoun County,VA,Virginia,39.0812,-77.6389,515.746,443380,1,USGS-391542077423801,49Y  1 SOW 022,677,1963-11-19,2026-09-14,62.8,60.3,0.28,0.3,0.8,stable
 42011,Berks County,PA,Pennsylvania,40.414,-75.9269,856.404,439117,0,,,,,,,,,,,
 06053,Monterey County,CA,California,36.2401,-121.3156,3281.718,436251,0,,,,,,,,,,,
 06061,Placer County,CA,California,39.062,-120.7227,1407.401,433822,0,,,,,,,,,,,
