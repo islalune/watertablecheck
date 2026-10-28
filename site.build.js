@@ -202,7 +202,7 @@ export function page(row) {
 <p>${pick(slug + '-nodata-caveat', [
         `${county} itself has no monitoring well with enough history to call its own trend, so treat this as a regional estimate, not ${county}'s own number. If you own a well here, comparing your own depth log against this regional figure is worth doing before assuming either way.`,
         `No well inside ${county} clears this site's 15-year qualifying bar, so this is the closest real reading, not a measurement of ${county}'s own aquifer. Worth checking your own well's depth log against it rather than assuming it matches.`,
-      ])} <a href="/${near.row.slug}">See ${near.row.county}, ${near.row.state}'s full page</a>.</p>`,
+      ])} <a href="/${near.row.slug}">See ${near.row.county}, ${near.row.state}'s full page</a>. See the ${guideLink('no-data-and-artesian-readings', 'no-data guide')} for why a county this close to a qualifying well still doesn't get its own number.</p>`,
     });
 
     blocks.push({
@@ -210,7 +210,7 @@ export function page(row) {
       html: `<p>${pick(slug + '-nodata-pop', [
         `${county}, ${stateName} covers ${Math.round(Number(landSqMi)).toLocaleString('en-US')} square miles and is home to about ${pop(population)} people.`,
         `About ${pop(population)} people live across ${county}'s ${Math.round(Number(landSqMi)).toLocaleString('en-US')} square miles, in ${stateName}.`,
-      ])} USGS's National Groundwater Monitoring Network covers ${COVERAGE_WITH_DATA.toLocaleString('en-US')} of ${COVERAGE_TOTAL.toLocaleString('en-US')} US counties (${COVERAGE_PCT}%) today; ${county} isn't one of them yet.</p>`,
+      ])} USGS's National Groundwater Monitoring Network covers ${COVERAGE_WITH_DATA.toLocaleString('en-US')} of ${COVERAGE_TOTAL.toLocaleString('en-US')} US counties (${COVERAGE_PCT}%) today; ${county} isn't one of them yet, see the ${guideLink('methodology', 'methodology guide')} for the exact qualifying bar.</p>`,
     });
   } else if (!s.hasQualifyingWell) {
     // The rare county (well under 2% of the dataset) with no qualifying well
@@ -227,11 +227,11 @@ export function page(row) {
 <p>${pick(slug + '-nodata-far', [
         `A county this far from any qualifying well isn't a safe one to estimate from a neighbor, so this page states the gap rather than reaching for a number that wouldn't mean much. Worth checking with a local well contractor for a direct reading.`,
         `Borrowing a trend from hundreds of miles away would tell you more about that well than ${county}'s own aquifer, so this page says plainly that no useful nearby record exists. Consider a direct well-log check with a local contractor instead.`,
-      ])}</p>
+      ])} See the ${guideLink('no-data-and-artesian-readings', 'no-data guide')} for what "no data" does and doesn't mean here.</p>
 <p>${pick(slug + '-nodata-pop2', [
         `${county}, ${stateName} covers ${Math.round(Number(landSqMi)).toLocaleString('en-US')} square miles and is home to about ${pop(population)} people.`,
         `About ${pop(population)} people live across ${county}'s ${Math.round(Number(landSqMi)).toLocaleString('en-US')} square miles, in ${stateName}.`,
-      ])}</p>`,
+      ])} The exact qualifying bar every county is measured against is in the ${guideLink('methodology', 'methodology guide')}.</p>`,
     });
   } else {
     const headlineH2 = pick(slug + '-h2', [
@@ -271,7 +271,8 @@ export function page(row) {
     blocks.push({
       h2: pick(slug + '-depth-h2', [`What the well actually measured`, `${county}'s source well, in detail`]),
       html: `<p>${depthLine} Readings span ${s.firstDate} to ${s.lastDate}, ${s.nMeasurements} measurements from ` +
-        `USGS well ${s.wellId}${s.wellName ? ` (${titleCase(s.wellName)})` : ''}, part of the National Water Information System.</p>`,
+        `USGS well ${s.wellId}${s.wellName ? ` (${titleCase(s.wellName)})` : ''}, part of the National Water Information System. ` +
+        `The qualifying bar and the OLS fit behind this trend are documented in the ${guideLink('methodology', 'methodology guide')}.</p>`,
     });
 
     // --- national rank, genuinely per-row-unique ------------------------------
@@ -288,7 +289,7 @@ export function page(row) {
     ]);
     blocks.push({
       h2: pick(slug + '-rank-h2', [`How ${county} compares nationally`, `Where ${county} ranks`]),
-      html: `<p>${rankLine} ${popLine}</p>`,
+      html: `<p>${rankLine} ${popLine} See the ${guideLink('fastest-moving-counties', 'fastest-moving counties guide')} for how ${county} stacks up against the most extreme cases nationally.</p>`,
     });
 
     // --- CTA: well-pump risk, only where the data supports it -----------------
@@ -507,7 +508,17 @@ export function guides() {
         },
         {
           h2: 'Coverage, stated as a number',
-          html: `<p>${COVERAGE_WITH_DATA.toLocaleString('en-US')} of ${COVERAGE_TOTAL.toLocaleString('en-US')} US counties (${COVERAGE_PCT}%) have a qualifying well today. The rest show a plain "no data" page rather than a trend borrowed from a neighboring county, because groundwater behavior is local and a neighboring county's aquifer can move in the opposite direction.</p>`,
+          html: `<p>${COVERAGE_WITH_DATA.toLocaleString('en-US')} of ${COVERAGE_TOTAL.toLocaleString('en-US')} US counties (${COVERAGE_PCT}%) have a qualifying well today. The rest show a plain "no data" page rather than a trend borrowed from a neighboring county, because groundwater behavior is local and a neighboring county's aquifer can move in the opposite direction. See the ${guideLink('fastest-moving-counties', 'fastest-moving counties guide')} for what this model looks like at its extremes, and the ${guideLink('well-pump-risk', 'well-pump risk guide')} for what a declining figure actually means for a pump.</p>`,
+        },
+        {
+          h2: 'Three counties, three outcomes of the same model',
+          html: (() => {
+            const severe = trended.find((r) => summaryBySlug.get(r.slug).severityTier === 'declining-severe');
+            const rising = trended.find((r) => summaryBySlug.get(r.slug).severityTier === 'rising');
+            const noData = rows.find((r) => !summaryBySlug.get(r.slug).hasQualifyingWell);
+            const link = (r) => pageLink(r.slug, `${r.county}, ${r.state}`);
+            return `<p>${severe ? link(severe) : ''} shows how severe a fitted decline can get when a well has decades of consistent readings. ${rising ? link(rising) : ''} shows the same model applied to a well where the table is getting shallower, not deeper. ${noData ? link(noData) : ''} shows what every page looks like when no well in that county clears the 15-year bar at all: a stated gap, not a number.</p>`;
+          })(),
         },
       ],
     },
@@ -518,11 +529,23 @@ export function guides() {
       blocks: [
         {
           h2: 'Depth is what a pump actually works against',
-          html: `<p>A submersible pump has to lift water from whatever depth it currently sits at. As that depth increases, the pump runs longer per cycle and works harder against a longer column of water, both of which shorten a motor's working life. This is a mechanical fact independent of how fast the decline is, a county in this site's "mild" decline band still sees it, just more slowly than one in "severe."</p>`,
+          html: `<p>A submersible pump has to lift water from whatever depth it currently sits at. As that depth increases, the pump runs longer per cycle and works harder against a longer column of water, both of which shorten a motor's working life. This is a mechanical fact independent of how fast the decline is, a county in this site's "mild" decline band still sees it, just more slowly than one in "severe." The exact bands come from this dataset's own distribution, see the ${guideLink('methodology', 'methodology guide')}.</p>`,
         },
         {
           h2: 'What this site can and cannot tell a well owner',
-          html: `<p>This site reports a county's fitted trend from the nearest qualifying USGS well, not a reading from any individual property's own well. A property's actual depth to water can differ from the county figure. A well log or a direct measurement from a licensed well contractor is the only way to know a specific well's own numbers.</p>`,
+          html: `<p>This site reports a county's fitted trend from the nearest qualifying USGS well, not a reading from any individual property's own well. A property's actual depth to water can differ from the county figure. A well log or a direct measurement from a licensed well contractor is the only way to know a specific well's own numbers, especially in a county with no qualifying well at all, see the ${guideLink('no-data-and-artesian-readings', 'no-data guide')} for what that gap does and doesn't mean.</p>`,
+        },
+        {
+          h2: 'Three counties where this risk is live',
+          html: (() => {
+            const pumpRows = rows
+              .filter((r) => summaryBySlug.get(r.slug).pumpRiskRelevant)
+              .map((r) => ({ r, s: summaryBySlug.get(r.slug) }))
+              .sort((a, b) => b.s.trendFtPerDecade - a.s.trendFtPerDecade)
+              .slice(0, 3);
+            const link = ({ r }) => pageLink(r.slug, `${r.county}, ${r.state}`);
+            return `<p>${pumpRows.map(link).join(', ')} are among the counties where a declining water table is a real, measured trend rather than a general worry, each tracked by its own USGS well. A well owner in any of them is the person this guide is written for.</p>`;
+          })(),
         },
       ],
     },
@@ -544,7 +567,7 @@ export function guides() {
           },
           {
             h2: `Fastest rise, of ${rising.length} rising counties tracked`,
-            html: `<p>Not every county is declining: ${rising.slice(0, 5).map(rowLine).join(', ')} all show a water table getting shallower over their well's full record. A rising table is not automatically good news, it can also mean flooding or waterlogging risk, which this site does not model.</p>`,
+            html: `<p>Not every county is declining: ${rising.slice(0, 5).map(rowLine).join(', ')} all show a water table getting shallower over their well's full record. A rising table is not automatically good news, it can also mean flooding or waterlogging risk, which this site does not model. The counties at the other end of this list are exactly who the ${guideLink('well-pump-risk', 'well-pump risk guide')} is written for.</p>`,
           },
           {
             h2: 'Why this list changes if you check back',
@@ -564,7 +587,7 @@ export function guides() {
         return [
           {
             h2: `"No data" means no qualifying well, not no aquifer`,
-            html: `<p>${noDataCount.toLocaleString('en-US')} of ${COVERAGE_TOTAL.toLocaleString('en-US')} US counties have no USGS monitoring well that meets this site's bar (at least 15 years of record, a reading within the last 10 years, 6 or more usable measurements). That county's groundwater may well be moving, there is just no long-term well there to measure it. ${site.name} shows the nearest qualifying well's own trend as context on those pages, labeled as a neighbor's reading, never substituted for the county's own number.</p>`,
+            html: `<p>${noDataCount.toLocaleString('en-US')} of ${COVERAGE_TOTAL.toLocaleString('en-US')} US counties have no USGS monitoring well that meets this site's bar (at least 15 years of record, a reading within the last 10 years, 6 or more usable measurements). That county's groundwater may well be moving, there is just no long-term well there to measure it. ${site.name} shows the nearest qualifying well's own trend as context on those pages, labeled as a neighbor's reading, never substituted for the county's own number. The exact bar is spelled out in the ${guideLink('methodology', 'methodology guide')}.</p>`,
           },
           {
             h2: `A negative depth is a real reading, not an error`,
@@ -572,7 +595,7 @@ export function guides() {
           },
           {
             h2: `What to do if your own county has no data`,
-            html: `<p>A county with no qualifying well is not evidence either way about a specific property's well. A local well log, a driller's record, or a direct measurement from a licensed well contractor is the only way to know what is happening under one property, the same limit that applies even to counties this site does track, just without a county-level trend to use as a starting point.</p>`,
+            html: `<p>A county with no qualifying well is not evidence either way about a specific property's well. A local well log, a driller's record, or a direct measurement from a licensed well contractor is the only way to know what is happening under one property, the same limit that applies even to counties this site does track, just without a county-level trend to use as a starting point. If your county does have a trend and it's declining, the ${guideLink('well-pump-risk', 'well-pump risk guide')} covers what that means for a pump.</p>`,
           },
         ];
       })(),
