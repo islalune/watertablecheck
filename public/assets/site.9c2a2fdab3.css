@@ -1,0 +1,236 @@
+/* Design system for every factory site.
+   Grounded in the subject's own vernacular: these sites all answer a question
+   with a VERDICT and a NUMBER, so the page is built around an energy-label
+   style rating rather than generic cards. Verdict colour is semantic and
+   deliberately separate from the brand accent. */
+:root{
+  --paper:#fbfaf8; --raised:#ffffff; --ink:#15171b; --ink-2:#454b56;
+  --muted:#6b7280; --line:#e5e2dd; --line-2:#efedea;
+  --card:var(--raised); --bg:var(--raised);
+  --accent:hsl(222 38% 34%); --accent-ink:#ffffff;
+  --accent-soft:hsl(222 46% 94%);
+  --good:#1b6e4a; --good-bg:#e8f3ed;
+  --mid:#9a6410;  --mid-bg:#f7efe0;
+  --bad:#983a2e;  --bad-bg:#f8ebe8;
+  --r:10px;
+}
+:root:not([data-theme="light"]){
+  @media (prefers-color-scheme:dark){
+    --paper:#15171b; --raised:#1c1f25; --ink:#eceef1; --ink-2:#b7bcc6;
+    --muted:#8d95a3; --line:#2b2f37; --line-2:#232830;
+    --accent:hsl(222 48% 68%); --accent-ink:#12151a;
+  --accent-soft:hsl(222 32% 20%);
+    --accent-soft:hsl(222 32% 20%);
+    --good:#5cc48d; --good-bg:#16281f;
+    --mid:#d9a349;  --mid-bg:#2a2317;
+    --bad:#e08678;  --bad-bg:#2b1c19;
+  }
+}
+:root[data-theme="dark"]{
+  --paper:#15171b; --raised:#1c1f25; --ink:#eceef1; --ink-2:#b7bcc6;
+  --muted:#8d95a3; --line:#2b2f37; --line-2:#232830;
+  --accent:hsl(222 48% 68%); --accent-ink:#12151a;
+  --good:#5cc48d; --good-bg:#16281f;
+  --mid:#d9a349;  --mid-bg:#2a2317;
+  --bad:#e08678;  --bad-bg:#2b1c19;
+}
+*{box-sizing:border-box}
+html{-webkit-text-size-adjust:100%}
+body{
+  margin:0; background:var(--paper); color:var(--ink);
+  font:17px/1.6 -apple-system,BlinkMacSystemFont,"Segoe UI",Roboto,Helvetica,Arial,sans-serif;
+  font-variant-numeric:tabular-nums;
+}
+h1,h2,h3,.display{
+  font-family:Literata,Georgia,"Times New Roman",serif;
+  font-weight:500; letter-spacing:-.012em; text-wrap:balance;
+}
+header{
+  border-bottom:1px solid var(--line); background:var(--raised);
+}
+header .in{max-width:46rem; margin:0 auto; padding:14px 22px}
+header a{color:var(--ink); text-decoration:none; font-size:16px; font-weight:600; letter-spacing:-.01em}
+main{max-width:46rem; margin:0 auto; padding:28px 22px 56px}
+h1{font-size:clamp(1.7rem,4.2vw,2.3rem); line-height:1.15; margin:0 0 .5em}
+h2{font-size:1.3rem; line-height:1.25; margin:2.4em 0 .6em}
+h3{font-size:1.06rem; margin:1.8em 0 .4em}
+p{margin:0 0 1.05em; color:var(--ink-2)}
+main > section > p:first-of-type{color:var(--ink)}
+a{color:var(--accent); text-underline-offset:2px; text-decoration-thickness:1px}
+a:hover{text-decoration:none}
+:focus-visible{outline:2px solid var(--accent); outline-offset:2px; border-radius:3px}
+
+/* THE ANSWER. Biggest thing on the page, because it is why anyone came. */
+.verdict{
+  background:var(--raised); border:1px solid var(--line); border-radius:var(--r);
+  padding:22px 24px; margin:0 0 26px; display:flex; flex-direction:column; gap:14px;
+}
+.verdict .figure{
+  font-family:Literata,Georgia,"Times New Roman",serif; font-weight:500;
+  font-size:clamp(2.6rem,9vw,3.9rem); line-height:.95; letter-spacing:-.03em;
+}
+.verdict .figure small{font-size:.34em; letter-spacing:0; color:var(--muted); font-family:inherit}
+.verdict .says{color:var(--ink-2); margin:0; font-size:1.02rem}
+.badge{
+  align-self:flex-start; font-size:.72rem; font-weight:700; letter-spacing:.08em;
+  text-transform:uppercase; padding:5px 11px; border-radius:999px;
+}
+.badge.good{background:var(--good-bg); color:var(--good)}
+.badge.mid {background:var(--mid-bg);  color:var(--mid)}
+.badge.bad {background:var(--bad-bg);  color:var(--bad)}
+
+/* The inputs behind the answer, at a glance. */
+.stats{
+  display:grid; grid-template-columns:repeat(auto-fit,minmax(118px,1fr));
+  gap:1px; background:var(--line); border:1px solid var(--line);
+  border-radius:var(--r); overflow:hidden; margin:0 0 26px;
+}
+.stats div{background:var(--raised); padding:13px 15px}
+.stats b{display:block; font-size:1.22rem; font-weight:600; letter-spacing:-.01em}
+.stats span{
+  display:block; font-size:.66rem; text-transform:uppercase; letter-spacing:.07em;
+  color:var(--muted); margin-top:3px;
+}
+section{margin-bottom:.4em}
+ul,ol{padding-left:1.15em; color:var(--ink-2)}
+li{margin:.32em 0}
+table{width:100%; border-collapse:collapse; margin:1.3em 0; font-size:.94rem}
+th,td{text-align:left; padding:.58em .65em; border-bottom:1px solid var(--line-2)}
+th{
+  font-size:.68rem; text-transform:uppercase; letter-spacing:.07em;
+  color:var(--muted); font-weight:600; border-bottom-color:var(--line);
+}
+td:not(:first-child),th:not(:first-child){text-align:right}
+.scroll{overflow-x:auto; -webkit-overflow-scrolling:touch}
+code{background:var(--line-2); padding:.12em .38em; border-radius:4px; font-size:.9em}
+footer{
+  border-top:1px solid var(--line); margin-top:56px; padding:26px 22px;
+  color:var(--muted); font-size:.84rem; text-align:center; background:var(--raised);
+}
+footer a{color:var(--muted)}
+.attribution{margin:.6em 0 0; font-size:.78rem}
+.brand{display:inline-flex; align-items:center; gap:9px}
+.brand svg{display:block; border-radius:6px}
+.brand span{font-family:Literata,Georgia,"Times New Roman",serif; font-weight:600; font-size:17px}
+#q{
+  width:100%; padding:.7em .85em; font-size:1rem; font-family:inherit;
+  border:1px solid var(--line); border-radius:var(--r);
+  background:var(--raised); color:var(--ink); margin-bottom:1.1em;
+}
+#ix{columns:2; column-gap:2.2em; list-style:none; padding:0; margin:0; font-size:.94rem}
+#ix li{margin:.16em 0; break-inside:avoid}
+@media (max-width:620px){
+  body{font-size:16px}
+  main{padding:20px 17px 44px}
+  .verdict{padding:18px 18px}
+  #ix{columns:1}
+  th,td{padding:.45em .4em}
+}
+
+/* ---- HEADER + NAV -----------------------------------------------------
+   A site with no navigation reads as a document. Three links is enough. */
+header .in{display:flex; align-items:center; justify-content:space-between; gap:20px}
+header nav{display:flex; gap:20px; font-size:.92rem}
+header nav a{color:var(--ink-2); text-decoration:none}
+header nav a:hover{color:var(--accent)}
+@media (max-width:620px){ header nav{gap:14px; font-size:.85rem} }
+
+/* ---- HERO -------------------------------------------------------------
+   The question the site answers, asked as a question, with the tool right
+   under it. This is the single biggest difference between PanelFit, which
+   reads like a product, and everything else, which read like a memo. */
+.hero{text-align:center; padding:34px 0 8px; border:0}
+.hero h1{
+  font-size:clamp(1.85rem, 5.2vw, 3rem); line-height:1.12; letter-spacing:-.022em;
+  margin:0 auto .5em; max-width:16ch; text-wrap:balance;
+}
+.hero .lede{
+  color:var(--ink-2); font-size:1.06rem; line-height:1.62;
+  max-width:54ch; margin:0 auto 28px; text-wrap:pretty;
+}
+@media (max-width:620px){ .hero{padding:22px 0 4px} .hero h1{max-width:none} }
+
+/* ---- THE FINDER -------------------------------------------------------
+   The primary control on every site, so it is styled like one: a large,
+   obviously-typeable field at the top of the page rather than a link list
+   pretending to be navigation. */
+.finder{
+  margin:0 auto 34px; max-width:560px; text-align:left;
+  background:var(--card); border:1px solid var(--line); border-radius:14px;
+  padding:18px; box-shadow:0 1px 2px rgba(0,0,0,.04), 0 8px 24px -16px rgba(0,0,0,.18);
+}
+.finder-row{display:flex; gap:9px}
+.finder input{
+  flex:1; min-width:0; padding:.82em 1em; font-size:1.02rem; font-family:inherit;
+  color:var(--ink); background:var(--bg);
+  border:1.5px solid var(--line); border-radius:9px; outline:none;
+}
+.finder button{
+  flex:0 0 auto; padding:.82em 1.25em; font:inherit; font-size:.98rem; font-weight:600;
+  color:var(--accent-ink); background:var(--accent); border:0; border-radius:9px;
+  cursor:pointer; white-space:nowrap;
+}
+.finder button:hover{filter:brightness(1.08)}
+.finder button:focus-visible{outline:2px solid var(--accent); outline-offset:2px}
+@media (max-width:620px){ .finder-row{flex-direction:column} .finder button{width:100%} }
+.finder input:focus{border-color:var(--accent); box-shadow:0 0 0 3px var(--accent-soft)}
+.finder input::placeholder{color:var(--muted)}
+.finder-h{color:var(--muted); font-size:.86rem; margin-top:.5em}
+.finder-out{
+  list-style:none; margin:.5em 0 0; padding:0;
+  border:1px solid var(--line); border-radius:9px; overflow:hidden; background:var(--card);
+}
+.finder-out li{border-bottom:1px solid var(--line-2)}
+.finder-out li:last-child{border-bottom:0}
+.finder-out a{display:block; padding:.62em .95em; text-decoration:none; color:var(--ink)}
+.finder-out li.on, .finder-out a:hover, .finder-out a:focus{background:var(--accent-soft)}
+.finder-out li.on a{color:var(--accent)}
+.finder-out li.wait{padding:.62em .95em; color:var(--muted); cursor:default}
+
+/* Browsing is the fallback, not the front door, so it starts collapsed
+   instead of dumping a hundred links between the reader and the content.
+   It stays in the HTML - closed <details> is still crawled, and it is the
+   whole path Googlebot uses to reach the entity pages. */
+.browse{margin:0 0 34px; border-top:1px solid var(--line-2); padding-top:16px}
+.browse summary{cursor:pointer; font-weight:500; color:var(--ink-2); font-size:.95rem}
+.browse summary:hover{color:var(--accent)}
+.hublist{
+  list-style:none; padding:0; margin:16px 0 0; font-size:.92rem;
+  display:grid; grid-template-columns:repeat(auto-fill,minmax(210px,1fr)); gap:2px 18px;
+}
+.hublist li{display:flex; justify-content:space-between; gap:10px; align-items:baseline;
+  padding:.3em 0; border-bottom:1px solid var(--line-2)}
+.hublist li span{color:var(--muted); font-size:.8rem; font-variant-numeric:tabular-nums}
+@media (max-width:620px){ .hublist{grid-template-columns:1fr} .finder input{font-size:16px} }
+
+@media (prefers-reduced-motion:reduce){*{animation:none!important; transition:none!important}}
+
+.wt-ask{padding:30px 0 4px}
+.wt-ask h1{font-size:clamp(1.9rem,5vw,2.7rem); line-height:1.14; letter-spacing:-.022em;
+  margin:0 0 22px; max-width:16ch; text-wrap:balance}
+.wt-ask .finder{margin:0 0 16px; max-width:none}
+.wt-lede{color:var(--ink-2); font-size:1rem; line-height:1.62; max-width:62ch; margin:0}
+.wt-coverage{border-left:3px solid var(--accent); padding:2px 0 2px 18px; margin:30px 0}
+.wt-coverage h3{font-size:1rem; margin:0 0 .5em}
+.wt-coverage p{margin:0; font-size:.95rem; line-height:1.6; color:var(--ink-2)}
+.wt-scale{margin:34px 0 8px}
+.wt-scale h2{font-size:1.06rem; margin:0 0 14px}
+.wt-band{margin:0; display:flex; gap:2px; border-radius:12px; overflow:hidden; flex-wrap:wrap}
+.wt-seg{display:flex; flex-direction:column; justify-content:flex-end; gap:4px; min-width:64px;
+  padding:16px 10px 12px; text-decoration:none; color:var(--ink); min-height:92px}
+.wt-seg-n{font-size:1.3rem; font-weight:600; letter-spacing:-.01em}
+.wt-seg-l{font-size:.74rem; line-height:1.3; color:inherit; opacity:.82}
+.wt-seg-declining-severe{background:var(--bad-bg); color:var(--bad)}
+.wt-seg-declining-moderate{background:var(--mid-bg); color:var(--mid)}
+.wt-seg-declining-mild{background:var(--accent-soft); color:var(--accent)}
+.wt-seg-stable{background:var(--line-2); color:var(--ink-2)}
+.wt-seg-rising{background:var(--good-bg); color:var(--good)}
+.wt-seg:hover{filter:brightness(0.95)}
+.wt-band figcaption{flex-basis:100%; font-size:.8rem; color:var(--muted); margin-top:10px}
+.wt-next{margin:30px 0}
+.wt-next h2{font-size:1.06rem; margin:0 0 .5em}
+.wt-next p{margin:0; font-size:.97rem; line-height:1.62; color:var(--ink-2); max-width:62ch}
+@media (max-width:620px){
+  .wt-ask{padding:18px 0 4px} .wt-ask h1{max-width:none}
+  .wt-seg{min-width:45%; flex-grow:1 !important}
+}

@@ -1,0 +1,9 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 1200 630" width="1200" height="630">
+<rect width="1200" height="630" fill="#fbfaf8"/>
+<rect x="0" y="0" width="1200" height="10" fill="hsl(222 42% 32%)"/>
+<rect x="80" y="150" width="96" height="96" rx="21" fill="hsl(222 42% 32%)" opacity=".12"/>
+<g transform="translate(80,150) scale(1.5)"><rect x="20" y="46" width="24" height="10" fill="hsl(222 55% 38%)" opacity=".16"/><g fill="none" stroke="hsl(222 55% 38%)" stroke-width="4" stroke-linecap="round" stroke-linejoin="round"><path d="M20 8v48M44 8v48"/><path d="M20 22h24" stroke-width="3" stroke-dasharray="3 5"/><path d="M32 24v16"/><path d="M25 36 32 45 39 36"/><path d="M20 46h24"/></g></g>
+<text x="80" y="330" font-family="Georgia,serif" font-size="66" fill="#15171b">WaterTableCheck</text>
+<text x="80" y="395" font-family="-apple-system,Helvetica,sans-serif" font-size="30" fill="#6b7280">USGS monitoring-well depth-to-water trends for 1449 of 3222 US counties ac</text>
+<text x="80" y="560" font-family="-apple-system,Helvetica,sans-serif" font-size="22" fill="#9aa1ad">watertablecheck.com</text>
+</svg>
