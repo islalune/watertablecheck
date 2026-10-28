@@ -399,7 +399,7 @@ export function staticPages() {
         },
         {
           h2: 'Who runs this',
-          html: `<p>${site.name} is an independently run site. It is not affiliated with USGS or any home-warranty or water-testing company. Where a page includes a sponsored link, that is disclosed on the page itself and in the ${pageLink('privacy', 'privacy policy')}.</p>`,
+          html: `<p>${site.name} is written by Olivia Wein, who built it to turn public USGS monitoring-well data into a straight answer for anyone wondering about their own well. It is not affiliated with USGS or any home-warranty or water-testing company. Where a page includes a sponsored link, that is disclosed on the page itself and in the ${pageLink('privacy', 'privacy policy')}.</p>`,
         },
       ],
     },
