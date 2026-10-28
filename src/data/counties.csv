@@ -299,7 +299,7 @@ fips,county,state,state_name,lat,lon,land_sq_mi,population,has_data,well_id,well
 37129,New Hanover County,NC,North Carolina,34.1834,-77.8642,192.27,243333,0,,,,,,,,,,,
 37071,Gaston County,NC,North Carolina,35.2928,-81.1774,355.751,242010,0,,,,,,,,,,,
 01125,Tuscaloosa County,AL,Alabama,33.2902,-87.5228,1320.863,241212,0,,,,,,,,,,,
-36091,Saratoga County,NY,New York,43.1061,-73.8554,809.97,240360,0,,,,,,,,,,,
+36091,Saratoga County,NY,New York,43.1061,-73.8554,809.97,240360,1,USGS-430327073475401,"Local number, Sa-529, Saratoga Springs NY",1360,1949-05-09,2026-09-10,77.3,40.5,-0.76,-0.8,-2.3,rising
 51013,Arlington County,VA,Virginia,38.8783,-77.1007,25.997,239807,0,,,,,,,,,,,
 39041,Delaware County,OH,Ohio,40.2789,-83.0075,443.149,237966,0,,,,,,,,,,,
 12019,Clay County,FL,Florida,29.9866,-81.865,604.598,236760,0,,,,,,,,,,,
@@ -402,7 +402,7 @@ fips,county,state,state_name,lat,lon,land_sq_mi,population,has_data,well_id,well
 54039,Kanawha County,WV,West Virginia,38.3281,-81.5235,901.738,173906,0,,,,,,,,,,,
 55139,Winnebago County,WI,Wisconsin,44.0857,-88.6681,434.697,173307,0,,,,,,,,,,,
 44003,Kent County,RI,Rhode Island,41.6751,-71.5803,168.568,172450,1,USGS-414106071223901,RI-WCW   59,515,1949-04-20,2026-09-29,77.4,8.6,-0.08,-0.1,-0.2,stable
-39057,Greene County,OH,Ohio,39.6875,-83.8949,413.632,172347,0,,,,,,,,,,,
+39057,Greene County,OH,Ohio,39.6875,-83.8949,413.632,172347,1,OH015-394411083561300,GR-1 OH,69,1965-10-01,2026-07-07,60.8,6.7,-0.62,-0.6,-1.9,rising
 12061,Indian River County,FL,Florida,27.7005,-80.5748,502.555,172139,0,,,,,,,,,,,
 17113,McLean County,IL,Illinois,40.4946,-88.8445,1183.248,172069,0,,,,,,,,,,,
 30111,Yellowstone County,MT,Montana,45.937,-108.2767,2633.402,171583,1,USGS-454202108411801,01S25E31DCBB01 - KNF 03,148,1997-06-16,2026-10-06,29.3,22.1,3.37,3.4,10.1,declining
@@ -455,7 +455,7 @@ fips,county,state,state_name,lat,lon,land_sq_mi,population,has_data,well_id,well
 12119,Sumter County,FL,Florida,28.7133,-82.0696,557.136,154693,0,,,,,,,,,,,
 27171,Wright County,MN,Minnesota,45.1749,-93.9665,661.159,154593,0,,,,,,,,,,,
 37159,Rowan County,NC,North Carolina,35.6414,-80.5217,511.61,153384,0,,,,,,,,,,,
-22063,Livingston Parish,LA,Louisiana,30.4404,-90.7275,648.14,152886,0,,,,,,,,,,,
+22063,Livingston Parish,LA,Louisiana,30.4404,-90.7275,648.14,152886,1,USGS-302819090582102,Li-61,118,1948-05-13,2026-06-29,78.1,87.9,18.18,18.2,54.5,declining
 37135,Orange County,NC,North Carolina,36.0625,-79.12,397.591,152877,0,,,,,,,,,,,
 26021,Berrien County,MI,Michigan,41.7914,-86.7425,567.845,152703,0,,,,,,,,,,,
 51177,Spotsylvania County,VA,Virginia,38.1824,-77.6572,401.942,152021,0,,,,,,,,,,,
@@ -1137,7 +1137,7 @@ fips,county,state,state_name,lat,lon,land_sq_mi,population,has_data,well_id,well
 16069,Nez Perce County,ID,Idaho,46.3338,-116.7609,848.32,42847,0,,,,,,,,,,,
 39107,Mercer County,OH,Ohio,40.5353,-84.6321,462.447,42648,1,OH015-402833084375200,MR-2 OH,67,1966-11-01,2026-07-07,59.7,73.1,2.3,2.3,6.9,declining
 47021,Cheatham County,TN,Tennessee,36.2552,-87.1008,302.498,42604,0,,,,,,,,,,,
-06093,Siskiyou County,CA,California,41.588,-122.5333,6278.767,42498,0,,,,,,,,,,,
+06093,Siskiyou County,CA,California,41.588,-122.5333,6278.767,42498,1,USGS-414300121302401,45.00N/04.00E-28A01M,105,1939-06-27,2026-10-06,87.3,685.2,5.99,6,18,declining
 19033,Cerro Gordo County,IA,Iowa,43.075,-93.251,568.302,42493,0,,,,,,,,,,,
 51187,Warren County,VA,Virginia,38.9082,-78.2076,214.572,42461,0,,,,,,,,,,,
 12093,Okeechobee County,FL,Florida,27.3856,-80.8874,769.302,42369,0,,,,,,,,,,,
@@ -1880,7 +1880,7 @@ fips,county,state,state_name,lat,lon,land_sq_mi,population,has_data,well_id,well
 29157,Perry County,MO,Missouri,37.7111,-89.8021,474.355,19100,0,,,,,,,,,,,
 37185,Warren County,NC,North Carolina,36.3981,-78.0999,429.392,19081,0,,,,,,,,,,,
 01099,Monroe County,AL,Alabama,31.5804,-87.3833,1025.669,19057,0,,,,,,,,,,,
-05121,Randolph County,AR,Arkansas,36.3413,-91.0284,651.913,19040,0,,,,,,,,,,,
+05121,Randolph County,AR,Arkansas,36.3413,-91.0284,651.913,19040,1,USGS-360942090572901,18N01E34AAC1,106,1957-04-16,2023-04-12,66,20.2,1.47,1.5,4.4,declining
 48035,Bosque County,TX,Texas,31.9008,-97.6376,982.976,19013,0,,,,,,,,,,,
 37199,Yancey County,NC,North Carolina,35.8893,-82.304,312.592,18993,0,,,,,,,,,,,
 48003,Andrews County,TX,Texas,32.3123,-102.6402,1500.686,18923,0,,,,,,,,,,,
@@ -3124,7 +3124,7 @@ fips,county,state,state_name,lat,lon,land_sq_mi,population,has_data,well_id,well
 32009,Esmeralda County,NV,Nevada,37.779,-117.6324,3581.889,720,0,,,,,,,,,,,
 48443,Terrell County,TX,Texas,30.2323,-102.0725,2357.958,718,0,,,,,,,,,,,
 48263,Kent County,TX,Texas,33.1848,-100.7697,902.507,703,0,,,,,,,,,,,
-31091,Hooker County,NE,Nebraska,41.9203,-101.1173,720.966,698,0,,,,,,,,,,,
+31091,Hooker County,NE,Nebraska,41.9203,-101.1173,720.966,698,1,USGS-414506101014401,21N 32W33B   1,48,1973-10-01,2024-03-05,50.4,109.3,-4.16,-4.2,-12.5,rising
 31113,Logan County,NE,Nebraska,41.5422,-100.4437,570.698,694,1,USGS-412512100262601,17N 27W28BB  1,80,1968-07-24,2022-04-08,53.7,189,0.73,0.7,2.2,declining
 02282,Yakutat City and Borough,AK,Alaska,60.0175,-140.4168,7628.411,690,0,,,,,,,,,,,
 31007,Banner County,NE,Nebraska,41.5397,-103.7263,746.039,665,1,USGS-414107102233801,20N 53W26ABAB1 CHIMNEY ROCK (RW03),211,1974-08-14,2024-03-27,49.6,173.2,10.86,10.9,32.6,declining
