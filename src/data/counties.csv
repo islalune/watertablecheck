@@ -1,6 +1,6 @@
 fips,county,state,state_name,lat,lon,land_sq_mi,population,has_data,well_id,well_name,n_measurements,first_date,last_date,span_years,current_depth_ft,trend_ft_per_decade,decline_10yr_ft,decline_30yr_ft,direction
 06037,Los Angeles County,CA,California,34.1964,-118.2619,4060.29,9757179,1,USGS-343237117582601,005N010W06N001S,458,1926-01-01,2018-08-14,92.6,140.3,2.83,2.8,8.5,declining
-17031,Cook County,IL,Illinois,41.8943,-87.6455,944.93,5182617,0,,,,,,,,,,,
+17031,Cook County,IL,Illinois,41.8943,-87.6455,944.93,5182617,1,USGS-414827087544001,38N12E- 6.6b1,11,1966-08-24,2019-07-15,52.9,589,6.71,6.7,20.1,declining
 48201,Harris County,TX,Texas,29.8573,-95.393,1707.103,5009302,1,USGS-294415095165301,LJ-65-22-317,235,1929-08-03,2021-02-03,91.5,146.4,22.7,22.7,68.1,declining
 04013,Maricopa County,AZ,Arizona,33.3452,-112.4989,9202.021,4673096,1,USGS-333413112081101,A-03-02 27DBB,17,1941-03-31,2020-12-29,79.7,248.9,28.16,28.2,84.5,declining
 06073,San Diego County,CA,California,33.0236,-116.7761,4210.884,3298799,0,,,,,,,,,,,
@@ -47,7 +47,7 @@ fips,county,state,state_name,lat,lon,land_sq_mi,population,has_data,well_id,well
 12031,Duval County,FL,Florida,30.3352,-81.6481,762.687,1055159,0,,,,,,,,,,,
 48121,Denton County,TX,Texas,33.2051,-97.1211,878.762,1045120,0,,,,,,,,,,,
 06019,Fresno County,CA,California,36.761,-119.655,5958.582,1024125,1,USGS-365325120391504,012S012E16H005M,1502,1958-02-26,2026-07-22,68.4,130.8,1.04,1,3.1,declining
-36119,Westchester County,NY,New York,41.1527,-73.7458,430.817,1006447,0,,,,,,,,,,,
+36119,Westchester County,NY,New York,41.1527,-73.7458,430.817,1006447,1,USGS-411421073481202,"Local number, We-5020, Yorktown Heights NY",132,2003-07-17,2026-07-13,23,13.1,0.35,0.3,1,stable
 13135,Gwinnett County,GA,Georgia,33.9588,-84.0257,431.135,1003869,0,,,,,,,,,,,
 15003,Honolulu County,HI,Hawaii,21.4614,-158.202,600.791,998747,1,USGS-212154158015201,"3-2101-03 Honouliuli (W266), Oahu, HI",1256,1910-04-01,2026-08-25,116.4,-5.7,0.71,0.7,2.1,declining
 29189,St. Louis County,MO,Missouri,38.6404,-90.4455,508.525,992929,1,MO005-384849090092001,Columbia Bottoms,55,1957-06-24,2026-05-14,68.9,15.9,0.06,0.1,0.2,stable
@@ -57,7 +57,7 @@ fips,county,state,state_name,lat,lon,land_sq_mi,population,has_data,well_id,well
 24033,Prince George's County,MD,Maryland,38.8293,-76.8482,482.601,966629,1,USGS-384148076510901,PG Fd  32,84,1950-11-24,2026-08-18,75.7,268.5,10.76,10.8,32.3,declining
 12103,Pinellas County,FL,Florida,27.9053,-82.7981,273.793,965870,1,USGS-275815082440401,PINELLAS WELL 665 NEAR CLEARWATER FL,413,1966-01-01,2025-11-26,59.9,25.3,0.05,0.1,0.2,stable
 48157,Fort Bend County,TX,Texas,29.5266,-95.771,862.089,958434,1,USGS-292459095451901,JY-65-34-901,80,1947-04-24,2025-12-05,78.6,40.1,0.89,0.9,2.7,declining
-36029,Erie County,NY,New York,42.7528,-78.7782,1042.763,950602,0,,,,,,,,,,,
+36029,Erie County,NY,New York,42.7528,-78.7782,1042.763,950602,1,USGS-425430078292701,"Local number, E-96, at Alden NY",25,1979-01-26,2026-10-22,47.7,3.4,0.28,0.3,0.8,stable
 53053,Pierce County,WA,Washington,47.0514,-122.1532,1668.025,941170,0,,,,,,,,,,,
 17043,DuPage County,IL,Illinois,41.8521,-88.086,327.892,937142,0,,,,,,,,,,,
 55079,Milwaukee County,WI,Wisconsin,42.9126,-87.8623,241.457,924740,1,USGS-425613088014301,ML-06/21E/32-0148,5000,1946-06-27,2026-07-08,80,31.1,0.3,0.3,0.9,stable
@@ -84,7 +84,7 @@ fips,county,state,state_name,lat,lon,land_sq_mi,population,has_data,well_id,well
 21111,Jefferson County,KY,Kentucky,38.1895,-85.6576,380.84,793881,1,USGS-381638085415801,WC-4,750,1946-04-23,2026-08-10,80.3,14.5,-0.08,-0.1,-0.2,stable
 25025,Suffolk County,MA,Massachusetts,42.3386,-71.0183,58.257,793144,0,,,,,,,,,,,
 13067,Cobb County,GA,Georgia,33.9399,-84.5741,339.701,787538,1,USGS-335612084312901,09FF17,172,1997-07-14,2026-09-28,29.2,6.5,0.31,0.3,0.9,stable
-13089,DeKalb County,GA,Georgia,33.7707,-84.2263,267.665,770307,0,,,,,,,,,,,
+13089,DeKalb County,GA,Georgia,33.7707,-84.2263,267.665,770307,1,USGS-335517084164001,11FF04,322,1980-02-20,2026-09-28,46.6,9,0.34,0.3,1,stable
 08041,El Paso County,CO,Colorado,38.8311,-104.5277,2126.424,752772,1,USGS-383952104405601,SC01606517AAA1,103,1953-03-17,2018-10-02,65.5,36.1,0.23,0.2,0.7,stable
 36055,Monroe County,NY,New York,43.2503,-77.7005,656.967,752202,1,USGS-430252077283402,"Local number, Mo-11, near Powder Mill Park NY",321,1983-12-09,2026-09-09,42.8,8.9,0.02,0,0.1,stable
 48339,Montgomery County,TX,Texas,30.2988,-95.5029,1042.178,749613,1,USGS-302948095422501,TS-60-35-202 (Flower Follet),266,1952-11-28,2026-08-19,73.7,50.8,-0.03,0,-0.1,stable
@@ -108,7 +108,7 @@ fips,county,state,state_name,lat,lon,land_sq_mi,population,has_data,well_id,well
 01073,Jefferson County,AL,Alabama,33.5534,-86.8965,1111.567,664744,0,,,,,,,,,,,
 12101,Pasco County,FL,Florida,28.3047,-82.5024,746.608,659114,1,USGS-281558082264601,PASCO WELL 13 NEAR DREXEL FL,389,1960-10-19,2025-11-21,65.1,9.5,0.15,0.1,0.4,stable
 12009,Brevard County,FL,Florida,28.2983,-80.7003,1014.973,658447,0,,,,,,,,,,,
-42017,Bucks County,PA,Pennsylvania,40.3369,-75.1071,604.436,650131,0,,,,,,,,,,,
+42017,Bucks County,PA,Pennsylvania,40.3369,-75.1071,604.436,650131,1,USGS-402643075150501,BK   929 Bucks County Observation Well,233,1967-06-27,2026-08-20,59.1,43.2,-1.6,-1.6,-4.8,rising
 34025,Monmouth County,NJ,New Jersey,40.287,-74.1524,468.204,647520,1,USGS-401138074012501,250014-- Avon PW 1,12,1925-04-04,2023-10-31,98.6,92.3,-0.34,-0.3,-1,stable
 09190,Western Connecticut Planning Region,CT,Connecticut,41.2791,-73.4466,532.148,637013,1,USGS-413007073250502,CT- BD    8R,826,1966-12-19,2026-08-25,59.7,28.6,-0.02,0,-0.1,stable
 20091,Johnson County,KS,Kansas,38.8839,-94.8223,473.629,632276,0,,,,,,,,,,,
@@ -154,7 +154,7 @@ fips,county,state,state_name,lat,lon,land_sq_mi,population,has_data,well_id,well
 06107,Tulare County,CA,California,36.2288,-118.7811,4823.9,483546,1,USGS-361003119212501,020S024E22C001M,15,1987-04-21,2025-08-19,38.3,142.1,30.56,30.6,91.7,declining
 12115,Sarasota County,FL,Florida,27.2235,-82.4248,556.05,476604,1,USGS-270137082235301,MANASOTA DEEP 14 NR ENGLEWOOD FL,76,1966-03-30,2025-11-14,59.6,1.3,0.9,0.9,2.7,declining
 34005,Burlington County,NJ,New Jersey,39.8758,-74.663,799.292,475515,1,USGS-394452074281901,050628-- Penn Sf Shallow Obs,712,1936-09-01,2026-07-30,89.9,4.2,0.01,0,0,stable
-42133,York County,PA,Pennsylvania,39.9218,-76.7289,904.352,471240,0,,,,,,,,,,,
+42133,York County,PA,Pennsylvania,39.9218,-76.7289,904.352,471240,1,USGS-400916076492301,YO  1147 York County Observation Well,216,1986-05-18,2026-08-10,40.2,20.6,-1.26,-1.3,-3.8,rising
 36067,Onondaga County,NY,New York,43.0065,-76.1961,778.393,469812,1,USGS-430243076180402,"Local number, Od-1833, Camillus NY",129,2003-08-12,2026-10-27,23.2,14.4,-0.17,-0.2,-0.5,stable
 12097,Osceola County,FL,Florida,28.059,-81.1393,1327.455,468058,1,USGS-281714081093001,"LAKE JOEL WELL NEAR ASHTON, FL",491,1969-11-20,2025-11-19,56,21.9,0.33,0.3,1,stable
 25013,Hampden County,MA,Massachusetts,42.1362,-72.6356,617.006,464151,1,USGS-420305072581401,"MA-GLW    6R GRANVILLE, MA",667,1964-11-01,2026-08-25,61.8,7.2,-0.01,0,0,stable
@@ -174,9 +174,9 @@ fips,county,state,state_name,lat,lon,land_sq_mi,population,has_data,well_id,well
 45019,Charleston County,SC,South Carolina,32.8005,-79.9425,918.147,431001,1,USGS-330247079340300,CHN- 101,178,1982-01-20,2026-08-31,44.6,15.3,-0.02,0,-0.1,stable
 45079,Richland County,SC,South Carolina,34.0291,-80.898,757.309,430651,1,USGS-340648080541201,RIC- 568,8,1996-06-25,2024-08-20,28.2,50.5,5.67,5.7,17,declining
 33011,Hillsborough County,NH,New Hampshire,42.9115,-71.7231,876.53,430462,1,USGS-424800071295301,NH-NAW  218,634,1964-06-01,2017-06-01,53,27.7,-0.2,-0.2,-0.6,stable
-12083,Marion County,FL,Florida,29.2028,-82.0431,1588.443,428905,0,,,,,,,,,,,
-22051,Jefferson Parish,LA,Louisiana,29.5033,-90.0362,300.864,427253,0,,,,,,,,,,,
-39095,Lucas County,OH,Ohio,41.6823,-83.4689,339.668,426291,0,,,,,,,,,,,
+12083,Marion County,FL,Florida,29.2028,-82.0431,1588.443,428905,1,USGS-290514082270701,"RAINBOW SPRINGS WELL NEAR DUNNELLON, FL",371,1966-07-18,2025-11-18,59.3,82.5,0.05,0,0.1,stable
+22051,Jefferson Parish,LA,Louisiana,29.5033,-90.0362,300.864,427253,1,USGS-295739090094601,Jf-156,199,1974-05-01,2026-08-04,52.3,22.6,-13.57,-13.6,-40.7,rising
+39095,Lucas County,OH,Ohio,41.6823,-83.4689,339.668,426291,1,OH015-413704083362200,LU-1 OH,64,1965-10-01,2026-07-13,60.8,62.5,-5.54,-5.5,-16.6,rising
 41005,Clackamas County,OR,Oregon,45.1605,-122.1951,1870.712,425857,1,USGS-452033122195901,02S/04E-29DAD,208,1958-05-07,2024-12-19,66.6,63.3,-0.17,-0.2,-0.5,stable
 29183,St. Charles County,MO,Missouri,38.7811,-90.6749,560.313,423726,1,MO005-384846090510301,Wentzville,78,1951-10-01,2026-05-06,74.6,242.2,13.77,13.8,41.3,declining
 01089,Madison County,AL,Alabama,34.7642,-86.5511,801.619,423355,1,USGS-344615086272201,EHR-LUS31,25,1999-12-07,2026-03-24,26.3,15.2,-3.34,-3.3,-10,rising
@@ -326,7 +326,7 @@ fips,county,state,state_name,lat,lon,land_sq_mi,population,has_data,well_id,well
 23031,York County,ME,Maine,43.426,-70.6684,991.194,220143,1,USGS-432310070393301,"ME-YW807 Sanford, Maine",381,1988-07-25,2026-10-07,38.2,21.1,-0.18,-0.2,-0.6,stable
 53005,Benton County,WA,Washington,46.2281,-119.5167,1700.128,218190,0,,,,,,,,,,,
 12053,Hernando County,FL,Florida,28.556,-82.526,472.983,218150,0,,,,,,,,,,,
-45007,Anderson County,SC,South Carolina,34.5212,-82.6386,713.854,217183,0,,,,,,,,,,,
+45007,Anderson County,SC,South Carolina,34.5212,-82.6386,713.854,217183,1,USGS-343714082285600,AND- 326,205,1993-09-09,2026-09-29,33.1,3.4,-0.07,-0.1,-0.2,stable
 42069,Lackawanna County,PA,Pennsylvania,41.4366,-75.6088,458.888,216859,0,,,,,,,,,,,
 39025,Clermont County,OH,Ohio,39.0521,-84.1495,452.56,214123,0,,,,,,,,,,,
 28047,Harrison County,MS,Mississippi,30.4165,-89.0834,573.65,213730,0,,,,,,,,,,,
@@ -350,7 +350,7 @@ fips,county,state,state_name,lat,lon,land_sq_mi,population,has_data,well_id,well
 13245,Richmond County,GA,Georgia,33.3615,-82.075,324.36,206303,1,USGS-332245082134901,28BB11,27,1945-01-01,2026-09-24,81.7,81.2,-0.14,-0.1,-0.4,stable
 31153,Sarpy County,NE,Nebraska,41.1151,-96.1091,238.005,204828,1,USGS-410228096083501,12N 11E02ADB 1 (P-022C),81,1978-05-05,2025-04-17,47,10.1,0.01,0,0,stable
 13215,Muscogee County,GA,Georgia,32.5102,-84.8749,216.5,201830,0,,,,,,,,,,,
-45013,Beaufort County,SC,South Carolina,32.3581,-80.6894,576.022,201775,0,,,,,,,,,,,
+45013,Beaufort County,SC,South Carolina,32.3581,-80.6894,576.022,201775,1,USGS-321603080432202,BFT-1810,284,1986-07-23,2021-05-04,34.8,14.1,-0.26,-0.3,-0.8,stable
 48091,Comal County,TX,Texas,29.8124,-98.2581,559.537,201628,0,,,,,,,,,,,
 38017,Cass County,ND,North Dakota,46.927,-97.2524,1764.935,200945,0,,,,,,,,,,,
 27137,St. Louis County,MN,Minnesota,47.5786,-92.5146,6248.121,200794,0,,,,,,,,,,,
@@ -399,7 +399,7 @@ fips,county,state,state_name,lat,lon,land_sq_mi,population,has_data,well_id,well
 21117,Kenton County,KY,Kentucky,38.9305,-84.5334,160.375,174862,1,USGS-390438084310701,A21D0075,12,1952-09-23,2018-08-03,65.9,34.3,-2.88,-2.9,-8.6,rising
 45035,Dorchester County,SC,South Carolina,33.0822,-80.4047,568.393,174663,1,USGS-330656080365201,DOR- 325,14,1997-07-30,2024-09-19,27.1,7.3,-0.31,-0.3,-0.9,stable
 24017,Charles County,MD,Maryland,38.4729,-77.0154,457.819,174478,1,USGS-383217076590201,CH Ce  16,83,1950-11-11,2025-08-20,74.8,287.1,18.19,18.2,54.6,declining
-54039,Kanawha County,WV,West Virginia,38.3281,-81.5235,901.738,173906,0,,,,,,,,,,,
+54039,Kanawha County,WV,West Virginia,38.3281,-81.5235,901.738,173906,1,USGS-381619081392901,Kan-0192,59,2008-06-12,2026-08-26,18.2,30.1,1.01,1,3,declining
 55139,Winnebago County,WI,Wisconsin,44.0857,-88.6681,434.697,173307,1,USGS-435907088462502,WI-18/14E/36-0841,15,2001-08-13,2025-09-24,24.1,15,-2.12,-2.1,-6.4,rising
 44003,Kent County,RI,Rhode Island,41.6751,-71.5803,168.568,172450,1,USGS-414106071223901,RI-WCW   59,515,1949-04-20,2026-09-29,77.4,8.6,-0.08,-0.1,-0.2,stable
 39057,Greene County,OH,Ohio,39.6875,-83.8949,413.632,172347,1,OH015-394411083561300,GR-1 OH,69,1965-10-01,2026-07-07,60.8,6.7,-0.62,-0.6,-1.9,rising
@@ -413,7 +413,7 @@ fips,county,state,state_name,lat,lon,land_sq_mi,population,has_data,well_id,well
 47189,Wilson County,TN,Tennessee,36.1494,-86.2912,571.088,169948,0,,,,,,,,,,,
 08101,Pueblo County,CO,Colorado,38.1628,-104.4847,2386.552,169866,1,USGS-381340104205601,SC02106209CCC,121,1929-08-20,2018-11-19,89.2,17.3,0.13,0.1,0.4,stable
 20209,Wyandotte County,KS,Kansas,39.1154,-94.7631,151.638,169418,0,,,,,,,,,,,
-51179,Stafford County,VA,Virginia,38.4231,-77.458,268.489,168919,0,,,,,,,,,,,
+51179,Stafford County,VA,Virginia,38.4231,-77.458,268.489,168919,1,USGS-382805077255801,51R  7,16,2002-12-23,2025-08-12,22.6,16.6,-0.34,-0.3,-1,stable
 55059,Kenosha County,WI,Wisconsin,42.5875,-87.88,271.833,168754,0,,,,,,,,,,,
 39045,Fairfield County,OH,Ohio,39.7477,-82.6267,504.365,167762,1,OH015-394544082271000,F-1 OH,185,1965-10-01,2026-08-26,60.9,12.3,0.04,0,0.1,stable
 13073,Columbia County,GA,Georgia,33.5521,-82.2496,290.194,167472,0,,,,,,,,,,,
@@ -432,7 +432,7 @@ fips,county,state,state_name,lat,lon,land_sq_mi,population,has_data,well_id,well
 47163,Sullivan County,TN,Tennessee,36.5097,-82.3013,413.545,162703,0,,,,,,,,,,,
 36093,Schenectady County,NY,New York,42.8176,-74.0436,204.681,162261,0,,,,,,,,,,,
 08077,Mesa County,CO,Colorado,39.0195,-108.4606,3328.721,161260,0,,,,,,,,,,,
-36083,Rensselaer County,NY,New York,42.7104,-73.5138,652.459,160749,0,,,,,,,,,,,
+36083,Rensselaer County,NY,New York,42.7104,-73.5138,652.459,160749,1,USGS-423534073423401,"Local number, Re-703, East Greenbush NY",124,1982-10-14,2026-07-01,43.7,38.6,0.69,0.7,2.1,declining
 28121,Rankin County,MS,Mississippi,32.2671,-89.9461,775.501,160573,0,,,,,,,,,,,
 26147,St. Clair County,MI,Michigan,42.9288,-82.6689,721.522,160308,0,,,,,,,,,,,
 26075,Jackson County,MI,Michigan,42.2485,-84.4209,701.905,160233,0,,,,,,,,,,,
@@ -456,7 +456,7 @@ fips,county,state,state_name,lat,lon,land_sq_mi,population,has_data,well_id,well
 27171,Wright County,MN,Minnesota,45.1749,-93.9665,661.159,154593,1,USGS-451753093434801,ALUS-32   121N24W08DCA   01             0000685847,19,2006-06-29,2024-09-05,18.2,11.6,0.43,0.4,1.3,stable
 37159,Rowan County,NC,North Carolina,35.6414,-80.5217,511.61,153384,0,,,,,,,,,,,
 22063,Livingston Parish,LA,Louisiana,30.4404,-90.7275,648.14,152886,1,USGS-302819090582102,Li-61,118,1948-05-13,2026-06-29,78.1,87.9,18.18,18.2,54.5,declining
-37135,Orange County,NC,North Carolina,36.0625,-79.12,397.591,152877,0,,,,,,,,,,,
+37135,Orange County,NC,North Carolina,36.0625,-79.12,397.591,152877,1,USGS-355522079043001,"OR-069 NC-126 AT CHAPEL HILL, NC REGOLITH",1886,1948-03-22,2018-03-01,69.9,43.3,-0.14,-0.1,-0.4,stable
 26021,Berrien County,MI,Michigan,41.7914,-86.7425,567.845,152703,0,,,,,,,,,,,
 51177,Spotsylvania County,VA,Virginia,38.1824,-77.6572,401.942,152021,0,,,,,,,,,,,
 13097,Douglas County,GA,Georgia,33.7012,-84.7673,200.136,151887,0,,,,,,,,,,,
@@ -498,7 +498,7 @@ fips,county,state,state_name,lat,lon,land_sq_mi,population,has_data,well_id,well
 06055,Napa County,CA,California,38.5071,-122.3259,751.976,132727,0,,,,,,,,,,,
 41043,Linn County,OR,Oregon,44.4889,-122.5372,2289.508,132474,0,,,,,,,,,,,
 06023,Humboldt County,CA,California,40.7067,-123.9262,3568.025,132380,0,,,,,,,,,,,
-19013,Black Hawk County,IA,Iowa,42.4711,-92.3076,565.773,132348,0,,,,,,,,,,,
+19013,Black Hawk County,IA,Iowa,42.4711,-92.3076,565.773,132348,1,USGS-422518092144701,088N12W21ACDC       1997NAWQA Black Hwk Co IADRN-3,13,1997-07-22,2025-06-10,27.9,7,0.39,0.4,1.2,stable
 34019,Hunterdon County,NJ,New Jersey,40.5653,-74.912,427.835,131708,1,USGS-402644074563601,190002-- Bird Obs,396,1965-06-01,2026-10-16,61.4,11.5,-0.39,-0.4,-1.2,stable
 05045,Faulkner County,AR,Arkansas,35.1465,-92.3369,647.247,131611,1,USGS-351354092232401,07N13W21BAD1 at Greenbri,52,2011-08-02,2026-08-25,15.1,5,-3.31,-3.3,-9.9,rising
 05125,Saline County,AR,Arkansas,34.6485,-92.6745,723.516,131252,0,,,,,,,,,,,
@@ -511,7 +511,7 @@ fips,county,state,state_name,lat,lon,land_sq_mi,population,has_data,well_id,well
 13045,Carroll County,GA,Georgia,33.5822,-85.0805,499.116,129911,0,,,,,,,,,,,
 17179,Tazewell County,IL,Illinois,40.5081,-89.5163,646.486,129821,1,USGS-401921089282102,22N3W-29.8a2 (MTH-17N),188,1993-12-13,2024-01-18,30.1,35.5,0.67,0.7,2,declining
 25003,Berkshire County,MA,Massachusetts,42.3715,-73.2179,926.874,128726,1,USGS-423503073075401,"MA-CJW 2 Cheshire, MA",872,1951-06-30,2026-08-26,75.2,6.2,0.01,0,0,stable
-23011,Kennebec County,ME,Maine,44.417,-69.7658,867.507,128461,0,,,,,,,,,,,
+23011,Kennebec County,ME,Maine,44.417,-69.7658,867.507,128461,1,USGS-440918069564001,"ME-KW766 Litchfield, Maine",554,1976-06-28,2026-10-09,50.3,51.5,-0.06,-0.1,-0.2,stable
 18019,Clark County,IN,Indiana,38.4762,-85.7111,372.49,127479,0,,,,,,,,,,,
 30031,Gallatin County,MT,Montana,45.5181,-111.1639,2605.354,126984,1,USGS-454043110004501,02S06E08CAAC01 BZN-02,137,2004-10-12,2024-05-02,19.6,1.4,0.38,0.4,1.1,stable
 48183,Gregg County,TX,Texas,32.4864,-94.8163,273.38,126679,0,,,,,,,,,,,
@@ -658,12 +658,12 @@ fips,county,state,state_name,lat,lon,land_sq_mi,population,has_data,well_id,well
 33009,Grafton County,NH,New Hampshire,43.9264,-71.8424,1708.61,93045,0,,,,,,,,,,,
 01043,Cullman County,AL,Alabama,34.1319,-86.8693,734.749,92604,0,,,,,,,,,,,
 39157,Tuscarawas County,OH,Ohio,40.4474,-81.4712,567.608,92048,1,OH015-403653081321800,TU-1 OH,135,1965-10-01,2026-09-01,60.9,14.5,0.13,0.1,0.4,stable
-36101,Steuben County,NY,New York,42.2667,-77.3855,1390.51,92015,0,,,,,,,,,,,
+36101,Steuben County,NY,New York,42.2667,-77.3855,1390.51,92015,1,USGS-422445077203301,"Local number, Sb-472, near Kanona NY",1686,1965-11-19,2026-09-01,60.8,10.1,-0.03,0,-0.1,stable
 48037,Bowie County,TX,Texas,33.4461,-94.4224,884.94,91992,0,,,,,,,,,,,
 48469,Victoria County,TX,Texas,28.7964,-96.9712,882.087,91949,0,,,,,,,,,,,
 54011,Cabell County,WV,West Virginia,38.4196,-82.2434,281.025,91489,0,,,,,,,,,,,
 40145,Wagoner County,OK,Oklahoma,35.9634,-95.5142,561.916,91257,0,,,,,,,,,,,
-01051,Elmore County,AL,Alabama,32.5972,-86.1427,618.52,91042,0,,,,,,,,,,,
+01051,Elmore County,AL,Alabama,32.5972,-86.1427,618.52,91042,1,USGS-323347086054901,Well NAWQA FLH 27 Elmore County Al,6,1998-10-24,2024-03-19,25.4,45,-2.16,-2.2,-6.5,rising
 16005,Bannock County,ID,Idaho,42.6929,-112.229,1112.49,91010,1,USGS-425702112305001,05S 34E 29CCC1,19,1928-06-13,2023-04-03,94.8,68.9,0.42,0.4,1.3,stable
 36117,Wayne County,NY,New York,43.2181,-77.0494,603.83,90757,0,,,,,,,,,,,
 41053,Polk County,OR,Oregon,44.9004,-123.3986,740.924,90549,0,,,,,,,,,,,
@@ -704,7 +704,7 @@ fips,county,state,state_name,lat,lon,land_sq_mi,population,has_data,well_id,well
 44005,Newport County,RI,Rhode Island,41.501,-71.2831,102.431,83468,1,USGS-413325071152401,RI-POW  551,406,1992-09-28,2026-09-29,34,39.8,0.49,0.5,1.5,stable
 45075,Orangeburg County,SC,South Carolina,33.4361,-80.8029,1106.379,83129,0,,,,,,,,,,,
 28081,Lee County,MS,Mississippi,34.2924,-88.6824,449.965,83012,0,,,,,,,,,,,
-42063,Indiana County,PA,Pennsylvania,40.6514,-79.0875,827.394,82953,0,,,,,,,,,,,
+42063,Indiana County,PA,Pennsylvania,40.6514,-79.0875,827.394,82953,1,USGS-405320078483901,IN   919  Indiana County Observation Well,168,2001-10-17,2026-09-16,24.9,30.2,-2.51,-2.5,-7.5,rising
 51095,James City County,VA,Virginia,37.3248,-76.7779,142.298,82797,1,USGS-371749076441801,57G  1 SOW 001,92,1967-03-20,2026-05-19,59.2,174.3,5.14,5.1,15.4,declining
 54107,Wood County,WV,West Virginia,39.2116,-81.5162,366.5,82757,0,,,,,,,,,,,
 45073,Oconee County,SC,South Carolina,34.7488,-83.0615,626.593,82475,0,,,,,,,,,,,
@@ -731,7 +731,7 @@ fips,county,state,state_name,lat,lon,land_sq_mi,population,has_data,well_id,well
 37195,Wilson County,NC,North Carolina,35.7004,-77.9216,367.574,79958,0,,,,,,,,,,,
 37069,Franklin County,NC,North Carolina,36.0882,-78.2831,491.874,79771,0,,,,,,,,,,,
 05145,White County,AR,Arkansas,35.2551,-91.753,1033.966,79091,1,USGS-350623091375201,06N06W34AAB1,35,1954-12-14,2026-04-28,71.4,54.8,2.36,2.4,7.1,declining
-18011,Boone County,IN,Indiana,40.0509,-86.469,422.882,78773,0,,,,,,,,,,,
+18011,Boone County,IN,Indiana,40.0509,-86.469,422.882,78773,1,USGS-400532086183901,BOONE 17 (BO 17),274,1986-10-22,2026-10-22,40,53.3,0.56,0.6,1.7,declining
 51015,Augusta County,VA,Virginia,38.1726,-79.141,967.074,78622,1,USGS-382523078535501,38P  1 SOW 070,2547,1964-07-24,2026-07-16,62,21,-0.43,-0.4,-1.3,stable
 47147,Robertson County,TN,Tennessee,36.5244,-86.8726,476.336,78459,0,,,,,,,,,,,
 28035,Forrest County,MS,Mississippi,31.1886,-89.2594,466.042,78435,0,,,,,,,,,,,
@@ -740,7 +740,7 @@ fips,county,state,state_name,lat,lon,land_sq_mi,population,has_data,well_id,well
 33005,Cheshire County,NH,New Hampshire,42.9255,-72.2482,706.725,78078,0,,,,,,,,,,,
 53009,Clallam County,WA,Washington,48.1109,-123.8899,1738.776,77958,0,,,,,,,,,,,
 53027,Grays Harbor County,WA,Washington,47.1121,-123.8267,1902.268,77893,1,USGS-471825124151001,21N/12W-18K01,6,1968-10-03,2017-06-28,48.7,16.1,-0.64,-0.6,-1.9,rising
-36019,Clinton County,NY,New York,44.7527,-73.7056,1037.751,77871,0,,,,,,,,,,,
+36019,Clinton County,NY,New York,44.7527,-73.7056,1037.751,77871,1,USGS-445052073350201,"Local number, Cl-145, SUNY Plattsburgh NY",719,1992-10-20,2026-10-01,33.9,23.9,0.57,0.6,1.7,declining
 29051,Cole County,MO,Missouri,38.5032,-92.28,391.533,77625,1,MO005-383226092054001,Jefferson City East,45,2009-03-26,2026-05-13,17.1,179,4.41,4.4,13.2,declining
 12107,Putnam County,FL,Florida,29.5939,-81.732,728.396,77301,0,,,,,,,,,,,
 05085,Lonoke County,AR,Arkansas,34.7551,-91.8941,771.723,76389,0,,,,,,,,,,,
@@ -757,7 +757,7 @@ fips,county,state,state_name,lat,lon,land_sq_mi,population,has_data,well_id,well
 12023,Columbia County,FL,Florida,30.2217,-82.6234,797.377,73977,0,,,,,,,,,,,
 40037,Creek County,OK,Oklahoma,35.9074,-96.3802,949.895,73971,1,USGS-355510096293501,17N-08E-30 CBB 1 Creek 30 GW,789,1969-11-20,2017-12-19,48.1,35.4,-0.8,-0.8,-2.4,rising
 55141,Wood County,WI,Wisconsin,44.4614,-90.0388,793.028,73943,1,USGS-441452089433001,WD-21/06E/36-1298,400,1995-01-10,2026-10-21,31.8,9.8,-0.32,-0.3,-1,stable
-39043,Erie County,OH,Ohio,41.3941,-82.5868,251.288,73841,0,,,,,,,,,,,
+39043,Erie County,OH,Ohio,41.3941,-82.5868,251.288,73841,1,USGS-411819082493900,E-10 OH,131,2008-07-15,2026-07-29,18,42.2,12.38,12.4,37.1,declining
 15007,Kauai County,HI,Hawaii,22.012,-159.706,619.84,73840,1,USGS-215607159344301,"2-5634-01 Hanapepe Ridge, Kauai, HI",176,1961-04-29,2026-06-03,65.1,425.8,0.75,0.7,2.2,declining
 18109,Morgan County,IN,Indiana,39.4826,-86.4475,403.84,73825,1,USGS-393423086161001,MORGAN 4 (MG 4),287,1983-07-27,2026-08-20,43.1,6,0.22,0.2,0.7,stable
 38035,Grand Forks County,ND,North Dakota,47.926,-97.4509,1436.216,73771,0,,,,,,,,,,,
@@ -766,7 +766,7 @@ fips,county,state,state_name,lat,lon,land_sq_mi,population,has_data,well_id,well
 01049,DeKalb County,AL,Alabama,34.4609,-85.804,777.077,73122,0,,,,,,,,,,,
 20161,Riley County,KS,Kansas,39.2912,-96.7275,609.66,72557,1,USGS-390601096433801,RILEY CF97-401  11S 06E 14AABD01,137,1997-05-08,2020-12-28,23.6,17.1,-0.5,-0.5,-1.5,stable
 54081,Raleigh County,WV,West Virginia,37.7625,-81.2647,604.97,72379,0,,,,,,,,,,,
-42111,Somerset County,PA,Pennsylvania,39.9813,-79.0285,1075.047,72134,0,,,,,,,,,,,
+42111,Somerset County,PA,Pennsylvania,39.9813,-79.0285,1075.047,72134,1,USGS-400008079142801,SO     2 Somerset County Observation Well,156,1937-04-01,2026-06-30,89.2,33,-0.24,-0.2,-0.7,stable
 55097,Portage County,WI,Wisconsin,44.4762,-89.4981,800.874,72040,1,USGS-441833089315601,PT-21/08E/10-0036,1757,1950-09-07,2026-10-21,76.1,6.2,0.05,0.1,0.2,stable
 39145,Scioto County,OH,Ohio,38.8149,-82.9987,610.155,71798,0,,,,,,,,,,,
 39159,Union County,OH,Ohio,40.2959,-83.367,431.713,71721,1,OH015-401826083255200,U-4 OH,65,1971-02-16,2026-07-07,55.4,24.6,0.17,0.2,0.5,stable
@@ -785,12 +785,12 @@ fips,county,state,state_name,lat,lon,land_sq_mi,population,has_data,well_id,well
 21185,Oldham County,KY,Kentucky,38.4001,-85.4561,187.294,70525,0,,,,,,,,,,,
 41035,Klamath County,OR,Oregon,42.6838,-121.6462,5949.897,70438,1,USGS-425558121490801,30.00S/08.00E-31BAC01,22,1926-10-11,2026-07-09,99.7,36.2,1.97,2,5.9,declining
 13255,Spalding County,GA,Georgia,33.2623,-84.2849,195.972,70292,1,USGS-331507084171801,11AA01,831,1943-10-28,2026-07-28,82.7,15.9,-0.01,0,0,stable
-37031,Carteret County,NC,North Carolina,34.8583,-76.5359,507.607,70259,0,,,,,,,,,,,
+37031,Carteret County,NC,North Carolina,34.8583,-76.5359,507.607,70259,1,USGS-344323076451301,CT-153 NC-139 CAMP GLENN RS X17j5 CASTLE HAYNE,107,1981-09-30,2024-07-16,42.8,13.5,0.93,0.9,2.8,declining
 37141,Pender County,NC,North Carolina,34.5126,-77.8881,871.3,70077,1,USGS-342610077371401,"PE-095 MAS 13 NR HAMPSTEAD, NC",17,2002-09-11,2026-05-28,23.7,11.8,0.87,0.9,2.6,declining
 45047,Greenwood County,SC,South Carolina,34.1558,-82.1279,455.606,70041,0,,,,,,,,,,,
 35035,Otero County,NM,New Mexico,32.6156,-105.7513,6612.562,69711,1,USGS-324442105564501,18S.10E.18.224 462,17,1954-04-08,2026-01-13,71.8,115.3,5.81,5.8,17.4,declining
 53045,Mason County,WA,Washington,47.3508,-123.1731,959.565,69632,1,USGS-472235122495901,22N/01W-20P01,15,1961-04-17,2018-09-25,57.4,7.4,-0.34,-0.3,-1,stable
-13295,Walker County,GA,Georgia,34.7358,-85.3055,446.286,69340,0,,,,,,,,,,,
+13295,Walker County,GA,Georgia,34.7358,-85.3055,446.286,69340,1,USGS-345403085160001,03PP01,380,1977-11-28,2026-10-19,48.9,14.6,-0.03,0,-0.1,stable
 26117,Montcalm County,MI,Michigan,43.3128,-85.1495,705.329,69314,0,,,,,,,,,,,
 06069,San Benito County,CA,California,36.6117,-121.0858,1388.652,69159,0,,,,,,,,,,,
 20015,Butler County,KS,Kansas,37.7736,-96.8388,1429.716,69158,0,,,,,,,,,,,
@@ -803,11 +803,11 @@ fips,county,state,state_name,lat,lon,land_sq_mi,population,has_data,well_id,well
 37105,Lee County,NC,North Carolina,35.4763,-79.1721,255.072,68537,0,,,,,,,,,,,
 38101,Ward County,ND,North Dakota,48.2167,-101.5405,2013.029,68427,0,,,,,,,,,,,
 26155,Shiawassee County,MI,Michigan,42.9515,-84.1464,531.126,67982,0,,,,,,,,,,,
-26103,Marquette County,MI,Michigan,46.6566,-87.584,1809.071,67979,0,,,,,,,,,,,
+26103,Marquette County,MI,Michigan,46.6566,-87.584,1809.071,67979,1,USGS-462421087242701,46N 25W 03DDDD 01 MARQUETTE CO (SP-17),83,1979-10-24,2026-09-28,46.9,126.1,1.64,1.6,4.9,declining
 06033,Lake County,CA,California,39.108,-122.7452,1255.102,67764,0,,,,,,,,,,,
 47063,Hamblen County,TN,Tennessee,36.2184,-83.2661,161.188,67715,0,,,,,,,,,,,
 21145,McCracken County,KY,Kentucky,37.0541,-88.7125,248.796,67550,0,,,,,,,,,,,
-22045,Iberia Parish,LA,Louisiana,29.606,-91.8427,574.74,67540,0,,,,,,,,,,,
+22045,Iberia Parish,LA,Louisiana,29.606,-91.8427,574.74,67540,1,USGS-300035091443301,I-93,333,1965-01-30,2026-09-01,61.6,19.3,0.16,0.2,0.5,stable
 29187,St. Francois County,MO,Missouri,37.8107,-90.4739,451.886,67503,0,,,,,,,,,,,
 37167,Stanly County,NC,North Carolina,35.3104,-80.2544,395.08,67326,0,,,,,,,,,,,
 55017,Chippewa County,WI,Wisconsin,45.0691,-91.2835,1008.43,67323,0,,,,,,,,,,,
@@ -846,7 +846,7 @@ fips,county,state,state_name,lat,lon,land_sq_mi,population,has_data,well_id,well
 05115,Pope County,AR,Arkansas,35.4566,-93.0268,810.952,64829,0,,,,,,,,,,,
 04001,Apache County,AZ,Arizona,35.3851,-109.4902,11198.31,64800,1,USGS-363103109445201,09 036-13.75X16.01 [9Y-95 ROUGH ROCK],41,1949-08-03,2023-10-19,74.2,104.4,-0.98,-1,-3,rising
 39013,Belmont County,OH,Ohio,40.0177,-80.9677,532.173,64692,0,,,,,,,,,,,
-54033,Harrison County,WV,West Virginia,39.2792,-80.3858,416.01,64472,0,,,,,,,,,,,
+54033,Harrison County,WV,West Virginia,39.2792,-80.3858,416.01,64472,1,USGS-391020080244101,Har-0165,102,2008-06-05,2026-09-09,18.3,42.1,-0.83,-0.8,-2.5,rising
 06103,Tehama County,CA,California,40.1262,-122.2323,2949.137,64451,0,,,,,,,,,,,
 41011,Coos County,OR,Oregon,43.1859,-124.0941,1596.051,64326,0,,,,,,,,,,,
 49003,Box Elder County,UT,Utah,41.6226,-113.0603,5781.304,64120,1,USGS-412439112021601,(B- 8- 2)23cdb- 1,316,1935-10-03,2026-03-17,90.5,43,0.27,0.3,0.8,stable
@@ -861,7 +861,7 @@ fips,county,state,state_name,lat,lon,land_sq_mi,population,has_data,well_id,well
 21125,Laurel County,KY,Kentucky,37.1133,-84.1194,433.704,63353,0,,,,,,,,,,,
 39009,Athens County,OH,Ohio,39.3328,-82.0459,503.643,63218,1,OH015-392004082071600,AT-2A OH,153,1975-01-16,2026-07-22,51.5,14.7,-0.3,-0.3,-0.9,stable
 08045,Garfield County,CO,Colorado,39.5994,-107.9098,2947.425,63167,0,,,,,,,,,,,
-37087,Haywood County,NC,North Carolina,35.5589,-82.9813,553.56,63048,0,,,,,,,,,,,
+37087,Haywood County,NC,North Carolina,35.5589,-82.9813,553.56,63048,1,USGS-352315082484401,HW-047 NC-40 CHAMPION WELL NR CRUSO REGOLITH,247,1971-11-12,2024-09-24,52.9,6,-0.02,0,-0.1,stable
 31079,Hall County,NE,Nebraska,40.866,-98.5027,546.529,62869,1,USGS-404606098403501,9N 12W 9BA  1,373,1930-10-09,2025-05-01,94.6,22.4,0.16,0.2,0.5,stable
 45031,Darlington County,SC,South Carolina,34.3322,-79.9621,560.629,62425,0,,,,,,,,,,,
 42103,Pike County,PA,Pennsylvania,41.3259,-75.0315,544.896,62376,1,USGS-410940074583401,PI   200 Pike County Observation Well,244,1973-01-01,2026-06-29,53.5,74.7,-1.4,-1.4,-4.2,rising
@@ -890,7 +890,7 @@ fips,county,state,state_name,lat,lon,land_sq_mi,population,has_data,well_id,well
 50021,Rutland County,VT,Vermont,43.6124,-73.0603,930.552,60198,0,,,,,,,,,,,
 01009,Blount County,AL,Alabama,33.9774,-86.5664,644.905,60163,0,,,,,,,,,,,
 23017,Oxford County,ME,Maine,44.4945,-70.7344,2076.958,60039,1,USGS-440823070291501,"ME-OW1214 Oxford, Maine",463,1980-09-20,2026-06-25,45.8,9.5,-0.02,0,-0.1,stable
-50023,Washington County,VT,Vermont,44.275,-72.6094,687.06,59844,0,,,,,,,,,,,
+50023,Washington County,VT,Vermont,44.275,-72.6094,687.06,59844,1,USGS-441215072483101,VT-WAW    2,563,1975-06-11,2026-09-11,51.3,6.7,-0.07,-0.1,-0.2,stable
 28071,Lafayette County,MS,Mississippi,34.3531,-89.4854,631.697,59843,0,,,,,,,,,,,
 36115,Washington County,NY,New York,43.3124,-73.4394,831.19,59839,1,USGS-431030073192101,"Local number, W-533, Salem NY",637,1965-10-27,2026-09-16,60.9,7.5,0.01,0,0,stable
 42015,Bradford County,PA,Pennsylvania,41.7915,-76.5021,1147.376,59699,0,,,,,,,,,,,
@@ -951,7 +951,7 @@ fips,county,state,state_name,lat,lon,land_sq_mi,population,has_data,well_id,well
 17195,Whiteside County,IL,Illinois,41.7507,-89.911,684.099,54657,0,,,,,,,,,,,
 32007,Elko County,NV,Nevada,41.1411,-115.3514,17173.302,54363,1,USGS-404350115281001,045  N33 E58 19ADDD1,442,1934-08-18,2026-03-17,91.6,13.2,0.4,0.4,1.2,stable
 24047,Worcester County,MD,Maryland,38.2221,-75.3099,468.299,54337,1,USGS-380408075335701,WO Fb   2,580,1953-01-12,2025-04-29,72.3,15.6,-2.44,-2.4,-7.3,rising
-08037,Eagle County,CO,Colorado,39.627,-106.6952,1684.47,54330,0,,,,,,,,,,,
+08037,Eagle County,CO,Colorado,39.627,-106.6952,1684.47,54330,1,USGS-393823106215900,SC00508008BCD-GERALD R FORD PARK,13,1996-10-02,2011-06-01,14.7,13.5,-1.64,-1.6,-4.9,rising
 48373,Polk County,TX,Texas,30.7846,-94.8373,1057.053,54258,1,USGS-304350095055701,UT-60-24-111,7,2002-07-25,2024-07-31,22,32.4,-1.26,-1.3,-3.8,rising
 47003,Bedford County,TN,Tennessee,35.5137,-86.4583,473.639,54228,0,,,,,,,,,,,
 51191,Washington County,VA,Virginia,36.7478,-81.9503,561.193,54098,0,,,,,,,,,,,
@@ -974,7 +974,7 @@ fips,county,state,state_name,lat,lon,land_sq_mi,population,has_data,well_id,well
 17077,Jackson County,IL,Illinois,37.7861,-89.3812,583.574,53199,0,,,,,,,,,,,
 48013,Atascosa County,TX,Texas,28.8915,-98.5354,1219.542,52783,0,,,,,,,,,,,
 26157,Tuscola County,MI,Michigan,43.4879,-83.4366,804.902,52757,0,,,,,,,,,,,
-33003,Carroll County,NH,New Hampshire,43.8678,-71.2016,931.876,52580,0,,,,,,,,,,,
+33003,Carroll County,NH,New Hampshire,43.8678,-71.2016,931.876,52580,1,USGS-434221071051501,NH-OXW   38,266,1991-09-23,2017-05-30,25.7,33.9,-0.04,0,-0.1,stable
 21073,Franklin County,KY,Kentucky,38.2349,-84.8688,207.912,52442,0,,,,,,,,,,,
 48055,Caldwell County,TX,Texas,29.8324,-97.6281,544.543,52430,0,,,,,,,,,,,
 39005,Ashland County,OH,Ohio,40.8433,-82.2701,422.986,52420,0,,,,,,,,,,,
@@ -1103,7 +1103,7 @@ fips,county,state,state_name,lat,lon,land_sq_mi,population,has_data,well_id,well
 13233,Polk County,GA,Georgia,33.996,-85.1883,310.34,44610,0,,,,,,,,,,,
 37013,Beaufort County,NC,North Carolina,35.4823,-76.842,832.711,44576,1,USGS-352252077050706,BO-358 WILMAR RS P21k6 CASTLE HAYNE,18,1968-09-01,2021-07-15,52.9,7,-0.43,-0.4,-1.3,stable
 48143,Erath County,TX,Texas,32.2362,-98.2183,1083.179,44496,0,,,,,,,,,,,
-45025,Chesterfield County,SC,South Carolina,34.637,-80.1592,798.986,44488,0,,,,,,,,,,,
+45025,Chesterfield County,SC,South Carolina,34.637,-80.1592,798.986,44488,1,USGS-343105080172100,CTF- 189,109,2008-03-13,2026-10-19,18.6,14.5,-0.7,-0.7,-2.1,rising
 47047,Fayette County,TN,Tennessee,35.197,-89.4138,704.124,44476,1,USGS-352226089330101,Fa:R-001,846,1949-08-31,2026-10-19,77.1,102.2,4.05,4.1,12.2,declining
 18033,DeKalb County,IN,Indiana,41.3968,-85.0027,362.834,44330,0,,,,,,,,,,,
 39015,Brown County,OH,Ohio,38.9314,-83.8668,489.551,44292,1,OH015-385932083412400,BR-20 OH,69,2010-10-06,2026-07-28,15.8,25.4,4.49,4.5,13.5,declining
@@ -1128,7 +1128,7 @@ fips,county,state,state_name,lat,lon,land_sq_mi,population,has_data,well_id,well
 51149,Prince George County,VA,Virginia,37.1873,-77.221,265.342,43589,1,USGS-370501077214401,52E  2 SOW 205,116,1997-05-07,2026-09-15,29.4,18,-1.68,-1.7,-5,rising
 40071,Kay County,OK,Oklahoma,36.8149,-97.1439,919.61,43437,0,,,,,,,,,,,
 40121,Pittsburg County,OK,Oklahoma,34.9255,-95.7481,1305.512,43395,0,,,,,,,,,,,
-55093,Pierce County,WI,Wisconsin,44.7253,-92.4263,574.018,43380,0,,,,,,,,,,,
+55093,Pierce County,WI,Wisconsin,44.7253,-92.4263,574.018,43380,1,USGS-443703092261301,PDCT-U6   025N17W28DDD   01,12,1981-02-17,2026-08-12,45.5,63.6,-7.63,-7.6,-22.9,rising
 42065,Jefferson County,PA,Pennsylvania,41.138,-79.0124,652.44,43367,0,,,,,,,,,,,
 42061,Huntingdon County,PA,Pennsylvania,40.4223,-77.9686,874.592,43359,1,USGS-401843078075401,HU   301 Huntingdon County Observation Well,246,1969-09-18,2026-08-13,56.9,52.9,0.29,0.3,0.9,stable
 49043,Summit County,UT,Utah,40.8721,-110.9685,1870.674,43109,1,USGS-410220111320901,(A- 4- 3)31bcc- 1,140,1937-09-22,2026-03-19,88.5,26.9,0.3,0.3,0.9,stable
@@ -1162,11 +1162,11 @@ fips,county,state,state_name,lat,lon,land_sq_mi,population,has_data,well_id,well
 40041,Delaware County,OK,Oklahoma,36.3934,-94.8082,737.751,41771,0,,,,,,,,,,,
 13277,Tift County,GA,Georgia,31.457,-83.5259,260.89,41708,1,USGS-312712082593301,18K049,207,1985-05-20,2026-10-27,41.4,142.9,5.92,5.9,17.8,declining
 39033,Crawford County,OH,Ohio,40.8485,-82.9248,401.786,41626,1,OH015-404838082563100,CR-1 OH,65,1970-03-19,2026-07-14,56.3,19.2,0.49,0.5,1.5,stable
-37139,Pasquotank County,NC,North Carolina,36.2652,-76.2607,226.878,41418,0,,,,,,,,,,,
+37139,Pasquotank County,NC,North Carolina,36.2652,-76.2607,226.878,41418,1,USGS-361829076163201,"PK-141 NC-195 NR ELIZABETH CITY, NC SURFICIAL",219,1991-10-03,2026-10-20,35,5.8,0.03,0,0.1,stable
 26057,Gratiot County,MI,Michigan,43.2923,-84.6047,568.382,41372,0,,,,,,,,,,,
 13213,Murray County,GA,Georgia,34.7971,-84.738,344.494,41316,0,,,,,,,,,,,
 55115,Shawano County,WI,Wisconsin,44.7896,-88.7558,893.225,41299,1,USGS-444627088321401,SH-27/16E/34-0027,412,1970-03-25,2018-10-03,48.5,7.1,0.24,0.2,0.7,stable
-56037,Sweetwater County,WY,Wyoming,41.6603,-108.8757,10426.981,41273,0,,,,,,,,,,,
+56037,Sweetwater County,WY,Wyoming,41.6603,-108.8757,10426.981,41273,1,USGS-410423108021301,13-095-25aac02,6,2002-11-05,2025-09-24,22.9,137.3,5.01,5,15,declining
 28151,Washington County,MS,Mississippi,33.2732,-90.9444,724.147,41181,1,USGS-331330090564801,151L0004 WASHINGTON,104,1951-01-01,2026-04-10,75.3,28.6,1.24,1.2,3.7,declining
 18087,LaGrange County,IN,Indiana,41.6425,-85.4278,379.632,41122,0,,,,,,,,,,,
 54069,Ohio County,WV,West Virginia,40.1003,-80.6199,106.035,41090,0,,,,,,,,,,,
@@ -1198,7 +1198,7 @@ fips,county,state,state_name,lat,lon,land_sq_mi,population,has_data,well_id,well
 36073,Orleans County,NY,New York,43.3399,-78.207,391.262,39686,1,USGS-431045078160401,"Local number, Ol-20, Barre NY",98,2003-11-12,2026-07-09,22.7,24,1.6,1.6,4.8,declining
 42109,Snyder County,PA,Pennsylvania,40.7554,-77.073,328.784,39627,1,USGS-403939076591001,SN   130 Snyder County Observation Well,257,1968-06-01,2026-08-10,58.2,19,-0.1,-0.1,-0.3,stable
 36121,Wyoming County,NY,New York,42.7014,-78.2286,592.7,39588,1,USGS-423743078070802,"Local number, Wo-4, near Gainesville NY",161,1974-05-04,2026-10-22,52.5,13.6,0.05,0.1,0.2,stable
-42083,McKean County,PA,Pennsylvania,41.8146,-78.5725,979.694,39478,0,,,,,,,,,,,
+42083,McKean County,PA,Pennsylvania,41.8146,-78.5725,979.694,39478,1,USGS-415150078220401,MC   126 McKean County Observation Well,108,2011-01-03,2026-09-15,15.7,103.2,0.05,0,0.1,stable
 56001,Albany County,WY,Wyoming,41.6655,-105.7219,4274.175,39288,0,,,,,,,,,,,
 45029,Colleton County,SC,South Carolina,32.8494,-80.6564,1056.509,39259,1,USGS-330256080354500,COL-  97,89,1982-08-21,2025-09-04,43,51.9,4.77,4.8,14.3,declining
 45071,Newberry County,SC,South Carolina,34.2899,-81.5997,630.339,39203,0,,,,,,,,,,,
@@ -1219,7 +1219,7 @@ fips,county,state,state_name,lat,lon,land_sq_mi,population,has_data,well_id,well
 18107,Montgomery County,IN,Indiana,40.0403,-86.8927,504.627,38633,0,,,,,,,,,,,
 48049,Brown County,TX,Texas,31.7641,-98.9985,944.452,38631,0,,,,,,,,,,,
 54019,Fayette County,WV,West Virginia,38.031,-81.0861,661.957,38600,0,,,,,,,,,,,
-29219,Warren County,MO,Missouri,38.7619,-91.1593,428.596,38478,0,,,,,,,,,,,
+29219,Warren County,MO,Missouri,38.7619,-91.1593,428.596,38478,1,MO005-384258091243001,Hermann 4,99,1996-12-06,2026-05-06,29.4,18.5,2.28,2.3,6.9,declining
 19057,Des Moines County,IA,Iowa,40.9153,-91.1869,416.129,38411,0,,,,,,,,,,,
 22009,Avoyelles Parish,LA,Louisiana,31.0885,-91.9833,831.363,38373,1,USGS-305451092095901,Av-141,58,1965-05-05,2026-09-16,61.4,23.2,1.35,1.4,4.1,declining
 20055,Finney County,KS,Kansas,38.0498,-100.74,1301.997,38354,0,,,,,,,,,,,
@@ -1234,7 +1234,7 @@ fips,county,state,state_name,lat,lon,land_sq_mi,population,has_data,well_id,well
 19099,Jasper County,IA,Iowa,41.6856,-93.0541,730.428,38107,0,,,,,,,,,,,
 42115,Susquehanna County,PA,Pennsylvania,41.8197,-75.801,823.494,38100,1,USGS-415323077451301,SQ    61 Susquehanna County Observation Well,176,1972-06-01,2017-10-18,45.4,38.3,3.69,3.7,11.1,declining
 05093,Mississippi County,AR,Arkansas,35.7669,-90.0522,902.093,38095,1,USGS-355005090034601,14N10E18ABC1,127,1955-05-10,2026-04-22,71,19.6,0.7,0.7,2.1,declining
-50001,Addison County,VT,Vermont,44.0312,-73.1416,766.332,38047,0,,,,,,,,,,,
+50001,Addison County,VT,Vermont,44.0312,-73.1416,766.332,38047,1,USGS-440016073070901,VT-MGW   11,534,1981-06-24,2026-08-28,45.2,11.2,0.66,0.7,2,declining
 26061,Houghton County,MI,Michigan,46.9984,-88.6519,1009.103,38041,0,,,,,,,,,,,
 37197,Yadkin County,NC,North Carolina,36.1588,-80.6652,334.943,37995,0,,,,,,,,,,,
 29201,Scott County,MO,Missouri,37.0478,-89.5681,420.006,37957,1,MO005-365319089331001,Sikeston,121,1956-10-12,2026-06-24,69.7,8.5,-0.01,0,0,stable
@@ -1243,7 +1243,7 @@ fips,county,state,state_name,lat,lon,land_sq_mi,population,has_data,well_id,well
 49051,Wasatch County,UT,Utah,40.3349,-111.1616,1176.952,37858,1,USGS-403127111240301,(D- 3- 5)29cac- 1,326,1936-10-27,2024-03-20,87.4,11.5,0.26,0.3,0.8,stable
 47117,Marshall County,TN,Tennessee,35.4683,-86.7659,375.462,37847,0,,,,,,,,,,,
 48477,Washington County,TX,Texas,30.2151,-96.4103,604.196,37810,0,,,,,,,,,,,
-18133,Putnam County,IN,Indiana,39.6655,-86.8534,480.536,37804,0,,,,,,,,,,,
+18133,Putnam County,IN,Indiana,39.6655,-86.8534,480.536,37804,1,USGS-394516086555601,"NAWQA AG WELL TP15 AT MORTON, IN",17,1994-08-10,2025-08-12,31,12,0.2,0.2,0.6,stable
 01039,Covington County,AL,Alabama,31.244,-86.4487,1030.573,37748,1,USGS-311319086153601,Well COVINGTON COUNTY WELL 1 Covington Cnty,97,2006-08-16,2026-07-31,20,8.7,-1.73,-1.7,-5.2,rising
 21049,Clark County,KY,Kentucky,37.9703,-84.1451,252.482,37673,0,,,,,,,,,,,
 47029,Cocke County,TN,Tennessee,35.9162,-83.1192,436.138,37596,0,,,,,,,,,,,
@@ -1256,7 +1256,7 @@ fips,county,state,state_name,lat,lon,land_sq_mi,population,has_data,well_id,well
 21235,Whitley County,KY,Kentucky,36.758,-84.1446,437.921,37233,0,,,,,,,,,,,
 55045,Green County,WI,Wisconsin,42.6755,-89.6051,584.044,37183,0,,,,,,,,,,,
 12129,Wakulla County,FL,Florida,30.0913,-84.3591,606.42,37115,1,USGS-300740084293001,"USGS WELL(BENCHMARK)NR CRAWFORDVILLE,FLA.",207,1979-07-10,2025-11-19,46.4,16.3,0.11,0.1,0.3,stable
-17027,Clinton County,IL,Illinois,38.6063,-89.4262,473.941,37087,0,,,,,,,,,,,
+17027,Clinton County,IL,Illinois,38.6063,-89.4262,473.941,37087,1,USGS-383048089263201,027-3-18-4159 (Clinton IDOA CRN),82,2003-03-12,2024-06-28,21.3,4.8,1.45,1.5,4.4,declining
 40111,Okmulgee County,OK,Oklahoma,35.6435,-95.9659,697.443,37084,0,,,,,,,,,,,
 50003,Bennington County,VT,Vermont,43.0353,-73.1115,674.237,37039,0,,,,,,,,,,,
 17055,Franklin County,IL,Illinois,37.9919,-88.9263,408.935,37033,0,,,,,,,,,,,
@@ -1299,7 +1299,7 @@ fips,county,state,state_name,lat,lon,land_sq_mi,population,has_data,well_id,well
 39127,Perry County,OH,Ohio,39.7432,-82.238,407.94,35682,0,,,,,,,,,,,
 19179,Wapello County,IA,Iowa,41.0313,-92.4095,431.848,35681,0,,,,,,,,,,,
 29009,Barry County,MO,Missouri,36.6994,-93.8343,778.123,35618,1,MO005-364059093520001,Cassville,64,1931-08-01,2026-02-03,94.5,347.2,9.3,9.3,27.9,declining
-45053,Jasper County,SC,South Carolina,32.4306,-81.0216,655.135,35618,0,,,,,,,,,,,
+45053,Jasper County,SC,South Carolina,32.4306,-81.0216,655.135,35618,1,USGS-323704080594509,JAS- 425,90,1996-01-01,2026-10-26,30.8,64.4,1.12,1.1,3.4,declining
 18103,Miami County,IN,Indiana,40.7728,-86.0442,373.842,35613,0,,,,,,,,,,,
 31119,Madison County,NE,Nebraska,41.9099,-97.6069,572.612,35579,1,USGS-420112097440401,24N  4W25CC  1  NE-NP-SWR-C,84,1951-01-18,2024-04-23,73.3,3.1,-0.43,-0.4,-1.3,stable
 01047,Dallas County,AL,Alabama,32.3335,-87.1144,978.741,35545,0,,,,,,,,,,,
@@ -1409,17 +1409,17 @@ fips,county,state,state_name,lat,lon,land_sq_mi,population,has_data,well_id,well
 48025,Bee County,TX,Texas,28.4161,-97.7426,880.239,31226,0,,,,,,,,,,,
 18055,Greene County,IN,Indiana,39.0471,-87.0048,542.469,31219,0,,,,,,,,,,,
 31001,Adams County,NE,Nebraska,40.5206,-98.5,563.26,31196,1,USGS-403403098244001,7N  10W23AB  1  HASTING,3187,1934-08-03,2025-04-10,90.7,122,2.79,2.8,8.4,declining
-33007,Coos County,NH,New Hampshire,44.6525,-71.2894,1794.574,31094,0,,,,,,,,,,,
+33007,Coos County,NH,New Hampshire,44.6525,-71.2894,1794.574,31094,1,USGS-442830071321001,NH-LCW    1,547,1966-11-01,2018-01-26,51.2,1.3,0.07,0.1,0.2,stable
 56029,Park County,WY,Wyoming,44.4924,-109.5936,6939.039,31082,0,,,,,,,,,,,
 45027,Clarendon County,SC,South Carolina,33.6647,-80.2179,607.208,31030,0,,,,,,,,,,,
 47055,Giles County,TN,Tennessee,35.2027,-87.0353,610.931,30971,0,,,,,,,,,,,
 46093,Meade County,SD,South Dakota,44.6053,-102.7142,3470.934,30918,1,USGS-441759103261201,04N06E19AABA Tilford North Minnelusa,320,1984-07-17,2026-10-06,42.2,31.3,-11.12,-11.1,-33.4,rising
-23007,Franklin County,ME,Maine,44.9767,-70.4149,1697.007,30902,0,,,,,,,,,,,
+23007,Franklin County,ME,Maine,44.9767,-70.4149,1697.007,30902,1,USGS-451128070280301,"ME-FW893 Eustis, Maine",323,1985-10-03,2026-10-20,41,9.9,-0.02,0,-0.1,stable
 08117,Summit County,CO,Colorado,39.621,-106.1376,608.328,30882,0,,,,,,,,,,,
 48227,Howard County,TX,Texas,32.3034,-101.4387,900.79,30833,0,,,,,,,,,,,
 51117,Mecklenburg County,VA,Virginia,36.6873,-78.369,625.31,30824,0,,,,,,,,,,,
 40089,McCurtain County,OK,Oklahoma,34.1171,-94.7661,1850.782,30805,1,USGS-340042095051801,06S-21E-27 AAA 1 MCCURTAIN 27,190,1956-03-25,2026-08-11,70.4,78.5,0.81,0.8,2.4,declining
-55121,Trempealeau County,WI,Wisconsin,44.303,-91.3589,732.966,30801,0,,,,,,,,,,,
+55121,Trempealeau County,WI,Wisconsin,44.303,-91.3589,732.966,30801,1,USGS-441743091153101,TR-21/07W/17-0071,433,1979-11-16,2026-08-26,46.8,42.6,-0.26,-0.3,-0.8,stable
 26063,Huron County,MI,Michigan,43.9076,-82.857,835.917,30780,1,USGS-434103083130301,"15N 11E 32BBCB 01 HURON CO (GRANT TWP, H2R WELL)",222,1988-06-02,2026-09-01,38.2,36.7,0.34,0.3,1,stable
 18169,Wabash County,IN,Indiana,40.8437,-85.7952,412.539,30777,1,USGS-403948085414601,WABASH 4 (WB 4),137,1988-10-14,2025-06-12,36.7,45.7,0.52,0.5,1.6,declining
 49039,Sanpete County,UT,Utah,39.3734,-111.5769,1589.816,30732,1,USGS-393055111350801,(D-15- 3)16adb- 1,95,1934-07-29,2025-03-11,90.6,6.2,0.61,0.6,1.8,declining
@@ -1431,7 +1431,7 @@ fips,county,state,state_name,lat,lon,land_sq_mi,population,has_data,well_id,well
 21163,Meade County,KY,Kentucky,37.9675,-86.2009,305.465,30442,1,USGS-375936086001301,HC AUGER NO 2,102,1996-09-23,2024-09-12,28,39.7,-0.09,-0.1,-0.3,stable
 48273,Kleberg County,TX,Texas,27.4387,-97.6606,881.306,30442,0,,,,,,,,,,,
 27119,Polk County,MN,Minnesota,47.7743,-96.4,1970.996,30413,1,USGS-473945096202402,E01S-R    148N45W01CBDD  01             0000249810,131,1992-12-03,2023-04-26,30.4,5.3,-0.86,-0.9,-2.6,rising
-40115,Ottawa County,OK,Oklahoma,36.8358,-94.8027,470.817,30404,0,,,,,,,,,,,
+40115,Ottawa County,OK,Oklahoma,36.8358,-94.8027,470.817,30404,1,USGS-365942094504203,29N-23E-17 BCA 1 (SLIM JIM WELL),136,2002-09-25,2026-10-14,24.1,33.2,-0.22,-0.2,-0.6,stable
 39065,Hardin County,OH,Ohio,40.6604,-83.6641,470.285,30402,1,OH015-404648083412600,HN-2A OH,142,1970-03-18,2026-02-11,55.9,14.1,0.36,0.4,1.1,stable
 37039,Cherokee County,NC,North Carolina,35.1371,-84.0614,455.54,30373,0,,,,,,,,,,,
 20113,McPherson County,KS,Kansas,38.3958,-97.6475,898.285,30334,0,,,,,,,,,,,
@@ -1475,10 +1475,10 @@ fips,county,state,state_name,lat,lon,land_sq_mi,population,has_data,well_id,well
 05015,Carroll County,AR,Arkansas,36.3374,-93.541,629.928,28968,1,USGS-362338093445701,20N26W16DCA1,33,1966-08-25,2025-05-07,58.7,128.2,-44.62,-44.6,-133.9,rising
 26007,Alpena County,MI,Michigan,44.895,-83.4266,571.899,28903,0,,,,,,,,,,,
 39161,Van Wert County,OH,Ohio,40.8555,-84.5858,409.15,28887,1,OH015-405215084335400,VW-1 OH,71,1970-06-17,2026-07-07,56.1,30.1,1.09,1.1,3.3,declining
-39053,Gallia County,OH,Ohio,38.817,-82.3017,466.53,28886,0,,,,,,,,,,,
+39053,Gallia County,OH,Ohio,38.817,-82.3017,466.53,28886,1,OH015-383638082103300,G-2 OH,143,1975-06-17,2026-07-06,51.1,32.6,0.1,0.1,0.3,stable
 51099,King George County,VA,Virginia,38.2772,-77.1626,179.628,28816,1,USGS-382341077032401,54R  2,139,1969-10-15,2026-06-23,56.7,153.6,12.75,12.7,38.2,declining
 46081,Lawrence County,SD,South Dakota,44.3485,-103.8064,800.053,28809,0,,,,,,,,,,,
-18179,Wells County,IN,Indiana,40.7355,-85.2133,368.087,28798,0,,,,,,,,,,,
+18179,Wells County,IN,Indiana,40.7355,-85.2133,368.087,28798,1,USGS-404331085064701,WELLS 4 (WL 4),271,1966-12-29,2026-08-03,59.6,26.9,0.63,0.6,1.9,declining
 39047,Fayette County,OH,Ohio,39.5552,-83.4619,406.361,28782,1,OH015-393153083322000,FA-1 OH,160,1965-10-01,2026-07-28,60.8,8.7,0.03,0,0.1,stable
 21173,Montgomery County,KY,Kentucky,38.0381,-83.9124,197.377,28771,0,,,,,,,,,,,
 51065,Fluvanna County,VA,Virginia,37.8306,-78.2835,287.12,28746,0,,,,,,,,,,,
@@ -1539,7 +1539,7 @@ fips,county,state,state_name,lat,lon,land_sq_mi,population,has_data,well_id,well
 13035,Butts County,GA,Georgia,33.2904,-83.9582,183.685,27127,0,,,,,,,,,,,
 21085,Grayson County,KY,Kentucky,37.4586,-86.344,499.536,27070,0,,,,,,,,,,,
 39131,Pike County,OH,Ohio,39.0713,-83.0529,440.282,27065,1,OH015-390359083015100,PI-2 OH,53,1974-10-02,2024-07-18,49.8,22.4,-0.43,-0.4,-1.3,stable
-26127,Oceana County,MI,Michigan,43.604,-86.4672,538.106,27014,0,,,,,,,,,,,
+26127,Oceana County,MI,Michigan,43.604,-86.4672,538.106,27014,1,USGS-433133086082601,13N 15W 18AAAA01 OCEANA CO (HESPERIA),64,1977-08-22,2026-09-17,49.1,41.5,0.5,0.5,1.5,stable
 06015,Del Norte County,CA,California,41.7499,-123.981,1006.202,27009,0,,,,,,,,,,,
 29069,Dunklin County,MO,Missouri,36.153,-90.0623,541.909,27002,1,MO005-360252090173202,Cardwell McNairy Formation,48,1962-08-21,2025-12-22,63.3,-18.5,3.71,3.7,11.1,declining
 20149,Pottawatomie County,KS,Kansas,39.3822,-96.3371,840.735,26876,0,,,,,,,,,,,
@@ -1562,7 +1562,7 @@ fips,county,state,state_name,lat,lon,land_sq_mi,population,has_data,well_id,well
 37123,Montgomery County,NC,North Carolina,35.3275,-79.9108,491.539,26364,0,,,,,,,,,,,
 51790,Staunton city,VA,Virginia,38.158,-79.0619,19.92,26361,0,,,,,,,,,,,
 51600,Fairfax city,VA,Virginia,38.8532,-77.299,6.241,26340,0,,,,,,,,,,,
-40015,Caddo County,OK,Oklahoma,35.1679,-98.381,1277.754,26337,0,,,,,,,,,,,
+40015,Caddo County,OK,Oklahoma,35.1679,-98.381,1277.754,26337,1,USGS-351308098341601,09N-13W-28 DDD 1        Alfalfa GW Well,2298,1948-08-18,2024-05-01,75.7,80.9,3.91,3.9,11.7,declining
 20059,Franklin County,KS,Kansas,38.558,-95.279,571.772,26273,0,,,,,,,,,,,
 13131,Grady County,GA,Georgia,30.8759,-84.245,454.464,26271,1,USGS-305235084125101,12F036,298,1964-07-17,2026-08-11,62.1,144.6,-0.38,-0.4,-1.1,stable
 50015,Lamoille County,VT,Vermont,44.6112,-72.6327,461.255,26248,0,,,,,,,,,,,
@@ -1679,7 +1679,7 @@ fips,county,state,state_name,lat,lon,land_sq_mi,population,has_data,well_id,well
 48299,Llano County,TX,Texas,30.7076,-98.6847,934.069,23163,0,,,,,,,,,,,
 18047,Franklin County,IN,Indiana,39.4098,-85.067,384.426,23136,1,USGS-392134084563200,MIAM NAWQA LUS WELL BVAS AG-24 AT CEDAR GROVE IN,15,2000-08-03,2024-09-25,24.1,37.1,-0.22,-0.2,-0.7,stable
 01111,Randolph County,AL,Alabama,33.2965,-85.4641,580.55,23067,0,,,,,,,,,,,
-21013,Bell County,KY,Kentucky,36.7289,-83.6807,358.999,23051,0,,,,,,,,,,,
+21013,Bell County,KY,Kentucky,36.7289,-83.6807,358.999,23051,1,USGS-363749083430701,K25A0041 - Middlesboro,50,1964-05-21,2026-06-16,62.1,8.2,-1.47,-1.5,-4.4,rising
 26109,Menominee County,MI,Michigan,45.5356,-87.5015,1044.041,23050,0,,,,,,,,,,,
 28133,Sunflower County,MS,Mississippi,33.6055,-90.5951,697.759,23029,1,USGS-334829090292901,133F0001 SUNFLOWER,100,1953-12-01,2026-05-07,72.4,49.2,5.56,5.6,16.7,declining
 28163,Yazoo County,MS,Mississippi,32.7657,-90.3879,922.339,23024,1,USGS-324419090351201,163P0018 YAZOO,159,1978-11-13,2026-03-31,47.4,-0.1,-1.36,-1.4,-4.1,rising
@@ -1693,7 +1693,7 @@ fips,county,state,state_name,lat,lon,land_sq_mi,population,has_data,well_id,well
 41015,Curry County,OR,Oregon,42.4664,-124.2109,1628.395,22774,0,,,,,,,,,,,
 16067,Minidoka County,ID,Idaho,42.8572,-113.6398,757.227,22691,1,USGS-424132113533401,08S 22E 32AAA1,25,1928-06-20,2026-06-22,98,374.3,17.54,17.5,52.6,declining
 19183,Washington County,IA,Iowa,41.3294,-91.7251,568.828,22631,1,USGS-412808091345001,077N06W18DDD,6,2007-06-18,2023-07-24,16.1,11.2,2.06,2.1,6.2,declining
-29083,Henry County,MO,Missouri,38.3865,-93.7926,696.936,22575,0,,,,,,,,,,,
+29083,Henry County,MO,Missouri,38.3865,-93.7926,696.936,22575,1,MO005-382748093595101,Urich,52,1955-01-01,2026-10-07,71.8,112.2,6.8,6.8,20.4,declining
 48293,Limestone County,TX,Texas,31.5475,-96.5936,905.43,22569,0,,,,,,,,,,,
 53003,Asotin County,WA,Washington,46.1819,-117.2278,636.075,22523,0,,,,,,,,,,,
 49041,Sevier County,UT,Utah,38.7468,-111.8119,1910.476,22520,1,USGS-383115111512501,(C-26- 1)25acc- 1,186,1935-11-23,2026-03-10,90.3,-10.1,1.01,1,3,declining
@@ -1721,7 +1721,7 @@ fips,county,state,state_name,lat,lon,land_sq_mi,population,has_data,well_id,well
 19123,Mahaska County,IA,Iowa,41.3308,-92.6364,570.851,22034,0,,,,,,,,,,,
 05027,Columbia County,AR,Arkansas,33.223,-93.2328,766.065,22024,1,USGS-331609093144902,17S21W11DCC2 Magnolia,385,1953-01-29,2026-08-21,73.6,263.7,-3.64,-3.6,-10.9,rising
 27105,Nobles County,MN,Minnesota,43.6777,-95.7631,715.117,21969,0,,,,,,,,,,,
-47129,Morgan County,TN,Tennessee,36.1387,-84.6393,522.18,21954,0,,,,,,,,,,,
+47129,Morgan County,TN,Tennessee,36.1387,-84.6393,522.18,21954,1,USGS-360543084343101,MG:F-005,86,1984-11-01,2026-10-01,41.9,4.3,-0.74,-0.7,-2.2,rising
 13211,Morgan County,GA,Georgia,33.5986,-83.4994,347.411,21940,0,,,,,,,,,,,
 48337,Montague County,TX,Texas,33.6784,-97.725,930.906,21890,0,,,,,,,,,,,
 48341,Moore County,TX,Texas,35.8357,-101.8905,899.698,21872,0,,,,,,,,,,,
@@ -1798,7 +1798,7 @@ fips,county,state,state_name,lat,lon,land_sq_mi,population,has_data,well_id,well
 40139,Texas County,OK,Oklahoma,36.7463,-101.4839,2041.293,20577,1,USGS-363033101440701,01N-12E-35 BDD 1        Texhoma GW Well,1846,1956-07-26,2025-02-24,68.6,245.9,8.06,8.1,24.2,declining
 48457,Tyler County,TX,Texas,30.7693,-94.3757,924.39,20560,0,,,,,,,,,,,
 17173,Shelby County,IL,Illinois,39.3849,-88.7989,758.508,20542,0,,,,,,,,,,,
-29147,Nodaway County,MO,Missouri,40.3611,-94.8831,876.964,20503,0,,,,,,,,,,,
+29147,Nodaway County,MO,Missouri,40.3611,-94.8831,876.964,20503,1,MO005-403301094492301,Hopkins,47,2007-05-02,2026-03-17,18.9,2.9,0.27,0.3,0.8,stable
 54005,Boone County,WV,West Virginia,38.0228,-81.7135,502.37,20496,0,,,,,,,,,,,
 45011,Barnwell County,SC,South Carolina,33.2606,-81.4342,548.383,20495,1,USGS-331039081184201,BW- 350,60,1987-09-24,2025-09-05,37.9,33,1.58,1.6,4.7,declining
 13183,Long County,GA,Georgia,31.7496,-81.7429,400.399,20439,1,USGS-313845081361701,33M004,350,1967-11-28,2026-09-22,58.8,58.9,1.52,1.5,4.6,declining
@@ -1815,7 +1815,7 @@ fips,county,state,state_name,lat,lon,land_sq_mi,population,has_data,well_id,well
 12041,Gilchrist County,FL,Florida,29.7235,-82.7958,349.695,20233,0,,,,,,,,,,,
 18147,Spencer County,IN,Indiana,38.0097,-87.0104,396.888,20192,0,,,,,,,,,,,
 48051,Burleson County,TX,Texas,30.4935,-96.6221,659.082,20179,0,,,,,,,,,,,
-55119,Taylor County,WI,Wisconsin,45.2117,-90.5049,975.052,20167,0,,,,,,,,,,,
+55119,Taylor County,WI,Wisconsin,45.2117,-90.5049,975.052,20167,1,USGS-450947090483902,TA-31/04W/13-0001,220,1949-01-01,2025-01-07,76,9,-0.05,0,-0.1,stable
 18075,Jay County,IN,Indiana,40.435,-85.0023,383.905,20164,0,,,,,,,,,,,
 13105,Elbert County,GA,Georgia,34.1164,-82.8419,351.105,20152,0,,,,,,,,,,,
 21133,Letcher County,KY,Kentucky,37.1185,-82.8613,337.934,20139,0,,,,,,,,,,,
@@ -1886,15 +1886,15 @@ fips,county,state,state_name,lat,lon,land_sq_mi,population,has_data,well_id,well
 48003,Andrews County,TX,Texas,32.3123,-102.6402,1500.686,18923,0,,,,,,,,,,,
 55113,Sawyer County,WI,Wisconsin,45.865,-91.1471,1257.604,18835,0,,,,,,,,,,,
 06063,Plumas County,CA,California,39.9923,-120.8244,2553.062,18834,0,,,,,,,,,,,
-13025,Brantley County,GA,Georgia,31.1973,-81.983,443.241,18795,0,,,,,,,,,,,
+13025,Brantley County,GA,Georgia,31.1973,-81.983,443.241,18795,1,USGS-311233081573301,30H005,38,1976-01-12,2026-02-04,50.1,29.7,1.07,1.1,3.2,declining
 39125,Paulding County,OH,Ohio,41.1189,-84.5821,416.436,18755,0,,,,,,,,,,,
 35041,Roosevelt County,NM,New Mexico,34.0212,-103.483,2446.051,18713,1,USGS-341322103233001,01S.34E.08.43243,60,1937-01-11,2018-12-18,81.9,80,6.8,6.8,20.4,declining
 27161,Waseca County,MN,Minnesota,44.0185,-93.5898,423.361,18684,0,,,,,,,,,,,
 51570,Colonial Heights city,VA,Virginia,37.2617,-77.3968,7.519,18674,1,USGS-371644077244601,51G 1,1164,1939-10-10,2026-09-04,86.9,15.5,-0.17,-0.2,-0.5,stable
-13001,Appling County,GA,Georgia,31.7397,-82.2901,508.263,18669,0,,,,,,,,,,,
+13001,Appling County,GA,Georgia,31.7397,-82.2901,508.263,18669,1,USGS-314028082220901,27M001,14,1975-07-30,2024-08-21,49.1,138.1,1.9,1.9,5.7,declining
 53055,San Juan County,WA,Washington,48.5072,-123.1038,173.916,18668,0,,,,,,,,,,,
 13019,Berrien County,GA,Georgia,31.2887,-83.2279,453.376,18666,0,,,,,,,,,,,
-51027,Buchanan County,VA,Virginia,37.2681,-82.0382,502.855,18632,0,,,,,,,,,,,
+51027,Buchanan County,VA,Virginia,37.2681,-82.0382,502.855,18632,1,USGS-371841081584201,15G 19 SOW 222,94,2008-10-15,2026-09-02,17.9,19.9,0.05,0,0.1,stable
 20041,Dickinson County,KS,Kansas,38.8677,-97.1579,847.068,18621,0,,,,,,,,,,,
 26079,Kalkaska County,MI,Michigan,44.6789,-85.089,559.744,18618,0,,,,,,,,,,,
 28141,Tishomingo County,MS,Mississippi,34.7388,-88.2348,424.297,18553,0,,,,,,,,,,,
@@ -1959,7 +1959,7 @@ fips,county,state,state_name,lat,lon,land_sq_mi,population,has_data,well_id,well
 46127,Union County,SD,South Dakota,42.8311,-96.6508,460.757,17402,0,,,,,,,,,,,
 08051,Gunnison County,CO,Colorado,38.6705,-107.0569,3239.14,17310,0,,,,,,,,,,,
 51141,Patrick County,VA,Virginia,36.6671,-80.2864,482.957,17308,0,,,,,,,,,,,
-55065,Lafayette County,WI,Wisconsin,42.6556,-90.1303,633.588,17306,0,,,,,,,,,,,
+55065,Lafayette County,WI,Wisconsin,42.6556,-90.1303,633.588,17306,1,USGS-423114090161101,LF-01/02E/33-0057,257,1952-04-25,2026-09-14,74.4,23.9,-15.68,-15.7,-47,rising
 51750,Radford city,VA,Virginia,37.1201,-80.5591,9.676,17273,0,,,,,,,,,,,
 28007,Attala County,MS,Mississippi,33.0905,-89.5886,734.957,17222,0,,,,,,,,,,,
 13159,Jasper County,GA,Georgia,33.317,-83.6892,368.406,17219,0,,,,,,,,,,,
@@ -1967,11 +1967,11 @@ fips,county,state,state_name,lat,lon,land_sq_mi,population,has_data,well_id,well
 19121,Madison County,IA,Iowa,41.3306,-94.0152,561.006,17161,0,,,,,,,,,,,
 54047,McDowell County,WV,West Virginia,37.3828,-81.6582,533.459,17147,0,,,,,,,,,,,
 55103,Richland County,WI,Wisconsin,43.3762,-90.4357,586.15,17123,1,USGS-431840090203201,RI-10/01E/26-0023,508,1957-12-20,2022-07-26,64.6,12.8,-0.38,-0.4,-1.2,stable
-29053,Cooper County,MO,Missouri,38.8471,-92.8101,564.746,17122,0,,,,,,,,,,,
+29053,Cooper County,MO,Missouri,38.8471,-92.8101,564.746,17122,1,MO005-390207092570801,Arrow Rock,90,1962-03-29,2026-09-30,64.5,57.7,0.42,0.4,1.3,stable
 36097,Schuyler County,NY,New York,42.4198,-76.9386,328.343,17121,1,USGS-422710076462901,"Local number, Sy-706, near Burdett NY",133,2003-09-10,2026-07-08,22.8,7.8,0.21,0.2,0.6,stable
 32013,Humboldt County,NV,Nevada,41.4079,-118.1276,9640.792,17116,1,USGS-413400119070001,027  N42 E25 10B   1    USBLM SUMMIT LAKE,14,1954-01-01,2025-09-15,71.7,78.2,0.9,0.9,2.7,declining
 51029,Buckingham County,VA,Virginia,37.5739,-78.5292,579.623,17115,0,,,,,,,,,,,
-47075,Haywood County,TN,Tennessee,35.5867,-89.2827,533.107,17097,0,,,,,,,,,,,
+47075,Haywood County,TN,Tennessee,35.5867,-89.2827,533.107,17097,1,USGS-353525089154101,HA:G-4,13,1957-02-08,2026-03-17,69.1,43.2,-0.6,-0.6,-1.8,rising
 06043,Mariposa County,CA,California,37.5743,-119.9117,1448.84,17048,0,,,,,,,,,,,
 17067,Hancock County,IL,Illinois,40.4013,-91.1688,793.748,17008,0,,,,,,,,,,,
 04012,La Paz County,AZ,Arizona,33.7276,-114.0388,4496.579,16992,1,USGS-333859114291701,B-04-22 36BAB1,130,1961-11-19,2026-09-15,64.8,41.9,1.03,1,3.1,declining
@@ -1989,7 +1989,7 @@ fips,county,state,state_name,lat,lon,land_sq_mi,population,has_data,well_id,well
 28017,Chickasaw County,MS,Mississippi,33.9333,-88.9476,501.782,16774,0,,,,,,,,,,,
 18139,Rush County,IN,Indiana,39.6224,-85.4665,408.137,16759,0,,,,,,,,,,,
 41001,Baker County,OR,Oregon,44.7034,-117.6919,3067.967,16750,0,,,,,,,,,,,
-19171,Tama County,IA,Iowa,42.0748,-92.5294,721.011,16738,0,,,,,,,,,,,
+19171,Tama County,IA,Iowa,42.0748,-92.5294,721.011,16738,1,USGS-415527092190301,082N13W12CBC        1997NAWQA Tama County,14,1997-07-17,2025-06-10,27.9,6.8,0.56,0.6,1.7,declining
 48289,Leon County,TX,Texas,31.3005,-95.9956,1073.156,16698,0,,,,,,,,,,,
 08003,Alamosa County,CO,Colorado,37.5684,-105.788,722.645,16689,1,USGS-374448105445401,NA04001110AAA,206,1946-07-02,2024-02-21,77.6,7.3,0.77,0.8,2.3,declining
 05067,Jackson County,AR,Arkansas,35.5965,-91.2232,633.611,16673,1,USGS-354513091062501,13N01W20AAA1,90,1951-04-16,2026-04-30,75,40.4,5.26,5.3,15.8,declining
@@ -2007,7 +2007,7 @@ fips,county,state,state_name,lat,lon,land_sq_mi,population,has_data,well_id,well
 19041,Clay County,IA,Iowa,43.0812,-95.1499,567.238,16474,0,,,,,,,,,,,
 19083,Hardin County,IA,Iowa,42.3902,-93.2417,569.307,16464,0,,,,,,,,,,,
 54091,Taylor County,WV,West Virginia,39.3325,-80.0466,172.771,16438,0,,,,,,,,,,,
-19095,Iowa County,IA,Iowa,41.6839,-92.0591,586.455,16423,0,,,,,,,,,,,
+19095,Iowa County,IA,Iowa,41.6839,-92.0591,586.455,16423,1,USGS-413248092011301,078N10W21BCD        1997NAWQA Iowa County,14,1997-07-07,2025-06-11,27.9,5.8,-0.61,-0.6,-1.8,rising
 17045,Edgar County,IL,Illinois,39.679,-87.7471,623.324,16398,0,,,,,,,,,,,
 29013,Bates County,MO,Missouri,38.2572,-94.3392,836.696,16394,0,,,,,,,,,,,
 19047,Crawford County,IA,Iowa,42.0431,-95.3891,714.198,16378,1,USGS-420212095235701,083N39W04BBB        2008IACRN-6,143,2008-05-07,2026-09-22,18.4,24.5,0.77,0.8,2.3,declining
@@ -2025,7 +2025,7 @@ fips,county,state,state_name,lat,lon,land_sq_mi,population,has_data,well_id,well
 16047,Gooding County,ID,Idaho,42.9732,-114.8214,729.323,16189,1,USGS-424053114480301,09S 14E 03BAA1,342,1929-07-19,2023-04-05,93.7,78.1,0.97,1,2.9,declining
 47005,Benton County,TN,Tennessee,36.0709,-88.0712,394.306,16173,0,,,,,,,,,,,
 13221,Oglethorpe County,GA,Georgia,33.8668,-83.0741,439.062,16172,0,,,,,,,,,,,
-08049,Grand County,CO,Colorado,40.1131,-106.1108,1846.582,16154,0,,,,,,,,,,,
+08049,Grand County,CO,Colorado,40.1131,-106.1108,1846.582,16154,1,USGS-395648105485300,SC00107519DBD-FRASER VISITOR CENTER,13,1996-08-19,2025-05-15,28.7,1.8,-1.05,-1.1,-3.2,rising
 05141,Van Buren County,AR,Arkansas,35.583,-92.516,709.571,16152,0,,,,,,,,,,,
 40095,Marshall County,OK,Oklahoma,34.027,-96.7705,371.49,16147,0,,,,,,,,,,,
 40117,Pawnee County,OK,Oklahoma,36.3137,-96.6967,568.353,16111,0,,,,,,,,,,,
@@ -2075,7 +2075,7 @@ fips,county,state,state_name,lat,lon,land_sq_mi,population,has_data,well_id,well
 48239,Jackson County,TX,Texas,28.9598,-96.5891,829.443,15284,0,,,,,,,,,,,
 27135,Roseau County,MN,Minnesota,48.7611,-95.8215,1671.739,15265,0,,,,,,,,,,,
 51077,Grayson County,VA,Virginia,36.6522,-81.2153,441.785,15265,0,,,,,,,,,,,
-27127,Redwood County,MN,Minnesota,44.4035,-95.2542,878.573,15254,0,,,,,,,,,,,
+27127,Redwood County,MN,Minnesota,44.4035,-95.2542,878.573,15254,1,USGS-443053094591001,"LS-502    112N34W07CCCCBD01 LS-O01, recorder, LSIC",51,2007-11-01,2026-04-07,18.4,47.1,-3.45,-3.4,-10.3,rising
 46027,Clay County,SD,South Dakota,42.9162,-96.9805,412.022,15245,0,,,,,,,,,,,
 26113,Missaukee County,MI,Michigan,44.3254,-85.0855,564.794,15239,0,,,,,,,,,,,
 29143,New Madrid County,MO,Missouri,36.5943,-89.6559,674.884,15212,1,MO005-362718089552301,Gideon,42,1962-08-21,2026-06-23,63.8,-2.5,-0.89,-0.9,-2.7,rising
@@ -2093,7 +2093,7 @@ fips,county,state,state_name,lat,lon,land_sq_mi,population,has_data,well_id,well
 19145,Page County,IA,Iowa,40.7391,-95.1443,534.944,15038,0,,,,,,,,,,,
 51610,Falls Church city,VA,Virginia,38.8847,-77.1756,2.046,15034,0,,,,,,,,,,,
 37121,Mitchell County,NC,North Carolina,36.0131,-82.1636,221.251,15030,0,,,,,,,,,,,
-29039,Cedar County,MO,Missouri,37.7337,-93.85,474.47,15023,0,,,,,,,,,,,
+29039,Cedar County,MO,Missouri,37.7337,-93.85,474.47,15023,1,MO005-373620093470301,North Hawker Point,49,2008-05-20,2026-04-22,17.9,134.2,4.64,4.6,13.9,declining
 13163,Jefferson County,GA,Georgia,33.0582,-82.42,526.555,15019,0,,,,,,,,,,,
 01129,Washington County,AL,Alabama,31.4085,-88.2124,1080.255,15018,0,,,,,,,,,,,
 19067,Floyd County,IA,Iowa,43.0527,-92.7874,500.571,15008,0,,,,,,,,,,,
@@ -2122,7 +2122,7 @@ fips,county,state,state_name,lat,lon,land_sq_mi,population,has_data,well_id,well
 40035,Craig County,OK,Oklahoma,36.7639,-95.2016,761.264,14506,0,,,,,,,,,,,
 48455,Trinity County,TX,Texas,31.0967,-95.1517,693.857,14489,0,,,,,,,,,,,
 27129,Renville County,MN,Minnesota,44.7237,-94.9556,982.896,14453,0,,,,,,,,,,,
-42057,Fulton County,PA,Pennsylvania,39.9108,-78.1226,437.551,14452,0,,,,,,,,,,,
+42057,Fulton County,PA,Pennsylvania,39.9108,-78.1226,437.551,14452,1,USGS-394755078135001,FU   249   Fulton County Observation Well,211,2001-10-01,2026-07-28,24.8,50.8,0.45,0.5,1.4,stable
 27159,Wadena County,MN,Minnesota,46.587,-94.9886,536.347,14437,0,,,,,,,,,,,
 20011,Bourbon County,KS,Kansas,37.8561,-94.8509,635.461,14424,0,,,,,,,,,,,
 19109,Kossuth County,IA,Iowa,43.2123,-94.214,972.735,14408,0,,,,,,,,,,,
@@ -2188,7 +2188,7 @@ fips,county,state,state_name,lat,lon,land_sq_mi,population,has_data,well_id,well
 39115,Morgan County,OH,Ohio,39.6249,-81.8617,416.426,13532,0,,,,,,,,,,,
 20085,Jackson County,KS,Kansas,39.4111,-95.7945,656.219,13525,0,,,,,,,,,,,
 30035,Glacier County,MT,Montana,48.7057,-112.9905,2995.151,13503,0,,,,,,,,,,,
-29151,Osage County,MO,Missouri,38.4643,-91.8595,606.58,13478,0,,,,,,,,,,,
+29151,Osage County,MO,Missouri,38.4643,-91.8595,606.58,13478,1,MO005-382836091502301,Linn,59,1937-09-01,2026-05-13,88.7,310.4,1.35,1.3,4,declining
 55011,Buffalo County,WI,Wisconsin,44.3856,-91.7613,675.791,13464,0,,,,,,,,,,,
 37143,Perquimans County,NC,North Carolina,36.1809,-76.4032,247.176,13460,0,,,,,,,,,,,
 17053,Ford County,IL,Illinois,40.5965,-88.2246,485.597,13451,0,,,,,,,,,,,
@@ -2231,7 +2231,7 @@ fips,county,state,state_name,lat,lon,land_sq_mi,population,has_data,well_id,well
 29123,Madison County,MO,Missouri,37.4745,-90.3434,494.386,12852,0,,,,,,,,,,,
 17025,Clay County,IL,Illinois,38.7468,-88.4823,468.351,12821,0,,,,,,,,,,,
 21025,Breathitt County,KY,Kentucky,37.5178,-83.3172,492.422,12804,0,,,,,,,,,,,
-30003,Big Horn County,MT,Montana,45.4079,-107.5182,4997.778,12796,0,,,,,,,,,,,
+30003,Big Horn County,MT,Montana,45.4079,-107.5182,4997.778,12796,1,USGS-452429106435201,05S40E13ADAB01 NC02-4,47,2002-12-11,2021-07-15,18.6,199.5,0.05,0.1,0.2,stable
 05137,Stone County,AR,Arkansas,35.857,-92.1405,606.44,12785,1,USGS-355927092122401,16N12W25DCB1 Webb Cabin,113,1998-03-30,2026-08-05,28.4,66.7,-0.57,-0.6,-1.7,rising
 16085,Valley County,ID,Idaho,44.856,-115.6181,3665.12,12777,0,,,,,,,,,,,
 21219,Todd County,KY,Kentucky,36.8403,-87.1836,374.518,12757,0,,,,,,,,,,,
@@ -2310,7 +2310,7 @@ fips,county,state,state_name,lat,lon,land_sq_mi,population,has_data,well_id,well
 01119,Sumter County,AL,Alabama,32.5975,-88.2001,903.826,11607,0,,,,,,,,,,,
 48445,Terry County,TX,Texas,33.1712,-102.3393,888.852,11602,0,,,,,,,,,,,
 27071,Koochiching County,MN,Minnesota,48.2454,-93.7829,3104.706,11594,0,,,,,,,,,,,
-17123,Marshall County,IL,Illinois,41.0311,-89.3424,386.822,11552,0,,,,,,,,,,,
+17123,Marshall County,IL,Illinois,41.0311,-89.3424,386.822,11552,1,USGS-410025089081001,29N 1E- 5.5e1,10,1987-05-05,2019-10-01,32.4,146,-32.14,-32.1,-96.4,rising
 21087,Green County,KY,Kentucky,37.2781,-85.5379,285.963,11552,0,,,,,,,,,,,
 54089,Summers County,WV,West Virginia,37.656,-80.8563,360.594,11544,0,,,,,,,,,,,
 16087,Washington County,ID,Idaho,44.4482,-116.7978,1452.855,11539,0,,,,,,,,,,,
@@ -2333,7 +2333,7 @@ fips,county,state,state_name,lat,lon,land_sq_mi,population,has_data,well_id,well
 51081,Greensville County,VA,Virginia,36.6803,-77.5603,295.377,11150,0,,,,,,,,,,,
 26097,Mackinac County,MI,Michigan,46.1679,-85.3038,1021.879,11144,0,,,,,,,,,,,
 08105,Rio Grande County,CO,Colorado,37.4859,-106.4531,911.956,11132,1,USGS-374210106053001,NA04000815CCC  RG37-1,480,1968-01-15,2024-09-05,56.6,39.6,7.37,7.4,22.1,declining
-13043,Candler County,GA,Georgia,32.404,-82.0713,243.063,11130,0,,,,,,,,,,,
+13043,Candler County,GA,Georgia,32.404,-82.0713,243.063,11130,1,USGS-322958082023801,29T009,14,1965-10-01,2016-11-19,51.1,155.2,10.51,10.5,31.5,declining
 21153,Magoffin County,KY,Kentucky,37.699,-83.0697,308.443,11118,0,,,,,,,,,,,
 21041,Carroll County,KY,Kentucky,38.6684,-85.124,128.7,11111,1,USGS-384027085105201,BARRY BROWN,20,1994-11-07,2022-09-21,27.9,58.9,1.03,1,3.1,declining
 01035,Conecuh County,AL,Alabama,31.4309,-86.9887,850.279,11109,0,,,,,,,,,,,
@@ -2359,9 +2359,9 @@ fips,county,state,state_name,lat,lon,land_sq_mi,population,has_data,well_id,well
 40127,Pushmataha County,OK,Oklahoma,34.3779,-95.4081,1395.589,10800,0,,,,,,,,,,,
 38003,Barnes County,ND,North Dakota,46.9425,-98.0702,1491.559,10798,0,,,,,,,,,,,
 19077,Guthrie County,IA,Iowa,41.6836,-94.5013,590.614,10774,0,,,,,,,,,,,
-51183,Sussex County,VA,Virginia,36.9266,-77.2597,490.244,10753,0,,,,,,,,,,,
+51183,Sussex County,VA,Virginia,36.9266,-77.2597,490.244,10753,1,USGS-365235077150501,53E  5 SOW 045,195,1971-09-16,2026-07-01,54.8,92.7,1.52,1.5,4.5,declining
 48077,Clay County,TX,Texas,33.7859,-98.2129,1088.76,10730,0,,,,,,,,,,,
-29181,Ripley County,MO,Missouri,36.6502,-90.8748,629.516,10715,0,,,,,,,,,,,
+29181,Ripley County,MO,Missouri,36.6502,-90.8748,629.516,10715,1,MO005-363442090364301,Naylor,152,1964-07-13,2026-06-23,61.9,12.3,-0.07,-0.1,-0.2,stable
 31013,Box Butte County,NE,Nebraska,42.2104,-103.0818,1075.233,10703,1,USGS-420650102522201,25N 48W25ACC 1,92,1946-03-07,2025-03-19,79,119,4.15,4.1,12.4,declining
 27075,Lake County,MN,Minnesota,47.5171,-91.4117,2109.108,10698,0,,,,,,,,,,,
 21159,Martin County,KY,Kentucky,37.7968,-82.5066,229.644,10696,0,,,,,,,,,,,
@@ -2399,7 +2399,7 @@ fips,county,state,state_name,lat,lon,land_sq_mi,population,has_data,well_id,well
 48425,Somervell County,TX,Texas,32.2181,-97.7692,186.207,10098,0,,,,,,,,,,,
 19137,Montgomery County,IA,Iowa,41.0217,-95.1578,424.097,10063,1,USGS-410057095075101,072N37W29BABA       1937IACRN-7,953,1937-06-24,2018-03-14,80.7,19.4,-1,-1,-3,rising
 20131,Nemaha County,KS,Kansas,39.791,-96.0054,717.427,10062,0,,,,,,,,,,,
-51049,Cumberland County,VA,Virginia,37.5202,-78.2528,297.474,10062,0,,,,,,,,,,,
+51049,Cumberland County,VA,Virginia,37.5202,-78.2528,297.474,10062,1,USGS-373146078161201,44J  1 SOW 227,72,2008-06-24,2026-07-31,18.1,34.6,-1.28,-1.3,-3.8,rising
 48403,Sabine County,TX,Texas,31.3433,-93.8519,491.71,10058,0,,,,,,,,,,,
 08125,Yuma County,CO,Colorado,40.0008,-102.4216,2364.399,10048,1,USGS-393756102052800,SC00504208DCC,46,1950-07-17,2017-02-01,66.5,23.1,1.04,1,3.1,declining
 28155,Webster County,MS,Mississippi,33.6121,-89.284,421.158,10039,0,,,,,,,,,,,
@@ -2415,7 +2415,7 @@ fips,county,state,state_name,lat,lon,land_sq_mi,population,has_data,well_id,well
 31179,Wayne County,NE,Nebraska,42.2107,-97.1262,442.916,9870,1,USGS-421601097151001,27N  1E36DD  1,112,1950-08-15,2025-04-11,74.7,4.4,-1.41,-1.4,-4.2,rising
 01131,Wilcox County,AL,Alabama,31.9901,-87.3049,887.858,9865,0,,,,,,,,,,,
 18101,Martin County,IN,Indiana,38.7053,-86.8018,335.761,9864,0,,,,,,,,,,,
-27063,Jackson County,MN,Minnesota,43.6711,-95.1497,702.972,9861,0,,,,,,,,,,,
+27063,Jackson County,MN,Minnesota,43.6711,-95.1497,702.972,9861,1,USGS-435014095060201,D21       104N36W01DBDDDD01             0000612771,25,1998-06-12,2016-09-20,18.3,8.6,-0.22,-0.2,-0.7,stable
 19107,Keokuk County,IA,Iowa,41.3312,-92.1677,579.175,9855,0,,,,,,,,,,,
 29111,Lewis County,MO,Missouri,40.0846,-91.7288,505.018,9852,1,MO005-401057091494501,Deer Ridge Wildlife Area,43,2009-04-01,2026-05-27,17.2,62.7,-0.65,-0.7,-2,rising
 29185,St. Clair County,MO,Missouri,38.0422,-93.7766,674.981,9848,1,MO005-380229093464701,Osceola,89,1958-10-14,2026-04-22,67.5,98.7,-1.92,-1.9,-5.8,rising
@@ -2458,7 +2458,7 @@ fips,county,state,state_name,lat,lon,land_sq_mi,population,has_data,well_id,well
 28097,Montgomery County,MS,Mississippi,33.5007,-89.6396,406.981,9411,1,USGS-334039089363401,097B0015  MONTGOMERY,10,2010-10-01,2026-04-01,15.5,12,-0.12,-0.1,-0.4,stable
 04011,Greenlee County,AZ,Arizona,33.2389,-109.2423,1842.838,9410,0,,,,,,,,,,,
 48237,Jack County,TX,Texas,33.2323,-98.1711,910.972,9398,0,,,,,,,,,,,
-22021,Caldwell Parish,LA,Louisiana,32.1012,-92.1142,529.77,9393,0,,,,,,,,,,,
+22021,Caldwell Parish,LA,Louisiana,32.1012,-92.1142,529.77,9393,1,USGS-320154092164602,Ca-86A,159,1974-10-21,2026-08-13,51.8,57,1.11,1.1,3.3,declining
 28015,Carroll County,MS,Mississippi,33.4408,-89.9189,628.388,9378,1,USGS-332342090082201,015G0057 CARROLL,162,1979-03-01,2026-03-25,47.1,4.9,0.14,0.1,0.4,stable
 27173,Yellow Medicine County,MN,Minnesota,44.7157,-95.8628,759.101,9373,0,,,,,,,,,,,
 19089,Howard County,IA,Iowa,43.3653,-92.3219,473.247,9360,0,,,,,,,,,,,
@@ -2499,7 +2499,7 @@ fips,county,state,state_name,lat,lon,land_sq_mi,population,has_data,well_id,well
 56035,Sublette County,WY,Wyoming,42.7679,-109.9162,4886.482,8965,0,,,,,,,,,,,
 31039,Cuming County,NE,Nebraska,41.9159,-96.7885,570.49,8952,1,USGS-420137097000801,24N  4E30AD  1,94,1950-04-05,2025-04-13,75,8.3,-0.6,-0.6,-1.8,rising
 13315,Wilcox County,GA,Georgia,31.9627,-83.4383,377.811,8904,0,,,,,,,,,,,
-29137,Monroe County,MO,Missouri,39.4983,-92.0065,647.64,8890,0,,,,,,,,,,,
+29137,Monroe County,MO,Missouri,39.4983,-92.0065,647.64,8890,1,MO005-392813092124701,Madison,13,1979-06-19,2026-05-26,46.9,131.8,-8.97,-9,-26.9,rising
 18007,Benton County,IN,Indiana,40.6009,-87.3148,406.415,8853,0,,,,,,,,,,,
 13165,Jenkins County,GA,Georgia,32.7946,-81.9715,347.378,8836,1,USGS-325227081571201,30W002,13,1939-05-18,2016-11-21,77.5,68.2,1.71,1.7,5.1,declining
 21139,Livingston County,KY,Kentucky,37.2095,-88.3634,312.961,8815,0,,,,,,,,,,,
@@ -2529,7 +2529,7 @@ fips,county,state,state_name,lat,lon,land_sq_mi,population,has_data,well_id,well
 13209,Montgomery County,GA,Georgia,32.1721,-82.5333,241.145,8566,0,,,,,,,,,,,
 28069,Kemper County,MS,Mississippi,32.7501,-88.6256,766.182,8562,0,,,,,,,,,,,
 13053,Chattahoochee County,GA,Georgia,32.3474,-84.788,248.737,8548,1,USGS-322036084590301,06S001,160,1950-05-11,2026-09-09,76.3,54,6.56,6.6,19.7,declining
-29061,Daviess County,MO,Missouri,39.9628,-93.9701,563.282,8541,0,,,,,,,,,,,
+29061,Daviess County,MO,Missouri,39.9628,-93.9701,563.282,8541,1,MO005-400458093582001,Coffey,52,2001-12-19,2026-09-22,24.8,134.4,-0.48,-0.5,-1.4,stable
 47083,Houston County,TN,Tennessee,36.2858,-87.7056,200.294,8538,0,,,,,,,,,,,
 32033,White Pine County,NV,Nevada,39.4182,-114.9006,8886.665,8534,1,USGS-393310114475001,179  N20 E64 32CDAA2    USGS,562,1918-06-24,2025-12-10,107.5,13.2,-0.5,-0.5,-1.5,stable
 49025,Kane County,UT,Utah,37.2751,-111.8153,3994.14,8525,1,USGS-370050112274501,(C-44- 5) 6cbb- 1,125,1935-09-10,2026-03-16,90.5,52.1,-0.67,-0.7,-2,rising
@@ -2603,7 +2603,7 @@ fips,county,state,state_name,lat,lon,land_sq_mi,population,has_data,well_id,well
 13197,Marion County,GA,Georgia,32.3593,-84.5287,365.721,7635,0,,,,,,,,,,,
 21007,Ballard County,KY,Kentucky,37.0513,-89.0104,247.095,7626,0,,,,,,,,,,,
 29057,Dade County,MO,Missouri,37.4323,-93.8549,490.01,7622,1,USGS-372354093545501,MODA-19,12,2002-05-18,2023-03-28,20.9,46.5,1.94,1.9,5.8,declining
-46051,Grant County,SD,South Dakota,45.1726,-96.7723,681.446,7618,0,,,,,,,,,,,
+46051,Grant County,SD,South Dakota,45.1726,-96.7723,681.446,7618,1,USGS-451848096363501,121N47W06CCCC (Milbank well),373,1979-10-25,2026-10-07,47,25.8,-2.76,-2.8,-8.3,rising
 54017,Doddridge County,WV,West Virginia,39.2643,-80.7115,319.723,7615,0,,,,,,,,,,,
 48501,Yoakum County,TX,Texas,33.1623,-102.8322,799.715,7581,0,,,,,,,,,,,
 20043,Doniphan County,KS,Kansas,39.7885,-95.1472,393.475,7575,0,,,,,,,,,,,
@@ -2636,7 +2636,7 @@ fips,county,state,state_name,lat,lon,land_sq_mi,population,has_data,well_id,well
 02240,Southeast Fairbanks Census Area,AK,Alaska,63.865,-143.2186,24839.23,7313,0,,,,,,,,,,,
 21129,Lee County,KY,Kentucky,37.6081,-83.7192,208.821,7313,0,,,,,,,,,,,
 19195,Worth County,IA,Iowa,43.3735,-93.2485,400.123,7307,0,,,,,,,,,,,
-29203,Shannon County,MO,Missouri,37.1525,-91.3913,1003.82,7275,0,,,,,,,,,,,
+29203,Shannon County,MO,Missouri,37.1525,-91.3913,1003.82,7275,1,MO005-372153091322301,Akers,54,2001-08-01,2026-07-22,25,65.4,-1.27,-1.3,-3.8,rising
 21063,Elliott County,KY,Kentucky,38.1169,-83.0961,234.321,7263,0,,,,,,,,,,,
 16029,Caribou County,ID,Idaho,42.7861,-111.5443,1764.194,7239,1,USGS-424213111530701,08S 39E 27ACB1,7,1967-08-25,2023-04-03,55.6,120.8,1.3,1.3,3.9,declining
 22081,Red River Parish,LA,Louisiana,32.1012,-93.3491,388.98,7238,1,USGS-315743093204601,RR-210,1457,1971-11-03,2026-09-01,54.8,12.9,-2.5,-2.5,-7.5,rising
@@ -2654,7 +2654,7 @@ fips,county,state,state_name,lat,lon,land_sq_mi,population,has_data,well_id,well
 08063,Kit Carson County,CO,Colorado,39.3053,-102.603,2160.822,7080,1,USGS-392920103020000,SC00605031BAA,66,1947-09-01,2017-02-21,69.5,169.1,1.39,1.4,4.2,declining
 13309,Wheeler County,GA,Georgia,32.1053,-82.7338,295.493,7076,0,,,,,,,,,,,
 46009,Bon Homme County,SD,South Dakota,42.9857,-97.8842,563.549,7071,0,,,,,,,,,,,
-31127,Nemaha County,NE,Nebraska,40.3872,-95.8525,407.301,7046,0,,,,,,,,,,,
+31127,Nemaha County,NE,Nebraska,40.3872,-95.8525,407.301,7046,1,USGS-403017095561101,6N 13E10AA  1,91,1962-10-30,2025-03-31,62.4,14.5,0.39,0.4,1.2,stable
 47067,Hancock County,TN,Tennessee,36.5214,-83.2275,222.324,7038,0,,,,,,,,,,,
 48017,Bailey County,TX,Texas,34.0675,-102.8303,826.972,7031,0,,,,,,,,,,,
 05101,Newton County,AR,Arkansas,35.9107,-93.2159,821.076,7026,0,,,,,,,,,,,
@@ -2736,8 +2736,8 @@ fips,county,state,state_name,lat,lon,land_sq_mi,population,has_data,well_id,well
 48305,Lynn County,TX,Texas,33.1784,-101.8185,891.867,5952,0,,,,,,,,,,,
 54071,Pendleton County,WV,West Virginia,38.6745,-79.3406,696.05,5944,0,,,,,,,,,,,
 29179,Reynolds County,MO,Missouri,37.3665,-90.9723,808.477,5927,0,,,,,,,,,,,
-42113,Sullivan County,PA,Pennsylvania,41.4393,-76.5117,449.939,5927,0,,,,,,,,,,,
-29205,Shelby County,MO,Missouri,39.7975,-92.0887,500.863,5926,0,,,,,,,,,,,
+42113,Sullivan County,PA,Pennsylvania,41.4393,-76.5117,449.939,5927,1,USGS-413026076352901,SU    34 Sullivan County Observation Well,259,1965-03-01,2026-09-24,61.6,28,-0.02,0,-0.1,stable
+29205,Shelby County,MO,Missouri,39.7975,-92.0887,500.863,5926,1,MO005-394156092030201,Shelbina,72,2001-09-12,2026-06-09,24.7,29.7,0.85,0.8,2.5,declining
 30015,Chouteau County,MT,Montana,47.8868,-110.4362,3972.52,5880,0,,,,,,,,,,,
 54013,Calhoun County,WV,West Virginia,38.8442,-81.1155,279.263,5873,0,,,,,,,,,,,
 20073,Greenwood County,KS,Kansas,37.8793,-96.2417,1143.304,5871,0,,,,,,,,,,,
@@ -2789,7 +2789,7 @@ fips,county,state,state_name,lat,lon,land_sq_mi,population,has_data,well_id,well
 46037,Day County,SD,South Dakota,45.3552,-97.5814,1028.49,5408,0,,,,,,,,,,,
 51595,Emporia city,VA,Virginia,36.6962,-77.536,6.629,5402,0,,,,,,,,,,,
 40067,Jefferson County,OK,Oklahoma,34.1051,-97.8389,758.956,5374,0,,,,,,,,,,,
-29035,Carter County,MO,Missouri,36.9449,-90.9457,507.359,5359,0,,,,,,,,,,,
+29035,Carter County,MO,Missouri,36.9449,-90.9457,507.359,5359,1,MO005-365654091001301,Big Spring MODNR Well,68,2000-05-31,2026-07-21,26.1,18.6,-1.36,-1.4,-4.1,rising
 31011,Boone County,NE,Nebraska,41.7039,-98.0705,686.53,5354,1,USGS-413220098080901,18N  7W16BBBA1,104,1954-05-08,2025-03-18,70.9,40.6,-0.08,-0.1,-0.2,stable
 20137,Norton County,KS,Kansas,39.7839,-99.8992,878.044,5335,0,,,,,,,,,,,
 46041,Dewey County,SD,South Dakota,45.148,-100.838,2302.376,5322,0,,,,,,,,,,,
@@ -2861,7 +2861,7 @@ fips,county,state,state_name,lat,lon,land_sq_mi,population,has_data,well_id,well
 48267,Kimble County,TX,Texas,30.4795,-99.7464,1250.98,4401,0,,,,,,,,,,,
 46091,Marshall County,SD,South Dakota,45.737,-97.5809,838.085,4395,0,,,,,,,,,,,
 21105,Hickman County,KY,Kentucky,36.6759,-88.9721,242.331,4393,0,,,,,,,,,,,
-35019,Guadalupe County,NM,New Mexico,34.8697,-104.7849,3029.772,4385,0,,,,,,,,,,,
+35019,Guadalupe County,NM,New Mexico,34.8697,-104.7849,3029.772,4385,1,USGS-352426103284402,14N.33E.30.314442 430,17,1963-05-11,2026-03-05,62.8,70.9,0.12,0.1,0.4,stable
 42023,Cameron County,PA,Pennsylvania,41.4383,-78.1983,396.234,4348,0,,,,,,,,,,,
 32017,Lincoln County,NV,Nevada,37.6346,-114.863,10633.386,4345,1,USGS-374256115485501,170  S03 E55 05BDDD1    USBLM BLACK ROCK,35,1948-05-05,2023-11-12,75.5,0,-3.71,-3.7,-11.1,rising
 46039,Deuel County,SD,South Dakota,44.7563,-96.6902,622.739,4335,0,,,,,,,,,,,
@@ -2893,7 +2893,7 @@ fips,county,state,state_name,lat,lon,land_sq_mi,population,has_data,well_id,well
 20119,Meade County,KS,Kansas,37.2439,-100.3601,978.083,3892,0,,,,,,,,,,,
 27125,Red Lake County,MN,Minnesota,47.8655,-96.0872,432.407,3882,0,,,,,,,,,,,
 38069,Pierce County,ND,North Dakota,48.2389,-99.9665,1018.285,3853,1,USGS-482033099594901,156-073-12CCC,267,1967-11-02,2021-07-15,53.7,2.9,-1.04,-1,-3.1,rising
-22107,Tensas Parish,LA,Louisiana,32.0015,-91.3426,603.302,3844,0,,,,,,,,,,,
+22107,Tensas Parish,LA,Louisiana,32.0015,-91.3426,603.302,3844,1,USGS-315646091135601,Ts-70,17,1984-10-25,2025-04-14,40.5,7.7,-1.08,-1.1,-3.3,rising
 20093,Kearny County,KS,Kansas,37.9945,-101.3081,870.543,3808,0,,,,,,,,,,,
 38103,Wells County,ND,North Dakota,47.5809,-99.6822,1270.535,3803,0,,,,,,,,,,,
 27077,Lake of the Woods County,MN,Minnesota,48.7681,-94.9046,1297.653,3797,0,,,,,,,,,,,
@@ -2911,7 +2911,7 @@ fips,county,state,state_name,lat,lon,land_sq_mi,population,has_data,well_id,well
 08023,Costilla County,CO,Colorado,37.2775,-105.4289,1227.593,3686,1,USGS-372141105281101,CC03107207DDA,209,1944-01-01,2026-03-12,82.2,40.6,6.25,6.3,18.8,declining
 48151,Fisher County,TX,Texas,32.7405,-100.4031,898.951,3665,0,,,,,,,,,,,
 02013,Aleutians East Borough,AK,Alaska,55.245,-161.9975,6985.375,3632,0,,,,,,,,,,,
-48229,Hudspeth County,TX,Texas,31.4509,-105.3775,4570.517,3608,0,,,,,,,,,,,
+48229,Hudspeth County,TX,Texas,31.4509,-105.3775,4570.517,3608,1,USGS-320008105064501,26S.18E.33.133,66,1956-02-15,2018-01-26,61.9,73.4,5.8,5.8,17.4,declining
 19003,Adams County,IA,Iowa,41.0217,-94.6969,423.433,3606,0,,,,,,,,,,,
 30039,Granite County,MT,Montana,46.396,-113.4274,1727.162,3602,0,,,,,,,,,,,
 40045,Ellis County,OK,Oklahoma,36.2243,-99.7501,1231.477,3601,1,USGS-362450099383101,22N-23W-03 ADD 1,43,1979-04-14,2017-09-18,38.4,13.8,0.07,0.1,0.2,stable
@@ -2956,7 +2956,7 @@ fips,county,state,state_name,lat,lon,land_sq_mi,population,has_data,well_id,well
 31083,Harlan County,NE,Nebraska,40.1788,-99.4034,553.466,3018,1,USGS-402054099164601,4N 17W 6AB  1,11,1952-08-01,2025-03-26,72.6,184.7,-1.27,-1.3,-3.8,rising
 46117,Stanley County,SD,South Dakota,44.414,-100.7478,1444.436,3015,0,,,,,,,,,,,
 13125,Glascock County,GA,Georgia,33.2275,-82.6069,143.746,3008,0,,,,,,,,,,,
-38063,Nelson County,ND,North Dakota,47.9187,-98.2044,981.815,3007,0,,,,,,,,,,,
+38063,Nelson County,ND,North Dakota,47.9187,-98.2044,981.815,3007,1,USGS-480138098074101,153-058-32DBB,231,1948-07-24,2021-07-28,73,8.5,-3.55,-3.5,-10.6,rising
 31163,Sherman County,NE,Nebraska,41.2187,-98.9728,565.877,2949,1,USGS-412227099061501,16N 16W12BC  1,100,1949-08-29,2025-03-26,75.6,38,0.07,0.1,0.2,stable
 30025,Fallon County,MT,Montana,46.3182,-104.4057,1620.595,2946,0,,,,,,,,,,,
 20105,Lincoln County,KS,Kansas,39.0472,-98.2144,719.4,2928,0,,,,,,,,,,,
@@ -3028,7 +3028,7 @@ fips,county,state,state_name,lat,lon,land_sq_mi,population,has_data,well_id,well
 31077,Greeley County,NE,Nebraska,41.5676,-98.5306,569.826,2197,1,USGS-412613098283601,17N 10W21BAB 1,102,1954-11-17,2025-03-21,70.3,37.6,-2.79,-2.8,-8.4,rising
 26083,Keweenaw County,MI,Michigan,47.3673,-88.3513,540.112,2161,0,,,,,,,,,,,
 38013,Burke County,ND,North Dakota,48.7865,-102.5201,1103.619,2154,1,USGS-485618102455401,163-093-17DDD,175,1967-06-01,2021-06-16,54,12.1,-0.87,-0.9,-2.6,rising
-38001,Adams County,ND,North Dakota,46.0968,-102.5332,987.547,2141,0,,,,,,,,,,,
+38001,Adams County,ND,North Dakota,46.0968,-102.5332,987.547,2141,1,USGS-461614102515203,132-097-07CAB3,228,1971-08-11,2021-07-13,49.9,13.3,-0.42,-0.4,-1.3,stable
 46049,Faulk County,SD,South Dakota,45.0655,-99.1536,981.713,2136,0,,,,,,,,,,,
 40025,Cimarron County,OK,Oklahoma,36.7484,-102.5177,1834.808,2133,1,USGS-363730102142001,02N-08E-19 DBB 1,35,1967-01-25,2017-09-12,50.6,267.7,7.69,7.7,23.1,declining
 38023,Divide County,ND,North Dakota,48.8148,-103.5093,1261.13,2124,1,USGS-485432103151701,163-097-34ABB,285,1972-01-11,2020-10-08,48.7,-12.1,2.2,2.2,6.6,declining
@@ -3060,7 +3060,7 @@ fips,county,state,state_name,lat,lon,land_sq_mi,population,has_data,well_id,well
 38033,Golden Valley County,ND,North Dakota,46.9389,-103.8446,1000.887,1795,1,USGS-465421103590706,140-105-30CCC6,200,1985-03-11,2021-05-04,36.1,325.9,-4.04,-4,-12.1,rising
 48243,Jeff Davis County,TX,Texas,30.6254,-104.1919,2264.556,1778,0,,,,,,,,,,,
 38091,Steele County,ND,North Dakota,47.4511,-97.7189,712.143,1767,1,USGS-472024097315201,145-054-27CDC,317,1970-08-05,2021-07-12,50.9,76.7,0.11,0.1,0.3,stable
-30075,Powder River County,MT,Montana,45.4089,-105.5553,3298.196,1734,0,,,,,,,,,,,
+30075,Powder River County,MT,Montana,45.4089,-105.5553,3298.196,1734,1,USGS-453107106110601,04S45E04BDDB01 Otter,210,1979-12-07,2018-08-22,38.7,7.2,-0.48,-0.5,-1.4,stable
 48125,Dickens County,TX,Texas,33.6154,-100.7876,901.724,1725,0,,,,,,,,,,,
 30055,McCone County,MT,Montana,47.6296,-105.7572,2642.225,1717,1,USGS-480034105195401,26N49E13ACAB01 Wolf Point,120,1982-05-04,2026-08-12,44.3,43.8,-0.19,-0.2,-0.6,stable
 08017,Cheyenne County,CO,Colorado,38.8356,-102.6018,1778.276,1712,1,USGS-384350102052000,SC01504223BCC,44,1959-08-05,2017-03-14,57.6,207.5,0.08,0.1,0.2,stable
@@ -3153,7 +3153,7 @@ fips,county,state,state_name,lat,lon,land_sq_mi,population,has_data,well_id,well
 72015,Arroyo Municipio,PR,,17.9721,-66.0419,15.009,,0,,,,,,,,,,,
 72017,Barceloneta Municipio,PR,,18.47,-66.5582,18.684,,1,USGS-182603066333601,"FLORIDA AFUERA 2 WELL, BARCELONETA, PR",247,1972-11-06,2026-10-16,53.9,204.2,0.76,0.8,2.3,declining
 72019,Barranquitas Municipio,PR,,18.2,-66.3093,34.253,,0,,,,,,,,,,,
-72021,Bayamón Municipio,PR,,18.3494,-66.1686,44.439,,0,,,,,,,,,,,
+72021,Bayamón Municipio,PR,,18.3494,-66.1686,44.439,,1,USGS-182441066082600,"BUCHANAN PARK WELL, BAYAMON, PR",402,1985-12-20,2026-10-02,40.8,44.9,-1.84,-1.8,-5.5,rising
 72023,Cabo Rojo Municipio,PR,,17.9971,-67.1809,70.365,,1,USGS-180542067084000,"CABO ROJO P1 WELL, CABO ROJO, PR",220,1996-04-04,2026-09-01,30.4,19.4,-3.74,-3.7,-11.2,rising
 72025,Caguas Municipio,PR,,18.2111,-66.051,58.604,,1,USGS-181352066025300,"PIEZOMETER CAGUAS-JUNCOS 19A, CAGUAS, PR",326,1989-09-26,2026-10-20,37.1,23.8,-0.53,-0.5,-1.6,rising
 72027,Camuy Municipio,PR,,18.4455,-66.8631,46.432,,1,USGS-182723066511200,"ZANJA 4 WELL, CAMUY, PR",292,1976-08-01,2026-09-29,50.2,335.2,7.12,7.1,21.4,declining
