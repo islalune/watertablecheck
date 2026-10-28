@@ -380,7 +380,7 @@ fips,county,state,state_name,lat,lon,land_sq_mi,population,has_data,well_id,well
 51700,Newport News city,VA,Virginia,37.0761,-76.522,68.996,183056,1,USGS-371027076335601,58F  1 SOW 002,332,1968-01-01,2026-09-03,58.7,103.6,10.65,10.7,32,declining
 37001,Alamance County,NC,North Carolina,36.044,-79.4006,423.465,183040,0,,,,,,,,,,,
 36111,Ulster County,NY,New York,41.9472,-74.2655,1124.236,182977,1,USGS-414615074201501,U1044,55,1962-06-11,2026-08-17,64.2,-1.9,-1.62,-1.6,-4.8,rising
-40017,Canadian County,OK,Oklahoma,35.5434,-97.9799,896.579,181760,0,,,,,,,,,,,
+40017,Canadian County,OK,Oklahoma,35.5434,-97.9799,896.579,181760,1,USGS-353531097583801,13N-07W-19 AADD 1,6,1994-02-01,2020-10-09,26.7,9.3,0.42,0.4,1.2,stable
 06025,Imperial County,CA,California,33.0408,-115.3554,4175.453,181724,1,USGS-324345116010001,016S009E35M001S,63,1962-07-01,2026-03-31,63.7,345.2,-1.3,-1.3,-3.9,rising
 06089,Shasta County,CA,California,40.7605,-122.0436,3775.651,181121,0,,,,,,,,,,,
 37147,Pitt County,NC,North Carolina,35.5925,-77.3727,652.366,180783,1,USGS-353219077153801,"PI-532 NC-160 NR SIMPSON, NC SURFICIAL",224,1994-09-07,2026-10-22,32.1,8.4,-0.13,-0.1,-0.4,stable
@@ -1490,7 +1490,7 @@ fips,county,state,state_name,lat,lon,land_sq_mi,population,has_data,well_id,well
 55069,Lincoln County,WI,Wisconsin,45.3331,-89.7322,878.778,28461,0,,,,,,,,,,,
 29207,Stoddard County,MO,Missouri,36.8516,-89.9475,823.142,28438,0,,,,,,,,,,,
 22121,West Baton Rouge Parish,LA,Louisiana,30.4641,-91.3098,192.346,28425,1,USGS-302732091121901,WBR-5,1101,1943-02-24,2025-05-23,82.2,128.4,9.2,9.2,27.6,declining
-29127,Marion County,MO,Missouri,39.8075,-91.6354,436.931,28425,0,,,,,,,,,,,
+29127,Marion County,MO,Missouri,39.8075,-91.6354,436.931,28425,1,MO005-395043091262601,Hannibal,97,1957-05-22,2026-05-27,69,20.9,-0.42,-0.4,-1.3,stable
 28011,Bolivar County,MS,Mississippi,33.7991,-90.8841,876.507,28395,1,USGS-334957090564301,011F0020 BOLIVAR,242,1953-11-01,2026-04-06,72.4,31.8,2.33,2.3,7,declining
 24023,Garrett County,MD,Maryland,39.5473,-79.2746,649.077,28393,1,USGS-393749079190301,GA Bc 1,838,1949-08-12,2026-10-22,77.2,13.7,-0.23,-0.2,-0.7,stable
 45067,Marion County,SC,South Carolina,34.0836,-79.354,489.372,28368,0,,,,,,,,,,,
@@ -2294,10 +2294,10 @@ fips,county,state,state_name,lat,lon,land_sq_mi,population,has_data,well_id,well
 19165,Shelby County,IA,Iowa,41.679,-95.3089,590.776,11821,0,,,,,,,,,,,
 18009,Blackford County,IN,Indiana,40.4727,-85.3237,165.082,11816,0,,,,,,,,,,,
 40061,Haskell County,OK,Oklahoma,35.2324,-95.1096,576.725,11811,0,,,,,,,,,,,
-13191,McIntosh County,GA,Georgia,31.4856,-81.3721,431.347,11800,0,,,,,,,,,,,
+13191,McIntosh County,GA,Georgia,31.4856,-81.3721,431.347,11800,1,USGS-312531081292001,34K082,29,1966-12-02,2026-02-05,59.2,6.9,2.73,2.7,8.2,declining
 47039,Decatur County,TN,Tennessee,35.6031,-88.1103,333.879,11800,0,,,,,,,,,,,
 48115,Dawson County,TX,Texas,32.7425,-101.9488,900.309,11758,0,,,,,,,,,,,
-29133,Mississippi County,MO,Missouri,36.8263,-89.2959,411.596,11750,0,,,,,,,,,,,
+29133,Mississippi County,MO,Missouri,36.8263,-89.2959,411.596,11750,1,MO005-364643089212301,East Prairie,89,1956-10-15,2026-06-24,69.7,10.1,0.05,0.1,0.2,stable
 19037,Chickasaw County,IA,Iowa,43.0597,-92.3172,504.324,11719,0,,,,,,,,,,,
 29011,Barton County,MO,Missouri,37.5009,-94.3441,592.03,11717,1,MO005-372338094052801,Golden City,56,1937-01-01,2026-02-17,89.1,393.5,29.62,29.6,88.8,declining
 26071,Iron County,MI,Michigan,46.1703,-88.5405,1166.116,11709,1,USGS-460308088130601,42N 31W 08BCD 01,7,1978-06-11,2021-09-13,43.3,30.9,0.7,0.7,2.1,declining
@@ -3039,7 +3039,7 @@ fips,county,state,state_name,lat,lon,land_sq_mi,population,has_data,well_id,well
 30059,Meagher County,MT,Montana,46.5857,-110.9217,2391.868,2065,0,,,,,,,,,,,
 02275,Wrangell City and Borough,AK,Alaska,56.1808,-132.0268,2556.105,2064,0,,,,,,,,,,,
 30107,Wheatland County,MT,Montana,46.497,-109.8577,1422.481,2058,0,,,,,,,,,,,
-38095,Towner County,ND,North Dakota,48.6822,-99.2482,1025.129,2051,0,,,,,,,,,,,
+38095,Towner County,ND,North Dakota,48.6822,-99.2482,1025.129,2051,1,USGS-482908099134601,158-066-30BBB,301,1980-06-26,2021-07-27,41.1,10,-0.65,-0.7,-2,rising
 41055,Sherman County,OR,Oregon,45.3992,-120.6785,823.614,2002,0,,,,,,,,,,,
 41021,Gilliam County,OR,Oregon,45.383,-120.2762,1204.721,1971,0,,,,,,,,,,,
 30051,Liberty County,MT,Montana,48.5597,-111.0369,1429.988,1934,0,,,,,,,,,,,
