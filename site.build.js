@@ -425,7 +425,11 @@ export function staticPages() {
                 ADSENSE_ON && 'display advertising served by Google AdSense',
                 ACTIVE_WARRANTY && `an affiliate relationship with ${ACTIVE_WARRANTY.name}`,
                 ACTIVE_TESTKIT && `an affiliate relationship with ${ACTIVE_TESTKIT.name}`,
-              ].filter(Boolean).join(' and ')}. Affiliate links are marked as such at the point they appear, and ${site.name} may earn a commission at no extra cost to you.</p>`
+              ].filter(Boolean).join(' and ')}.${(ACTIVE_WARRANTY || ACTIVE_TESTKIT)
+                ? ` Affiliate links are marked as such at the point they appear, and ${site.name} may earn a commission at no extra cost to you.`
+                : ''}${ADSENSE_ON
+                ? ` AdSense may use cookies to personalize the ads shown to you; see Google's own advertising and privacy policies for how that works.`
+                : ''}</p>`
             : `<p>This site earns nothing from ads or affiliate commissions today. If that changes, this paragraph and the relevant page's disclosure line are updated together, deliberately, so that an affiliate relationship can never go live silently.</p>`,
         },
         {

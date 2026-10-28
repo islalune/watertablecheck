@@ -16,6 +16,14 @@
   "heroHeadline": "Is the water table dropping where I live?",
   "heroLede": "Depth-to-water trends from USGS long-term monitoring wells, county by county, en route to 1,529 wells covering 1,449 of 3,222 US counties. Where no well has a long enough record, this site says so instead of guessing.",
   "searchPlaceholder": "Maricopa County, AZ",
+  "revenue": {
+    "adsenseId": "pub-1937434719533429",
+    "affiliates": {
+      "ahs": "",
+      "choice": "",
+      "tapscore": ""
+    }
+  },
   "identity": {
     "markSvg": "<svg xmlns=\"http://www.w3.org/2000/svg\" viewBox=\"0 0 64 64\" width=\"26\" height=\"26\" role=\"img\" aria-label=\"WaterTableCheck\"><rect x=\"20\" y=\"46\" width=\"24\" height=\"10\" fill=\"hsl(222 55% 38%)\" opacity=\".16\"/><g fill=\"none\" stroke=\"hsl(222 55% 38%)\" stroke-width=\"4\" stroke-linecap=\"round\" stroke-linejoin=\"round\"><path d=\"M20 8v48M44 8v48\"/><path d=\"M20 22h24\" stroke-width=\"3\" stroke-dasharray=\"3 5\"/><path d=\"M32 24v16\"/><path d=\"M25 36 32 45 39 36\"/><path d=\"M20 46h24\"/></g></svg>",
     "hue": 222,
