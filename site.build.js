@@ -526,6 +526,57 @@ export function guides() {
         },
       ],
     },
+    {
+      slug: 'fastest-moving-counties',
+      title: `The US Counties Where the Water Table Is Moving Fastest`,
+      description: `The fastest-declining and fastest-rising counties in ${site.name}'s dataset, ranked by the same per-well trend as every county page, not a regional guess.`,
+      blocks: (() => {
+        const declining = [...trended].filter((r) => summaryBySlug.get(r.slug).severityTier.startsWith('declining')).reverse();
+        const rising = trended.filter((r) => summaryBySlug.get(r.slug).severityTier === 'rising');
+        const rowLine = (r) => {
+          const s = summaryBySlug.get(r.slug);
+          return `${pageLink(r.slug, `${s.county}, ${s.state}`)} (${ft(Math.abs(s.trendFtPerDecade))} ft/decade, well in place ${Math.round(s.spanYears)} years)`;
+        };
+        return [
+          {
+            h2: `Fastest decline, of ${declining.length} declining counties tracked`,
+            html: `<p>Ranked by the fitted trend at each county's representative well, fastest first: ${declining.slice(0, 8).map(rowLine).join(', ')}. These sit well above this dataset's own "severe" cutoff of ${DECLINE_TERCILES_FT_PER_DECADE.moderate} ft/decade, see the ${guideLink('methodology', 'methodology guide')} for how that cutoff was set.</p>`,
+          },
+          {
+            h2: `Fastest rise, of ${rising.length} rising counties tracked`,
+            html: `<p>Not every county is declining: ${rising.slice(0, 5).map(rowLine).join(', ')} all show a water table getting shallower over their well's full record. A rising table is not automatically good news, it can also mean flooding or waterlogging risk, which this site does not model.</p>`,
+          },
+          {
+            h2: 'Why this list changes if you check back',
+            html: `<p>Every figure here is read live from the same per-well trend each county page shows, not typed in once. If a well gets a new reading that shifts its slope, or ${site.name} adds more qualifying wells, this list updates with it rather than going stale.</p>`,
+          },
+        ];
+      })(),
+    },
+    {
+      slug: 'no-data-and-artesian-readings',
+      title: `Why Some Counties Show No Data, and What a Negative Depth Means`,
+      description: `What it means when a ${site.name} county page has no qualifying well, and why a handful of wells report water above the surface instead of a depth.`,
+      blocks: (() => {
+        const noDataCount = COVERAGE_TOTAL - COVERAGE_WITH_DATA;
+        const artesian = rows.filter((r) => summaryBySlug.get(r.slug).isArtesian);
+        const artesianLine = (r) => pageLink(r.slug, `${summaryBySlug.get(r.slug).county}, ${summaryBySlug.get(r.slug).state}`);
+        return [
+          {
+            h2: `"No data" means no qualifying well, not no aquifer`,
+            html: `<p>${noDataCount.toLocaleString('en-US')} of ${COVERAGE_TOTAL.toLocaleString('en-US')} US counties have no USGS monitoring well that meets this site's bar (at least 15 years of record, a reading within the last 10 years, 6 or more usable measurements). That county's groundwater may well be moving, there is just no long-term well there to measure it. ${site.name} shows the nearest qualifying well's own trend as context on those pages, labeled as a neighbor's reading, never substituted for the county's own number.</p>`,
+          },
+          {
+            h2: `A negative depth is a real reading, not an error`,
+            html: `<p>${artesian.length} counties in this dataset, including ${artesian.slice(0, 4).map(artesianLine).join(', ')}, currently show a negative depth to water. That is not a data bug: it means the well is flowing or artesian, water stands above land surface under its own pressure rather than sitting below it. Those wells still get a fitted trend like any other, the sign just flips which direction counts as "the water table dropping."</p>`,
+          },
+          {
+            h2: `What to do if your own county has no data`,
+            html: `<p>A county with no qualifying well is not evidence either way about a specific property's well. A local well log, a driller's record, or a direct measurement from a licensed well contractor is the only way to know what is happening under one property, the same limit that applies even to counties this site does track, just without a county-level trend to use as a starting point.</p>`,
+          },
+        ];
+      })(),
+    },
   ];
 }
 
