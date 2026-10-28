@@ -1,0 +1,15 @@
+{
+  "projects": {
+    "default": "sitefactory-dashboard"
+  },
+  "targets": {
+    "sitefactory-dashboard": {
+      "hosting": {
+        "watertablecheck": [
+          "watertablecheck"
+        ]
+      }
+    }
+  },
+  "etags": {}
+}
