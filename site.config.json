@@ -6,7 +6,8 @@
   "dataset": "USGS National Water Information System (NWIS) groundwater levels + National Groundwater Monitoring Network (NGWMN)",
   "secrets": {
     "searchConsoleSA": "watertablecheck-seo-sa",
-    "pageSpeedKey": "watertablecheck-psi-key"
+    "pageSpeedKey": "watertablecheck-psi-key",
+    "searchConsoleSAEmail": "watertablecheck-seo-sa@watertablecheck-site.iam.gserviceaccount.com"
   },
   "vitalsUrls": [
     "/"
