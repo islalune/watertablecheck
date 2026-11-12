@@ -1884,6 +1884,71 @@ export function guides() {
         ];
       })(),
     },
+    {
+      slug: 'one-well-for-a-big-county',
+      title: `My County Is Huge. Does One Monitoring Well Speak for My Part of It?`,
+      description: `Each county number on this site comes from one government monitoring well. Some of those counties are bigger than whole states. How county size changes the answer across 1,449 U.S. counties, the largest counties resting on one well, and how to check your own corner.`,
+      // [R3][R10][R21][R31][R29] visitor-job.md question 3 ("is my own well
+      // at risk") runs into this first in the West: the county is enormous
+      // and the well could be 50 miles away. Original cut of the site's own
+      // data: direction grouped by county land area, split at the 100th
+      // meridian, with the largest single-well counties listed.
+      blocks: (() => {
+        const fmt = (n) => Math.round(n).toLocaleString('en-US');
+        const pct = (a, b) => (b ? Math.round((100 * a) / b) : 0);
+        const rate = (r) => summaryBySlug.get(r.slug).trendFtPerDecade;
+        const area = (r) => Number(r.land_sq_mi);
+        const west = (r) => Number(r.lon) < -100;
+        const link = (r) => pageLink(r.slug, `${r.county}, ${r.state_name}`);
+        const stats = (rs) => {
+          const down = rs.filter((r) => r.direction === 'declining');
+          return { n: rs.length, down: down.length,
+            up: rs.filter((r) => r.direction === 'rising').length,
+            flat: rs.filter((r) => r.direction === 'stable').length,
+            pop: rs.reduce((s, r) => s + Number(r.population || 0), 0) };
+        };
+        const by = (lo, hi, f = () => true) => stats(trended.filter((r) => f(r) && area(r) >= lo && area(r) < hi));
+        const medArea = median(trended.map(area));
+        const side = Math.sqrt(medArea);
+        const a1 = by(0, 400), a2 = by(400, 700), a3 = by(700, 1200), a4 = by(1200, 3000), a5 = by(3000, Infinity);
+        const wBig = by(3000, Infinity, west), wSmall = by(0, 3000, west);
+        const eBig = by(1500, Infinity, (r) => !west(r)), eSmall = by(0, 1500, (r) => !west(r));
+        const biggest = trended.filter((r) => area(r) >= 3000).sort((a, b) => area(b) - area(a));
+        const bigPeople = biggest.filter((r) => Number(r.population) >= 500000);
+        const sanb = trended.find((r) => r.slug === 'san-bernardino-county-ca');
+        const ri = rows.filter((r) => r.state === 'RI').reduce((s, r) => s + area(r), 0);
+        const row = (label, s) => `<li><strong>${label}:</strong> ${fmt(s.n)} counties. ${pct(s.down, s.n)}% getting deeper, ${pct(s.flat, s.n)}% stable, ${pct(s.up, s.n)}% shallower.</li>`;
+        const feet = (n) => `${ft(n)} ${ft(n) === '1' ? 'foot' : 'feet'}`;
+        const dir = (r) => (r.direction === 'declining' ? `getting about ${feet(rate(r))} deeper per decade`
+          : r.direction === 'rising' ? `getting about ${feet(Math.abs(rate(r)))} shallower per decade` : 'holding steady');
+        return [
+          {
+            h2: 'The short answer',
+            html: `<p>Sometimes yes, often only roughly. ${site.name} is a free website built on public U.S. Geological Survey records. For each county that has a long-running government monitoring well, it gives one number: how fast the water underground has been getting deeper or shallower, in feet per decade. That matters if your home runs on a private well, because when the water sinks below your pump the taps stop.</p><p>Each of those numbers comes from one well at one spot. The typical county with a number covers about ${fmt(medArea)} square miles, roughly ${fmt(side)} miles by ${fmt(side)}, so even there your home could sit 15 or 20 miles from the well. ${fmt(a5.n)} counties are bigger than 3,000 square miles, nearly all of them in the West, and the largest${sanb ? `, ${link(sanb)}, covers ${fmt(area(sanb))} square miles, more than ${Math.floor(area(sanb) / ri)} times the size of Rhode Island` : ''}. One well cannot see all of that. In a big county, treat the number as the story at one place, then check your own well against it.</p>`,
+          },
+          {
+            h2: 'How to check your own part of the county',
+            html: `<p>Start with the well behind your county's number. ${pageLink('', 'Search for your county on the home page')}; its page gives the well's ID, and the ${guideLink('look-up-your-countys-monitoring-well', 'monitoring well guide')} shows how to open it on the U.S. Geological Survey website. Its map shows where the well is, how deep it goes and other monitoring wells nearby, sometimes several within your own county. A well closer to you, drilled to a depth near yours, tells you more about your water than the county's one well.</p><p>Then look at your own well. The driller's log, the report the company that drilled it filed with the state, gives the well's depth, the pump depth and where the water stood when it was drilled. Most states let you search these free on the website of the state's water, geology or natural resources department, under a name like "well log search". Measure where the water stands today with the steps in the ${guideLink('measure-your-own-well', 'guide to measuring your own well')}, or ask a licensed well driller to do it. If your reading has dropped a lot since the log was written and the county's well is falling too, call a licensed well driller and ask whether your pump can be lowered before it starts pulling air, however far away the county's well is. If your well has held steady, the county number may simply belong to a different patch of ground.</p><p>If you rent, the well is your landlord's to look after, but you can still ask them for the driller's log.</p>`,
+          },
+          {
+            h2: 'What county size does to the answer',
+            html: `<p>Does a bigger county mean worse news? Mostly no, until you reach the very biggest. Grouped by land area:</p><ul>${row('Under 400 square miles', a1)}${row('400 to 699', a2)}${row('700 to 1,199', a3)}${row('1,200 to 2,999', a4)}${row('3,000 or more', a5)}</ul><p>That last group is not falling more because it is big. It is falling more because it is Western. Almost every county that size lies in the dry western part of the country, west of an imaginary north to south line through the middle of the Dakotas, Nebraska, Kansas and Texas. Out there rain is scarce and towns and farms lean hard on groundwater. Comparing Western counties only, the big ones still fall more often: ${pct(wBig.down, wBig.n)}% of the ${fmt(wBig.n)} Western counties over 3,000 square miles are getting deeper, against ${pct(wSmall.down, wSmall.n)}% of the ${fmt(wSmall.n)} smaller Western ones. East of the line, size points the other way. Only ${pct(eBig.down, eBig.n)}% of the ${fmt(eBig.n)} Eastern counties over 1,500 square miles are getting deeper, against ${pct(eSmall.down, eSmall.n)}% of the rest. The largest of them, Aroostook and Penobscot counties in Maine, St. Lawrence County in New York and Itasca County in Minnesota, are thinly settled places with plenty of rain.</p><p>This site's data cannot say how much of the Western gap is the pumping itself and how much is where the monitoring wells were put. Either way, a big Western county's number is more likely to be bad news, and less likely to describe your exact spot.</p>`,
+          },
+          {
+            h2: 'The biggest counties, each resting on one well',
+            html: `<p>These are the ten largest counties with a number on this site, and what their one well shows:</p><ul>${biggest.slice(0, 10).map((r) => `<li>${link(r)}: ${fmt(area(r))} square miles, water ${dir(r)}, from ${fmt(Number(r.n_measurements))} readings taken ${String(r.first_date).slice(0, 4)} to ${String(r.last_date).slice(0, 4)}</li>`).join('')}</ul><p>${bigPeople.length} counties over 3,000 square miles also have half a million people or more: ${bigPeople.map((r) => r.county.replace(/ County$/, '') + ', ' + r.state).join('; ')}. Most of those people get water from a city system, not their own well. The ones who do not are often on the edges, in desert subdivisions or ranch land, which may be far from the monitoring well and draw from a different layer of water.</p>`,
+          },
+          {
+            h2: 'Why one spot can miss your spot',
+            html: `<p>Water underground does not sit in one big lake under the county. It fills gaps in sand, gravel and cracked rock, in layers that can thin out, split or stop within a few miles. A well drilled 80 feet into river gravel and one drilled 600 feet into rock below it can be filling from two separate supplies that move in different directions.</p><p>Pumping is local too. A town's supply wells or a block of irrigated fields can pull the water down for miles around them while ground 30 miles away barely changes. If the county's monitoring well sits next to that pumping, the number may look worse than your corner. If it sits far from it, the number may look better. The ${guideLink('can-you-use-the-next-countys-number', 'guide to borrowing a neighbouring county\'s number')} tested whether nearby counties' wells tell the same story (often they do not), and the same caution applies inside one big county.</p>`,
+          },
+          {
+            h2: 'Where these numbers come from',
+            html: `<p>Land areas and population are the U.S. Census Bureau's county figures. Trends come from the same monitoring wells behind the county pages, read from two free public U.S. Geological Survey databases: the National Water Information System and the National Ground-Water Monitoring Network. A county counts as Western when its center point lies west of that north to south line, which mapmakers call the 100th meridian. The rules for which wells count and how each trend is drawn are in the ${guideLink('methodology', 'methodology guide')}.</p>`,
+          },
+        ];
+      })(),
+    },
   ];
 }
 
