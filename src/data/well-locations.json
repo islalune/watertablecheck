@@ -1,0 +1,6928 @@
+{
+ "retrieved": "2026-11-12T11:43:32.963Z",
+ "source": "https://api.waterdata.usgs.gov/ogcapi/v0/collections/monitoring-locations/items",
+ "counts": {
+  "lookup-failed": 1262,
+  "in-county": 187
+ },
+ "wells": {
+  "10001": {
+   "well_id": "USGS-385041075395601",
+   "status": "lookup-failed"
+  },
+  "10003": {
+   "well_id": "USGS-393551075375301",
+   "lat": 39.597658,
+   "lon": -75.630614,
+   "well_county_fips": "10003",
+   "well_county_name": "New Castle County",
+   "well_state": "Delaware",
+   "miles_from_county_centre": 1.7,
+   "status": "in-county"
+  },
+  "10005": {
+   "well_id": "USGS-383730075213501",
+   "status": "lookup-failed"
+  },
+  "11001": {
+   "well_id": "USGS-385252076572801",
+   "lat": 38.8811944444444,
+   "lon": -76.9577777777778,
+   "well_county_fips": "11001",
+   "well_county_name": "District of Columbia",
+   "well_state": "District of Columbia",
+   "miles_from_county_centre": 3.5,
+   "status": "in-county"
+  },
+  "12011": {
+   "well_id": "USGS-260657080122301",
+   "lat": 26.1156777777778,
+   "lon": -80.2063333333333,
+   "well_county_fips": "12011",
+   "well_county_name": "Broward County",
+   "well_state": "Florida",
+   "miles_from_county_centre": 17.6,
+   "status": "in-county"
+  },
+  "12015": {
+   "well_id": "USGS-265138082002201",
+   "status": "lookup-failed"
+  },
+  "12017": {
+   "well_id": "USGS-284551082345301",
+   "status": "lookup-failed"
+  },
+  "12021": {
+   "well_id": "USGS-262521081161901",
+   "lat": 26.42283888888889,
+   "lon": -81.27178333333333,
+   "well_county_fips": "12021",
+   "well_county_name": "Collier County",
+   "well_state": "Florida",
+   "miles_from_county_centre": 22.5,
+   "status": "in-county"
+  },
+  "12027": {
+   "well_id": "USGS-272012081482501",
+   "status": "lookup-failed"
+  },
+  "12043": {
+   "well_id": "USGS-265529081185201",
+   "status": "lookup-failed"
+  },
+  "12049": {
+   "well_id": "USGS-273156081451401",
+   "status": "lookup-failed"
+  },
+  "12051": {
+   "well_id": "USGS-263845081260701",
+   "status": "lookup-failed"
+  },
+  "12055": {
+   "well_id": "USGS-272504081120101",
+   "status": "lookup-failed"
+  },
+  "12063": {
+   "well_id": "USGS-304918084565601",
+   "status": "lookup-failed"
+  },
+  "12069": {
+   "well_id": "USGS-284757081320701",
+   "lat": 28.7991666666667,
+   "lon": -81.5352777777778,
+   "well_county_fips": "12069",
+   "well_county_name": "Lake County",
+   "well_state": "Florida",
+   "miles_from_county_centre": 11,
+   "status": "in-county"
+  },
+  "12071": {
+   "well_id": "USGS-263532081592202",
+   "lat": 26.5925555555556,
+   "lon": -81.9890555555556,
+   "well_county_fips": "12071",
+   "well_county_name": "Lee County",
+   "well_state": "Florida",
+   "miles_from_county_centre": 2,
+   "status": "in-county"
+  },
+  "12075": {
+   "well_id": "USGS-292921082583285",
+   "status": "lookup-failed"
+  },
+  "12081": {
+   "well_id": "USGS-271832082064801",
+   "lat": 27.309333,
+   "lon": -82.113306,
+   "well_county_fips": "12081",
+   "well_county_name": "Manatee County",
+   "well_state": "Florida",
+   "miles_from_county_centre": 20.7,
+   "status": "in-county"
+  },
+  "12083": {
+   "well_id": "USGS-290514082270701",
+   "lat": 29.088,
+   "lon": -82.452,
+   "well_county_fips": "12083",
+   "well_county_name": "Marion County",
+   "well_state": "Florida",
+   "miles_from_county_centre": 25.9,
+   "status": "in-county"
+  },
+  "12085": {
+   "well_id": "USGS-265822080052701",
+   "status": "lookup-failed"
+  },
+  "12086": {
+   "well_id": "USGS-254217080171801",
+   "lat": 25.705139,
+   "lon": -80.287806,
+   "well_county_fips": "12086",
+   "well_county_name": "Miami-Dade County",
+   "well_state": "Florida",
+   "miles_from_county_centre": 14.8,
+   "status": "in-county"
+  },
+  "12095": {
+   "well_id": "USGS-282202081384602",
+   "lat": 28.3675080444451,
+   "lon": -81.6459081437295,
+   "well_county_fips": "12095",
+   "well_county_name": "Orange County",
+   "well_state": "Florida",
+   "miles_from_county_centre": 22.1,
+   "status": "in-county"
+  },
+  "12097": {
+   "well_id": "USGS-281714081093001",
+   "lat": 28.287586111111114,
+   "lon": -81.15814722222223,
+   "well_county_fips": "12097",
+   "well_county_name": "Osceola County",
+   "well_state": "Florida",
+   "miles_from_county_centre": 15.8,
+   "status": "in-county"
+  },
+  "12099": {
+   "well_id": "USGS-264005080233501",
+   "lat": 26.6708611111111,
+   "lon": -80.0595833333333,
+   "well_county_fips": "12099",
+   "well_county_name": "Palm Beach County",
+   "well_state": "Florida",
+   "miles_from_county_centre": 24.1,
+   "status": "in-county"
+  },
+  "12101": {
+   "well_id": "USGS-281558082264601",
+   "lat": 28.266639,
+   "lon": -82.445972,
+   "well_county_fips": "12101",
+   "well_county_name": "Pasco County",
+   "well_state": "Florida",
+   "miles_from_county_centre": 4.3,
+   "status": "in-county"
+  },
+  "12103": {
+   "well_id": "USGS-275815082440401",
+   "lat": 27.971389,
+   "lon": -82.734444,
+   "well_county_fips": "12103",
+   "well_county_name": "Pinellas County",
+   "well_state": "Florida",
+   "miles_from_county_centre": 6,
+   "status": "in-county"
+  },
+  "12105": {
+   "well_id": "USGS-274846081262001",
+   "lat": 27.814036,
+   "lon": -81.438822,
+   "well_county_fips": "12105",
+   "well_county_name": "Polk County",
+   "well_state": "Florida",
+   "miles_from_county_centre": 18.4,
+   "status": "in-county"
+  },
+  "12111": {
+   "well_id": "USGS-271413080311201",
+   "lat": 27.244472,
+   "lon": -80.497861,
+   "well_county_fips": "12111",
+   "well_county_name": "St. Lucie County",
+   "well_state": "Florida",
+   "miles_from_county_centre": 9.9,
+   "status": "in-county"
+  },
+  "12115": {
+   "well_id": "USGS-270137082235301",
+   "lat": 27.027444,
+   "lon": -82.397944,
+   "well_county_fips": "12115",
+   "well_county_name": "Sarasota County",
+   "well_state": "Florida",
+   "miles_from_county_centre": 13.6,
+   "status": "in-county"
+  },
+  "12129": {
+   "well_id": "USGS-300740084293001",
+   "status": "lookup-failed"
+  },
+  "13001": {
+   "well_id": "USGS-314028082220901",
+   "status": "lookup-failed"
+  },
+  "13003": {
+   "well_id": "USGS-311904082452701",
+   "status": "lookup-failed"
+  },
+  "13005": {
+   "well_id": "USGS-314058082292601",
+   "status": "lookup-failed"
+  },
+  "13007": {
+   "well_id": "USGS-312617084110701",
+   "status": "lookup-failed"
+  },
+  "13025": {
+   "well_id": "USGS-311233081573301",
+   "status": "lookup-failed"
+  },
+  "13027": {
+   "well_id": "USGS-304033083310401",
+   "status": "lookup-failed"
+  },
+  "13029": {
+   "well_id": "USGS-321145081260401",
+   "status": "lookup-failed"
+  },
+  "13031": {
+   "well_id": "USGS-322015081540601",
+   "status": "lookup-failed"
+  },
+  "13033": {
+   "well_id": "USGS-325232082131501",
+   "status": "lookup-failed"
+  },
+  "13037": {
+   "well_id": "USGS-312853084275101",
+   "status": "lookup-failed"
+  },
+  "13039": {
+   "well_id": "USGS-310314081322301",
+   "status": "lookup-failed"
+  },
+  "13043": {
+   "well_id": "USGS-322958082023801",
+   "status": "lookup-failed"
+  },
+  "13049": {
+   "well_id": "USGS-304942082213801",
+   "status": "lookup-failed"
+  },
+  "13051": {
+   "well_id": "USGS-315950081161201",
+   "lat": 31.997404337649513,
+   "lon": -81.26982668729086,
+   "well_county_fips": "13051",
+   "well_county_name": "Chatham County",
+   "well_state": "Georgia",
+   "miles_from_county_centre": 10.9,
+   "status": "in-county"
+  },
+  "13053": {
+   "well_id": "USGS-322036084590301",
+   "status": "lookup-failed"
+  },
+  "13067": {
+   "well_id": "USGS-335612084312901",
+   "lat": 33.9368666666667,
+   "lon": -84.5250666666667,
+   "well_county_fips": "13067",
+   "well_county_name": "Cobb County",
+   "well_state": "Georgia",
+   "miles_from_county_centre": 2.8,
+   "status": "in-county"
+  },
+  "13071": {
+   "well_id": "USGS-311220083330201",
+   "status": "lookup-failed"
+  },
+  "13075": {
+   "well_id": "USGS-310528083193301",
+   "status": "lookup-failed"
+  },
+  "13081": {
+   "well_id": "USGS-315731083542302",
+   "status": "lookup-failed"
+  },
+  "13085": {
+   "well_id": "USGS-342125084083301",
+   "status": "lookup-failed"
+  },
+  "13087": {
+   "well_id": "USGS-305736084355801",
+   "status": "lookup-failed"
+  },
+  "13089": {
+   "well_id": "USGS-335517084164001",
+   "lat": 33.921526564524065,
+   "lon": -84.2776913405417,
+   "well_county_fips": "13089",
+   "well_county_name": "DeKalb County",
+   "well_state": "Georgia",
+   "miles_from_county_centre": 10.8,
+   "status": "in-county"
+  },
+  "13091": {
+   "well_id": "USGS-321715083065301",
+   "status": "lookup-failed"
+  },
+  "13095": {
+   "well_id": "USGS-313554084062501",
+   "status": "lookup-failed"
+  },
+  "13099": {
+   "well_id": "USGS-310427084591101",
+   "status": "lookup-failed"
+  },
+  "13103": {
+   "well_id": "USGS-321943081151401",
+   "status": "lookup-failed"
+  },
+  "13107": {
+   "well_id": "USGS-321946082154301",
+   "status": "lookup-failed"
+  },
+  "13109": {
+   "well_id": "USGS-321032081535001",
+   "status": "lookup-failed"
+  },
+  "13121": {
+   "well_id": "USGS-334207084254801",
+   "lat": 33.7020524495317,
+   "lon": -84.4299279300156,
+   "well_county_fips": "13121",
+   "well_county_name": "Fulton County",
+   "well_state": "Georgia",
+   "miles_from_county_centre": 6.5,
+   "status": "in-county"
+  },
+  "13127": {
+   "well_id": "USGS-310947081265201",
+   "status": "lookup-failed"
+  },
+  "13129": {
+   "well_id": "USGS-342922084511601",
+   "status": "lookup-failed"
+  },
+  "13131": {
+   "well_id": "USGS-305235084125101",
+   "status": "lookup-failed"
+  },
+  "13133": {
+   "well_id": "USGS-332808083010201",
+   "status": "lookup-failed"
+  },
+  "13155": {
+   "well_id": "USGS-314345083244302",
+   "status": "lookup-failed"
+  },
+  "13165": {
+   "well_id": "USGS-325227081571201",
+   "status": "lookup-failed"
+  },
+  "13167": {
+   "well_id": "USGS-324209082430201",
+   "status": "lookup-failed"
+  },
+  "13175": {
+   "well_id": "USGS-322652083033001",
+   "status": "lookup-failed"
+  },
+  "13177": {
+   "well_id": "USGS-313813084125001",
+   "status": "lookup-failed"
+  },
+  "13179": {
+   "well_id": "USGS-314552081372101",
+   "status": "lookup-failed"
+  },
+  "13183": {
+   "well_id": "USGS-313845081361701",
+   "status": "lookup-failed"
+  },
+  "13185": {
+   "well_id": "USGS-304949083165301",
+   "status": "lookup-failed"
+  },
+  "13191": {
+   "well_id": "USGS-312531081292001",
+   "status": "lookup-failed"
+  },
+  "13195": {
+   "well_id": "USGS-340204083132601",
+   "status": "lookup-failed"
+  },
+  "13201": {
+   "well_id": "USGS-310651084404501",
+   "status": "lookup-failed"
+  },
+  "13205": {
+   "well_id": "USGS-310507084262201",
+   "status": "lookup-failed"
+  },
+  "13209": {
+   "well_id": "USGS-320226082301101",
+   "status": "lookup-failed"
+  },
+  "13235": {
+   "well_id": "USGS-322245083290101",
+   "status": "lookup-failed"
+  },
+  "13243": {
+   "well_id": "USGS-314602084473701",
+   "status": "lookup-failed"
+  },
+  "13245": {
+   "well_id": "USGS-332245082134901",
+   "status": "lookup-failed"
+  },
+  "13251": {
+   "well_id": "USGS-324031081404701",
+   "status": "lookup-failed"
+  },
+  "13253": {
+   "well_id": "USGS-305356084534601",
+   "status": "lookup-failed"
+  },
+  "13255": {
+   "well_id": "USGS-331507084171801",
+   "status": "lookup-failed"
+  },
+  "13261": {
+   "well_id": "USGS-320051084061401",
+   "status": "lookup-failed"
+  },
+  "13271": {
+   "well_id": "USGS-314858082573901",
+   "status": "lookup-failed"
+  },
+  "13273": {
+   "well_id": "USGS-314858084194901",
+   "status": "lookup-failed"
+  },
+  "13275": {
+   "well_id": "USGS-304959083584801",
+   "status": "lookup-failed"
+  },
+  "13277": {
+   "well_id": "USGS-312712082593301",
+   "status": "lookup-failed"
+  },
+  "13279": {
+   "well_id": "USGS-320845082201701",
+   "status": "lookup-failed"
+  },
+  "13283": {
+   "well_id": "USGS-322753082334301",
+   "status": "lookup-failed"
+  },
+  "13287": {
+   "well_id": "USGS-313435083390101",
+   "status": "lookup-failed"
+  },
+  "13289": {
+   "well_id": "USGS-323302083263401",
+   "status": "lookup-failed"
+  },
+  "13295": {
+   "well_id": "USGS-345403085160001",
+   "status": "lookup-failed"
+  },
+  "13299": {
+   "well_id": "USGS-310706082155101",
+   "status": "lookup-failed"
+  },
+  "13303": {
+   "well_id": "USGS-325848082480901",
+   "status": "lookup-failed"
+  },
+  "13305": {
+   "well_id": "USGS-313701081543501",
+   "status": "lookup-failed"
+  },
+  "13311": {
+   "well_id": "USGS-344314083433201",
+   "status": "lookup-failed"
+  },
+  "13315": {
+   "well_id": "USGS-315747083312901",
+   "status": "lookup-failed"
+  },
+  "13321": {
+   "well_id": "USGS-312529083423501",
+   "status": "lookup-failed"
+  },
+  "15001": {
+   "well_id": "USGS-194327156002301",
+   "status": "lookup-failed"
+  },
+  "15003": {
+   "well_id": "USGS-212154158015201",
+   "lat": 21.361968092229542,
+   "lon": -158.0283942228146,
+   "well_county_fips": "15003",
+   "well_county_name": "Honolulu County",
+   "well_state": "Hawaii",
+   "miles_from_county_centre": 13.1,
+   "status": "in-county"
+  },
+  "15007": {
+   "well_id": "USGS-215607159344301",
+   "status": "lookup-failed"
+  },
+  "15009": {
+   "well_id": "USGS-210402156495801",
+   "status": "lookup-failed"
+  },
+  "16001": {
+   "well_id": "USGS-431402116173701",
+   "lat": 43.2341694444444,
+   "lon": -116.294111111111,
+   "well_county_fips": "16001",
+   "well_county_name": "Ada County",
+   "well_state": "Idaho",
+   "miles_from_county_centre": 15.2,
+   "status": "in-county"
+  },
+  "16005": {
+   "well_id": "USGS-425702112305001",
+   "status": "lookup-failed"
+  },
+  "16007": {
+   "well_id": "USGS-421433111240401",
+   "status": "lookup-failed"
+  },
+  "16011": {
+   "well_id": "USGS-432618112555501",
+   "status": "lookup-failed"
+  },
+  "16013": {
+   "well_id": "USGS-424541113273001",
+   "status": "lookup-failed"
+  },
+  "16019": {
+   "well_id": "USGS-433218112191601",
+   "status": "lookup-failed"
+  },
+  "16023": {
+   "well_id": "USGS-433520112572601",
+   "status": "lookup-failed"
+  },
+  "16025": {
+   "well_id": "USGS-432136114340001",
+   "status": "lookup-failed"
+  },
+  "16029": {
+   "well_id": "USGS-424213111530701",
+   "status": "lookup-failed"
+  },
+  "16031": {
+   "well_id": "USGS-421852113222601",
+   "status": "lookup-failed"
+  },
+  "16033": {
+   "well_id": "USGS-441258112222201",
+   "status": "lookup-failed"
+  },
+  "16037": {
+   "well_id": "USGS-434847113284501",
+   "status": "lookup-failed"
+  },
+  "16041": {
+   "well_id": "USGS-421156112002701",
+   "status": "lookup-failed"
+  },
+  "16043": {
+   "well_id": "USGS-435923112075401",
+   "status": "lookup-failed"
+  },
+  "16045": {
+   "well_id": "USGS-435506116265801",
+   "status": "lookup-failed"
+  },
+  "16047": {
+   "well_id": "USGS-424053114480301",
+   "status": "lookup-failed"
+  },
+  "16051": {
+   "well_id": "USGS-435554112043301",
+   "status": "lookup-failed"
+  },
+  "16053": {
+   "well_id": "USGS-423950114173501",
+   "status": "lookup-failed"
+  },
+  "16055": {
+   "well_id": "USGS-475439116503401",
+   "status": "lookup-failed"
+  },
+  "16059": {
+   "well_id": "USGS-443017113493001",
+   "status": "lookup-failed"
+  },
+  "16063": {
+   "well_id": "USGS-425610114241502",
+   "status": "lookup-failed"
+  },
+  "16065": {
+   "well_id": "USGS-434749111571801",
+   "status": "lookup-failed"
+  },
+  "16067": {
+   "well_id": "USGS-424132113533401",
+   "status": "lookup-failed"
+  },
+  "16071": {
+   "well_id": "USGS-420638112140301",
+   "status": "lookup-failed"
+  },
+  "16073": {
+   "well_id": "USGS-421813115555801",
+   "status": "lookup-failed"
+  },
+  "16077": {
+   "well_id": "USGS-424828112544901",
+   "status": "lookup-failed"
+  },
+  "16081": {
+   "well_id": "USGS-434936111143601",
+   "status": "lookup-failed"
+  },
+  "16083": {
+   "well_id": "USGS-423207114215301",
+   "status": "lookup-failed"
+  },
+  "17003": {
+   "well_id": "USGS-371211089160501",
+   "status": "lookup-failed"
+  },
+  "17007": {
+   "well_id": "USGS-421427088515401",
+   "status": "lookup-failed"
+  },
+  "17011": {
+   "well_id": "USGS-412654089133301",
+   "status": "lookup-failed"
+  },
+  "17015": {
+   "well_id": "USGS-420614089500101",
+   "status": "lookup-failed"
+  },
+  "17019": {
+   "well_id": "USGS-402122088161101",
+   "status": "lookup-failed"
+  },
+  "17023": {
+   "well_id": "USGS-391350087385301",
+   "status": "lookup-failed"
+  },
+  "17027": {
+   "well_id": "USGS-383048089263201",
+   "status": "lookup-failed"
+  },
+  "17031": {
+   "well_id": "USGS-414827087544001",
+   "lat": 41.8075310343189,
+   "lon": -87.9111712549826,
+   "well_county_fips": "17031",
+   "well_county_name": "Cook County",
+   "well_state": "Illinois",
+   "miles_from_county_centre": 14.9,
+   "status": "in-county"
+  },
+  "17037": {
+   "well_id": "USGS-415552088465601",
+   "status": "lookup-failed"
+  },
+  "17039": {
+   "well_id": "USGS-400805088531501",
+   "status": "lookup-failed"
+  },
+  "17063": {
+   "well_id": "USGS-412145088260901",
+   "status": "lookup-failed"
+  },
+  "17067": {
+   "well_id": "USGS-403452091193401",
+   "status": "lookup-failed"
+  },
+  "17071": {
+   "well_id": "USGS-410252090541601",
+   "status": "lookup-failed"
+  },
+  "17075": {
+   "well_id": "USGS-405458087484601",
+   "status": "lookup-failed"
+  },
+  "17085": {
+   "well_id": "USGS-422443090262201",
+   "status": "lookup-failed"
+  },
+  "17089": {
+   "well_id": "USGS-420012088191101",
+   "lat": 42.00344444444445,
+   "lon": -88.31980555555555,
+   "well_county_fips": "17089",
+   "well_county_name": "Kane County",
+   "well_state": "Illinois",
+   "miles_from_county_centre": 7.1,
+   "status": "in-county"
+  },
+  "17091": {
+   "well_id": "USGS-410309087381501",
+   "status": "lookup-failed"
+  },
+  "17097": {
+   "well_id": "USGS-421216088041201",
+   "lat": 42.2044688463428,
+   "lon": -88.0700770298551,
+   "well_county_fips": "17097",
+   "well_county_name": "Lake County",
+   "well_state": "Illinois",
+   "miles_from_county_centre": 13.6,
+   "status": "in-county"
+  },
+  "17099": {
+   "well_id": "USGS-413141088402401",
+   "status": "lookup-failed"
+  },
+  "17103": {
+   "well_id": "USGS-413743089310101",
+   "status": "lookup-failed"
+  },
+  "17111": {
+   "well_id": "USGS-421432088182801",
+   "lat": 42.2422455022651,
+   "lon": -88.3078629820981,
+   "well_county_fips": "17111",
+   "well_county_name": "McHenry County",
+   "well_state": "Illinois",
+   "miles_from_county_centre": 9.3,
+   "status": "in-county"
+  },
+  "17113": {
+   "well_id": "USGS-401910089120201",
+   "status": "lookup-failed"
+  },
+  "17115": {
+   "well_id": "USGS-400009088484601",
+   "status": "lookup-failed"
+  },
+  "17119": {
+   "well_id": "USGS-384659090003701",
+   "status": "lookup-failed"
+  },
+  "17123": {
+   "well_id": "USGS-410025089081001",
+   "status": "lookup-failed"
+  },
+  "17143": {
+   "well_id": "USGS-405638089360801",
+   "status": "lookup-failed"
+  },
+  "17147": {
+   "well_id": "USGS-401106088300801",
+   "status": "lookup-failed"
+  },
+  "17163": {
+   "well_id": "USGS-383321089594601",
+   "status": "lookup-failed"
+  },
+  "17165": {
+   "well_id": "USGS-374453088261701",
+   "status": "lookup-failed"
+  },
+  "17171": {
+   "well_id": "USGS-393750090333101",
+   "status": "lookup-failed"
+  },
+  "17179": {
+   "well_id": "USGS-401921089282102",
+   "status": "lookup-failed"
+  },
+  "17183": {
+   "well_id": "USGS-402558087351501",
+   "status": "lookup-failed"
+  },
+  "17187": {
+   "well_id": "USGS-405427090385801",
+   "status": "lookup-failed"
+  },
+  "17191": {
+   "well_id": "USGS-383439088160001",
+   "status": "lookup-failed"
+  },
+  "17201": {
+   "well_id": "USGS-421834089213501",
+   "lat": 42.30889898339048,
+   "lon": -89.36063092239938,
+   "well_county_fips": "17201",
+   "well_county_name": "Winnebago County",
+   "well_state": "Illinois",
+   "miles_from_county_centre": 10.4,
+   "status": "in-county"
+  },
+  "17203": {
+   "well_id": "USGS-404603088563501",
+   "status": "lookup-failed"
+  },
+  "18005": {
+   "well_id": "USGS-391627085534401",
+   "status": "lookup-failed"
+  },
+  "18007": {
+   "well_id": "USGS-402851087213501",
+   "status": "lookup-failed"
+  },
+  "18011": {
+   "well_id": "USGS-400532086183901",
+   "status": "lookup-failed"
+  },
+  "18017": {
+   "well_id": "USGS-403407086175701",
+   "status": "lookup-failed"
+  },
+  "18031": {
+   "well_id": "USGS-392022085371801",
+   "status": "lookup-failed"
+  },
+  "18035": {
+   "well_id": "USGS-400541085213701",
+   "status": "lookup-failed"
+  },
+  "18039": {
+   "well_id": "USGS-413121085481301",
+   "status": "lookup-failed"
+  },
+  "18047": {
+   "well_id": "USGS-392134084563200",
+   "status": "lookup-failed"
+  },
+  "18049": {
+   "well_id": "USGS-405829086175801",
+   "status": "lookup-failed"
+  },
+  "18053": {
+   "well_id": "USGS-402322085481901",
+   "status": "lookup-failed"
+  },
+  "18057": {
+   "well_id": "USGS-395628086052901",
+   "lat": 39.9413055555556,
+   "lon": -86.0916,
+   "well_county_fips": "18057",
+   "well_county_name": "Hamilton County",
+   "well_state": "Indiana",
+   "miles_from_county_centre": 8.6,
+   "status": "in-county"
+  },
+  "18059": {
+   "well_id": "USGS-395633085460801",
+   "status": "lookup-failed"
+  },
+  "18061": {
+   "well_id": "USGS-382323086044501",
+   "status": "lookup-failed"
+  },
+  "18063": {
+   "well_id": "USGS-394849086273001",
+   "status": "lookup-failed"
+  },
+  "18065": {
+   "well_id": "USGS-395713085202901",
+   "status": "lookup-failed"
+  },
+  "18073": {
+   "well_id": "USGS-410249087011201",
+   "status": "lookup-failed"
+  },
+  "18077": {
+   "well_id": "USGS-384949085251901",
+   "status": "lookup-failed"
+  },
+  "18079": {
+   "well_id": "USGS-385601085365701",
+   "status": "lookup-failed"
+  },
+  "18083": {
+   "well_id": "USGS-383247087361001",
+   "status": "lookup-failed"
+  },
+  "18087": {
+   "well_id": "USGS-414318085200601",
+   "status": "lookup-failed"
+  },
+  "18089": {
+   "well_id": "USGS-411038087284701",
+   "lat": 41.1772568619913,
+   "lon": -87.4797558749503,
+   "well_county_fips": "18089",
+   "well_county_name": "Lake County",
+   "well_state": "Indiana",
+   "miles_from_county_centre": 21.1,
+   "status": "in-county"
+  },
+  "18091": {
+   "well_id": "USGS-413139086341401",
+   "status": "lookup-failed"
+  },
+  "18095": {
+   "well_id": "USGS-401952085460101",
+   "status": "lookup-failed"
+  },
+  "18097": {
+   "well_id": "USGS-394632086092701",
+   "lat": 39.7755985421575,
+   "lon": -86.1574867381395,
+   "well_county_fips": "18097",
+   "well_county_name": "Marion County",
+   "well_state": "Indiana",
+   "miles_from_county_centre": 1.3,
+   "status": "in-county"
+  },
+  "18101": {
+   "well_id": "USGS-383659086545901",
+   "status": "lookup-failed"
+  },
+  "18107": {
+   "well_id": "USGS-400247086482101",
+   "status": "lookup-failed"
+  },
+  "18109": {
+   "well_id": "USGS-393423086161001",
+   "status": "lookup-failed"
+  },
+  "18111": {
+   "well_id": "USGS-410428087231501",
+   "status": "lookup-failed"
+  },
+  "18113": {
+   "well_id": "USGS-411922085221801",
+   "status": "lookup-failed"
+  },
+  "18121": {
+   "well_id": "USGS-393619087043001",
+   "status": "lookup-failed"
+  },
+  "18127": {
+   "well_id": "USGS-413717087123501",
+   "status": "lookup-failed"
+  },
+  "18129": {
+   "well_id": "USGS-380758087551001",
+   "status": "lookup-failed"
+  },
+  "18131": {
+   "well_id": "USGS-410739086365201",
+   "status": "lookup-failed"
+  },
+  "18133": {
+   "well_id": "USGS-394516086555601",
+   "status": "lookup-failed"
+  },
+  "18135": {
+   "well_id": "USGS-401532085085301",
+   "status": "lookup-failed"
+  },
+  "18139": {
+   "well_id": "USGS-394226085275601",
+   "status": "lookup-failed"
+  },
+  "18141": {
+   "well_id": "USGS-413912086074401",
+   "lat": 41.6533817543979,
+   "lon": -86.128892658879,
+   "well_county_fips": "18141",
+   "well_county_name": "St. Joseph County",
+   "well_state": "Indiana",
+   "miles_from_county_centre": 8.6,
+   "status": "in-county"
+  },
+  "18145": {
+   "well_id": "USGS-393943085490901",
+   "status": "lookup-failed"
+  },
+  "18157": {
+   "well_id": "USGS-402734087033402",
+   "status": "lookup-failed"
+  },
+  "18163": {
+   "well_id": "USGS-380626087344401",
+   "status": "lookup-failed"
+  },
+  "18167": {
+   "well_id": "USGS-392820087242601",
+   "status": "lookup-failed"
+  },
+  "18169": {
+   "well_id": "USGS-403948085414601",
+   "status": "lookup-failed"
+  },
+  "18175": {
+   "well_id": "USGS-383012086124501",
+   "status": "lookup-failed"
+  },
+  "18177": {
+   "well_id": "USGS-394426085080601",
+   "status": "lookup-failed"
+  },
+  "18179": {
+   "well_id": "USGS-404331085064701",
+   "status": "lookup-failed"
+  },
+  "18183": {
+   "well_id": "USGS-410337085264201",
+   "status": "lookup-failed"
+  },
+  "19005": {
+   "well_id": "USGS-431638091282801",
+   "status": "lookup-failed"
+  },
+  "19011": {
+   "well_id": "USGS-415147092115301",
+   "status": "lookup-failed"
+  },
+  "19013": {
+   "well_id": "USGS-422518092144701",
+   "status": "lookup-failed"
+  },
+  "19017": {
+   "well_id": "USGS-424548092101701",
+   "status": "lookup-failed"
+  },
+  "19019": {
+   "well_id": "USGS-423557091560501",
+   "status": "lookup-failed"
+  },
+  "19023": {
+   "well_id": "USGS-423639092350901",
+   "status": "lookup-failed"
+  },
+  "19033": {
+   "well_id": "USGS-431339093155901",
+   "status": "lookup-failed"
+  },
+  "19037": {
+   "well_id": "USGS-430337092190701",
+   "status": "lookup-failed"
+  },
+  "19045": {
+   "well_id": "USGS-414958090230301",
+   "status": "lookup-failed"
+  },
+  "19047": {
+   "well_id": "USGS-420212095235701",
+   "status": "lookup-failed"
+  },
+  "19065": {
+   "well_id": "USGS-425100091490001",
+   "status": "lookup-failed"
+  },
+  "19069": {
+   "well_id": "USGS-423419093172401",
+   "status": "lookup-failed"
+  },
+  "19075": {
+   "well_id": "USGS-422629092345001",
+   "status": "lookup-failed"
+  },
+  "19081": {
+   "well_id": "USGS-430159093403201",
+   "status": "lookup-failed"
+  },
+  "19087": {
+   "well_id": "USGS-405405091335001",
+   "status": "lookup-failed"
+  },
+  "19095": {
+   "well_id": "USGS-413248092011301",
+   "status": "lookup-failed"
+  },
+  "19101": {
+   "well_id": "USGS-405451091483301",
+   "status": "lookup-failed"
+  },
+  "19103": {
+   "well_id": "USGS-414315091252002",
+   "status": "lookup-failed"
+  },
+  "19105": {
+   "well_id": "USGS-420650091163601",
+   "status": "lookup-failed"
+  },
+  "19107": {
+   "well_id": "USGS-411843092105101",
+   "status": "lookup-failed"
+  },
+  "19113": {
+   "well_id": "USGS-415949091405402",
+   "status": "lookup-failed"
+  },
+  "19115": {
+   "well_id": "USGS-411511091155101",
+   "status": "lookup-failed"
+  },
+  "19125": {
+   "well_id": "USGS-412927092575201",
+   "status": "lookup-failed"
+  },
+  "19127": {
+   "well_id": "USGS-420117092505601",
+   "status": "lookup-failed"
+  },
+  "19137": {
+   "well_id": "USGS-410057095075101",
+   "status": "lookup-failed"
+  },
+  "19139": {
+   "well_id": "USGS-413336091161501",
+   "status": "lookup-failed"
+  },
+  "19153": {
+   "well_id": "USGS-415057093304801",
+   "lat": 41.8489166666667,
+   "lon": -93.5136666666667,
+   "well_county_fips": "19153",
+   "well_county_name": "Polk County",
+   "well_state": "Iowa",
+   "miles_from_county_centre": 11.7,
+   "status": "in-county"
+  },
+  "19157": {
+   "well_id": "USGS-414208092312601",
+   "status": "lookup-failed"
+  },
+  "19171": {
+   "well_id": "USGS-415527092190301",
+   "status": "lookup-failed"
+  },
+  "19183": {
+   "well_id": "USGS-412808091345001",
+   "status": "lookup-failed"
+  },
+  "19195": {
+   "well_id": "USGS-432946093161901",
+   "status": "lookup-failed"
+  },
+  "20051": {
+   "well_id": "USGS-384253099180701",
+   "status": "lookup-failed"
+  },
+  "20079": {
+   "well_id": "USGS-380139097341401",
+   "status": "lookup-failed"
+  },
+  "20161": {
+   "well_id": "USGS-390601096433801",
+   "status": "lookup-failed"
+  },
+  "20173": {
+   "well_id": "USGS-375441097292601",
+   "lat": 37.9122222222222,
+   "lon": -97.4920833333333,
+   "well_county_fips": "20173",
+   "well_county_name": "Sedgwick County",
+   "well_state": "Kansas",
+   "miles_from_county_centre": 16.1,
+   "status": "in-county"
+  },
+  "20175": {
+   "well_id": "USGS-370033100534202",
+   "status": "lookup-failed"
+  },
+  "20189": {
+   "well_id": "USGS-370130101180902",
+   "status": "lookup-failed"
+  },
+  "20193": {
+   "well_id": "USGS-392329101040201",
+   "status": "lookup-failed"
+  },
+  "20203": {
+   "well_id": "USGS-383008101315601",
+   "status": "lookup-failed"
+  },
+  "21013": {
+   "well_id": "USGS-363749083430701",
+   "status": "lookup-failed"
+  },
+  "21041": {
+   "well_id": "USGS-384027085105201",
+   "status": "lookup-failed"
+  },
+  "21067": {
+   "well_id": "USGS-375928084362001",
+   "lat": 37.99117039476345,
+   "lon": -84.60547498727554,
+   "well_county_fips": "21067",
+   "well_county_name": "Fayette County",
+   "well_state": "Kentucky",
+   "miles_from_county_centre": 8.7,
+   "status": "in-county"
+  },
+  "21077": {
+   "well_id": "USGS-384620084580401",
+   "status": "lookup-failed"
+  },
+  "21083": {
+   "well_id": "USGS-365210088391301",
+   "status": "lookup-failed"
+  },
+  "21093": {
+   "well_id": "USGS-375942085592102",
+   "status": "lookup-failed"
+  },
+  "21111": {
+   "well_id": "USGS-381638085415801",
+   "lat": 38.2773758058116,
+   "lon": -85.6994620299281,
+   "well_county_fips": "21111",
+   "well_county_name": "Jefferson County",
+   "well_state": "Kentucky",
+   "miles_from_county_centre": 6.5,
+   "status": "in-county"
+  },
+  "21117": {
+   "well_id": "USGS-390438084310701",
+   "status": "lookup-failed"
+  },
+  "21123": {
+   "well_id": "USGS-374151085413201",
+   "status": "lookup-failed"
+  },
+  "21163": {
+   "well_id": "USGS-375936086001301",
+   "status": "lookup-failed"
+  },
+  "22001": {
+   "well_id": "USGS-302511092242601",
+   "status": "lookup-failed"
+  },
+  "22003": {
+   "well_id": "USGS-303004092541101",
+   "status": "lookup-failed"
+  },
+  "22005": {
+   "well_id": "USGS-300650091025001",
+   "status": "lookup-failed"
+  },
+  "22009": {
+   "well_id": "USGS-305451092095901",
+   "status": "lookup-failed"
+  },
+  "22011": {
+   "well_id": "USGS-304548093320501",
+   "status": "lookup-failed"
+  },
+  "22013": {
+   "well_id": "USGS-322019093124701",
+   "status": "lookup-failed"
+  },
+  "22015": {
+   "well_id": "USGS-323601093354101",
+   "status": "lookup-failed"
+  },
+  "22017": {
+   "well_id": "USGS-324207093484801",
+   "status": "lookup-failed"
+  },
+  "22019": {
+   "well_id": "USGS-300440093084501",
+   "status": "lookup-failed"
+  },
+  "22021": {
+   "well_id": "USGS-320154092164602",
+   "status": "lookup-failed"
+  },
+  "22023": {
+   "well_id": "USGS-295611093044801",
+   "status": "lookup-failed"
+  },
+  "22025": {
+   "well_id": "USGS-311948091530701",
+   "status": "lookup-failed"
+  },
+  "22027": {
+   "well_id": "USGS-324707093025001",
+   "status": "lookup-failed"
+  },
+  "22029": {
+   "well_id": "USGS-314049091260601",
+   "status": "lookup-failed"
+  },
+  "22031": {
+   "well_id": "USGS-321813093470501",
+   "status": "lookup-failed"
+  },
+  "22033": {
+   "well_id": "USGS-302653091095701",
+   "lat": 30.4482462620904,
+   "lon": -91.1659401826463,
+   "well_county_fips": "22033",
+   "well_county_name": "East Baton Rouge Parish",
+   "well_state": "Louisiana",
+   "miles_from_county_centre": 7.9,
+   "status": "in-county"
+  },
+  "22035": {
+   "well_id": "USGS-325100091132401",
+   "status": "lookup-failed"
+  },
+  "22037": {
+   "well_id": "USGS-305843091073801",
+   "status": "lookup-failed"
+  },
+  "22039": {
+   "well_id": "USGS-304120092263001",
+   "status": "lookup-failed"
+  },
+  "22041": {
+   "well_id": "USGS-322210091290901",
+   "status": "lookup-failed"
+  },
+  "22043": {
+   "well_id": "USGS-313156092324101",
+   "status": "lookup-failed"
+  },
+  "22045": {
+   "well_id": "USGS-300035091443301",
+   "status": "lookup-failed"
+  },
+  "22047": {
+   "well_id": "USGS-301227091101301",
+   "status": "lookup-failed"
+  },
+  "22049": {
+   "well_id": "USGS-321709092452401",
+   "status": "lookup-failed"
+  },
+  "22051": {
+   "well_id": "USGS-295739090094601",
+   "lat": 29.9610373681386,
+   "lon": -90.1628522676809,
+   "well_county_fips": "22051",
+   "well_county_name": "Jefferson Parish",
+   "well_state": "Louisiana",
+   "miles_from_county_centre": 32.5,
+   "status": "in-county"
+  },
+  "22053": {
+   "well_id": "USGS-301355092463001",
+   "status": "lookup-failed"
+  },
+  "22055": {
+   "well_id": "USGS-301426092000601",
+   "status": "lookup-failed"
+  },
+  "22059": {
+   "well_id": "USGS-314153092080002",
+   "status": "lookup-failed"
+  },
+  "22061": {
+   "well_id": "USGS-324141092390501",
+   "status": "lookup-failed"
+  },
+  "22063": {
+   "well_id": "USGS-302819090582102",
+   "status": "lookup-failed"
+  },
+  "22065": {
+   "well_id": "USGS-322614091122001",
+   "status": "lookup-failed"
+  },
+  "22067": {
+   "well_id": "USGS-323806091530401",
+   "status": "lookup-failed"
+  },
+  "22069": {
+   "well_id": "USGS-312934093114801",
+   "status": "lookup-failed"
+  },
+  "22071": {
+   "well_id": "USGS-295652090020101",
+   "lat": 29.9479816230342,
+   "lon": -90.0336818800591,
+   "well_county_fips": "22071",
+   "well_county_name": "Orleans Parish",
+   "well_state": "Louisiana",
+   "miles_from_county_centre": 9.4,
+   "status": "in-county"
+  },
+  "22073": {
+   "well_id": "USGS-323136091592801",
+   "status": "lookup-failed"
+  },
+  "22077": {
+   "well_id": "USGS-304939091422101",
+   "status": "lookup-failed"
+  },
+  "22079": {
+   "well_id": "USGS-311727092270901",
+   "status": "lookup-failed"
+  },
+  "22081": {
+   "well_id": "USGS-315743093204601",
+   "status": "lookup-failed"
+  },
+  "22083": {
+   "well_id": "USGS-323029091430001",
+   "status": "lookup-failed"
+  },
+  "22085": {
+   "well_id": "USGS-311828093270301",
+   "status": "lookup-failed"
+  },
+  "22089": {
+   "well_id": "USGS-295515090245001",
+   "status": "lookup-failed"
+  },
+  "22091": {
+   "well_id": "USGS-304213090434301",
+   "status": "lookup-failed"
+  },
+  "22093": {
+   "well_id": "USGS-300445090520301",
+   "status": "lookup-failed"
+  },
+  "22095": {
+   "well_id": "USGS-300234090390301",
+   "status": "lookup-failed"
+  },
+  "22097": {
+   "well_id": "USGS-304116092083601",
+   "status": "lookup-failed"
+  },
+  "22099": {
+   "well_id": "USGS-301308091521001",
+   "status": "lookup-failed"
+  },
+  "22101": {
+   "well_id": "USGS-294749091402301",
+   "status": "lookup-failed"
+  },
+  "22103": {
+   "well_id": "USGS-302052090010201",
+   "status": "lookup-failed"
+  },
+  "22105": {
+   "well_id": "USGS-302606090263402",
+   "status": "lookup-failed"
+  },
+  "22107": {
+   "well_id": "USGS-315646091135601",
+   "status": "lookup-failed"
+  },
+  "22111": {
+   "well_id": "USGS-324417092090001",
+   "status": "lookup-failed"
+  },
+  "22113": {
+   "well_id": "USGS-300117092005601",
+   "status": "lookup-failed"
+  },
+  "22115": {
+   "well_id": "USGS-305850093260801",
+   "status": "lookup-failed"
+  },
+  "22117": {
+   "well_id": "USGS-304107089523401",
+   "status": "lookup-failed"
+  },
+  "22119": {
+   "well_id": "USGS-323220093165902",
+   "status": "lookup-failed"
+  },
+  "22121": {
+   "well_id": "USGS-302732091121901",
+   "status": "lookup-failed"
+  },
+  "22123": {
+   "well_id": "USGS-324508091252301",
+   "status": "lookup-failed"
+  },
+  "22125": {
+   "well_id": "USGS-305643091341201",
+   "status": "lookup-failed"
+  },
+  "22127": {
+   "well_id": "USGS-315353092470001",
+   "status": "lookup-failed"
+  },
+  "23001": {
+   "well_id": "USGS-440213070203201",
+   "status": "lookup-failed"
+  },
+  "23003": {
+   "well_id": "USGS-471457068353001",
+   "status": "lookup-failed"
+  },
+  "23005": {
+   "well_id": "USGS-435453070013601",
+   "lat": 43.914801886334,
+   "lon": -70.0261620585964,
+   "well_county_fips": "23005",
+   "well_county_name": "Cumberland County",
+   "well_state": "Maine",
+   "miles_from_county_centre": 16.8,
+   "status": "in-county"
+  },
+  "23007": {
+   "well_id": "USGS-451128070280301",
+   "status": "lookup-failed"
+  },
+  "23009": {
+   "well_id": "USGS-444950068220602",
+   "status": "lookup-failed"
+  },
+  "23011": {
+   "well_id": "USGS-440918069564001",
+   "status": "lookup-failed"
+  },
+  "23017": {
+   "well_id": "USGS-440823070291501",
+   "status": "lookup-failed"
+  },
+  "23019": {
+   "well_id": "USGS-445319068560101",
+   "status": "lookup-failed"
+  },
+  "23029": {
+   "well_id": "USGS-450713067162801",
+   "status": "lookup-failed"
+  },
+  "23031": {
+   "well_id": "USGS-432310070393301",
+   "status": "lookup-failed"
+  },
+  "24001": {
+   "well_id": "USGS-394024078273401",
+   "status": "lookup-failed"
+  },
+  "24003": {
+   "well_id": "USGS-385915076340401",
+   "lat": 38.987778,
+   "lon": -76.567556,
+   "well_county_fips": "24003",
+   "well_county_name": "Anne Arundel County",
+   "well_state": "Maryland",
+   "miles_from_county_centre": 0.4,
+   "status": "in-county"
+  },
+  "24005": {
+   "well_id": "USGS-391356076293501",
+   "lat": 39.2321666666667,
+   "lon": -76.4925555555556,
+   "well_county_fips": "24005",
+   "well_county_name": "Baltimore County",
+   "well_state": "Maryland",
+   "miles_from_county_centre": 16,
+   "status": "in-county"
+  },
+  "24009": {
+   "well_id": "USGS-381952076270901",
+   "status": "lookup-failed"
+  },
+  "24011": {
+   "well_id": "USGS-390227075470201",
+   "status": "lookup-failed"
+  },
+  "24013": {
+   "well_id": "USGS-392259077052401",
+   "status": "lookup-failed"
+  },
+  "24015": {
+   "well_id": "USGS-393605075472302",
+   "status": "lookup-failed"
+  },
+  "24017": {
+   "well_id": "USGS-383217076590201",
+   "status": "lookup-failed"
+  },
+  "24019": {
+   "well_id": "USGS-383408076042402",
+   "status": "lookup-failed"
+  },
+  "24021": {
+   "well_id": "USGS-393733077274801",
+   "lat": 39.625833,
+   "lon": -77.463333,
+   "well_county_fips": "24021",
+   "well_county_name": "Frederick County",
+   "well_state": "Maryland",
+   "miles_from_county_centre": 11.3,
+   "status": "in-county"
+  },
+  "24023": {
+   "well_id": "USGS-393749079190301",
+   "status": "lookup-failed"
+  },
+  "24025": {
+   "well_id": "USGS-393902076160001",
+   "status": "lookup-failed"
+  },
+  "24027": {
+   "well_id": "USGS-391445076555101",
+   "lat": 39.245833,
+   "lon": -76.930278,
+   "well_county_fips": "24027",
+   "well_county_name": "Howard County",
+   "well_state": "Maryland",
+   "miles_from_county_centre": 0.5,
+   "status": "in-county"
+  },
+  "24029": {
+   "well_id": "USGS-391815075472102",
+   "status": "lookup-failed"
+  },
+  "24031": {
+   "well_id": "USGS-391314077224201",
+   "lat": 39.220778,
+   "lon": -77.378083,
+   "well_county_fips": "24031",
+   "well_county_name": "Montgomery County",
+   "well_state": "Maryland",
+   "miles_from_county_centre": 11,
+   "status": "in-county"
+  },
+  "24033": {
+   "well_id": "USGS-384148076510901",
+   "lat": 38.6967832309126,
+   "lon": -76.8521930518657,
+   "well_county_fips": "24033",
+   "well_county_name": "Prince George's County",
+   "well_state": "Maryland",
+   "miles_from_county_centre": 9.2,
+   "status": "in-county"
+  },
+  "24035": {
+   "well_id": "USGS-385756076105301",
+   "status": "lookup-failed"
+  },
+  "24037": {
+   "well_id": "USGS-381715076261601",
+   "status": "lookup-failed"
+  },
+  "24039": {
+   "well_id": "USGS-380616075380701",
+   "status": "lookup-failed"
+  },
+  "24041": {
+   "well_id": "USGS-384643076043801",
+   "status": "lookup-failed"
+  },
+  "24043": {
+   "well_id": "USGS-393638078001301",
+   "status": "lookup-failed"
+  },
+  "24045": {
+   "well_id": "USGS-382329075263701",
+   "status": "lookup-failed"
+  },
+  "24047": {
+   "well_id": "USGS-380408075335701",
+   "status": "lookup-failed"
+  },
+  "24510": {
+   "well_id": "USGS-391617076322001",
+   "lat": 39.2715833333333,
+   "lon": -76.5384722222222,
+   "well_county_fips": "24510",
+   "well_county_name": "Baltimore City",
+   "well_state": "Maryland",
+   "miles_from_county_centre": 4.3,
+   "status": "in-county"
+  },
+  "25001": {
+   "well_id": "USGS-414518070015801",
+   "status": "lookup-failed"
+  },
+  "25003": {
+   "well_id": "USGS-423503073075401",
+   "status": "lookup-failed"
+  },
+  "25005": {
+   "well_id": "USGS-414706071045001",
+   "lat": 41.785,
+   "lon": -71.0805555555555,
+   "well_county_fips": "25005",
+   "well_county_name": "Bristol County",
+   "well_state": "Massachusetts",
+   "miles_from_county_centre": 2.6,
+   "status": "in-county"
+  },
+  "25007": {
+   "well_id": "USGS-412346070353403",
+   "status": "lookup-failed"
+  },
+  "25009": {
+   "well_id": "USGS-423845070542501",
+   "lat": 42.6462888888889,
+   "lon": -70.9067388888889,
+   "well_county_fips": "25009",
+   "well_county_name": "Essex County",
+   "well_state": "Massachusetts",
+   "miles_from_county_centre": 2.1,
+   "status": "in-county"
+  },
+  "25011": {
+   "well_id": "USGS-423311072355801",
+   "status": "lookup-failed"
+  },
+  "25013": {
+   "well_id": "USGS-420305072581401",
+   "lat": 42.0514027777778,
+   "lon": -72.9706777777778,
+   "well_county_fips": "25013",
+   "well_county_name": "Hampden County",
+   "well_state": "Massachusetts",
+   "miles_from_county_centre": 18.2,
+   "status": "in-county"
+  },
+  "25015": {
+   "well_id": "USGS-422103072241103",
+   "status": "lookup-failed"
+  },
+  "25017": {
+   "well_id": "USGS-422819071065701",
+   "lat": 42.4720398669798,
+   "lon": -71.1153312322459,
+   "well_county_fips": "25017",
+   "well_county_name": "Middlesex County",
+   "well_state": "Massachusetts",
+   "miles_from_county_centre": 14.3,
+   "status": "in-county"
+  },
+  "25019": {
+   "well_id": "USGS-411544070042301",
+   "status": "lookup-failed"
+  },
+  "25021": {
+   "well_id": "USGS-421438071165601",
+   "lat": 42.2437861111111,
+   "lon": -71.2821916666667,
+   "well_county_fips": "25021",
+   "well_county_name": "Norfolk County",
+   "well_state": "Massachusetts",
+   "miles_from_county_centre": 7.2,
+   "status": "in-county"
+  },
+  "25023": {
+   "well_id": "USGS-415453070434901",
+   "lat": 41.914925,
+   "lon": -70.7297666666667,
+   "well_county_fips": "25023",
+   "well_county_name": "Plymouth County",
+   "well_state": "Massachusetts",
+   "miles_from_county_centre": 5,
+   "status": "in-county"
+  },
+  "25027": {
+   "well_id": "USGS-424204072015201",
+   "lat": 42.7010194444444,
+   "lon": -72.0308361111111,
+   "well_county_fips": "25027",
+   "well_county_name": "Worcester County",
+   "well_state": "Massachusetts",
+   "miles_from_county_centre": 27.3,
+   "status": "in-county"
+  },
+  "26023": {
+   "well_id": "USGS-415602084593701",
+   "status": "lookup-failed"
+  },
+  "26031": {
+   "well_id": "USGS-454427084424001",
+   "status": "lookup-failed"
+  },
+  "26033": {
+   "well_id": "USGS-462159084442201",
+   "status": "lookup-failed"
+  },
+  "26055": {
+   "well_id": "USGS-443921085213501",
+   "status": "lookup-failed"
+  },
+  "26059": {
+   "well_id": "USGS-415028084220400",
+   "status": "lookup-failed"
+  },
+  "26063": {
+   "well_id": "USGS-434103083130301",
+   "status": "lookup-failed"
+  },
+  "26065": {
+   "well_id": "USGS-423127084321901",
+   "lat": 42.7325349834505,
+   "lon": -84.5474788204767,
+   "well_county_fips": "26065",
+   "well_county_name": "Ingham County",
+   "well_state": "Michigan",
+   "miles_from_county_centre": 12.5,
+   "status": "in-county"
+  },
+  "26071": {
+   "well_id": "USGS-460308088130601",
+   "status": "lookup-failed"
+  },
+  "26077": {
+   "well_id": "USGS-421641085350601",
+   "lat": 42.278066249295605,
+   "lon": -85.58494738002557,
+   "well_county_fips": "26077",
+   "well_county_name": "Kalamazoo County",
+   "well_state": "Michigan",
+   "miles_from_county_centre": 3.4,
+   "status": "in-county"
+  },
+  "26087": {
+   "well_id": "USGS-425843083042401",
+   "status": "lookup-failed"
+  },
+  "26091": {
+   "well_id": "USGS-420022084024200",
+   "status": "lookup-failed"
+  },
+  "26093": {
+   "well_id": "USGS-423244083434400",
+   "status": "lookup-failed"
+  },
+  "26103": {
+   "well_id": "USGS-462421087242701",
+   "status": "lookup-failed"
+  },
+  "26109": {
+   "well_id": "USGS-451154087361501",
+   "status": "lookup-failed"
+  },
+  "26125": {
+   "well_id": "USGS-423423083324001",
+   "lat": 42.5725322947052,
+   "lon": -83.5438282967595,
+   "well_county_fips": "26125",
+   "well_county_name": "Oakland County",
+   "well_state": "Michigan",
+   "miles_from_county_centre": 10.1,
+   "status": "in-county"
+  },
+  "26127": {
+   "well_id": "USGS-433133086082601",
+   "status": "lookup-failed"
+  },
+  "26147": {
+   "well_id": "USGS-430845082462500",
+   "status": "lookup-failed"
+  },
+  "27003": {
+   "well_id": "USGS-450303093165402",
+   "lat": 45.0508722222222,
+   "lon": -93.2781444444445,
+   "well_county_fips": "27003",
+   "well_county_name": "Anoka County",
+   "well_state": "Minnesota",
+   "miles_from_county_centre": 15.5,
+   "status": "in-county"
+  },
+  "27007": {
+   "well_id": "USGS-473429095051301",
+   "status": "lookup-failed"
+  },
+  "27021": {
+   "well_id": "USGS-471546094331700",
+   "status": "lookup-failed"
+  },
+  "27033": {
+   "well_id": "USGS-435239095074801",
+   "status": "lookup-failed"
+  },
+  "27035": {
+   "well_id": "USGS-463006094131201",
+   "status": "lookup-failed"
+  },
+  "27037": {
+   "well_id": "USGS-443042092570401",
+   "lat": 44.5116138888889,
+   "lon": -92.9510805555556,
+   "well_county_fips": "27037",
+   "well_county_name": "Dakota County",
+   "well_state": "Minnesota",
+   "miles_from_county_centre": 12.3,
+   "status": "in-county"
+  },
+  "27039": {
+   "well_id": "USGS-435221093001901",
+   "status": "lookup-failed"
+  },
+  "27041": {
+   "well_id": "USGS-455927095123101",
+   "status": "lookup-failed"
+  },
+  "27049": {
+   "well_id": "USGS-443048092491701",
+   "status": "lookup-failed"
+  },
+  "27053": {
+   "well_id": "USGS-450624093220501",
+   "lat": 45.1051277777778,
+   "lon": -93.3681166666667,
+   "well_county_fips": "27053",
+   "well_county_name": "Hennepin County",
+   "well_state": "Minnesota",
+   "miles_from_county_centre": 8.6,
+   "status": "in-county"
+  },
+  "27061": {
+   "well_id": "USGS-474921093144001",
+   "status": "lookup-failed"
+  },
+  "27063": {
+   "well_id": "USGS-435014095060201",
+   "status": "lookup-failed"
+  },
+  "27097": {
+   "well_id": "USGS-460444094212501",
+   "status": "lookup-failed"
+  },
+  "27099": {
+   "well_id": "USGS-433815093000001",
+   "status": "lookup-failed"
+  },
+  "27115": {
+   "well_id": "USGS-462112092495801",
+   "status": "lookup-failed"
+  },
+  "27119": {
+   "well_id": "USGS-473945096202402",
+   "status": "lookup-failed"
+  },
+  "27125": {
+   "well_id": "USGS-474719096163100",
+   "status": "lookup-failed"
+  },
+  "27127": {
+   "well_id": "USGS-443053094591001",
+   "status": "lookup-failed"
+  },
+  "27131": {
+   "well_id": "USGS-442554093101801",
+   "status": "lookup-failed"
+  },
+  "27139": {
+   "well_id": "MN040-443328093184701",
+   "status": "lookup-failed"
+  },
+  "27141": {
+   "well_id": "USGS-452545093571002",
+   "status": "lookup-failed"
+  },
+  "27163": {
+   "well_id": "MN040-451602092515601",
+   "lat": 45.2671361111111,
+   "lon": -92.8656861111111,
+   "well_county_fips": "27163",
+   "well_county_name": "Washington County",
+   "well_state": "Minnesota",
+   "miles_from_county_centre": 15.9,
+   "status": "in-county"
+  },
+  "27171": {
+   "well_id": "USGS-451753093434801",
+   "status": "lookup-failed"
+  },
+  "28009": {
+   "well_id": "USGS-344343089111501",
+   "status": "lookup-failed"
+  },
+  "28011": {
+   "well_id": "USGS-334957090564301",
+   "status": "lookup-failed"
+  },
+  "28013": {
+   "well_id": "USGS-340134089182401",
+   "status": "lookup-failed"
+  },
+  "28015": {
+   "well_id": "USGS-332342090082201",
+   "status": "lookup-failed"
+  },
+  "28027": {
+   "well_id": "USGS-341255090393801",
+   "status": "lookup-failed"
+  },
+  "28033": {
+   "well_id": "USGS-345708090134901",
+   "status": "lookup-failed"
+  },
+  "28043": {
+   "well_id": "USGS-334215089442701",
+   "status": "lookup-failed"
+  },
+  "28051": {
+   "well_id": "USGS-331401090110301",
+   "status": "lookup-failed"
+  },
+  "28053": {
+   "well_id": "USGS-325856090372201",
+   "status": "lookup-failed"
+  },
+  "28055": {
+   "well_id": "USGS-325453090594801",
+   "status": "lookup-failed"
+  },
+  "28057": {
+   "well_id": "USGS-340514088143301",
+   "status": "lookup-failed"
+  },
+  "28071": {
+   "well_id": "USGS-342050089384901",
+   "status": "lookup-failed"
+  },
+  "28083": {
+   "well_id": "USGS-334457090181801",
+   "status": "lookup-failed"
+  },
+  "28093": {
+   "well_id": "USGS-345547089243101",
+   "status": "lookup-failed"
+  },
+  "28097": {
+   "well_id": "USGS-334039089363401",
+   "status": "lookup-failed"
+  },
+  "28107": {
+   "well_id": "USGS-341752090034501",
+   "status": "lookup-failed"
+  },
+  "28117": {
+   "well_id": "USGS-343152088213003",
+   "status": "lookup-failed"
+  },
+  "28119": {
+   "well_id": "USGS-341415090231401",
+   "status": "lookup-failed"
+  },
+  "28125": {
+   "well_id": "USGS-330238090440201",
+   "status": "lookup-failed"
+  },
+  "28133": {
+   "well_id": "USGS-334829090292901",
+   "status": "lookup-failed"
+  },
+  "28135": {
+   "well_id": "USGS-335133090091201",
+   "status": "lookup-failed"
+  },
+  "28137": {
+   "well_id": "USGS-344311090114601",
+   "status": "lookup-failed"
+  },
+  "28143": {
+   "well_id": "USGS-343255090250501",
+   "status": "lookup-failed"
+  },
+  "28149": {
+   "well_id": "USGS-322948090493401",
+   "status": "lookup-failed"
+  },
+  "28151": {
+   "well_id": "USGS-331330090564801",
+   "status": "lookup-failed"
+  },
+  "28153": {
+   "well_id": "USGS-314115088392301",
+   "status": "lookup-failed"
+  },
+  "28161": {
+   "well_id": "USGS-340609089391501",
+   "status": "lookup-failed"
+  },
+  "28163": {
+   "well_id": "USGS-324419090351201",
+   "status": "lookup-failed"
+  },
+  "29003": {
+   "well_id": "MO005-400251094485901",
+   "status": "lookup-failed"
+  },
+  "29007": {
+   "well_id": "MO005-391825091285101",
+   "status": "lookup-failed"
+  },
+  "29009": {
+   "well_id": "MO005-364059093520001",
+   "status": "lookup-failed"
+  },
+  "29011": {
+   "well_id": "MO005-372338094052801",
+   "status": "lookup-failed"
+  },
+  "29013": {
+   "well_id": "MO005-380545094213501",
+   "status": "lookup-failed"
+  },
+  "29015": {
+   "well_id": "MO005-382726093121601",
+   "status": "lookup-failed"
+  },
+  "29017": {
+   "well_id": "MO005-370248090042601",
+   "status": "lookup-failed"
+  },
+  "29019": {
+   "well_id": "MO005-385718092234201",
+   "status": "lookup-failed"
+  },
+  "29021": {
+   "well_id": "MO005-374254094524501",
+   "status": "lookup-failed"
+  },
+  "29023": {
+   "well_id": "USGS-363716090331501",
+   "status": "lookup-failed"
+  },
+  "29027": {
+   "well_id": "MO005-383550092094201",
+   "status": "lookup-failed"
+  },
+  "29029": {
+   "well_id": "MO005-380717092395401",
+   "status": "lookup-failed"
+  },
+  "29031": {
+   "well_id": "MO005-371125089445301",
+   "status": "lookup-failed"
+  },
+  "29033": {
+   "well_id": "MO005-392045093302401",
+   "status": "lookup-failed"
+  },
+  "29035": {
+   "well_id": "MO005-365654091001301",
+   "status": "lookup-failed"
+  },
+  "29039": {
+   "well_id": "MO005-373620093470301",
+   "status": "lookup-failed"
+  },
+  "29041": {
+   "well_id": "MO005-393544093075601",
+   "status": "lookup-failed"
+  },
+  "29043": {
+   "well_id": "MO005-370354093325901",
+   "status": "lookup-failed"
+  },
+  "29047": {
+   "well_id": "USGS-390955094244001",
+   "status": "lookup-failed"
+  },
+  "29051": {
+   "well_id": "MO005-383226092054001",
+   "status": "lookup-failed"
+  },
+  "29053": {
+   "well_id": "MO005-390207092570801",
+   "status": "lookup-failed"
+  },
+  "29055": {
+   "well_id": "MO005-380900091153901",
+   "status": "lookup-failed"
+  },
+  "29057": {
+   "well_id": "USGS-372354093545501",
+   "status": "lookup-failed"
+  },
+  "29061": {
+   "well_id": "MO005-400458093582001",
+   "status": "lookup-failed"
+  },
+  "29065": {
+   "well_id": "MO005-373653091330101",
+   "status": "lookup-failed"
+  },
+  "29067": {
+   "well_id": "MO005-365602092395101",
+   "status": "lookup-failed"
+  },
+  "29069": {
+   "well_id": "MO005-360252090173202",
+   "status": "lookup-failed"
+  },
+  "29071": {
+   "well_id": "MO005-382100090592801",
+   "status": "lookup-failed"
+  },
+  "29073": {
+   "well_id": "MO005-382745091275701",
+   "status": "lookup-failed"
+  },
+  "29077": {
+   "well_id": "USGS-371558093181901",
+   "lat": 37.2988611111111,
+   "lon": -93.3056388888889,
+   "well_county_fips": "29077",
+   "well_county_name": "Greene County",
+   "well_state": "Missouri",
+   "miles_from_county_centre": 3.4,
+   "status": "in-county"
+  },
+  "29079": {
+   "well_id": "MO005-401444093442001",
+   "status": "lookup-failed"
+  },
+  "29081": {
+   "well_id": "MO005-402657093470201",
+   "status": "lookup-failed"
+  },
+  "29083": {
+   "well_id": "MO005-382748093595101",
+   "status": "lookup-failed"
+  },
+  "29085": {
+   "well_id": "MO005-375259093181401",
+   "status": "lookup-failed"
+  },
+  "29087": {
+   "well_id": "MO005-395355095051601",
+   "status": "lookup-failed"
+  },
+  "29091": {
+   "well_id": "MO005-365559092030001",
+   "status": "lookup-failed"
+  },
+  "29093": {
+   "well_id": "MO005-373955091065901",
+   "status": "lookup-failed"
+  },
+  "29095": {
+   "well_id": "MO005-391236094170201",
+   "lat": 39.21,
+   "lon": -94.284111,
+   "well_county_fips": "29095",
+   "well_county_name": "Jackson County",
+   "well_state": "Missouri",
+   "miles_from_county_centre": 14.5,
+   "status": "in-county"
+  },
+  "29097": {
+   "well_id": "MO005-370600094223501",
+   "status": "lookup-failed"
+  },
+  "29099": {
+   "well_id": "MO005-381405090260301",
+   "status": "lookup-failed"
+  },
+  "29101": {
+   "well_id": "MO005-384545093331601",
+   "status": "lookup-failed"
+  },
+  "29105": {
+   "well_id": "MO005-373906092385201",
+   "status": "lookup-failed"
+  },
+  "29109": {
+   "well_id": "MO005-365644094001301",
+   "status": "lookup-failed"
+  },
+  "29111": {
+   "well_id": "MO005-401057091494501",
+   "status": "lookup-failed"
+  },
+  "29113": {
+   "well_id": "MO005-385845090583801",
+   "status": "lookup-failed"
+  },
+  "29117": {
+   "well_id": "MO005-394201093181101",
+   "status": "lookup-failed"
+  },
+  "29119": {
+   "well_id": "MO005-363236094290301",
+   "status": "lookup-failed"
+  },
+  "29123": {
+   "well_id": "MO005-373210090180601",
+   "status": "lookup-failed"
+  },
+  "29125": {
+   "well_id": "MO005-381045091564801",
+   "status": "lookup-failed"
+  },
+  "29127": {
+   "well_id": "MO005-395043091262601",
+   "status": "lookup-failed"
+  },
+  "29133": {
+   "well_id": "MO005-364643089212301",
+   "status": "lookup-failed"
+  },
+  "29135": {
+   "well_id": "MO005-383929092464901",
+   "status": "lookup-failed"
+  },
+  "29137": {
+   "well_id": "MO005-392813092124701",
+   "status": "lookup-failed"
+  },
+  "29139": {
+   "well_id": "MO005-385428091265001",
+   "status": "lookup-failed"
+  },
+  "29143": {
+   "well_id": "MO005-362718089552301",
+   "status": "lookup-failed"
+  },
+  "29145": {
+   "well_id": "MO005-370224094320201",
+   "status": "lookup-failed"
+  },
+  "29147": {
+   "well_id": "MO005-403301094492301",
+   "status": "lookup-failed"
+  },
+  "29149": {
+   "well_id": "USGS-363539091384501",
+   "status": "lookup-failed"
+  },
+  "29151": {
+   "well_id": "MO005-382836091502301",
+   "status": "lookup-failed"
+  },
+  "29153": {
+   "well_id": "MO005-363436092391001",
+   "status": "lookup-failed"
+  },
+  "29155": {
+   "well_id": "MO005-360425089485001",
+   "status": "lookup-failed"
+  },
+  "29157": {
+   "well_id": "MO005-373559090082901",
+   "status": "lookup-failed"
+  },
+  "29159": {
+   "well_id": "MO005-384832093192501",
+   "status": "lookup-failed"
+  },
+  "29161": {
+   "well_id": "MO005-375749091475001",
+   "status": "lookup-failed"
+  },
+  "29163": {
+   "well_id": "MO005-392147090541901",
+   "status": "lookup-failed"
+  },
+  "29165": {
+   "well_id": "USGS-392228094473101",
+   "status": "lookup-failed"
+  },
+  "29167": {
+   "well_id": "MO005-373701093151601",
+   "status": "lookup-failed"
+  },
+  "29179": {
+   "well_id": "MO005-372853091061801",
+   "status": "lookup-failed"
+  },
+  "29181": {
+   "well_id": "MO005-363442090364301",
+   "status": "lookup-failed"
+  },
+  "29183": {
+   "well_id": "MO005-384846090510301",
+   "lat": 38.8133333333333,
+   "lon": -90.8505555555555,
+   "well_county_fips": "29183",
+   "well_county_name": "St. Charles County",
+   "well_state": "Missouri",
+   "miles_from_county_centre": 9.7,
+   "status": "in-county"
+  },
+  "29185": {
+   "well_id": "MO005-380229093464701",
+   "status": "lookup-failed"
+  },
+  "29186": {
+   "well_id": "MO005-375306090125301",
+   "status": "lookup-failed"
+  },
+  "29189": {
+   "well_id": "MO005-384849090092001",
+   "lat": 38.812944,
+   "lon": -90.152417,
+   "well_county_fips": "29189",
+   "well_county_name": "St. Louis County",
+   "well_state": "Missouri",
+   "miles_from_county_centre": 19.8,
+   "status": "in-county"
+  },
+  "29195": {
+   "well_id": "MO005-391222093185501",
+   "status": "lookup-failed"
+  },
+  "29197": {
+   "well_id": "MO005-403452092292901",
+   "status": "lookup-failed"
+  },
+  "29199": {
+   "well_id": "MO005-401920092130301",
+   "status": "lookup-failed"
+  },
+  "29201": {
+   "well_id": "MO005-365319089331001",
+   "status": "lookup-failed"
+  },
+  "29203": {
+   "well_id": "MO005-372153091322301",
+   "status": "lookup-failed"
+  },
+  "29205": {
+   "well_id": "MO005-394156092030201",
+   "status": "lookup-failed"
+  },
+  "29207": {
+   "well_id": "USGS-364624089471201",
+   "status": "lookup-failed"
+  },
+  "29209": {
+   "well_id": "MO005-364006093200301",
+   "status": "lookup-failed"
+  },
+  "29213": {
+   "well_id": "MO005-363855093134701",
+   "status": "lookup-failed"
+  },
+  "29215": {
+   "well_id": "MO005-371800092094801",
+   "status": "lookup-failed"
+  },
+  "29219": {
+   "well_id": "MO005-384258091243001",
+   "status": "lookup-failed"
+  },
+  "29221": {
+   "well_id": "MO005-375617090465401",
+   "status": "lookup-failed"
+  },
+  "29225": {
+   "well_id": "USGS-372022092542201",
+   "status": "lookup-failed"
+  },
+  "29227": {
+   "well_id": "MO005-403055094364701",
+   "status": "lookup-failed"
+  },
+  "29229": {
+   "well_id": "MO005-370624092244701",
+   "status": "lookup-failed"
+  },
+  "30001": {
+   "well_id": "USGS-450524112380701",
+   "status": "lookup-failed"
+  },
+  "30003": {
+   "well_id": "USGS-452429106435201",
+   "status": "lookup-failed"
+  },
+  "30031": {
+   "well_id": "USGS-454043110004501",
+   "status": "lookup-failed"
+  },
+  "30041": {
+   "well_id": "USGS-483320109451101",
+   "status": "lookup-failed"
+  },
+  "30043": {
+   "well_id": "USGS-462503112172302",
+   "status": "lookup-failed"
+  },
+  "30049": {
+   "well_id": "USGS-463906112043901",
+   "status": "lookup-failed"
+  },
+  "30053": {
+   "well_id": "USGS-480659115250501",
+   "status": "lookup-failed"
+  },
+  "30055": {
+   "well_id": "USGS-480034105195401",
+   "status": "lookup-failed"
+  },
+  "30059": {
+   "well_id": "USGS-462748110174301",
+   "status": "lookup-failed"
+  },
+  "30075": {
+   "well_id": "USGS-453107106110601",
+   "status": "lookup-failed"
+  },
+  "30081": {
+   "well_id": "USGS-462205114064501",
+   "status": "lookup-failed"
+  },
+  "30085": {
+   "well_id": "USGS-480844104382601",
+   "status": "lookup-failed"
+  },
+  "30087": {
+   "well_id": "USGS-451746106301101",
+   "status": "lookup-failed"
+  },
+  "30111": {
+   "well_id": "USGS-454202108411801",
+   "status": "lookup-failed"
+  },
+  "31001": {
+   "well_id": "USGS-403403098244001",
+   "status": "lookup-failed"
+  },
+  "31003": {
+   "well_id": "USGS-420520097554101",
+   "status": "lookup-failed"
+  },
+  "31005": {
+   "well_id": "USGS-413436101353301",
+   "status": "lookup-failed"
+  },
+  "31007": {
+   "well_id": "USGS-414107102233801",
+   "status": "lookup-failed"
+  },
+  "31009": {
+   "well_id": "USGS-414958100061501",
+   "status": "lookup-failed"
+  },
+  "31011": {
+   "well_id": "USGS-413220098080901",
+   "status": "lookup-failed"
+  },
+  "31013": {
+   "well_id": "USGS-420650102522201",
+   "status": "lookup-failed"
+  },
+  "31015": {
+   "well_id": "USGS-425222098412901",
+   "status": "lookup-failed"
+  },
+  "31017": {
+   "well_id": "USGS-423212099525101",
+   "status": "lookup-failed"
+  },
+  "31019": {
+   "well_id": "USGS-404924098441801",
+   "status": "lookup-failed"
+  },
+  "31021": {
+   "well_id": "USGS-414944096292301",
+   "status": "lookup-failed"
+  },
+  "31023": {
+   "well_id": "USGS-412254097014401",
+   "status": "lookup-failed"
+  },
+  "31025": {
+   "well_id": "USGS-425100095510401",
+   "status": "lookup-failed"
+  },
+  "31027": {
+   "well_id": "USGS-423655097145001",
+   "status": "lookup-failed"
+  },
+  "31029": {
+   "well_id": "USGS-403220101384001",
+   "status": "lookup-failed"
+  },
+  "31031": {
+   "well_id": "USGS-425636101300901",
+   "status": "lookup-failed"
+  },
+  "31033": {
+   "well_id": "USGS-410840103004201",
+   "status": "lookup-failed"
+  },
+  "31035": {
+   "well_id": "USGS-402304098071701",
+   "status": "lookup-failed"
+  },
+  "31037": {
+   "well_id": "USGS-412840096585001",
+   "status": "lookup-failed"
+  },
+  "31039": {
+   "well_id": "USGS-420137097000801",
+   "status": "lookup-failed"
+  },
+  "31041": {
+   "well_id": "USGS-413237099165301",
+   "status": "lookup-failed"
+  },
+  "31043": {
+   "well_id": "USGS-422201096284801",
+   "status": "lookup-failed"
+  },
+  "31045": {
+   "well_id": "USGS-424100103243501",
+   "status": "lookup-failed"
+  },
+  "31047": {
+   "well_id": "USGS-404550099401201",
+   "status": "lookup-failed"
+  },
+  "31049": {
+   "well_id": "USGS-410010102105101",
+   "status": "lookup-failed"
+  },
+  "31051": {
+   "well_id": "USGS-423847096435801",
+   "status": "lookup-failed"
+  },
+  "31053": {
+   "well_id": "USGS-412801096312301",
+   "status": "lookup-failed"
+  },
+  "31055": {
+   "well_id": "USGS-411324096181801",
+   "lat": 41.2233329470144,
+   "lon": -96.305301458782,
+   "well_county_fips": "31055",
+   "well_county_name": "Douglas County",
+   "well_state": "Nebraska",
+   "miles_from_county_centre": 9.4,
+   "status": "in-county"
+  },
+  "31057": {
+   "well_id": "USGS-400130101374401",
+   "status": "lookup-failed"
+  },
+  "31059": {
+   "well_id": "USGS-404147097473001",
+   "status": "lookup-failed"
+  },
+  "31061": {
+   "well_id": "USGS-401936098524701",
+   "status": "lookup-failed"
+  },
+  "31063": {
+   "well_id": "USGS-402250100285801",
+   "status": "lookup-failed"
+  },
+  "31065": {
+   "well_id": "USGS-401634099512701",
+   "status": "lookup-failed"
+  },
+  "31067": {
+   "well_id": "USGS-400732096432001",
+   "status": "lookup-failed"
+  },
+  "31069": {
+   "well_id": "USGS-414426102261201",
+   "status": "lookup-failed"
+  },
+  "31071": {
+   "well_id": "USGS-420237099041901",
+   "status": "lookup-failed"
+  },
+  "31073": {
+   "well_id": "USGS-403626099451401",
+   "status": "lookup-failed"
+  },
+  "31075": {
+   "well_id": "USGS-420254101584101",
+   "status": "lookup-failed"
+  },
+  "31077": {
+   "well_id": "USGS-412613098283601",
+   "status": "lookup-failed"
+  },
+  "31079": {
+   "well_id": "USGS-404606098403501",
+   "status": "lookup-failed"
+  },
+  "31081": {
+   "well_id": "USGS-410348097595601",
+   "status": "lookup-failed"
+  },
+  "31083": {
+   "well_id": "USGS-402054099164601",
+   "status": "lookup-failed"
+  },
+  "31085": {
+   "well_id": "USGS-402107101063001",
+   "status": "lookup-failed"
+  },
+  "31087": {
+   "well_id": "USGS-401130100533601",
+   "status": "lookup-failed"
+  },
+  "31089": {
+   "well_id": "USGS-421605098203001",
+   "status": "lookup-failed"
+  },
+  "31091": {
+   "well_id": "USGS-414506101014401",
+   "status": "lookup-failed"
+  },
+  "31093": {
+   "well_id": "USGS-410444098402501",
+   "status": "lookup-failed"
+  },
+  "31095": {
+   "well_id": "USGS-400933097060001",
+   "status": "lookup-failed"
+  },
+  "31097": {
+   "well_id": "USGS-402850096263301",
+   "status": "lookup-failed"
+  },
+  "31099": {
+   "well_id": "USGS-403828099010201",
+   "status": "lookup-failed"
+  },
+  "31101": {
+   "well_id": "USGS-411242101401101",
+   "status": "lookup-failed"
+  },
+  "31103": {
+   "well_id": "USGS-425024099455201",
+   "status": "lookup-failed"
+  },
+  "31105": {
+   "well_id": "USGS-411402103514101",
+   "status": "lookup-failed"
+  },
+  "31107": {
+   "well_id": "USGS-424531098014901",
+   "status": "lookup-failed"
+  },
+  "31109": {
+   "well_id": "USGS-405457096324701",
+   "lat": 40.9158322367367,
+   "lon": -96.5466764773103,
+   "well_county_fips": "31109",
+   "well_county_name": "Lancaster County",
+   "well_state": "Nebraska",
+   "miles_from_county_centre": 11.8,
+   "status": "in-county"
+  },
+  "31111": {
+   "well_id": "USGS-410523100455501",
+   "status": "lookup-failed"
+  },
+  "31113": {
+   "well_id": "USGS-412512100262601",
+   "status": "lookup-failed"
+  },
+  "31115": {
+   "well_id": "USGS-414655099224901",
+   "status": "lookup-failed"
+  },
+  "31117": {
+   "well_id": "USGS-413355101230301",
+   "status": "lookup-failed"
+  },
+  "31119": {
+   "well_id": "USGS-420112097440401",
+   "status": "lookup-failed"
+  },
+  "31121": {
+   "well_id": "USGS-410111098161301",
+   "status": "lookup-failed"
+  },
+  "31123": {
+   "well_id": "USGS-413506103075101",
+   "status": "lookup-failed"
+  },
+  "31125": {
+   "well_id": "USGS-412109097593001",
+   "status": "lookup-failed"
+  },
+  "31127": {
+   "well_id": "USGS-403017095561101",
+   "status": "lookup-failed"
+  },
+  "31129": {
+   "well_id": "USGS-400339098153801",
+   "status": "lookup-failed"
+  },
+  "31131": {
+   "well_id": "USGS-403214096081301",
+   "status": "lookup-failed"
+  },
+  "31135": {
+   "well_id": "USGS-405248101163701",
+   "status": "lookup-failed"
+  },
+  "31137": {
+   "well_id": "USGS-403941099331901",
+   "status": "lookup-failed"
+  },
+  "31139": {
+   "well_id": "USGS-420653097263301",
+   "status": "lookup-failed"
+  },
+  "31141": {
+   "well_id": "USGS-412955097192001",
+   "status": "lookup-failed"
+  },
+  "31143": {
+   "well_id": "USGS-410928097371101",
+   "status": "lookup-failed"
+  },
+  "31145": {
+   "well_id": "USGS-401329100241701",
+   "status": "lookup-failed"
+  },
+  "31147": {
+   "well_id": "USGS-401202095585601",
+   "status": "lookup-failed"
+  },
+  "31149": {
+   "well_id": "USGS-423505099195101",
+   "status": "lookup-failed"
+  },
+  "31151": {
+   "well_id": "USGS-403855097072501",
+   "status": "lookup-failed"
+  },
+  "31153": {
+   "well_id": "USGS-410228096083501",
+   "status": "lookup-failed"
+  },
+  "31155": {
+   "well_id": "USGS-411845096434101",
+   "status": "lookup-failed"
+  },
+  "31157": {
+   "well_id": "USGS-415325103392801",
+   "status": "lookup-failed"
+  },
+  "31159": {
+   "well_id": "USGS-404422097072401",
+   "status": "lookup-failed"
+  },
+  "31161": {
+   "well_id": "USGS-424041102441101",
+   "status": "lookup-failed"
+  },
+  "31163": {
+   "well_id": "USGS-412227099061501",
+   "status": "lookup-failed"
+  },
+  "31165": {
+   "well_id": "USGS-420022103544501",
+   "status": "lookup-failed"
+  },
+  "31167": {
+   "well_id": "USGS-420046097041201",
+   "status": "lookup-failed"
+  },
+  "31169": {
+   "well_id": "USGS-400624097400201",
+   "status": "lookup-failed"
+  },
+  "31171": {
+   "well_id": "USGS-414643100315801",
+   "status": "lookup-failed"
+  },
+  "31173": {
+   "well_id": "USGS-420748096430801",
+   "status": "lookup-failed"
+  },
+  "31175": {
+   "well_id": "USGS-413042098462401",
+   "status": "lookup-failed"
+  },
+  "31177": {
+   "well_id": "USGS-413354096091501",
+   "status": "lookup-failed"
+  },
+  "31179": {
+   "well_id": "USGS-421601097151001",
+   "status": "lookup-failed"
+  },
+  "31181": {
+   "well_id": "USGS-400512098275101",
+   "status": "lookup-failed"
+  },
+  "31183": {
+   "well_id": "USGS-414519098293301",
+   "status": "lookup-failed"
+  },
+  "31185": {
+   "well_id": "USGS-405306097470901",
+   "status": "lookup-failed"
+  },
+  "32001": {
+   "well_id": "USGS-393840118050001",
+   "status": "lookup-failed"
+  },
+  "32003": {
+   "well_id": "USGS-360349115100001",
+   "lat": 36.0660837396484,
+   "lon": -115.171942011,
+   "well_county_fips": "32003",
+   "well_county_name": "Clark County",
+   "well_state": "Nevada",
+   "miles_from_county_centre": 13.5,
+   "status": "in-county"
+  },
+  "32005": {
+   "well_id": "USGS-385834119395901",
+   "status": "lookup-failed"
+  },
+  "32007": {
+   "well_id": "USGS-404350115281001",
+   "status": "lookup-failed"
+  },
+  "32013": {
+   "well_id": "USGS-413400119070001",
+   "status": "lookup-failed"
+  },
+  "32015": {
+   "well_id": "USGS-403920116520001",
+   "status": "lookup-failed"
+  },
+  "32017": {
+   "well_id": "USGS-374256115485501",
+   "status": "lookup-failed"
+  },
+  "32019": {
+   "well_id": "USGS-391600119080601",
+   "status": "lookup-failed"
+  },
+  "32021": {
+   "well_id": "USGS-385605118440601",
+   "status": "lookup-failed"
+  },
+  "32023": {
+   "well_id": "USGS-384920115343001",
+   "status": "lookup-failed"
+  },
+  "32027": {
+   "well_id": "USGS-404138117441501",
+   "status": "lookup-failed"
+  },
+  "32029": {
+   "well_id": "USGS-392212119394101",
+   "status": "lookup-failed"
+  },
+  "32031": {
+   "well_id": "USGS-410208119571301",
+   "lat": 41.0432304032162,
+   "lon": -119.944930715216,
+   "well_county_fips": "32031",
+   "well_county_name": "Washoe County",
+   "well_state": "Nevada",
+   "miles_from_county_centre": 26.1,
+   "status": "in-county"
+  },
+  "32033": {
+   "well_id": "USGS-393310114475001",
+   "status": "lookup-failed"
+  },
+  "32510": {
+   "well_id": "USGS-390831119422001",
+   "status": "lookup-failed"
+  },
+  "33001": {
+   "well_id": "USGS-431916071125901",
+   "status": "lookup-failed"
+  },
+  "33003": {
+   "well_id": "USGS-434221071051501",
+   "status": "lookup-failed"
+  },
+  "33005": {
+   "well_id": "USGS-425543072175801",
+   "status": "lookup-failed"
+  },
+  "33007": {
+   "well_id": "USGS-442830071321001",
+   "status": "lookup-failed"
+  },
+  "33009": {
+   "well_id": "USGS-434952071390901",
+   "status": "lookup-failed"
+  },
+  "33011": {
+   "well_id": "USGS-424800071295301",
+   "lat": 42.8000876522453,
+   "lon": -71.4975668806149,
+   "well_county_fips": "33011",
+   "well_county_name": "Hillsborough County",
+   "well_state": "New Hampshire",
+   "miles_from_county_centre": 13.8,
+   "status": "in-county"
+  },
+  "33013": {
+   "well_id": "USGS-432343071570901",
+   "status": "lookup-failed"
+  },
+  "33015": {
+   "well_id": "USGS-430527071140101",
+   "lat": 43.0909170134315,
+   "lon": -71.2333964788296,
+   "well_county_fips": "33015",
+   "well_county_name": "Rockingham County",
+   "well_state": "New Hampshire",
+   "miles_from_county_centre": 9.8,
+   "status": "in-county"
+  },
+  "33017": {
+   "well_id": "USGS-432534071095601",
+   "status": "lookup-failed"
+  },
+  "33019": {
+   "well_id": "USGS-432322072112402",
+   "status": "lookup-failed"
+  },
+  "34001": {
+   "well_id": "USGS-392153074250101",
+   "lat": 39.3644722222222,
+   "lon": -74.4160277777778,
+   "well_county_fips": "34001",
+   "well_county_name": "Atlantic County",
+   "well_state": "New Jersey",
+   "miles_from_county_centre": 13.7,
+   "status": "in-county"
+  },
+  "34003": {
+   "well_id": "USGS-410155074060201",
+   "lat": 41.0320414513422,
+   "lon": -74.1001420912977,
+   "well_county_fips": "34003",
+   "well_county_name": "Bergen County",
+   "well_state": "New Jersey",
+   "miles_from_county_centre": 5.2,
+   "status": "in-county"
+  },
+  "34005": {
+   "well_id": "USGS-394452074281901",
+   "lat": 39.7478969770295,
+   "lon": -74.4715388373659,
+   "well_county_fips": "34005",
+   "well_county_name": "Burlington County",
+   "well_state": "New Jersey",
+   "miles_from_county_centre": 13.5,
+   "status": "in-county"
+  },
+  "34007": {
+   "well_id": "USGS-395848075034701",
+   "lat": 39.9798333333333,
+   "lon": -75.0628333333333,
+   "well_county_fips": "34007",
+   "well_county_name": "Camden County",
+   "well_state": "New Jersey",
+   "miles_from_county_centre": 13.4,
+   "status": "in-county"
+  },
+  "34009": {
+   "well_id": "USGS-385612074545701",
+   "status": "lookup-failed"
+  },
+  "34011": {
+   "well_id": "USGS-392920074570001",
+   "status": "lookup-failed"
+  },
+  "34013": {
+   "well_id": "USGS-404454074202101",
+   "lat": 40.7484340889796,
+   "lon": -74.3387608939586,
+   "well_county_fips": "34013",
+   "well_county_name": "Essex County",
+   "well_state": "New Jersey",
+   "miles_from_county_centre": 5.5,
+   "status": "in-county"
+  },
+  "34017": {
+   "well_id": "USGS-404636074024701",
+   "lat": 40.7766666666667,
+   "lon": -74.0463888888889,
+   "well_county_fips": "34017",
+   "well_county_name": "Hudson County",
+   "well_state": "New Jersey",
+   "miles_from_county_centre": 3.6,
+   "status": "in-county"
+  },
+  "34019": {
+   "well_id": "USGS-402644074563601",
+   "status": "lookup-failed"
+  },
+  "34021": {
+   "well_id": "USGS-401622074313301",
+   "lat": 40.2724982472497,
+   "lon": -74.5244034551973,
+   "well_county_fips": "34021",
+   "well_county_name": "Mercer County",
+   "well_state": "New Jersey",
+   "miles_from_county_centre": 9.5,
+   "status": "in-county"
+  },
+  "34023": {
+   "well_id": "USGS-402143074185201",
+   "lat": 40.3620529081764,
+   "lon": -74.3132028149006,
+   "well_county_fips": "34023",
+   "well_county_name": "Middlesex County",
+   "well_state": "New Jersey",
+   "miles_from_county_centre": 7.3,
+   "status": "in-county"
+  },
+  "34025": {
+   "well_id": "USGS-401138074012501",
+   "lat": 40.1943888888889,
+   "lon": -74.0220555555556,
+   "well_county_fips": "34025",
+   "well_county_name": "Monmouth County",
+   "well_state": "New Jersey",
+   "miles_from_county_centre": 9.4,
+   "status": "in-county"
+  },
+  "34027": {
+   "well_id": "USGS-404510074240201",
+   "lat": 40.7523228301351,
+   "lon": -74.4001519011913,
+   "well_county_fips": "34027",
+   "well_county_name": "Morris County",
+   "well_state": "New Jersey",
+   "miles_from_county_centre": 10.7,
+   "status": "in-county"
+  },
+  "34029": {
+   "well_id": "USGS-395808074042101",
+   "lat": 39.9687569173769,
+   "lon": -74.0718864317862,
+   "well_county_fips": "34029",
+   "well_county_name": "Ocean County",
+   "well_state": "New Jersey",
+   "miles_from_county_centre": 12.2,
+   "status": "in-county"
+  },
+  "34031": {
+   "well_id": "USGS-405632074131801",
+   "lat": 40.9422222222222,
+   "lon": -74.2216666666667,
+   "well_county_fips": "34031",
+   "well_county_name": "Passaic County",
+   "well_state": "New Jersey",
+   "miles_from_county_centre": 7.7,
+   "status": "in-county"
+  },
+  "34033": {
+   "well_id": "USGS-394236075272101",
+   "status": "lookup-failed"
+  },
+  "34035": {
+   "well_id": "USGS-403200074420601",
+   "lat": 40.53325,
+   "lon": -74.7018055555556,
+   "well_county_fips": "34035",
+   "well_county_name": "Somerset County",
+   "well_state": "New Jersey",
+   "miles_from_county_centre": 4.8,
+   "status": "in-county"
+  },
+  "34037": {
+   "well_id": "USGS-410914074540401",
+   "status": "lookup-failed"
+  },
+  "34039": {
+   "well_id": "USGS-404106074171901",
+   "lat": 40.6851020358208,
+   "lon": -74.2882031805037,
+   "well_county_fips": "34039",
+   "well_county_name": "Union County",
+   "well_state": "New Jersey",
+   "miles_from_county_centre": 2,
+   "status": "in-county"
+  },
+  "34041": {
+   "well_id": "USGS-405003074495001",
+   "status": "lookup-failed"
+  },
+  "35001": {
+   "well_id": "USGS-350653106403001",
+   "lat": 35.1146527777778,
+   "lon": -106.675455555556,
+   "well_county_fips": "35001",
+   "well_county_name": "Bernalillo County",
+   "well_state": "New Mexico",
+   "miles_from_county_centre": 4.2,
+   "status": "in-county"
+  },
+  "35003": {
+   "well_id": "USGS-340103107461701",
+   "status": "lookup-failed"
+  },
+  "35005": {
+   "well_id": "USGS-332838104262601",
+   "status": "lookup-failed"
+  },
+  "35007": {
+   "well_id": "USGS-364522104034501",
+   "status": "lookup-failed"
+  },
+  "35009": {
+   "well_id": "USGS-341852103291801",
+   "status": "lookup-failed"
+  },
+  "35011": {
+   "well_id": "USGS-342727104121801",
+   "status": "lookup-failed"
+  },
+  "35013": {
+   "well_id": "USGS-315953106391501",
+   "status": "lookup-failed"
+  },
+  "35015": {
+   "well_id": "USGS-324815104225501",
+   "status": "lookup-failed"
+  },
+  "35017": {
+   "well_id": "USGS-324600108222501",
+   "status": "lookup-failed"
+  },
+  "35019": {
+   "well_id": "USGS-352426103284402",
+   "status": "lookup-failed"
+  },
+  "35021": {
+   "well_id": "USGS-352550103364201",
+   "status": "lookup-failed"
+  },
+  "35023": {
+   "well_id": "USGS-321041108515101",
+   "status": "lookup-failed"
+  },
+  "35025": {
+   "well_id": "USGS-324745103251501",
+   "status": "lookup-failed"
+  },
+  "35027": {
+   "well_id": "USGS-332937105314501",
+   "status": "lookup-failed"
+  },
+  "35029": {
+   "well_id": "USGS-322539107563901",
+   "status": "lookup-failed"
+  },
+  "35031": {
+   "well_id": "USGS-354332108165501",
+   "status": "lookup-failed"
+  },
+  "35033": {
+   "well_id": "USGS-355540105210201",
+   "status": "lookup-failed"
+  },
+  "35035": {
+   "well_id": "USGS-324442105564501",
+   "status": "lookup-failed"
+  },
+  "35037": {
+   "well_id": "USGS-350825103482901",
+   "status": "lookup-failed"
+  },
+  "35041": {
+   "well_id": "USGS-341322103233001",
+   "status": "lookup-failed"
+  },
+  "35043": {
+   "well_id": "USGS-355758107042301",
+   "status": "lookup-failed"
+  },
+  "35045": {
+   "well_id": "USGS-361833108193801",
+   "status": "lookup-failed"
+  },
+  "35047": {
+   "well_id": "USGS-354811105252301",
+   "status": "lookup-failed"
+  },
+  "35049": {
+   "well_id": "USGS-354013105580601",
+   "status": "lookup-failed"
+  },
+  "35051": {
+   "well_id": "USGS-324917107183201",
+   "status": "lookup-failed"
+  },
+  "35053": {
+   "well_id": "USGS-335216106443001",
+   "status": "lookup-failed"
+  },
+  "35055": {
+   "well_id": "USGS-364757105372801",
+   "status": "lookup-failed"
+  },
+  "35057": {
+   "well_id": "USGS-344011106082301",
+   "status": "lookup-failed"
+  },
+  "35059": {
+   "well_id": "USGS-361314103183301",
+   "status": "lookup-failed"
+  },
+  "35061": {
+   "well_id": "USGS-345235106384401",
+   "status": "lookup-failed"
+  },
+  "36001": {
+   "well_id": "USGS-424115073495301",
+   "lat": 42.6874722222222,
+   "lon": -73.8313888888889,
+   "well_county_fips": "36001",
+   "well_county_name": "Albany County",
+   "well_state": "New York",
+   "miles_from_county_centre": 10,
+   "status": "in-county"
+  },
+  "36003": {
+   "well_id": "USGS-421544078021301",
+   "status": "lookup-failed"
+  },
+  "36005": {
+   "well_id": "USGS-405202073525101",
+   "lat": 40.867361,
+   "lon": -73.880361,
+   "well_county_fips": "36005",
+   "well_county_name": "Bronx County",
+   "well_state": "New York",
+   "miles_from_county_centre": 1.9,
+   "status": "in-county"
+  },
+  "36007": {
+   "well_id": "USGS-421138075511301",
+   "status": "lookup-failed"
+  },
+  "36009": {
+   "well_id": "USGS-420530078445201",
+   "status": "lookup-failed"
+  },
+  "36011": {
+   "well_id": "USGS-424158076251901",
+   "status": "lookup-failed"
+  },
+  "36013": {
+   "well_id": "USGS-420326079295801",
+   "status": "lookup-failed"
+  },
+  "36015": {
+   "well_id": "USGS-420828076484601",
+   "status": "lookup-failed"
+  },
+  "36017": {
+   "well_id": "USGS-421556075281602",
+   "status": "lookup-failed"
+  },
+  "36019": {
+   "well_id": "USGS-445052073350201",
+   "status": "lookup-failed"
+  },
+  "36021": {
+   "well_id": "USGS-422241073274601",
+   "status": "lookup-failed"
+  },
+  "36023": {
+   "well_id": "USGS-424452076081902",
+   "status": "lookup-failed"
+  },
+  "36025": {
+   "well_id": "USGS-421948074483701",
+   "status": "lookup-failed"
+  },
+  "36027": {
+   "well_id": "USGS-414737073563301",
+   "lat": 41.79413888888889,
+   "lon": -73.94180555555556,
+   "well_county_fips": "36027",
+   "well_county_name": "Dutchess County",
+   "well_state": "New York",
+   "miles_from_county_centre": 10.7,
+   "status": "in-county"
+  },
+  "36029": {
+   "well_id": "USGS-425430078292701",
+   "lat": 42.9079722222222,
+   "lon": -78.4900555555556,
+   "well_county_fips": "36029",
+   "well_county_name": "Erie County",
+   "well_state": "New York",
+   "miles_from_county_centre": 18.1,
+   "status": "in-county"
+  },
+  "36031": {
+   "well_id": "USGS-441644073315101",
+   "status": "lookup-failed"
+  },
+  "36033": {
+   "well_id": "USGS-445511074103901",
+   "status": "lookup-failed"
+  },
+  "36035": {
+   "well_id": "USGS-430930074290301",
+   "status": "lookup-failed"
+  },
+  "36037": {
+   "well_id": "USGS-425913078085501",
+   "status": "lookup-failed"
+  },
+  "36039": {
+   "well_id": "USGS-421903074152301",
+   "status": "lookup-failed"
+  },
+  "36041": {
+   "well_id": "USGS-432832074122201",
+   "status": "lookup-failed"
+  },
+  "36043": {
+   "well_id": "USGS-431841074573201",
+   "status": "lookup-failed"
+  },
+  "36045": {
+   "well_id": "USGS-441214075542101",
+   "status": "lookup-failed"
+  },
+  "36047": {
+   "well_id": "USGS-403612073573208",
+   "lat": 40.6034380446178,
+   "lon": -73.9584714362774,
+   "well_county_fips": "36047",
+   "well_county_name": "Kings County",
+   "well_state": "New York",
+   "miles_from_county_centre": 2.2,
+   "status": "in-county"
+  },
+  "36049": {
+   "well_id": "USGS-440939075191301",
+   "status": "lookup-failed"
+  },
+  "36051": {
+   "well_id": "USGS-425833077503901",
+   "status": "lookup-failed"
+  },
+  "36053": {
+   "well_id": "USGS-430056075354102",
+   "status": "lookup-failed"
+  },
+  "36055": {
+   "well_id": "USGS-430252077283402",
+   "lat": 43.048,
+   "lon": -77.47575,
+   "well_county_fips": "36055",
+   "well_county_name": "Monroe County",
+   "well_state": "New York",
+   "miles_from_county_centre": 18,
+   "status": "in-county"
+  },
+  "36057": {
+   "well_id": "USGS-425511074254001",
+   "status": "lookup-failed"
+  },
+  "36059": {
+   "well_id": "USGS-403929073382908",
+   "lat": 40.658472,
+   "lon": -73.641028,
+   "well_county_fips": "36059",
+   "well_county_name": "Nassau County",
+   "well_state": "New York",
+   "miles_from_county_centre": 5.6,
+   "status": "in-county"
+  },
+  "36061": {
+   "well_id": "USGS-404247073595801",
+   "lat": 40.713164138811095,
+   "lon": -73.9984301564095,
+   "well_county_fips": "36061",
+   "well_county_name": "New York County",
+   "well_state": "New York",
+   "miles_from_county_centre": 4.6,
+   "status": "in-county"
+  },
+  "36063": {
+   "well_id": "USGS-431308078544501",
+   "status": "lookup-failed"
+  },
+  "36065": {
+   "well_id": "USGS-433112075091501",
+   "status": "lookup-failed"
+  },
+  "36067": {
+   "well_id": "USGS-430243076180402",
+   "lat": 43.0453888888889,
+   "lon": -76.3013055555556,
+   "well_county_fips": "36067",
+   "well_county_name": "Onondaga County",
+   "well_state": "New York",
+   "miles_from_county_centre": 6,
+   "status": "in-county"
+  },
+  "36069": {
+   "well_id": "USGS-425829077055901",
+   "status": "lookup-failed"
+  },
+  "36071": {
+   "well_id": "USGS-412637074362301",
+   "lat": 41.4436111111111,
+   "lon": -74.6063888888889,
+   "well_county_fips": "36071",
+   "well_county_name": "Orange County",
+   "well_state": "New York",
+   "miles_from_county_centre": 15.8,
+   "status": "in-county"
+  },
+  "36073": {
+   "well_id": "USGS-431045078160401",
+   "status": "lookup-failed"
+  },
+  "36075": {
+   "well_id": "USGS-432148076225102",
+   "status": "lookup-failed"
+  },
+  "36077": {
+   "well_id": "USGS-424136075025101",
+   "status": "lookup-failed"
+  },
+  "36079": {
+   "well_id": "USGS-412149073445601",
+   "status": "lookup-failed"
+  },
+  "36081": {
+   "well_id": "USGS-404451073475003",
+   "lat": 40.7476666666667,
+   "lon": -73.7967777777778,
+   "well_county_fips": "36081",
+   "well_county_name": "Queens County",
+   "well_state": "New York",
+   "miles_from_county_centre": 6.8,
+   "status": "in-county"
+  },
+  "36083": {
+   "well_id": "USGS-423534073423401",
+   "status": "lookup-failed"
+  },
+  "36085": {
+   "well_id": "USGS-403547074090801",
+   "lat": 40.596333,
+   "lon": -74.15225,
+   "well_county_fips": "36085",
+   "well_county_name": "Richmond County",
+   "well_state": "New York",
+   "miles_from_county_centre": 2.5,
+   "status": "in-county"
+  },
+  "36087": {
+   "well_id": "USGS-411802073593001",
+   "lat": 41.300638888888884,
+   "lon": -73.99125000000001,
+   "well_county_fips": "36087",
+   "well_county_name": "Rockland County",
+   "well_state": "New York",
+   "miles_from_county_centre": 10.2,
+   "status": "in-county"
+  },
+  "36089": {
+   "well_id": "USGS-444904074455201",
+   "status": "lookup-failed"
+  },
+  "36091": {
+   "well_id": "USGS-430327073475401",
+   "status": "lookup-failed"
+  },
+  "36093": {
+   "well_id": "USGS-424859073585501",
+   "status": "lookup-failed"
+  },
+  "36095": {
+   "well_id": "USGS-423530074191701",
+   "status": "lookup-failed"
+  },
+  "36097": {
+   "well_id": "USGS-422710076462901",
+   "status": "lookup-failed"
+  },
+  "36099": {
+   "well_id": "USGS-424347076530202",
+   "status": "lookup-failed"
+  },
+  "36101": {
+   "well_id": "USGS-422445077203301",
+   "status": "lookup-failed"
+  },
+  "36103": {
+   "well_id": "USGS-404812073004101",
+   "lat": 40.80336111111111,
+   "lon": -73.01080555555555,
+   "well_county_fips": "36103",
+   "well_county_name": "Suffolk County",
+   "well_state": "New York",
+   "miles_from_county_centre": 19.3,
+   "status": "in-county"
+  },
+  "36105": {
+   "well_id": "USGS-414525074360601",
+   "status": "lookup-failed"
+  },
+  "36107": {
+   "well_id": "USGS-421213076313301",
+   "status": "lookup-failed"
+  },
+  "36109": {
+   "well_id": "USGS-422920076275301",
+   "status": "lookup-failed"
+  },
+  "36111": {
+   "well_id": "USGS-414615074201501",
+   "status": "lookup-failed"
+  },
+  "36113": {
+   "well_id": "USGS-433001073474701",
+   "status": "lookup-failed"
+  },
+  "36115": {
+   "well_id": "USGS-431030073192101",
+   "status": "lookup-failed"
+  },
+  "36119": {
+   "well_id": "USGS-411421073481202",
+   "lat": 41.2393611111111,
+   "lon": -73.8032777777778,
+   "well_county_fips": "36119",
+   "well_county_name": "Westchester County",
+   "well_state": "New York",
+   "miles_from_county_centre": 6.7,
+   "status": "in-county"
+  },
+  "36121": {
+   "well_id": "USGS-423743078070802",
+   "status": "lookup-failed"
+  },
+  "36123": {
+   "well_id": "USGS-423143076582601",
+   "status": "lookup-failed"
+  },
+  "37013": {
+   "well_id": "USGS-352252077050706",
+   "status": "lookup-failed"
+  },
+  "37015": {
+   "well_id": "USGS-361420077111407",
+   "status": "lookup-failed"
+  },
+  "37019": {
+   "well_id": "USGS-335631078003604",
+   "status": "lookup-failed"
+  },
+  "37023": {
+   "well_id": "USGS-354302081433201",
+   "status": "lookup-failed"
+  },
+  "37027": {
+   "well_id": "USGS-355031081243202",
+   "status": "lookup-failed"
+  },
+  "37029": {
+   "well_id": "USGS-362527076163201",
+   "status": "lookup-failed"
+  },
+  "37031": {
+   "well_id": "USGS-344323076451301",
+   "status": "lookup-failed"
+  },
+  "37035": {
+   "well_id": "USGS-354616081085102",
+   "status": "lookup-failed"
+  },
+  "37039": {
+   "well_id": "USGS-351121083545002",
+   "status": "lookup-failed"
+  },
+  "37049": {
+   "well_id": "USGS-350816077101805",
+   "status": "lookup-failed"
+  },
+  "37053": {
+   "well_id": "USGS-363106076113201",
+   "status": "lookup-failed"
+  },
+  "37059": {
+   "well_id": "USGS-355359080331701",
+   "status": "lookup-failed"
+  },
+  "37061": {
+   "well_id": "USGS-344922077484705",
+   "status": "lookup-failed"
+  },
+  "37071": {
+   "well_id": "USGS-352012081154301",
+   "status": "lookup-failed"
+  },
+  "37073": {
+   "well_id": "USGS-362646076361607",
+   "status": "lookup-failed"
+  },
+  "37079": {
+   "well_id": "USGS-353142077332703",
+   "status": "lookup-failed"
+  },
+  "37081": {
+   "well_id": "USGS-361011079595401",
+   "lat": 36.1697777777778,
+   "lon": -79.9982777777778,
+   "well_county_fips": "37081",
+   "well_county_name": "Guilford County",
+   "well_state": "North Carolina",
+   "miles_from_county_centre": 13.3,
+   "status": "in-county"
+  },
+  "37087": {
+   "well_id": "USGS-352315082484401",
+   "status": "lookup-failed"
+  },
+  "37095": {
+   "well_id": "USGS-353221076105501",
+   "status": "lookup-failed"
+  },
+  "37097": {
+   "well_id": "USGS-353135080524203",
+   "status": "lookup-failed"
+  },
+  "37103": {
+   "well_id": "USGS-345809077301401",
+   "status": "lookup-failed"
+  },
+  "37107": {
+   "well_id": "USGS-352306077321601",
+   "status": "lookup-failed"
+  },
+  "37111": {
+   "well_id": "USGS-354133082042201",
+   "status": "lookup-failed"
+  },
+  "37125": {
+   "well_id": "USGS-351132079275301",
+   "status": "lookup-failed"
+  },
+  "37129": {
+   "well_id": "USGS-341346077522601",
+   "status": "lookup-failed"
+  },
+  "37133": {
+   "well_id": "USGS-343641077290103",
+   "status": "lookup-failed"
+  },
+  "37135": {
+   "well_id": "USGS-355522079043001",
+   "status": "lookup-failed"
+  },
+  "37137": {
+   "well_id": "USGS-350637076493001",
+   "status": "lookup-failed"
+  },
+  "37139": {
+   "well_id": "USGS-361829076163201",
+   "status": "lookup-failed"
+  },
+  "37141": {
+   "well_id": "USGS-342610077371401",
+   "status": "lookup-failed"
+  },
+  "37143": {
+   "well_id": "USGS-361227076182401",
+   "status": "lookup-failed"
+  },
+  "37147": {
+   "well_id": "USGS-353219077153801",
+   "status": "lookup-failed"
+  },
+  "37157": {
+   "well_id": "USGS-362231079410801",
+   "status": "lookup-failed"
+  },
+  "37159": {
+   "well_id": "USGS-354057080362601",
+   "status": "lookup-failed"
+  },
+  "37165": {
+   "well_id": "USGS-344520079281001",
+   "status": "lookup-failed"
+  },
+  "37175": {
+   "well_id": "USGS-351709082434101",
+   "status": "lookup-failed"
+  },
+  "37179": {
+   "well_id": "USGS-345609080415102",
+   "status": "lookup-failed"
+  },
+  "37183": {
+   "well_id": "USGS-354359078403104",
+   "lat": 35.7330555555556,
+   "lon": -78.6755555555556,
+   "well_county_fips": "37183",
+   "well_county_name": "Wake County",
+   "well_state": "North Carolina",
+   "miles_from_county_centre": 4.2,
+   "status": "in-county"
+  },
+  "37187": {
+   "well_id": "USGS-354418076463601",
+   "status": "lookup-failed"
+  },
+  "37189": {
+   "well_id": "USGS-361646081430401",
+   "status": "lookup-failed"
+  },
+  "37191": {
+   "well_id": "USGS-351849078163901",
+   "status": "lookup-failed"
+  },
+  "38001": {
+   "well_id": "USGS-461614102515203",
+   "status": "lookup-failed"
+  },
+  "38005": {
+   "well_id": "USGS-475224098443202",
+   "status": "lookup-failed"
+  },
+  "38009": {
+   "well_id": "USGS-483248101141301",
+   "status": "lookup-failed"
+  },
+  "38011": {
+   "well_id": "USGS-461039103282803",
+   "status": "lookup-failed"
+  },
+  "38013": {
+   "well_id": "USGS-485618102455401",
+   "status": "lookup-failed"
+  },
+  "38015": {
+   "well_id": "USGS-464540100222101",
+   "status": "lookup-failed"
+  },
+  "38017": {
+   "well_id": "USGS-471326097332902",
+   "status": "lookup-failed"
+  },
+  "38019": {
+   "well_id": "USGS-484534098254401",
+   "status": "lookup-failed"
+  },
+  "38023": {
+   "well_id": "USGS-485432103151701",
+   "status": "lookup-failed"
+  },
+  "38025": {
+   "well_id": "USGS-472537102144801",
+   "status": "lookup-failed"
+  },
+  "38029": {
+   "well_id": "USGS-462539100061101",
+   "status": "lookup-failed"
+  },
+  "38031": {
+   "well_id": "USGS-473051099093601",
+   "status": "lookup-failed"
+  },
+  "38033": {
+   "well_id": "USGS-465421103590706",
+   "status": "lookup-failed"
+  },
+  "38035": {
+   "well_id": "USGS-475646097372201",
+   "status": "lookup-failed"
+  },
+  "38037": {
+   "well_id": "USGS-463000101575102",
+   "status": "lookup-failed"
+  },
+  "38039": {
+   "well_id": "USGS-472412098261201",
+   "status": "lookup-failed"
+  },
+  "38041": {
+   "well_id": "USGS-463153102521001",
+   "status": "lookup-failed"
+  },
+  "38047": {
+   "well_id": "USGS-463417099271002",
+   "status": "lookup-failed"
+  },
+  "38049": {
+   "well_id": "USGS-480913100372501",
+   "status": "lookup-failed"
+  },
+  "38051": {
+   "well_id": "USGS-455807099450701",
+   "status": "lookup-failed"
+  },
+  "38053": {
+   "well_id": "USGS-474814103104702",
+   "status": "lookup-failed"
+  },
+  "38055": {
+   "well_id": "USGS-474026100583201",
+   "status": "lookup-failed"
+  },
+  "38057": {
+   "well_id": "USGS-472641102105901",
+   "status": "lookup-failed"
+  },
+  "38059": {
+   "well_id": "USGS-464846101464503",
+   "status": "lookup-failed"
+  },
+  "38061": {
+   "well_id": "USGS-475213102293901",
+   "status": "lookup-failed"
+  },
+  "38063": {
+   "well_id": "USGS-480138098074101",
+   "status": "lookup-failed"
+  },
+  "38065": {
+   "well_id": "USGS-470642101162701",
+   "status": "lookup-failed"
+  },
+  "38069": {
+   "well_id": "USGS-482033099594901",
+   "status": "lookup-failed"
+  },
+  "38071": {
+   "well_id": "USGS-481929098392601",
+   "status": "lookup-failed"
+  },
+  "38073": {
+   "well_id": "USGS-462400097552502",
+   "status": "lookup-failed"
+  },
+  "38075": {
+   "well_id": "USGS-484500101294901",
+   "status": "lookup-failed"
+  },
+  "38077": {
+   "well_id": "USGS-462633097163402",
+   "status": "lookup-failed"
+  },
+  "38079": {
+   "well_id": "USGS-485707100053702",
+   "status": "lookup-failed"
+  },
+  "38081": {
+   "well_id": "USGS-460120097591803",
+   "status": "lookup-failed"
+  },
+  "38083": {
+   "well_id": "USGS-474817100063801",
+   "status": "lookup-failed"
+  },
+  "38085": {
+   "well_id": "USGS-460244101272702",
+   "status": "lookup-failed"
+  },
+  "38089": {
+   "well_id": "USGS-465755102410701",
+   "status": "lookup-failed"
+  },
+  "38091": {
+   "well_id": "USGS-472024097315201",
+   "status": "lookup-failed"
+  },
+  "38093": {
+   "well_id": "USGS-465243098284801",
+   "status": "lookup-failed"
+  },
+  "38095": {
+   "well_id": "USGS-482908099134601",
+   "status": "lookup-failed"
+  },
+  "38099": {
+   "well_id": "USGS-482408097443201",
+   "status": "lookup-failed"
+  },
+  "38101": {
+   "well_id": "USGS-481058101120403",
+   "status": "lookup-failed"
+  },
+  "38103": {
+   "well_id": "USGS-472329099194401",
+   "status": "lookup-failed"
+  },
+  "38105": {
+   "well_id": "USGS-483127103373102",
+   "status": "lookup-failed"
+  },
+  "39003": {
+   "well_id": "OH015-404325084104000",
+   "status": "lookup-failed"
+  },
+  "39009": {
+   "well_id": "OH015-392004082071600",
+   "status": "lookup-failed"
+  },
+  "39011": {
+   "well_id": "OH015-403233083574500",
+   "status": "lookup-failed"
+  },
+  "39013": {
+   "well_id": "OH015-400118081082200",
+   "status": "lookup-failed"
+  },
+  "39015": {
+   "well_id": "OH015-385932083412400",
+   "status": "lookup-failed"
+  },
+  "39017": {
+   "well_id": "OH015-392048084311400",
+   "lat": 39.3467237588519,
+   "lon": -84.5205005832057,
+   "well_county_fips": "39017",
+   "well_county_name": "Butler County",
+   "well_state": "Ohio",
+   "miles_from_county_centre": 6.9,
+   "status": "in-county"
+  },
+  "39019": {
+   "well_id": "OH015-403709081052800",
+   "status": "lookup-failed"
+  },
+  "39021": {
+   "well_id": "OH015-400638083453900",
+   "status": "lookup-failed"
+  },
+  "39023": {
+   "well_id": "OH015-395840083495200",
+   "status": "lookup-failed"
+  },
+  "39025": {
+   "well_id": "USGS-390832084133300",
+   "status": "lookup-failed"
+  },
+  "39029": {
+   "well_id": "OH015-404957080325200",
+   "status": "lookup-failed"
+  },
+  "39031": {
+   "well_id": "OH015-401622081402000",
+   "status": "lookup-failed"
+  },
+  "39033": {
+   "well_id": "OH015-404838082563100",
+   "status": "lookup-failed"
+  },
+  "39037": {
+   "well_id": "USGS-395911084422700",
+   "status": "lookup-failed"
+  },
+  "39041": {
+   "well_id": "OH015-402126083040400",
+   "status": "lookup-failed"
+  },
+  "39043": {
+   "well_id": "USGS-411819082493900",
+   "status": "lookup-failed"
+  },
+  "39045": {
+   "well_id": "OH015-394544082271000",
+   "status": "lookup-failed"
+  },
+  "39047": {
+   "well_id": "OH015-393153083322000",
+   "status": "lookup-failed"
+  },
+  "39049": {
+   "well_id": "OH015-400101083021800",
+   "lat": 40.0170085384323,
+   "lon": -83.0382402841856,
+   "well_county_fips": "39049",
+   "well_county_name": "Franklin County",
+   "well_state": "Ohio",
+   "miles_from_county_centre": 3.6,
+   "status": "in-county"
+  },
+  "39053": {
+   "well_id": "OH015-383638082103300",
+   "status": "lookup-failed"
+  },
+  "39055": {
+   "well_id": "USGS-412331081123000",
+   "status": "lookup-failed"
+  },
+  "39057": {
+   "well_id": "OH015-394411083561300",
+   "status": "lookup-failed"
+  },
+  "39061": {
+   "well_id": "OH015-391214084470100",
+   "lat": 39.2037638888889,
+   "lon": -84.7836083333333,
+   "well_county_fips": "39061",
+   "well_county_name": "Hamilton County",
+   "well_state": "Ohio",
+   "miles_from_county_centre": 12.8,
+   "status": "in-county"
+  },
+  "39065": {
+   "well_id": "OH015-404648083412600",
+   "status": "lookup-failed"
+  },
+  "39069": {
+   "well_id": "OH015-412123083574000",
+   "status": "lookup-failed"
+  },
+  "39073": {
+   "well_id": "OH015-393200082235300",
+   "status": "lookup-failed"
+  },
+  "39083": {
+   "well_id": "OH015-402344082300700",
+   "status": "lookup-failed"
+  },
+  "39089": {
+   "well_id": "OH015-400848082251100",
+   "status": "lookup-failed"
+  },
+  "39091": {
+   "well_id": "OH015-401510083444400",
+   "status": "lookup-failed"
+  },
+  "39095": {
+   "well_id": "OH015-413704083362200",
+   "lat": 41.6178283537025,
+   "lon": -83.6060459709892,
+   "well_county_fips": "39095",
+   "well_county_name": "Lucas County",
+   "well_state": "Ohio",
+   "miles_from_county_centre": 8.4,
+   "status": "in-county"
+  },
+  "39097": {
+   "well_id": "OH015-395301083272200",
+   "status": "lookup-failed"
+  },
+  "39099": {
+   "well_id": "OH015-410042080453800",
+   "status": "lookup-failed"
+  },
+  "39101": {
+   "well_id": "OH015-403601083110400",
+   "status": "lookup-failed"
+  },
+  "39107": {
+   "well_id": "OH015-402833084375200",
+   "status": "lookup-failed"
+  },
+  "39109": {
+   "well_id": "USGS-395706084035400",
+   "status": "lookup-failed"
+  },
+  "39113": {
+   "well_id": "OH015-394533084113800",
+   "lat": 39.7598111111111,
+   "lon": -84.1938555555556,
+   "well_county_fips": "39113",
+   "well_county_name": "Montgomery County",
+   "well_state": "Ohio",
+   "miles_from_county_centre": 5.2,
+   "status": "in-county"
+  },
+  "39131": {
+   "well_id": "OH015-390359083015100",
+   "status": "lookup-failed"
+  },
+  "39133": {
+   "well_id": "OH015-410931081192900",
+   "status": "lookup-failed"
+  },
+  "39135": {
+   "well_id": "USGS-394650084320300",
+   "status": "lookup-failed"
+  },
+  "39137": {
+   "well_id": "OH015-405505084032900",
+   "status": "lookup-failed"
+  },
+  "39139": {
+   "well_id": "OH015-404625082305100",
+   "status": "lookup-failed"
+  },
+  "39143": {
+   "well_id": "OH015-411914083045300",
+   "status": "lookup-failed"
+  },
+  "39147": {
+   "well_id": "OH015-410802083093900",
+   "status": "lookup-failed"
+  },
+  "39149": {
+   "well_id": "OH015-401707084103100",
+   "status": "lookup-failed"
+  },
+  "39151": {
+   "well_id": "OH015-404939081203800",
+   "lat": 40.8275583531891,
+   "lon": -81.3437226714603,
+   "well_county_fips": "39151",
+   "well_county_name": "Stark County",
+   "well_state": "Ohio",
+   "miles_from_county_centre": 1.5,
+   "status": "in-county"
+  },
+  "39157": {
+   "well_id": "OH015-403653081321800",
+   "status": "lookup-failed"
+  },
+  "39159": {
+   "well_id": "OH015-401826083255200",
+   "status": "lookup-failed"
+  },
+  "39161": {
+   "well_id": "OH015-405215084335400",
+   "status": "lookup-failed"
+  },
+  "39163": {
+   "well_id": "OH015-391452082282900",
+   "status": "lookup-failed"
+  },
+  "39165": {
+   "well_id": "USGS-393455084180600",
+   "status": "lookup-failed"
+  },
+  "39167": {
+   "well_id": "OH015-392553081281600",
+   "status": "lookup-failed"
+  },
+  "39169": {
+   "well_id": "OH015-404802081583100",
+   "status": "lookup-failed"
+  },
+  "39171": {
+   "well_id": "OH015-413108084415300",
+   "status": "lookup-failed"
+  },
+  "40007": {
+   "well_id": "USGS-363151100512101",
+   "status": "lookup-failed"
+  },
+  "40009": {
+   "well_id": "USGS-352328099560001",
+   "status": "lookup-failed"
+  },
+  "40015": {
+   "well_id": "USGS-351308098341601",
+   "status": "lookup-failed"
+  },
+  "40017": {
+   "well_id": "USGS-353531097583801",
+   "status": "lookup-failed"
+  },
+  "40021": {
+   "well_id": "USGS-360151094594501",
+   "status": "lookup-failed"
+  },
+  "40025": {
+   "well_id": "USGS-363730102142001",
+   "status": "lookup-failed"
+  },
+  "40037": {
+   "well_id": "USGS-355510096293501",
+   "status": "lookup-failed"
+  },
+  "40045": {
+   "well_id": "USGS-362450099383101",
+   "status": "lookup-failed"
+  },
+  "40059": {
+   "well_id": "USGS-363957099540201",
+   "status": "lookup-failed"
+  },
+  "40069": {
+   "well_id": "USGS-342633096494401",
+   "status": "lookup-failed"
+  },
+  "40089": {
+   "well_id": "USGS-340042095051801",
+   "status": "lookup-failed"
+  },
+  "40099": {
+   "well_id": "USGS-343022096565701",
+   "status": "lookup-failed"
+  },
+  "40113": {
+   "well_id": "USGS-362935096291501",
+   "status": "lookup-failed"
+  },
+  "40115": {
+   "well_id": "USGS-365942094504203",
+   "status": "lookup-failed"
+  },
+  "40123": {
+   "well_id": "USGS-343457096404501",
+   "status": "lookup-failed"
+  },
+  "40129": {
+   "well_id": "USGS-353440099575601",
+   "status": "lookup-failed"
+  },
+  "40139": {
+   "well_id": "USGS-363033101440701",
+   "status": "lookup-failed"
+  },
+  "40153": {
+   "well_id": "USGS-362942099320301",
+   "status": "lookup-failed"
+  },
+  "41005": {
+   "well_id": "USGS-452033122195901",
+   "lat": 45.36561944444445,
+   "lon": -122.33419722222222,
+   "well_county_fips": "41005",
+   "well_county_name": "Clackamas County",
+   "well_state": "Oregon",
+   "miles_from_county_centre": 15.7,
+   "status": "in-county"
+  },
+  "41017": {
+   "well_id": "USGS-434400121275801",
+   "status": "lookup-failed"
+  },
+  "41029": {
+   "well_id": "USGS-420825123040401",
+   "status": "lookup-failed"
+  },
+  "41035": {
+   "well_id": "USGS-425558121490801",
+   "status": "lookup-failed"
+  },
+  "41051": {
+   "well_id": "USGS-452725122354301",
+   "lat": 45.456786111111114,
+   "lon": -122.59696388888888,
+   "well_county_fips": "41051",
+   "well_county_name": "Multnomah County",
+   "well_state": "Oregon",
+   "miles_from_county_centre": 10.7,
+   "status": "in-county"
+  },
+  "41055": {
+   "well_id": "USGS-452646120451201",
+   "status": "lookup-failed"
+  },
+  "42001": {
+   "well_id": "USGS-395846077040601",
+   "status": "lookup-failed"
+  },
+  "42003": {
+   "well_id": "USGS-403734080063001",
+   "lat": 40.626194,
+   "lon": -80.108389,
+   "well_county_fips": "42003",
+   "well_county_name": "Allegheny County",
+   "well_state": "Pennsylvania",
+   "miles_from_county_centre": 12.7,
+   "status": "in-county"
+  },
+  "42005": {
+   "well_id": "USGS-405344079380201",
+   "status": "lookup-failed"
+  },
+  "42007": {
+   "well_id": "USGS-403006080252301",
+   "status": "lookup-failed"
+  },
+  "42009": {
+   "well_id": "USGS-400217078281901",
+   "status": "lookup-failed"
+  },
+  "42011": {
+   "well_id": "USGS-402615075530501",
+   "lat": 40.4374722222222,
+   "lon": -75.88425,
+   "well_county_fips": "42011",
+   "well_county_name": "Berks County",
+   "well_state": "Pennsylvania",
+   "miles_from_county_centre": 2.8,
+   "status": "in-county"
+  },
+  "42013": {
+   "well_id": "USGS-402452078271301",
+   "status": "lookup-failed"
+  },
+  "42015": {
+   "well_id": "USGS-414330076280501",
+   "status": "lookup-failed"
+  },
+  "42017": {
+   "well_id": "USGS-402643075150501",
+   "lat": 40.4451111111111,
+   "lon": -75.2504444444444,
+   "well_county_fips": "42017",
+   "well_county_name": "Bucks County",
+   "well_state": "Pennsylvania",
+   "miles_from_county_centre": 10.6,
+   "status": "in-county"
+  },
+  "42019": {
+   "well_id": "USGS-410501079524401",
+   "status": "lookup-failed"
+  },
+  "42023": {
+   "well_id": "USGS-412732078034201",
+   "status": "lookup-failed"
+  },
+  "42025": {
+   "well_id": "USGS-410123075425401",
+   "status": "lookup-failed"
+  },
+  "42027": {
+   "well_id": "USGS-404518077575501",
+   "status": "lookup-failed"
+  },
+  "42029": {
+   "well_id": "USGS-395450075485401",
+   "lat": 39.9137222222222,
+   "lon": -75.8141944444444,
+   "well_county_fips": "42029",
+   "well_county_name": "Chester County",
+   "well_state": "Pennsylvania",
+   "miles_from_county_centre": 5.4,
+   "status": "in-county"
+  },
+  "42031": {
+   "well_id": "USGS-412020079133901",
+   "status": "lookup-failed"
+  },
+  "42033": {
+   "well_id": "USGS-410627078313601",
+   "status": "lookup-failed"
+  },
+  "42035": {
+   "well_id": "USGS-411424077462201",
+   "status": "lookup-failed"
+  },
+  "42037": {
+   "well_id": "USGS-410705076334901",
+   "status": "lookup-failed"
+  },
+  "42039": {
+   "well_id": "USGS-413542080245002",
+   "status": "lookup-failed"
+  },
+  "42041": {
+   "well_id": "USGS-400209077183301",
+   "lat": 40.0352777777778,
+   "lon": -77.3080833333333,
+   "well_county_fips": "42041",
+   "well_county_name": "Cumberland County",
+   "well_state": "Pennsylvania",
+   "miles_from_county_centre": 9.3,
+   "status": "in-county"
+  },
+  "42043": {
+   "well_id": "USGS-402255076422001",
+   "lat": 40.382,
+   "lon": -76.70575,
+   "well_county_fips": "42043",
+   "well_county_name": "Dauphin County",
+   "well_state": "Pennsylvania",
+   "miles_from_county_centre": 5,
+   "status": "in-county"
+  },
+  "42045": {
+   "well_id": "USGS-395512075293701",
+   "lat": 39.9200833333333,
+   "lon": -75.4930555555556,
+   "well_county_fips": "42045",
+   "well_county_name": "Delaware County",
+   "well_state": "Pennsylvania",
+   "miles_from_county_centre": 5,
+   "status": "in-county"
+  },
+  "42047": {
+   "well_id": "USGS-412458078324601",
+   "status": "lookup-failed"
+  },
+  "42049": {
+   "well_id": "USGS-415607080044601",
+   "status": "lookup-failed"
+  },
+  "42051": {
+   "well_id": "USGS-394843079351401",
+   "status": "lookup-failed"
+  },
+  "42053": {
+   "well_id": "USGS-412823079030601",
+   "status": "lookup-failed"
+  },
+  "42055": {
+   "well_id": "USGS-400846077455901",
+   "status": "lookup-failed"
+  },
+  "42057": {
+   "well_id": "USGS-394755078135001",
+   "status": "lookup-failed"
+  },
+  "42059": {
+   "well_id": "USGS-394655080014301",
+   "status": "lookup-failed"
+  },
+  "42061": {
+   "well_id": "USGS-401843078075401",
+   "status": "lookup-failed"
+  },
+  "42063": {
+   "well_id": "USGS-405320078483901",
+   "status": "lookup-failed"
+  },
+  "42065": {
+   "well_id": "USGS-411734078522101",
+   "status": "lookup-failed"
+  },
+  "42067": {
+   "well_id": "USGS-402411077374801",
+   "status": "lookup-failed"
+  },
+  "42069": {
+   "well_id": "USGS-413346075421301",
+   "status": "lookup-failed"
+  },
+  "42071": {
+   "well_id": "USGS-401637076071501",
+   "lat": 40.2770277777778,
+   "lon": -76.1206666666667,
+   "well_county_fips": "42071",
+   "well_county_name": "Lancaster County",
+   "well_state": "Pennsylvania",
+   "miles_from_county_centre": 17.6,
+   "status": "in-county"
+  },
+  "42073": {
+   "well_id": "USGS-410538080280801",
+   "status": "lookup-failed"
+  },
+  "42075": {
+   "well_id": "USGS-402207076180801",
+   "status": "lookup-failed"
+  },
+  "42077": {
+   "well_id": "USGS-403429075392401",
+   "lat": 40.5751111111111,
+   "lon": -75.6562222222222,
+   "well_county_fips": "42077",
+   "well_county_name": "Lehigh County",
+   "well_state": "Pennsylvania",
+   "miles_from_county_centre": 4.4,
+   "status": "in-county"
+  },
+  "42079": {
+   "well_id": "USGS-411756076162701",
+   "lat": 41.299417,
+   "lon": -76.2745,
+   "well_county_fips": "42079",
+   "well_county_name": "Luzerne County",
+   "well_state": "Pennsylvania",
+   "miles_from_county_centre": 17.8,
+   "status": "in-county"
+  },
+  "42081": {
+   "well_id": "USGS-412427076594401",
+   "status": "lookup-failed"
+  },
+  "42083": {
+   "well_id": "USGS-415150078220401",
+   "status": "lookup-failed"
+  },
+  "42085": {
+   "well_id": "USGS-412739080104201",
+   "status": "lookup-failed"
+  },
+  "42087": {
+   "well_id": "USGS-404140077354001",
+   "status": "lookup-failed"
+  },
+  "42089": {
+   "well_id": "USGS-411223075234901",
+   "status": "lookup-failed"
+  },
+  "42091": {
+   "well_id": "USGS-400808075210401",
+   "lat": 40.1361666666667,
+   "lon": -75.3506944444444,
+   "well_county_fips": "42091",
+   "well_county_name": "Montgomery County",
+   "well_state": "Pennsylvania",
+   "miles_from_county_centre": 5.2,
+   "status": "in-county"
+  },
+  "42093": {
+   "well_id": "USGS-410727076402901",
+   "status": "lookup-failed"
+  },
+  "42095": {
+   "well_id": "USGS-404745075184001",
+   "lat": 40.796,
+   "lon": -75.3110555555556,
+   "well_county_fips": "42095",
+   "well_county_name": "Northampton County",
+   "well_state": "Pennsylvania",
+   "miles_from_county_centre": 3,
+   "status": "in-county"
+  },
+  "42097": {
+   "well_id": "USGS-404239076362001",
+   "status": "lookup-failed"
+  },
+  "42099": {
+   "well_id": "USGS-402735077100901",
+   "status": "lookup-failed"
+  },
+  "42101": {
+   "well_id": "USGS-400217075142101",
+   "lat": 40.0381944444444,
+   "lon": -75.2383611111111,
+   "well_county_fips": "42101",
+   "well_county_name": "Philadelphia County",
+   "well_state": "Pennsylvania",
+   "miles_from_county_centre": 5.9,
+   "status": "in-county"
+  },
+  "42103": {
+   "well_id": "USGS-410940074583401",
+   "status": "lookup-failed"
+  },
+  "42105": {
+   "well_id": "USGS-414640077493801",
+   "status": "lookup-failed"
+  },
+  "42107": {
+   "well_id": "USGS-404708076070701",
+   "status": "lookup-failed"
+  },
+  "42109": {
+   "well_id": "USGS-403939076591001",
+   "status": "lookup-failed"
+  },
+  "42111": {
+   "well_id": "USGS-400008079142801",
+   "status": "lookup-failed"
+  },
+  "42113": {
+   "well_id": "USGS-413026076352901",
+   "status": "lookup-failed"
+  },
+  "42115": {
+   "well_id": "USGS-415323077451301",
+   "status": "lookup-failed"
+  },
+  "42117": {
+   "well_id": "USGS-414513077333701",
+   "status": "lookup-failed"
+  },
+  "42119": {
+   "well_id": "USGS-405928077115501",
+   "status": "lookup-failed"
+  },
+  "42121": {
+   "well_id": "USGS-411958079540202",
+   "status": "lookup-failed"
+  },
+  "42123": {
+   "well_id": "USGS-414159079213601",
+   "status": "lookup-failed"
+  },
+  "42125": {
+   "well_id": "USGS-400233080261301",
+   "status": "lookup-failed"
+  },
+  "42127": {
+   "well_id": "USGS-414333075153201",
+   "status": "lookup-failed"
+  },
+  "42129": {
+   "well_id": "USGS-402138079031802",
+   "lat": 40.3604722222222,
+   "lon": -79.0558333333333,
+   "well_county_fips": "42129",
+   "well_county_name": "Westmoreland County",
+   "well_state": "Pennsylvania",
+   "miles_from_county_centre": 21.9,
+   "status": "in-county"
+  },
+  "42133": {
+   "well_id": "USGS-400916076492301",
+   "lat": 40.1549722222222,
+   "lon": -76.8229166666667,
+   "well_county_fips": "42133",
+   "well_county_name": "York County",
+   "well_state": "Pennsylvania",
+   "miles_from_county_centre": 16.9,
+   "status": "in-county"
+  },
+  "44003": {
+   "well_id": "USGS-414106071223901",
+   "status": "lookup-failed"
+  },
+  "44005": {
+   "well_id": "USGS-413325071152401",
+   "status": "lookup-failed"
+  },
+  "44007": {
+   "well_id": "USGS-415626071254601",
+   "lat": 41.9406546622312,
+   "lon": -71.428947068842,
+   "well_county_fips": "44007",
+   "well_county_name": "Providence County",
+   "well_state": "Rhode Island",
+   "miles_from_county_centre": 9.1,
+   "status": "in-county"
+  },
+  "44009": {
+   "well_id": "USGS-412214071394001",
+   "status": "lookup-failed"
+  },
+  "45003": {
+   "well_id": "USGS-331940081443501",
+   "status": "lookup-failed"
+  },
+  "45005": {
+   "well_id": "USGS-330422081130601",
+   "status": "lookup-failed"
+  },
+  "45007": {
+   "well_id": "USGS-343714082285600",
+   "status": "lookup-failed"
+  },
+  "45009": {
+   "well_id": "USGS-331043081022101",
+   "status": "lookup-failed"
+  },
+  "45011": {
+   "well_id": "USGS-331039081184201",
+   "status": "lookup-failed"
+  },
+  "45013": {
+   "well_id": "USGS-321603080432202",
+   "status": "lookup-failed"
+  },
+  "45019": {
+   "well_id": "USGS-330247079340300",
+   "lat": 33.0460416666667,
+   "lon": -79.5667111111111,
+   "well_county_fips": "45019",
+   "well_county_name": "Charleston County",
+   "well_state": "South Carolina",
+   "miles_from_county_centre": 27.6,
+   "status": "in-county"
+  },
+  "45023": {
+   "well_id": "USGS-344000081250011",
+   "status": "lookup-failed"
+  },
+  "45025": {
+   "well_id": "USGS-343105080172100",
+   "status": "lookup-failed"
+  },
+  "45027": {
+   "well_id": "USGS-333358080213001",
+   "status": "lookup-failed"
+  },
+  "45029": {
+   "well_id": "USGS-330256080354500",
+   "status": "lookup-failed"
+  },
+  "45035": {
+   "well_id": "USGS-330656080365201",
+   "status": "lookup-failed"
+  },
+  "45041": {
+   "well_id": "USGS-340210079472000",
+   "status": "lookup-failed"
+  },
+  "45049": {
+   "well_id": "USGS-324143080505900",
+   "status": "lookup-failed"
+  },
+  "45053": {
+   "well_id": "USGS-323704080594509",
+   "status": "lookup-failed"
+  },
+  "45055": {
+   "well_id": "USGS-342440080443901",
+   "status": "lookup-failed"
+  },
+  "45057": {
+   "well_id": "USGS-344333080503600",
+   "status": "lookup-failed"
+  },
+  "45065": {
+   "well_id": "USGS-335336082214600",
+   "status": "lookup-failed"
+  },
+  "45073": {
+   "well_id": "USGS-345051083041800",
+   "status": "lookup-failed"
+  },
+  "45079": {
+   "well_id": "USGS-340648080541201",
+   "lat": 34.1134850320848,
+   "lon": -80.9031435918957,
+   "well_county_fips": "45079",
+   "well_county_name": "Richland County",
+   "well_state": "South Carolina",
+   "miles_from_county_centre": 5.8,
+   "status": "in-county"
+  },
+  "45083": {
+   "well_id": "USGS-345145081502900",
+   "lat": 34.862614318364926,
+   "lon": -81.841227174063,
+   "well_county_fips": "45083",
+   "well_county_name": "Spartanburg County",
+   "well_state": "South Carolina",
+   "miles_from_county_centre": 9.8,
+   "status": "in-county"
+  },
+  "45085": {
+   "well_id": "USGS-340059080240709",
+   "status": "lookup-failed"
+  },
+  "45091": {
+   "well_id": "USGS-345830081033101",
+   "lat": 34.97519444444445,
+   "lon": -81.05880555555555,
+   "well_county_fips": "45091",
+   "well_county_name": "York County",
+   "well_state": "South Carolina",
+   "miles_from_county_centre": 7.1,
+   "status": "in-county"
+  },
+  "46005": {
+   "well_id": "USGS-442254098174501",
+   "status": "lookup-failed"
+  },
+  "46007": {
+   "well_id": "USGS-431136101200901",
+   "status": "lookup-failed"
+  },
+  "46013": {
+   "well_id": "USGS-453358098260101",
+   "status": "lookup-failed"
+  },
+  "46033": {
+   "well_id": "USGS-433114103281601",
+   "status": "lookup-failed"
+  },
+  "46047": {
+   "well_id": "USGS-432548103414801",
+   "status": "lookup-failed"
+  },
+  "46051": {
+   "well_id": "USGS-451848096363501",
+   "status": "lookup-failed"
+  },
+  "46053": {
+   "well_id": "USGS-430743099115001",
+   "status": "lookup-failed"
+  },
+  "46063": {
+   "well_id": "USGS-453334103275001",
+   "status": "lookup-failed"
+  },
+  "46071": {
+   "well_id": "USGS-430055101440002",
+   "status": "lookup-failed"
+  },
+  "46093": {
+   "well_id": "USGS-441759103261201",
+   "status": "lookup-failed"
+  },
+  "46095": {
+   "well_id": "USGS-432554101065601",
+   "status": "lookup-failed"
+  },
+  "46099": {
+   "well_id": "USGS-434330096434801",
+   "status": "lookup-failed"
+  },
+  "46101": {
+   "well_id": "USGS-440405096290501",
+   "status": "lookup-failed"
+  },
+  "46102": {
+   "well_id": "USGS-430200102130001",
+   "status": "lookup-failed"
+  },
+  "46103": {
+   "well_id": "USGS-440430103160202",
+   "status": "lookup-failed"
+  },
+  "46109": {
+   "well_id": "USGS-452304097083901",
+   "status": "lookup-failed"
+  },
+  "46121": {
+   "well_id": "USGS-430148100471001",
+   "status": "lookup-failed"
+  },
+  "46123": {
+   "well_id": "USGS-430010099580601",
+   "status": "lookup-failed"
+  },
+  "46129": {
+   "well_id": "USGS-453027099505001",
+   "status": "lookup-failed"
+  },
+  "47017": {
+   "well_id": "USGS-360539088265301",
+   "status": "lookup-failed"
+  },
+  "47031": {
+   "well_id": "USGS-352420086024101",
+   "status": "lookup-failed"
+  },
+  "47033": {
+   "well_id": "USGS-355437089144301",
+   "status": "lookup-failed"
+  },
+  "47045": {
+   "well_id": "USGS-361122089281201",
+   "status": "lookup-failed"
+  },
+  "47047": {
+   "well_id": "USGS-352226089330101",
+   "status": "lookup-failed"
+  },
+  "47051": {
+   "well_id": "USGS-352045086085401",
+   "status": "lookup-failed"
+  },
+  "47053": {
+   "well_id": "USGS-355532088595701",
+   "status": "lookup-failed"
+  },
+  "47065": {
+   "well_id": "USGS-351428085003600",
+   "lat": 35.241581547865394,
+   "lon": -85.00993465701688,
+   "well_county_fips": "47065",
+   "well_county_name": "Hamilton County",
+   "well_state": "Tennessee",
+   "miles_from_county_centre": 12.3,
+   "status": "in-county"
+  },
+  "47069": {
+   "well_id": "USGS-350300089110901",
+   "status": "lookup-failed"
+  },
+  "47075": {
+   "well_id": "USGS-353525089154101",
+   "status": "lookup-failed"
+  },
+  "47079": {
+   "well_id": "USGS-362337088280601",
+   "status": "lookup-failed"
+  },
+  "47095": {
+   "well_id": "USGS-362245089280201",
+   "status": "lookup-failed"
+  },
+  "47097": {
+   "well_id": "USGS-353839089493500",
+   "lat": 35.64380555555555,
+   "lon": -89.82594444444445,
+   "well_county_fips": "47097",
+   "well_county_name": "Lauderdale County",
+   "well_state": "Tennessee",
+   "miles_from_county_centre": 13.8,
+   "status": "in-county"
+  },
+  "47103": {
+   "well_id": "USGS-350034086422800",
+   "status": "lookup-failed"
+  },
+  "47113": {
+   "well_id": "USGS-354223088380201",
+   "status": "lookup-failed"
+  },
+  "47129": {
+   "well_id": "USGS-360543084343101",
+   "status": "lookup-failed"
+  },
+  "47131": {
+   "well_id": "USGS-362958088531901",
+   "status": "lookup-failed"
+  },
+  "47137": {
+   "well_id": "USGS-363304084475600",
+   "status": "lookup-failed"
+  },
+  "47141": {
+   "well_id": "USGS-360521085432600",
+   "status": "lookup-failed"
+  },
+  "47155": {
+   "well_id": "USGS-353922083345600",
+   "status": "lookup-failed"
+  },
+  "47157": {
+   "well_id": "USGS-350735089593300",
+   "lat": 35.12648758388717,
+   "lon": -89.99230975580096,
+   "well_county_fips": "47157",
+   "well_county_name": "Shelby County",
+   "well_state": "Tennessee",
+   "miles_from_county_centre": 6.8,
+   "status": "in-county"
+  },
+  "47161": {
+   "well_id": "USGS-363336087462500",
+   "status": "lookup-failed"
+  },
+  "47183": {
+   "well_id": "USGS-362031088505401",
+   "status": "lookup-failed"
+  },
+  "48019": {
+   "well_id": "USGS-295204099340201",
+   "status": "lookup-failed"
+  },
+  "48029": {
+   "well_id": "USGS-293515098325201",
+   "lat": 29.5877273099869,
+   "lon": -98.548630448315,
+   "well_county_fips": "48029",
+   "well_county_name": "Bexar County",
+   "well_state": "Texas",
+   "miles_from_county_centre": 9.8,
+   "status": "in-county"
+  },
+  "48033": {
+   "well_id": "USGS-325550101381501",
+   "status": "lookup-failed"
+  },
+  "48037": {
+   "well_id": "USGS-333423094091001",
+   "status": "lookup-failed"
+  },
+  "48039": {
+   "well_id": "USGS-293005095151801",
+   "lat": 29.5147222222222,
+   "lon": -95.2552777777778,
+   "well_county_fips": "48039",
+   "well_county_name": "Brazoria County",
+   "well_state": "Texas",
+   "miles_from_county_centre": 26.3,
+   "status": "in-county"
+  },
+  "48071": {
+   "well_id": "USGS-295001094544401",
+   "status": "lookup-failed"
+  },
+  "48091": {
+   "well_id": "USGS-295352098071201",
+   "status": "lookup-failed"
+  },
+  "48141": {
+   "well_id": "USGS-315152106371901",
+   "lat": 31.8644388888889,
+   "lon": -106.623463888889,
+   "well_county_fips": "48141",
+   "well_county_name": "El Paso County",
+   "well_state": "Texas",
+   "miles_from_county_centre": 23.4,
+   "status": "in-county"
+  },
+  "48157": {
+   "well_id": "USGS-292459095451901",
+   "lat": 29.4166666666667,
+   "lon": -95.7555555555556,
+   "well_county_fips": "48157",
+   "well_county_name": "Fort Bend County",
+   "well_state": "Texas",
+   "miles_from_county_centre": 7.7,
+   "status": "in-county"
+  },
+  "48167": {
+   "well_id": "USGS-292338095063601",
+   "lat": 29.394166666666667,
+   "lon": -95.11027777777777,
+   "well_county_fips": "48167",
+   "well_county_name": "Galveston County",
+   "well_state": "Texas",
+   "miles_from_county_centre": 17.4,
+   "status": "in-county"
+  },
+  "48185": {
+   "well_id": "USGS-301445096020901",
+   "status": "lookup-failed"
+  },
+  "48201": {
+   "well_id": "USGS-294415095165301",
+   "lat": 29.7377777777778,
+   "lon": -95.2816666666667,
+   "well_county_fips": "48201",
+   "well_county_name": "Harris County",
+   "well_state": "Texas",
+   "miles_from_county_centre": 10.6,
+   "status": "in-county"
+  },
+  "48209": {
+   "well_id": "USGS-295443097554201",
+   "lat": 29.9121628579347,
+   "lon": -97.9286162365128,
+   "well_county_fips": "48209",
+   "well_county_name": "Hays County",
+   "well_state": "Texas",
+   "miles_from_county_centre": 11.9,
+   "status": "in-county"
+  },
+  "48229": {
+   "well_id": "USGS-320008105064501",
+   "status": "lookup-failed"
+  },
+  "48279": {
+   "well_id": "USGS-341010102240801",
+   "status": "lookup-failed"
+  },
+  "48291": {
+   "well_id": "USGS-300641095003101",
+   "status": "lookup-failed"
+  },
+  "48325": {
+   "well_id": "USGS-292618099165901",
+   "status": "lookup-failed"
+  },
+  "48339": {
+   "well_id": "USGS-302948095422501",
+   "lat": 30.4988333333333,
+   "lon": -95.7106111111111,
+   "well_county_fips": "48339",
+   "well_county_name": "Montgomery County",
+   "well_state": "Texas",
+   "miles_from_county_centre": 18.6,
+   "status": "in-county"
+  },
+  "48371": {
+   "well_id": "USGS-305110102533401",
+   "status": "lookup-failed"
+  },
+  "48373": {
+   "well_id": "USGS-304350095055701",
+   "status": "lookup-failed"
+  },
+  "48407": {
+   "well_id": "USGS-303000095002001",
+   "status": "lookup-failed"
+  },
+  "48453": {
+   "well_id": "USGS-301237097464801",
+   "lat": 30.2103388888889,
+   "lon": -97.7815833333333,
+   "well_county_fips": "48453",
+   "well_county_name": "Travis County",
+   "well_state": "Texas",
+   "miles_from_county_centre": 5.8,
+   "status": "in-county"
+  },
+  "48463": {
+   "well_id": "USGS-292628099401401",
+   "status": "lookup-failed"
+  },
+  "48471": {
+   "well_id": "USGS-303143095334801",
+   "status": "lookup-failed"
+  },
+  "48473": {
+   "well_id": "USGS-295709096013101",
+   "status": "lookup-failed"
+  },
+  "49001": {
+   "well_id": "USGS-380943113184801",
+   "status": "lookup-failed"
+  },
+  "49003": {
+   "well_id": "USGS-412439112021601",
+   "status": "lookup-failed"
+  },
+  "49005": {
+   "well_id": "USGS-415450111490801",
+   "status": "lookup-failed"
+  },
+  "49007": {
+   "well_id": "USGS-393230110280201",
+   "status": "lookup-failed"
+  },
+  "49011": {
+   "well_id": "USGS-410337112000501",
+   "lat": 41.060221465302,
+   "lon": -112.00216480678,
+   "well_county_fips": "49011",
+   "well_county_name": "Davis County",
+   "well_state": "Utah",
+   "miles_from_county_centre": 10.5,
+   "status": "in-county"
+  },
+  "49013": {
+   "well_id": "USGS-402611110020101",
+   "status": "lookup-failed"
+  },
+  "49015": {
+   "well_id": "USGS-384430110271802",
+   "status": "lookup-failed"
+  },
+  "49017": {
+   "well_id": "USGS-374205112091501",
+   "status": "lookup-failed"
+  },
+  "49019": {
+   "well_id": "USGS-384251109420101",
+   "status": "lookup-failed"
+  },
+  "49021": {
+   "well_id": "USGS-374304113052901",
+   "status": "lookup-failed"
+  },
+  "49023": {
+   "well_id": "USGS-393721111514501",
+   "status": "lookup-failed"
+  },
+  "49025": {
+   "well_id": "USGS-370050112274501",
+   "status": "lookup-failed"
+  },
+  "49027": {
+   "well_id": "USGS-385844112245801",
+   "status": "lookup-failed"
+  },
+  "49029": {
+   "well_id": "USGS-405848111403701",
+   "status": "lookup-failed"
+  },
+  "49031": {
+   "well_id": "USGS-382615111534001",
+   "status": "lookup-failed"
+  },
+  "49033": {
+   "well_id": "USGS-415124111225401",
+   "status": "lookup-failed"
+  },
+  "49035": {
+   "well_id": "USGS-404506111523301",
+   "lat": 40.7518555555556,
+   "lon": -111.877011111111,
+   "well_county_fips": "49035",
+   "well_county_name": "Salt Lake County",
+   "well_state": "Utah",
+   "miles_from_county_centre": 6.3,
+   "status": "in-county"
+  },
+  "49037": {
+   "well_id": "USGS-381329109240001",
+   "status": "lookup-failed"
+  },
+  "49039": {
+   "well_id": "USGS-393055111350801",
+   "status": "lookup-failed"
+  },
+  "49041": {
+   "well_id": "USGS-383115111512501",
+   "status": "lookup-failed"
+  },
+  "49043": {
+   "well_id": "USGS-410220111320901",
+   "status": "lookup-failed"
+  },
+  "49045": {
+   "well_id": "USGS-403831112185401",
+   "status": "lookup-failed"
+  },
+  "49047": {
+   "well_id": "USGS-402406109513001",
+   "status": "lookup-failed"
+  },
+  "49049": {
+   "well_id": "USGS-402333111513401",
+   "lat": 40.393,
+   "lon": -111.857139,
+   "well_county_fips": "49049",
+   "well_county_name": "Utah County",
+   "well_state": "Utah",
+   "miles_from_county_centre": 21.3,
+   "status": "in-county"
+  },
+  "49051": {
+   "well_id": "USGS-403127111240301",
+   "status": "lookup-failed"
+  },
+  "49053": {
+   "well_id": "USGS-370650113380201",
+   "status": "lookup-failed"
+  },
+  "49055": {
+   "well_id": "USGS-381940111253501",
+   "status": "lookup-failed"
+  },
+  "49057": {
+   "well_id": "USGS-411348112013601",
+   "status": "lookup-failed"
+  },
+  "50001": {
+   "well_id": "USGS-440016073070901",
+   "status": "lookup-failed"
+  },
+  "50003": {
+   "well_id": "USGS-424810073160401",
+   "status": "lookup-failed"
+  },
+  "50005": {
+   "well_id": "USGS-442937072093402",
+   "status": "lookup-failed"
+  },
+  "50007": {
+   "well_id": "USGS-443646073124901",
+   "status": "lookup-failed"
+  },
+  "50009": {
+   "well_id": "USGS-444731071514701",
+   "status": "lookup-failed"
+  },
+  "50011": {
+   "well_id": "USGS-445603072422902",
+   "status": "lookup-failed"
+  },
+  "50015": {
+   "well_id": "USGS-443405072323501",
+   "status": "lookup-failed"
+  },
+  "50017": {
+   "well_id": "USGS-435343072151801",
+   "status": "lookup-failed"
+  },
+  "50019": {
+   "well_id": "USGS-443952072114001",
+   "status": "lookup-failed"
+  },
+  "50021": {
+   "well_id": "USGS-434217073010601",
+   "status": "lookup-failed"
+  },
+  "50023": {
+   "well_id": "USGS-441215072483101",
+   "status": "lookup-failed"
+  },
+  "50027": {
+   "well_id": "USGS-435129072483301",
+   "status": "lookup-failed"
+  },
+  "51001": {
+   "well_id": "USGS-374324075443201",
+   "status": "lookup-failed"
+  },
+  "51003": {
+   "well_id": "USGS-380333078264801",
+   "status": "lookup-failed"
+  },
+  "51011": {
+   "well_id": "USGS-372514078394301",
+   "status": "lookup-failed"
+  },
+  "51013": {
+   "well_id": "USGS-385253077042301",
+   "status": "lookup-failed"
+  },
+  "51015": {
+   "well_id": "USGS-382523078535501",
+   "status": "lookup-failed"
+  },
+  "51017": {
+   "well_id": "USGS-380252079472801",
+   "status": "lookup-failed"
+  },
+  "51019": {
+   "well_id": "USGS-372150079422301",
+   "status": "lookup-failed"
+  },
+  "51025": {
+   "well_id": "USGS-364218078015701",
+   "status": "lookup-failed"
+  },
+  "51027": {
+   "well_id": "USGS-371841081584201",
+   "status": "lookup-failed"
+  },
+  "51029": {
+   "well_id": "USGS-372608078404601",
+   "status": "lookup-failed"
+  },
+  "51033": {
+   "well_id": "USGS-380415077194101",
+   "status": "lookup-failed"
+  },
+  "51036": {
+   "well_id": "USGS-371956076055101",
+   "status": "lookup-failed"
+  },
+  "51041": {
+   "well_id": "USGS-372519077264605",
+   "lat": 37.4220926448551,
+   "lon": -77.4458170787685,
+   "well_county_fips": "51041",
+   "well_county_name": "Chesterfield County",
+   "well_state": "Virginia",
+   "miles_from_county_centre": 8.3,
+   "status": "in-county"
+  },
+  "51043": {
+   "well_id": "USGS-390348078035501",
+   "status": "lookup-failed"
+  },
+  "51045": {
+   "well_id": "USGS-372223080234801",
+   "status": "lookup-failed"
+  },
+  "51049": {
+   "well_id": "USGS-373146078161201",
+   "status": "lookup-failed"
+  },
+  "51057": {
+   "well_id": "USGS-380024076585801",
+   "status": "lookup-failed"
+  },
+  "51059": {
+   "well_id": "USGS-385638077220101",
+   "lat": 38.9495550203334,
+   "lon": -77.3666524225777,
+   "well_county_fips": "51059",
+   "well_county_name": "Fairfax County",
+   "well_state": "Virginia",
+   "miles_from_county_centre": 9.7,
+   "status": "in-county"
+  },
+  "51069": {
+   "well_id": "USGS-390700078151801",
+   "status": "lookup-failed"
+  },
+  "51073": {
+   "well_id": "USGS-372331076312602",
+   "status": "lookup-failed"
+  },
+  "51085": {
+   "well_id": "USGS-375316077274701",
+   "status": "lookup-failed"
+  },
+  "51087": {
+   "well_id": "USGS-373607077331401",
+   "lat": 37.601944,
+   "lon": -77.553889,
+   "well_county_fips": "51087",
+   "well_county_name": "Henrico County",
+   "well_state": "Virginia",
+   "miles_from_county_centre": 18,
+   "status": "in-county"
+  },
+  "51093": {
+   "well_id": "USGS-364059076544901",
+   "status": "lookup-failed"
+  },
+  "51095": {
+   "well_id": "USGS-371749076441801",
+   "status": "lookup-failed"
+  },
+  "51097": {
+   "well_id": "USGS-373126076454101",
+   "status": "lookup-failed"
+  },
+  "51099": {
+   "well_id": "USGS-382341077032401",
+   "status": "lookup-failed"
+  },
+  "51101": {
+   "well_id": "USGS-373459076510201",
+   "status": "lookup-failed"
+  },
+  "51103": {
+   "well_id": "USGS-374142076272701",
+   "status": "lookup-failed"
+  },
+  "51107": {
+   "well_id": "USGS-391542077423801",
+   "lat": 39.2617682514763,
+   "lon": -77.7102699255911,
+   "well_county_fips": "51107",
+   "well_county_name": "Loudoun County",
+   "well_state": "Virginia",
+   "miles_from_county_centre": 13,
+   "status": "in-county"
+  },
+  "51109": {
+   "well_id": "USGS-380131078001001",
+   "status": "lookup-failed"
+  },
+  "51115": {
+   "well_id": "USGS-372545076240101",
+   "status": "lookup-failed"
+  },
+  "51119": {
+   "well_id": "USGS-373630076312601",
+   "status": "lookup-failed"
+  },
+  "51121": {
+   "well_id": "USGS-370812080261901",
+   "status": "lookup-failed"
+  },
+  "51127": {
+   "well_id": "USGS-372428076561501",
+   "status": "lookup-failed"
+  },
+  "51131": {
+   "well_id": "USGS-371709075560804",
+   "status": "lookup-failed"
+  },
+  "51133": {
+   "well_id": "USGS-380047076333501",
+   "status": "lookup-failed"
+  },
+  "51135": {
+   "well_id": "USGS-371122078114401",
+   "status": "lookup-failed"
+  },
+  "51137": {
+   "well_id": "USGS-381002078094201",
+   "status": "lookup-failed"
+  },
+  "51141": {
+   "well_id": "USGS-364732080070301",
+   "status": "lookup-failed"
+  },
+  "51149": {
+   "well_id": "USGS-370501077214401",
+   "status": "lookup-failed"
+  },
+  "51153": {
+   "well_id": "USGS-385607077381101",
+   "lat": 38.9353888123821,
+   "lon": -77.6361035619004,
+   "well_county_fips": "51153",
+   "well_county_name": "Prince William County",
+   "well_state": "Virginia",
+   "miles_from_county_centre": 18.2,
+   "status": "in-county"
+  },
+  "51155": {
+   "well_id": "USGS-370254080374401",
+   "status": "lookup-failed"
+  },
+  "51159": {
+   "well_id": "USGS-375523076431801",
+   "status": "lookup-failed"
+  },
+  "51163": {
+   "well_id": "USGS-373758079271601",
+   "status": "lookup-failed"
+  },
+  "51165": {
+   "well_id": "USGS-382253079021201",
+   "status": "lookup-failed"
+  },
+  "51171": {
+   "well_id": "USGS-385521078281601",
+   "status": "lookup-failed"
+  },
+  "51175": {
+   "well_id": "USGS-363722077014601",
+   "status": "lookup-failed"
+  },
+  "51179": {
+   "well_id": "USGS-382805077255801",
+   "status": "lookup-failed"
+  },
+  "51181": {
+   "well_id": "USGS-370800076500701",
+   "status": "lookup-failed"
+  },
+  "51183": {
+   "well_id": "USGS-365235077150501",
+   "status": "lookup-failed"
+  },
+  "51193": {
+   "well_id": "USGS-380538076490801",
+   "status": "lookup-failed"
+  },
+  "51195": {
+   "well_id": "USGS-370604082403901",
+   "status": "lookup-failed"
+  },
+  "51199": {
+   "well_id": "USGS-371535076373501",
+   "status": "lookup-failed"
+  },
+  "51550": {
+   "well_id": "USGS-363836076201702",
+   "status": "lookup-failed"
+  },
+  "51570": {
+   "well_id": "USGS-371644077244601",
+   "status": "lookup-failed"
+  },
+  "51620": {
+   "well_id": "USGS-364033076562603",
+   "status": "lookup-failed"
+  },
+  "51700": {
+   "well_id": "USGS-371027076335601",
+   "status": "lookup-failed"
+  },
+  "51710": {
+   "well_id": "USGS-365223076122101",
+   "status": "lookup-failed"
+  },
+  "51740": {
+   "well_id": "USGS-365115076191701",
+   "status": "lookup-failed"
+  },
+  "51770": {
+   "well_id": "USGS-371653079552101",
+   "status": "lookup-failed"
+  },
+  "51800": {
+   "well_id": "USGS-363511076492901",
+   "status": "lookup-failed"
+  },
+  "51810": {
+   "well_id": "USGS-363325076005201",
+   "lat": 36.55753333333333,
+   "lon": -76.00723888888889,
+   "well_county_fips": "51810",
+   "well_county_name": "Virginia Beach City",
+   "well_state": "Virginia",
+   "miles_from_county_centre": 15.4,
+   "status": "in-county"
+  },
+  "53001": {
+   "well_id": "USGS-465328119195901",
+   "status": "lookup-failed"
+  },
+  "53009": {
+   "well_id": "USGS-480546123100901",
+   "status": "lookup-failed"
+  },
+  "53027": {
+   "well_id": "USGS-471825124151001",
+   "status": "lookup-failed"
+  },
+  "53035": {
+   "well_id": "USGS-474514122375801",
+   "lat": 47.77075,
+   "lon": -122.634111111111,
+   "well_county_fips": "53035",
+   "well_county_name": "Kitsap County",
+   "well_state": "Washington",
+   "miles_from_county_centre": 9.1,
+   "status": "in-county"
+  },
+  "53043": {
+   "well_id": "USGS-473442118162201",
+   "status": "lookup-failed"
+  },
+  "53045": {
+   "well_id": "USGS-472235122495901",
+   "status": "lookup-failed"
+  },
+  "53057": {
+   "well_id": "USGS-483405122384601",
+   "status": "lookup-failed"
+  },
+  "53063": {
+   "well_id": "USGS-474011117072901",
+   "lat": 47.66965,
+   "lon": -117.126894444444,
+   "well_county_fips": "53063",
+   "well_county_name": "Spokane County",
+   "well_state": "Washington",
+   "miles_from_county_centre": 13.3,
+   "status": "in-county"
+  },
+  "53067": {
+   "well_id": "USGS-465927122492101",
+   "lat": 46.9906722222222,
+   "lon": -122.824088888889,
+   "well_county_fips": "53067",
+   "well_county_name": "Thurston County",
+   "well_state": "Washington",
+   "miles_from_county_centre": 3.8,
+   "status": "in-county"
+  },
+  "53071": {
+   "well_id": "USGS-460127118215202",
+   "status": "lookup-failed"
+  },
+  "53075": {
+   "well_id": "USGS-470045117211701",
+   "status": "lookup-failed"
+  },
+  "54003": {
+   "well_id": "USGS-393319077560801",
+   "status": "lookup-failed"
+  },
+  "54009": {
+   "well_id": "USGS-401216080362703",
+   "status": "lookup-failed"
+  },
+  "54031": {
+   "well_id": "USGS-390333078370801",
+   "status": "lookup-failed"
+  },
+  "54033": {
+   "well_id": "USGS-391020080244101",
+   "status": "lookup-failed"
+  },
+  "54037": {
+   "well_id": "USGS-392104077554801",
+   "status": "lookup-failed"
+  },
+  "54039": {
+   "well_id": "USGS-381619081392901",
+   "status": "lookup-failed"
+  },
+  "54047": {
+   "well_id": "USGS-372322081241501",
+   "status": "lookup-failed"
+  },
+  "54057": {
+   "well_id": "USGS-392200078532001",
+   "status": "lookup-failed"
+  },
+  "54075": {
+   "well_id": "USGS-380653080155301",
+   "status": "lookup-failed"
+  },
+  "54085": {
+   "well_id": "USGS-391308081064201",
+   "status": "lookup-failed"
+  },
+  "54099": {
+   "well_id": "USGS-375833082212101",
+   "status": "lookup-failed"
+  },
+  "54101": {
+   "well_id": "USGS-382008080292801",
+   "status": "lookup-failed"
+  },
+  "54109": {
+   "well_id": "USGS-373839081255201",
+   "status": "lookup-failed"
+  },
+  "55001": {
+   "well_id": "USGS-435759089490001",
+   "status": "lookup-failed"
+  },
+  "55003": {
+   "well_id": "USGS-463635090481101",
+   "status": "lookup-failed"
+  },
+  "55009": {
+   "well_id": "USGS-443035088045501",
+   "lat": 44.5113055555556,
+   "lon": -88.0856111111111,
+   "well_county_fips": "55009",
+   "well_county_name": "Brown County",
+   "well_state": "Wisconsin",
+   "miles_from_county_centre": 5.1,
+   "status": "in-county"
+  },
+  "55013": {
+   "well_id": "USGS-455224092215601",
+   "status": "lookup-failed"
+  },
+  "55017": {
+   "well_id": "USGS-445544091155701",
+   "status": "lookup-failed"
+  },
+  "55021": {
+   "well_id": "USGS-432921089245901",
+   "status": "lookup-failed"
+  },
+  "55025": {
+   "well_id": "USGS-430429089230301",
+   "lat": 43.07461111111112,
+   "lon": -89.38416666666667,
+   "well_county_fips": "55025",
+   "well_county_name": "Dane County",
+   "well_state": "Wisconsin",
+   "miles_from_county_centre": 1.8,
+   "status": "in-county"
+  },
+  "55027": {
+   "well_id": "USGS-432415088552601",
+   "status": "lookup-failed"
+  },
+  "55031": {
+   "well_id": "USGS-461921091484201",
+   "status": "lookup-failed"
+  },
+  "55037": {
+   "well_id": "USGS-454749088345301",
+   "status": "lookup-failed"
+  },
+  "55039": {
+   "well_id": "USGS-434231088311801",
+   "status": "lookup-failed"
+  },
+  "55041": {
+   "well_id": "USGS-455620088593901",
+   "status": "lookup-failed"
+  },
+  "55043": {
+   "well_id": "USGS-425551090391301",
+   "status": "lookup-failed"
+  },
+  "55045": {
+   "well_id": "USGS-424427089494701",
+   "status": "lookup-failed"
+  },
+  "55049": {
+   "well_id": "USGS-425644090101901",
+   "status": "lookup-failed"
+  },
+  "55055": {
+   "well_id": "USGS-425332088352201",
+   "status": "lookup-failed"
+  },
+  "55059": {
+   "well_id": "USGS-423819088090301",
+   "status": "lookup-failed"
+  },
+  "55065": {
+   "well_id": "USGS-423114090161101",
+   "status": "lookup-failed"
+  },
+  "55067": {
+   "well_id": "USGS-452603089111601",
+   "status": "lookup-failed"
+  },
+  "55071": {
+   "well_id": "USGS-440430087420401",
+   "status": "lookup-failed"
+  },
+  "55073": {
+   "well_id": "USGS-444709089265301",
+   "status": "lookup-failed"
+  },
+  "55075": {
+   "well_id": "USGS-453816087590101",
+   "status": "lookup-failed"
+  },
+  "55077": {
+   "well_id": "USGS-435244089293401",
+   "status": "lookup-failed"
+  },
+  "55079": {
+   "well_id": "USGS-425613088014301",
+   "lat": 42.9368194444444,
+   "lon": -88.0289666666667,
+   "well_county_fips": "55079",
+   "well_county_name": "Milwaukee County",
+   "well_state": "Wisconsin",
+   "miles_from_county_centre": 8.6,
+   "status": "in-county"
+  },
+  "55081": {
+   "well_id": "USGS-434342090495601",
+   "status": "lookup-failed"
+  },
+  "55083": {
+   "well_id": "USGS-451805088363101",
+   "status": "lookup-failed"
+  },
+  "55087": {
+   "well_id": "USGS-441948088223301",
+   "status": "lookup-failed"
+  },
+  "55089": {
+   "well_id": "USGS-433215088010001",
+   "status": "lookup-failed"
+  },
+  "55093": {
+   "well_id": "USGS-443703092261301",
+   "status": "lookup-failed"
+  },
+  "55095": {
+   "well_id": "USGS-453013092314601",
+   "status": "lookup-failed"
+  },
+  "55097": {
+   "well_id": "USGS-441833089315601",
+   "status": "lookup-failed"
+  },
+  "55099": {
+   "well_id": "USGS-453311090065301",
+   "status": "lookup-failed"
+  },
+  "55101": {
+   "well_id": "USGS-424119088081801",
+   "status": "lookup-failed"
+  },
+  "55103": {
+   "well_id": "USGS-431840090203201",
+   "status": "lookup-failed"
+  },
+  "55109": {
+   "well_id": "USGS-451027092142901",
+   "status": "lookup-failed"
+  },
+  "55111": {
+   "well_id": "USGS-432100089440001",
+   "status": "lookup-failed"
+  },
+  "55113": {
+   "well_id": "USGS-460005091291801",
+   "status": "lookup-failed"
+  },
+  "55115": {
+   "well_id": "USGS-444627088321401",
+   "status": "lookup-failed"
+  },
+  "55119": {
+   "well_id": "USGS-450947090483902",
+   "status": "lookup-failed"
+  },
+  "55121": {
+   "well_id": "USGS-441743091153101",
+   "status": "lookup-failed"
+  },
+  "55123": {
+   "well_id": "USGS-433928091102501",
+   "status": "lookup-failed"
+  },
+  "55125": {
+   "well_id": "USGS-460258089151901",
+   "status": "lookup-failed"
+  },
+  "55127": {
+   "well_id": "USGS-423532088254601",
+   "status": "lookup-failed"
+  },
+  "55129": {
+   "well_id": "USGS-460039091500101",
+   "status": "lookup-failed"
+  },
+  "55131": {
+   "well_id": "USGS-431953088113701",
+   "status": "lookup-failed"
+  },
+  "55133": {
+   "well_id": "USGS-430052088133501",
+   "lat": 43.0148888888889,
+   "lon": -88.2265833333333,
+   "well_county_fips": "55133",
+   "well_county_name": "Waukesha County",
+   "well_state": "Wisconsin",
+   "miles_from_county_centre": 3.9,
+   "status": "in-county"
+  },
+  "55135": {
+   "well_id": "USGS-441545088522901",
+   "status": "lookup-failed"
+  },
+  "55137": {
+   "well_id": "USGS-440713089320801",
+   "status": "lookup-failed"
+  },
+  "55139": {
+   "well_id": "USGS-435907088462502",
+   "status": "lookup-failed"
+  },
+  "55141": {
+   "well_id": "USGS-441452089433001",
+   "status": "lookup-failed"
+  },
+  "56003": {
+   "well_id": "USGS-444719108050501",
+   "status": "lookup-failed"
+  },
+  "56021": {
+   "well_id": "USGS-410507105003802",
+   "status": "lookup-failed"
+  },
+  "56035": {
+   "well_id": "USGS-424609109513601",
+   "status": "lookup-failed"
+  },
+  "56037": {
+   "well_id": "USGS-410423108021301",
+   "status": "lookup-failed"
+  },
+  "56039": {
+   "well_id": "USGS-433603110443501",
+   "status": "lookup-failed"
+  },
+  "72013": {
+   "well_id": "USGS-182357066451100",
+   "status": "lookup-failed"
+  },
+  "72017": {
+   "well_id": "USGS-182603066333601",
+   "status": "lookup-failed"
+  },
+  "72021": {
+   "well_id": "USGS-182441066082600",
+   "status": "lookup-failed"
+  },
+  "72023": {
+   "well_id": "USGS-180542067084000",
+   "status": "lookup-failed"
+  },
+  "72025": {
+   "well_id": "USGS-181352066025300",
+   "status": "lookup-failed"
+  },
+  "72027": {
+   "well_id": "USGS-182723066511200",
+   "status": "lookup-failed"
+  },
+  "72031": {
+   "well_id": "USGS-182515065594100",
+   "status": "lookup-failed"
+  },
+  "72051": {
+   "well_id": "USGS-182526066165001",
+   "status": "lookup-failed"
+  },
+  "72053": {
+   "well_id": "USGS-181817065391200",
+   "status": "lookup-failed"
+  },
+  "72054": {
+   "well_id": "USGS-182133066342800",
+   "status": "lookup-failed"
+  },
+  "72055": {
+   "well_id": "USGS-180122066560300",
+   "status": "lookup-failed"
+  },
+  "72057": {
+   "well_id": "USGS-175858066100200",
+   "status": "lookup-failed"
+  },
+  "72059": {
+   "well_id": "USGS-180052066471000",
+   "status": "lookup-failed"
+  },
+  "72061": {
+   "well_id": "USGS-182531066075900",
+   "status": "lookup-failed"
+  },
+  "72065": {
+   "well_id": "USGS-182637066475900",
+   "status": "lookup-failed"
+  },
+  "72075": {
+   "well_id": "USGS-180020066261500",
+   "status": "lookup-failed"
+  },
+  "72079": {
+   "well_id": "USGS-180132067033800",
+   "status": "lookup-failed"
+  },
+  "72089": {
+   "well_id": "USGS-182131065421100",
+   "status": "lookup-failed"
+  },
+  "72091": {
+   "well_id": "USGS-182546066271200",
+   "status": "lookup-failed"
+  },
+  "72097": {
+   "well_id": "USGS-181301067081900",
+   "status": "lookup-failed"
+  },
+  "72103": {
+   "well_id": "USGS-181217065453000",
+   "status": "lookup-failed"
+  },
+  "72111": {
+   "well_id": "USGS-180156066434000",
+   "status": "lookup-failed"
+  },
+  "72113": {
+   "well_id": "USGS-175934066364800",
+   "status": "lookup-failed"
+  },
+  "72117": {
+   "well_id": "USGS-182017067143300",
+   "status": "lookup-failed"
+  },
+  "72123": {
+   "well_id": "USGS-175910066155500",
+   "status": "lookup-failed"
+  },
+  "72127": {
+   "well_id": "USGS-182443066041502",
+   "status": "lookup-failed"
+  },
+  "72133": {
+   "well_id": "USGS-175829066232200",
+   "status": "lookup-failed"
+  },
+  "72137": {
+   "well_id": "USGS-182530066135400",
+   "status": "lookup-failed"
+  },
+  "72143": {
+   "well_id": "USGS-182647066201700",
+   "status": "lookup-failed"
+  },
+  "72145": {
+   "well_id": "USGS-182615066235300",
+   "status": "lookup-failed"
+  },
+  "72147": {
+   "well_id": "USGS-180621065274902",
+   "status": "lookup-failed"
+  },
+  "72151": {
+   "well_id": "USGS-180415065513900",
+   "status": "lookup-failed"
+  },
+  "72153": {
+   "well_id": "USGS-180133066503300",
+   "status": "lookup-failed"
+  },
+  "06037": {
+   "well_id": "USGS-343237117582601",
+   "lat": 34.5436031760833,
+   "lon": -117.974790142588,
+   "well_county_fips": "06037",
+   "well_county_name": "Los Angeles County",
+   "well_state": "California",
+   "miles_from_county_centre": 29,
+   "status": "in-county"
+  },
+  "04013": {
+   "well_id": "USGS-333413112081101",
+   "lat": 33.5703186434635,
+   "lon": -112.13709645085,
+   "well_county_fips": "04013",
+   "well_county_name": "Maricopa County",
+   "well_state": "Arizona",
+   "miles_from_county_centre": 26,
+   "status": "in-county"
+  },
+  "06065": {
+   "well_id": "USGS-335830117022201",
+   "lat": 33.9751583333333,
+   "lon": -117.040422222222,
+   "well_county_fips": "06065",
+   "well_county_name": "Riverside County",
+   "well_state": "California",
+   "miles_from_county_centre": 61.9,
+   "status": "in-county"
+  },
+  "06071": {
+   "well_id": "USGS-342744117091101",
+   "lat": 34.4622213890835,
+   "lon": -117.153930338809,
+   "well_county_fips": "06071",
+   "well_county_name": "San Bernardino County",
+   "well_state": "California",
+   "miles_from_county_centre": 61.6,
+   "status": "in-county"
+  },
+  "06001": {
+   "well_id": "USGS-374004122092106",
+   "lat": 37.66781944444444,
+   "lon": -122.15585,
+   "well_county_fips": "06001",
+   "well_county_name": "Alameda County",
+   "well_state": "California",
+   "miles_from_county_centre": 13.4,
+   "status": "in-county"
+  },
+  "04019": {
+   "well_id": "USGS-314830111243101",
+   "lat": 31.8081676659923,
+   "lon": -111.40912998493,
+   "well_county_fips": "04019",
+   "well_county_name": "Pima County",
+   "well_state": "Arizona",
+   "miles_from_county_centre": 31.2,
+   "status": "in-county"
+  },
+  "06019": {
+   "well_id": "USGS-365325120391504",
+   "lat": 36.8903333333333,
+   "lon": -120.655416666667,
+   "well_county_fips": "06019",
+   "well_county_name": "Fresno County",
+   "well_state": "California",
+   "miles_from_county_centre": 56,
+   "status": "in-county"
+  },
+  "09110": {
+   "well_id": "USGS-414910072372101",
+   "lat": 41.81940277777778,
+   "lon": -72.62217777777776,
+   "well_county_fips": "09110",
+   "well_county_name": "Capitol Planning Region",
+   "well_state": "Connecticut",
+   "miles_from_county_centre": 2.4,
+   "status": "in-county"
+  },
+  "06029": {
+   "well_id": "USGS-351347117562601",
+   "lat": 35.2296862462793,
+   "lon": -117.941457891038,
+   "well_county_fips": "06029",
+   "well_county_name": "Kern County",
+   "well_state": "California",
+   "miles_from_county_centre": 45.2,
+   "status": "in-county"
+  },
+  "06077": {
+   "well_id": "USGS-374909121110101",
+   "lat": 37.8189333333333,
+   "lon": -121.185113888889,
+   "well_county_fips": "06077",
+   "well_county_name": "San Joaquin County",
+   "well_state": "California",
+   "miles_from_county_centre": 9.3,
+   "status": "in-county"
+  },
+  "08041": {
+   "well_id": "USGS-383952104405601",
+   "lat": 38.6643611111111,
+   "lon": -104.682666666667,
+   "well_county_fips": "08041",
+   "well_county_name": "El Paso County",
+   "well_state": "Colorado",
+   "miles_from_county_centre": 14.2,
+   "status": "in-county"
+  },
+  "06081": {
+   "well_id": "USGS-372750122112201",
+   "lat": 37.4636666666667,
+   "lon": -122.190333333333,
+   "well_county_fips": "06081",
+   "well_county_name": "San Mateo County",
+   "well_state": "California",
+   "miles_from_county_centre": 10.5,
+   "status": "in-county"
+  },
+  "08005": {
+   "well_id": "USGS-393633103512300",
+   "lat": 39.6091505678551,
+   "lon": -103.856622129655,
+   "well_county_fips": "08005",
+   "well_county_name": "Arapahoe County",
+   "well_state": "Colorado",
+   "miles_from_county_centre": 25.4,
+   "status": "in-county"
+  },
+  "09190": {
+   "well_id": "USGS-413007073250502",
+   "lat": 41.501977777777775,
+   "lon": -73.41730555555556,
+   "well_county_fips": "09190",
+   "well_county_name": "Western Connecticut Planning Region",
+   "well_state": "Connecticut",
+   "miles_from_county_centre": 15.5,
+   "status": "in-county"
+  },
+  "09170": {
+   "well_id": "USGS-412307072515201",
+   "lat": 41.38538611111111,
+   "lon": -72.86373333333333,
+   "well_county_fips": "09170",
+   "well_county_name": "South Central Connecticut Planning Region",
+   "well_state": "Connecticut",
+   "miles_from_county_centre": 6.7,
+   "status": "in-county"
+  },
+  "06107": {
+   "well_id": "USGS-361003119212501",
+   "lat": 36.1674514296054,
+   "lon": -119.357893715242,
+   "well_county_fips": "06107",
+   "well_county_name": "Tulare County",
+   "well_state": "California",
+   "miles_from_county_centre": 32.4,
+   "status": "in-county"
+  },
+  "09140": {
+   "well_id": "USGS-413202073122401",
+   "lat": 41.534124999999996,
+   "lon": -73.20576111111112,
+   "well_county_fips": "09140",
+   "well_county_name": "Naugatuck Valley Planning Region",
+   "well_state": "Connecticut",
+   "miles_from_county_centre": 6.2,
+   "status": "in-county"
+  },
+  "06083": {
+   "well_id": "USGS-342549119510501",
+   "lat": 34.4302636163065,
+   "lon": -119.85232540714706,
+   "well_county_fips": "06083",
+   "well_county_name": "Santa Barbara County",
+   "well_state": "California",
+   "miles_from_county_centre": 12.9,
+   "status": "in-county"
+  },
+  "01089": {
+   "well_id": "USGS-344615086272201",
+   "lat": 34.77075,
+   "lon": -86.4560833333333,
+   "well_county_fips": "01089",
+   "well_county_name": "Madison County",
+   "well_state": "Alabama",
+   "miles_from_county_centre": 5.4,
+   "status": "in-county"
+  },
+  "08035": {
+   "well_id": "USGS-393245104493401",
+   "lat": 39.5458220507837,
+   "lon": -104.826643370999,
+   "well_county_fips": "08035",
+   "well_county_name": "Douglas County",
+   "well_state": "Colorado",
+   "miles_from_county_centre": 16.1,
+   "status": "in-county"
+  },
+  "05119": {
+   "well_id": "USGS-343150092102201",
+   "lat": 34.5309166666667,
+   "lon": -92.173375,
+   "well_county_fips": "05119",
+   "well_county_name": "Pulaski County",
+   "well_state": "Arkansas",
+   "miles_from_county_centre": 18.3,
+   "status": "in-county"
+  },
+  "08123": {
+   "well_id": "USGS-400711104481801",
+   "lat": 40.1199583333333,
+   "lon": -104.804588888889,
+   "well_county_fips": "08123",
+   "well_county_name": "Weld County",
+   "well_state": "Colorado",
+   "miles_from_county_centre": 37.4,
+   "status": "in-county"
+  },
+  "09120": {
+   "well_id": "USGS-411256073153101",
+   "lat": 41.21554773144062,
+   "lon": -73.25815287785647,
+   "well_county_fips": "09120",
+   "well_county_name": "Greater Bridgeport Planning Region",
+   "well_state": "Connecticut",
+   "miles_from_county_centre": 3.3,
+   "status": "in-county"
+  },
+  "05007": {
+   "well_id": "USGS-362913094273101",
+   "lat": 36.487019487152,
+   "lon": -94.458826656003,
+   "well_county_fips": "05007",
+   "well_county_name": "Benton County",
+   "well_state": "Arkansas",
+   "miles_from_county_centre": 15.3,
+   "status": "in-county"
+  },
+  "06047": {
+   "well_id": "USGS-372412120393401",
+   "lat": 37.4032713723266,
+   "lon": -120.660475668258,
+   "well_county_fips": "06047",
+   "well_county_name": "Merced County",
+   "well_state": "California",
+   "miles_from_county_centre": 14.8,
+   "status": "in-county"
+  },
+  "02020": {
+   "well_id": "USGS-611725149335401",
+   "lat": 61.2900097367741,
+   "lon": -149.596375649354,
+   "well_county_fips": "02020",
+   "well_county_name": "Anchorage Municipality",
+   "well_state": "Alaska",
+   "miles_from_county_centre": 13.1,
+   "status": "in-county"
+  },
+  "06079": {
+   "well_id": "USGS-350012120342601",
+   "lat": 35.003310109892,
+   "lon": -120.574892167419,
+   "well_county_fips": "06079",
+   "well_county_name": "San Luis Obispo County",
+   "well_state": "California",
+   "miles_from_county_centre": 27.5,
+   "status": "in-county"
+  },
+  "09180": {
+   "well_id": "USGS-412013072030602",
+   "lat": 41.33669166666667,
+   "lon": -72.05133333333333,
+   "well_county_fips": "09180",
+   "well_county_name": "Southeastern Connecticut Planning Region",
+   "well_state": "Connecticut",
+   "miles_from_county_centre": 10.6,
+   "status": "in-county"
+  },
+  "05143": {
+   "well_id": "USGS-355901094181401",
+   "status": "lookup-failed"
+  },
+  "06087": {
+   "well_id": "USGS-365425121452201",
+   "status": "lookup-failed"
+  },
+  "01003": {
+   "well_id": "USGS-302416087505501",
+   "status": "lookup-failed"
+  },
+  "04025": {
+   "well_id": "USGS-345423112311901",
+   "status": "lookup-failed"
+  },
+  "04015": {
+   "well_id": "USGS-344408114260401",
+   "status": "lookup-failed"
+  },
+  "01101": {
+   "well_id": "USGS-322047086214301",
+   "status": "lookup-failed"
+  },
+  "04027": {
+   "well_id": "USGS-322737114415301",
+   "status": "lookup-failed"
+  },
+  "06025": {
+   "well_id": "USGS-324345116010001",
+   "status": "lookup-failed"
+  },
+  "09130": {
+   "well_id": "USGS-413033072432001",
+   "status": "lookup-failed"
+  },
+  "08101": {
+   "well_id": "USGS-381340104205601",
+   "status": "lookup-failed"
+  },
+  "06031": {
+   "well_id": "USGS-361905119472901",
+   "status": "lookup-failed"
+  },
+  "04005": {
+   "well_id": "USGS-362406110563201",
+   "status": "lookup-failed"
+  },
+  "05045": {
+   "well_id": "USGS-351354092232401",
+   "status": "lookup-failed"
+  },
+  "04003": {
+   "well_id": "USGS-313421110121401",
+   "status": "lookup-failed"
+  },
+  "01083": {
+   "well_id": "USGS-344348086493401",
+   "status": "lookup-failed"
+  },
+  "05031": {
+   "well_id": "USGS-354451090304501",
+   "status": "lookup-failed"
+  },
+  "09160": {
+   "well_id": "USGS-414615072581601",
+   "status": "lookup-failed"
+  },
+  "04017": {
+   "well_id": "USGS-363309110420501",
+   "status": "lookup-failed"
+  },
+  "01069": {
+   "well_id": "USGS-310752085271301",
+   "status": "lookup-failed"
+  },
+  "06057": {
+   "well_id": "USGS-390916121115901",
+   "status": "lookup-failed"
+  },
+  "05051": {
+   "well_id": "USGS-343048093030401",
+   "status": "lookup-failed"
+  },
+  "06101": {
+   "well_id": "USGS-385546121312801",
+   "status": "lookup-failed"
+  },
+  "09150": {
+   "well_id": "USGS-414054071552001",
+   "status": "lookup-failed"
+  },
+  "02090": {
+   "well_id": "USGS-645434147385101",
+   "status": "lookup-failed"
+  },
+  "01043": {
+   "well_id": "USGS-335929087021001",
+   "status": "lookup-failed"
+  },
+  "01051": {
+   "well_id": "USGS-323347086054901",
+   "status": "lookup-failed"
+  },
+  "06045": {
+   "well_id": "USGS-392830123474501",
+   "status": "lookup-failed"
+  },
+  "05145": {
+   "well_id": "USGS-350623091375201",
+   "status": "lookup-failed"
+  },
+  "04001": {
+   "well_id": "USGS-363103109445201",
+   "status": "lookup-failed"
+  },
+  "05069": {
+   "well_id": "USGS-341918091504901",
+   "status": "lookup-failed"
+  },
+  "01033": {
+   "well_id": "USGS-344036087320901",
+   "status": "lookup-failed"
+  },
+  "08037": {
+   "well_id": "USGS-393823106215900",
+   "status": "lookup-failed"
+  },
+  "04007": {
+   "well_id": "USGS-341408111212001",
+   "status": "lookup-failed"
+  },
+  "08043": {
+   "well_id": "USGS-382504105121901",
+   "status": "lookup-failed"
+  },
+  "05055": {
+   "well_id": "USGS-360410090420901",
+   "status": "lookup-failed"
+  },
+  "05035": {
+   "well_id": "USGS-350124090215201",
+   "status": "lookup-failed"
+  },
+  "05005": {
+   "well_id": "USGS-361714092302501",
+   "status": "lookup-failed"
+  },
+  "06093": {
+   "well_id": "USGS-414300121302401",
+   "status": "lookup-failed"
+  },
+  "05091": {
+   "well_id": "USGS-333200093572501",
+   "status": "lookup-failed"
+  },
+  "04009": {
+   "well_id": "USGS-325138109372201",
+   "status": "lookup-failed"
+  },
+  "05009": {
+   "well_id": "USGS-362702092550301",
+   "status": "lookup-failed"
+  },
+  "05063": {
+   "well_id": "USGS-353718091250601",
+   "status": "lookup-failed"
+  },
+  "05093": {
+   "well_id": "USGS-355005090034601",
+   "status": "lookup-failed"
+  },
+  "01039": {
+   "well_id": "USGS-311319086153601",
+   "status": "lookup-failed"
+  },
+  "05139": {
+   "well_id": "USGS-331438092411901",
+   "status": "lookup-failed"
+  },
+  "01079": {
+   "well_id": "USGS-342718087285601",
+   "status": "lookup-failed"
+  },
+  "05059": {
+   "well_id": "USGS-341456092415001",
+   "status": "lookup-failed"
+  },
+  "02110": {
+   "well_id": "USGS-582359134352103",
+   "status": "lookup-failed"
+  },
+  "08087": {
+   "well_id": "USGS-402034103301001",
+   "status": "lookup-failed"
+  },
+  "08039": {
+   "well_id": "USGS-391257104173601",
+   "status": "lookup-failed"
+  },
+  "05015": {
+   "well_id": "USGS-362338093445701",
+   "status": "lookup-failed"
+  },
+  "05111": {
+   "well_id": "USSCS-354059090405701",
+   "status": "lookup-failed"
+  },
+  "06011": {
+   "well_id": "USGS-391653122101401",
+   "status": "lookup-failed"
+  },
+  "05027": {
+   "well_id": "USGS-331609093144902",
+   "status": "lookup-failed"
+  },
+  "05123": {
+   "well_id": "USGS-345536091063401",
+   "status": "lookup-failed"
+  },
+  "05103": {
+   "well_id": "USGS-334443092372501",
+   "status": "lookup-failed"
+  },
+  "05019": {
+   "well_id": "USGS-335950093073601",
+   "status": "lookup-failed"
+  },
+  "08015": {
+   "well_id": "USGS-384815106084000",
+   "status": "lookup-failed"
+  },
+  "08075": {
+   "well_id": "USGS-403530102453000",
+   "status": "lookup-failed"
+  },
+  "05057": {
+   "well_id": "USGS-334009093353901",
+   "status": "lookup-failed"
+  },
+  "05121": {
+   "well_id": "USGS-360942090572901",
+   "status": "lookup-failed"
+  },
+  "05053": {
+   "well_id": "USGS-341024092354501",
+   "status": "lookup-failed"
+  },
+  "06027": {
+   "well_id": "USGS-361817116244701",
+   "status": "lookup-failed"
+  },
+  "05135": {
+   "well_id": "USGS-361325091363701",
+   "status": "lookup-failed"
+  },
+  "05003": {
+   "well_id": "USGS-331049091413601",
+   "status": "lookup-failed"
+  },
+  "05089": {
+   "well_id": "USGS-361630092351801",
+   "status": "lookup-failed"
+  },
+  "08051": {
+   "well_id": "USGS-383232106554700",
+   "status": "lookup-failed"
+  },
+  "04012": {
+   "well_id": "USGS-333859114291701",
+   "status": "lookup-failed"
+  },
+  "05043": {
+   "well_id": "USGS-333534091485201",
+   "status": "lookup-failed"
+  },
+  "08003": {
+   "well_id": "USGS-374448105445401",
+   "status": "lookup-failed"
+  },
+  "05067": {
+   "well_id": "USGS-354513091062501",
+   "status": "lookup-failed"
+  },
+  "05037": {
+   "well_id": "USGS-351520091005201",
+   "status": "lookup-failed"
+  },
+  "08049": {
+   "well_id": "USGS-395648105485300",
+   "status": "lookup-failed"
+  },
+  "05001": {
+   "well_id": "USGS-341558091202501",
+   "status": "lookup-failed"
+  },
+  "05133": {
+   "well_id": "USGS-334750094031301",
+   "status": "lookup-failed"
+  },
+  "05107": {
+   "well_id": "USGS-343108090462601",
+   "status": "lookup-failed"
+  },
+  "05065": {
+   "well_id": "USGS-361324091555001",
+   "status": "lookup-failed"
+  },
+  "05021": {
+   "well_id": "USGS-361938090311601",
+   "status": "lookup-failed"
+  },
+  "06051": {
+   "well_id": "USGS-373754118501701",
+   "status": "lookup-failed"
+  },
+  "05079": {
+   "well_id": "USGS-335619091382001",
+   "status": "lookup-failed"
+  },
+  "05137": {
+   "well_id": "USGS-355927092122401",
+   "status": "lookup-failed"
+  },
+  "05049": {
+   "well_id": "USGS-362207091492401",
+   "status": "lookup-failed"
+  },
+  "05061": {
+   "well_id": "USGS-335840093545201",
+   "status": "lookup-failed"
+  },
+  "08099": {
+   "well_id": "USGS-381220102045801",
+   "status": "lookup-failed"
+  },
+  "05081": {
+   "well_id": "USGS-333509094025101",
+   "status": "lookup-failed"
+  },
+  "01119": {
+   "well_id": "USGS-323001088021601",
+   "status": "lookup-failed"
+  },
+  "08105": {
+   "well_id": "USGS-374210106053001",
+   "status": "lookup-failed"
+  },
+  "05041": {
+   "well_id": "USGS-334605091170501",
+   "status": "lookup-failed"
+  },
+  "08125": {
+   "well_id": "USGS-393756102052800",
+   "status": "lookup-failed"
+  },
+  "05109": {
+   "well_id": "USGS-340213093293001",
+   "status": "lookup-failed"
+  },
+  "05011": {
+   "well_id": "USGS-333647092040701",
+   "status": "lookup-failed"
+  },
+  "05017": {
+   "well_id": "USGS-332418091272601",
+   "status": "lookup-failed"
+  },
+  "05097": {
+   "well_id": "USGS-343726093481801",
+   "status": "lookup-failed"
+  },
+  "06049": {
+   "well_id": "USGS-414043121155501",
+   "status": "lookup-failed"
+  },
+  "05077": {
+   "well_id": "USGS-343923090454901",
+   "status": "lookup-failed"
+  },
+  "05099": {
+   "well_id": "USGS-335105093193501",
+   "status": "lookup-failed"
+  },
+  "05117": {
+   "well_id": "USGS-343212091372901",
+   "status": "lookup-failed"
+  },
+  "05129": {
+   "well_id": "USGS-355416092402501",
+   "status": "lookup-failed"
+  },
+  "08021": {
+   "well_id": "USGS-371612105533901",
+   "status": "lookup-failed"
+  },
+  "08065": {
+   "well_id": "USGS-391137106210102",
+   "status": "lookup-failed"
+  },
+  "05025": {
+   "well_id": "USGS-335133092174901",
+   "status": "lookup-failed"
+  },
+  "08063": {
+   "well_id": "USGS-392920103020000",
+   "status": "lookup-failed"
+  },
+  "05101": {
+   "well_id": "USGS-360014093112901",
+   "status": "lookup-failed"
+  },
+  "08109": {
+   "well_id": "USGS-375324105553301",
+   "status": "lookup-failed"
+  },
+  "08103": {
+   "well_id": "USGS-395136108210001",
+   "status": "lookup-failed"
+  },
+  "05095": {
+   "well_id": "USGS-343906091231701",
+   "status": "lookup-failed"
+  },
+  "05039": {
+   "well_id": "USGS-334832092245502",
+   "status": "lookup-failed"
+  },
+  "05073": {
+   "well_id": "USGS-330223093303301",
+   "status": "lookup-failed"
+  },
+  "05147": {
+   "well_id": "USGS-351655091202801",
+   "status": "lookup-failed"
+  },
+  "08011": {
+   "well_id": "USGS-380505103161600",
+   "status": "lookup-failed"
+  },
+  "08025": {
+   "well_id": "USGS-380918103554500",
+   "status": "lookup-failed"
+  },
+  "08073": {
+   "well_id": "USGS-391910103152000",
+   "status": "lookup-failed"
+  },
+  "08027": {
+   "well_id": "USGS-380325105250001",
+   "status": "lookup-failed"
+  },
+  "05013": {
+   "well_id": "USGS-334558092253301",
+   "status": "lookup-failed"
+  },
+  "08095": {
+   "well_id": "USGS-403912102393501",
+   "status": "lookup-failed"
+  },
+  "08023": {
+   "well_id": "USGS-372141105281101",
+   "status": "lookup-failed"
+  },
+  "08009": {
+   "well_id": "USGS-370557102504800",
+   "status": "lookup-failed"
+  },
+  "08115": {
+   "well_id": "USGS-404747102130400",
+   "status": "lookup-failed"
+  },
+  "08017": {
+   "well_id": "USGS-384350102052000",
+   "status": "lookup-failed"
+  },
+  "08061": {
+   "well_id": "USGS-382050102032000",
+   "status": "lookup-failed"
+  },
+  "08079": {
+   "well_id": "USGS-373944105553701",
+   "status": "lookup-failed"
+  }
+ }
+}
