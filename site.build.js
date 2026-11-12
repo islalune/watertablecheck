@@ -7,7 +7,7 @@ import { fileURLToPath } from 'node:url';
 import { site } from '../SiteFactory/sitekit/config.js';
 import {
   summarizeCounty, severity, hasQualifyingWell, SEVERITY_TIERS_ORDERED,
-  DECLINE_TERCILES_FT_PER_DECADE,
+  DECLINE_TERCILES_FT_PER_DECADE, STABLE_BAND_FT_PER_DECADE,
 } from './functions/groundwater-model.js';
 
 const HERE = path.dirname(fileURLToPath(import.meta.url));
@@ -619,32 +619,62 @@ export function guides() {
   return [
     {
       slug: 'methodology',
-      title: `How ${site.name} Calculates a County's Water Table Trend`,
-      description: `The exact USGS dataset, qualifying bar, and OLS trend model behind every county's groundwater figure, named and sourced.`,
-      blocks: [
-        {
-          h2: 'One well, fit to its own history',
-          html: `<p>Each qualifying county is matched to one USGS National Groundwater Monitoring Network well: at least 15 years between its first and last reading, a reading within the last 10 years, and 6 or more usable depth-to-water measurements (parameter code 72019 from USGS's field-measurements API). An ordinary-least-squares line is fit through that well's full qualifying record; its slope, in feet per year, becomes the trend reported on the county page.</p>`,
-        },
-        {
-          h2: 'Why "mild / moderate / severe" are not universal thresholds',
-          html: `<p>Among counties that are declining, this site splits the decline rate into thirds using this dataset's own distribution (mild below ${DECLINE_TERCILES_FT_PER_DECADE.mild} ft/decade, moderate below ${DECLINE_TERCILES_FT_PER_DECADE.moderate}, severe above). No published national standard defines a "severe" aquifer decline rate, so this is an honest empirical split of this dataset, not an external benchmark, and is labeled that way.</p>`,
-        },
-        {
-          h2: 'Coverage, stated as a number',
-          html: `<p>${COVERAGE_WITH_DATA.toLocaleString('en-US')} of ${COVERAGE_TOTAL.toLocaleString('en-US')} US counties (${COVERAGE_PCT}%) have a qualifying well today. The rest show a plain "no data" page rather than a trend borrowed from a neighboring county, because groundwater behavior is local and a neighboring county's aquifer can move in the opposite direction. See the ${guideLink('fastest-moving-counties', 'fastest-moving counties guide')} for what this model looks like at its extremes, and the ${guideLink('well-pump-risk', 'well-pump risk guide')} for what a declining figure actually means for a pump.</p>`,
-        },
-        {
-          h2: 'Three counties, three outcomes of the same model',
-          html: (() => {
-            const severe = trended.find((r) => summaryBySlug.get(r.slug).severityTier === 'declining-severe');
-            const rising = trended.find((r) => summaryBySlug.get(r.slug).severityTier === 'rising');
-            const noData = rows.find((r) => !summaryBySlug.get(r.slug).hasQualifyingWell);
-            const link = (r) => pageLink(r.slug, `${r.county}, ${r.state}`);
-            return `<p>${severe ? link(severe) : ''} shows how severe a fitted decline can get when a well has decades of consistent readings. ${rising ? link(rising) : ''} shows the same model applied to a well where the table is getting shallower, not deeper. ${noData ? link(noData) : ''} shows what every page looks like when no well in that county clears the 15-year bar at all: a stated gap, not a number.</p>`;
-          })(),
-        },
-      ],
+      title: `How ${site.name} Works Out Whether a County's Water Table Is Dropping`,
+      description: `Where every county's groundwater number comes from, which wells count, how the trend is drawn, and what the number cannot tell you about your own well.`,
+      // [R3][R10][R29] Written for someone who has never heard the words
+      // "water table". Every figure below is read from the same rows the
+      // county pages use, so the guide cannot drift from the data.
+      blocks: (() => {
+        const withWell = rows.filter((r) => hasQualifyingWell(r));
+        const nums = (k) => withWell.map((r) => Number(r[k])).filter(Number.isFinite);
+        const spans = nums('span_years');
+        const counts = nums('n_measurements');
+        const depths = nums('current_depth_ft').filter((d) => d >= 0);
+        const lastYears = withWell.map((r) => Number(String(r.last_date).slice(0, 4))).filter(Number.isFinite);
+        const firstYears = withWell.map((r) => Number(String(r.first_date).slice(0, 4))).filter(Number.isFinite);
+        const recent = lastYears.filter((y) => y >= 2024).length;
+        const oldest = Math.min(...firstYears);
+        const pre1950 = firstYears.filter((y) => y < 1950).length;
+        const thin = counts.filter((n) => n < 12).length;
+        const dir = { declining: 0, stable: 0, rising: 0 };
+        for (const r of withWell) if (r.direction in dir) dir[r.direction] += 1;
+        const fmt = (n) => Math.round(n).toLocaleString('en-US');
+        const link = (r) => pageLink(r.slug, `${r.county}, ${r.state}`);
+        const la = rows.find((r) => r.slug === 'los-angeles-county-ca' && hasQualifyingWell(r));
+        const severe = trended.find((r) => summaryBySlug.get(r.slug).severityTier === 'declining-severe');
+        const rising = trended.find((r) => summaryBySlug.get(r.slug).severityTier === 'rising');
+        const noData = rows.find((r) => !summaryBySlug.get(r.slug).hasQualifyingWell);
+        return [
+          {
+            h2: 'What the number on a county page actually measures',
+            html: `<p>${site.name} is a free site built entirely on public government records. It gives each US county that has a long-running government monitoring well one number: how fast the water underground is getting deeper or shallower. If your home runs on a private well, that tells you whether your well may one day need to reach further down for water. This page explains where the number comes from and how far to trust it. To see yours, ${pageLink('', 'search for your county on the home page')}.</p><p>Under most of the country, the ground is soaked with water some distance down. The top of that soaked layer is the water table. A household well works by reaching below it, so the question that matters to a well owner is how far down it sits and whether that distance is growing.</p><p>The figure this site reports is depth to water: the distance in feet from the ground surface down to the water standing in a well. It is measured by the U.S. Geological Survey (USGS, the federal science agency that tracks the country's water), mostly by someone lowering a marked steel tape, or a cable with a sensor that beeps when it touches water, into a monitoring well. A monitoring well is not anyone's drinking well. It exists only so the water level can be read again and again over the years.</p>`,
+          },
+          {
+            h2: 'Which wells are allowed to speak for a county',
+            html: `<p>USGS publishes readings from a great many wells, but plenty were measured only a few times, or not for decades. A county only gets a trend here if one of its wells clears all three of these:</p><ul><li>at least 15 years between its first and latest reading,</li><li>a reading taken within the last 10 years,</li><li>at least 6 usable depth readings.</li></ul><p>Only ${COVERAGE_WITH_DATA.toLocaleString('en-US')} of ${COVERAGE_TOTAL.toLocaleString('en-US')} US counties (${COVERAGE_PCT}%) have a well like that. Where a county has several, the site uses one: the well with the longest record, and if two tie, the one read most recently. One well cannot describe every property in a big county. It shows which way the water under that area has been heading, which is a starting point for your own well, not a verdict on it (more on that further down). The site does not average several wells together, because wells in one county often tap different layers of rock whose water moves in different directions, and an average of those would describe none of them. Each county page prints its well's USGS identification code (a string like USGS-343237117582601), which you can type into the USGS website to see every reading yourself.</p><p>Most of the chosen wells clear the bar easily. The median chosen well has ${fmt(median(counts))} readings over ${fmt(median(spans))} years, and ${pre1950.toLocaleString('en-US')} of them were first read before 1950 (the oldest record starts in ${oldest}). ${thin} wells sit near the minimum with fewer than 12 readings, and their trends deserve less weight; the county page shows the reading count so you can see that for yourself.</p>`,
+          },
+          {
+            h2: 'How the trend is drawn',
+            html: `<p>Picture every reading from the well plotted on a chart, year along the bottom and depth up the side. The site draws the single straight line that sits closest to all of those points at once. How steeply that line tilts is the trend, reported in feet per decade because a yearly figure is often too small to picture.</p><p>Because the site measures how far down the water is, a bigger number over time is bad news: a trend of 5 feet per decade means the water is 5 feet further down every ten years, so the water table is dropping. A trend with a minus sign means the water is coming closer to the surface. Anything within ${STABLE_BAND_FT_PER_DECADE} feet per decade either way is called stable, because a change that small is hard to tell apart from ordinary measuring noise.</p><p>The line uses the whole record, not the last few readings. That is deliberate. Water levels normally fall in a dry summer and climb back in a wet spring, so a straight line through 15 or more years shows the long direction and ignores one bad season. The cost is that a sudden recent drop shows up more slowly here than it does in the raw readings.</p>`,
+          },
+          {
+            h2: 'What the result looks like across the country',
+            html: `<p>Of the ${COVERAGE_WITH_DATA.toLocaleString('en-US')} counties with a qualifying well, ${dir.declining.toLocaleString('en-US')} are dropping, ${dir.stable.toLocaleString('en-US')} are stable and ${dir.rising.toLocaleString('en-US')} are rising. In a typical well the water sits ${ft(median(depths))} feet below ground at its latest reading, though that hides a huge range: some wells are a few feet deep and some read several hundred.</p><p>To help you compare, the dropping counties are lined up from slowest to fastest and cut into three equal groups, labelled mild, moderate and severe. In feet per decade, mild is anything under ${DECLINE_TERCILES_FT_PER_DECADE.mild}, moderate is under ${DECLINE_TERCILES_FT_PER_DECADE.moderate}, and severe is faster than that. These labels only say how a county compares with the others. No government agency defines a severe decline, so they are not an official danger rating.</p><p>${severe ? `${link(severe)} is one of the severe ones, a well with decades of steady readings and a line that keeps tilting deeper.` : ''} ${rising ? `${link(rising)} runs the other way, a county whose water has come closer to the surface.` : ''} ${noData ? `${link(noData)} has no qualifying well at all, and its page says so instead of borrowing a neighbor's number.` : ''}</p>`,
+          },
+          {
+            h2: 'How fresh the readings are',
+            html: `<p>${recent.toLocaleString('en-US')} of the chosen wells have been read at least once since the start of 2024. The rest are older, and the 10-year rule means some are getting close to the edge. ${la ? `${link(la)} is one example: its well has ${Number(la.n_measurements).toLocaleString('en-US')} readings going back to ${String(la.first_date).slice(0, 4)}, but the latest was taken in ${String(la.last_date).slice(0, 4)}.` : ''} When a county's newest reading is more than about five years old, its page says so on the first screen, because a lot can change in a drought.</p>`,
+          },
+          {
+            h2: 'What this cannot tell you about your own well',
+            html: `<p>One monitoring well stands in for a whole county, and counties can be big. Your well may draw from a different layer of rock than the monitoring well, sit closer to a town's pumping wells or a big irrigation field, or be drilled much deeper. Any of those can make your water level behave differently from the county number.</p><p>So treat the county trend as the starting point. The answer for your property comes from your own well record (the driller's log, the report the company that drilled it filed with the state; most states let you search these free online, usually on the website of the state's water, geology or natural resources department, under a name like "well log search"), compared against the county's depth to water and how fast it is falling. If you have no record, a licensed well driller can measure the water level in your well directly. The ${guideLink('well-pump-risk', 'well-pump guide')} explains what a falling table does to a pump, and the ${guideLink('no-data-and-artesian-readings', 'no-data guide')} covers counties with no qualifying well. It also explains artesian wells. In those, the underground water is under so much pressure that it pushes up the pipe above ground level by itself.</p>`,
+          },
+          {
+            h2: 'Where the data comes from',
+            html: `<p>All readings come from the USGS National Water Information System and the National Ground-Water Monitoring Network, both free and public. The site does not use any paid data. Each county page lists its well id, the dates of the first and latest readings, and how many readings the trend is built on, so every number can be traced back to the government record it came from.</p>`,
+          },
+        ];
+      })(),
     },
     {
       slug: 'well-pump-risk',
