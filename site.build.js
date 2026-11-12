@@ -1030,6 +1030,104 @@ export function guides() {
         ];
       })(),
     },
+    {
+      slug: 'cities-vs-countryside',
+      title: `Is the Water Table Dropping Faster Where More People Live?`,
+      description: `Whether big cities or small rural counties are losing groundwater, measured across every US county with a long-running government monitoring well, and what the answer means if your house runs on a private well.`,
+      // [R3][R10][R21][R29] Answers a question the county rows raise on their
+      // own: does population predict a falling water table? Every figure is
+      // computed from the same rows the county pages use.
+      blocks: (() => {
+        const fmt = (n) => Math.round(n).toLocaleString('en-US');
+        const pct = (a, b) => (b ? Math.round((100 * a) / b) : 0);
+        const one = (n) => (Math.round(n * 10) / 10).toFixed(1);
+        const link = (x) => pageLink(x.r.slug, `${x.s.county}, ${x.s.state}`);
+        const all = rows.map((r) => ({ r, s: summaryBySlug.get(r.slug), pop: Number(r.population) || 0 }));
+        const withWell = all.filter((x) => hasQualifyingWell(x.r) && x.s.trendFtPerDecade !== null);
+        const nowYear = Math.max(...withWell.map((x) => Number(String(x.r.last_date).slice(0, 4))));
+        const isStale = (x) => nowYear - Number(String(x.r.last_date).slice(0, 4)) > 5;
+        const dropping = (x) => x.r.direction === 'declining';
+        const rising = (x) => x.r.direction === 'rising';
+        const BANDS = [
+          [0, 10000, 'under 10,000 people'],
+          [10000, 25000, '10,000 to 25,000'],
+          [25000, 50000, '25,000 to 50,000'],
+          [50000, 100000, '50,000 to 100,000'],
+          [100000, 250000, '100,000 to 250,000'],
+          [250000, 1000000, '250,000 to 1 million'],
+          [1000000, Infinity, 'over 1 million'],
+        ];
+        const bands = BANDS.map(([lo, hi, label]) => {
+          const inBand = (x) => x.pop >= lo && x.pop < hi;
+          const g = withWell.filter(inBand);
+          const d = g.filter(dropping);
+          return {
+            label,
+            total: all.filter(inBand).length,
+            n: g.length,
+            dropPct: pct(d.length, g.length),
+            risePct: pct(g.filter(rising).length, g.length),
+            medDrop: d.length ? median(d.map((x) => x.s.trendFtPerDecade)) : 0,
+          };
+        });
+        const most = bands.reduce((a, b) => (b.dropPct > a.dropPct ? b : a));
+        const least = bands.reduce((a, b) => (b.dropPct < a.dropPct ? b : a));
+        const small = bands[0];
+        const huge = bands[bands.length - 1];
+        const big = withWell.filter((x) => x.pop >= 1000000);
+        const bigDrop = big.filter(dropping).sort((a, b) => b.s.trendFtPerDecade - a.s.trendFtPerDecade);
+        const bigRise = big.filter(rising).sort((a, b) => a.s.trendFtPerDecade - b.s.trendFtPerDecade);
+        const bigStable = big.length - bigDrop.length - bigRise.length;
+        const fastest = withWell.filter(dropping).sort((a, b) => b.s.trendFtPerDecade - a.s.trendFtPerDecade).slice(0, 15);
+        const fastSmall = fastest.filter((x) => x.pop < 100000).length;
+        const sumPop = (g) => g.reduce((t, x) => t + x.pop, 0);
+        const popDrop = sumPop(withWell.filter(dropping));
+        const popNone = sumPop(all.filter((x) => !hasQualifyingWell(x.r)));
+        const bigNote = (x) => {
+          const t = x.s.trendFtPerDecade;
+          const bits = [t < 0 ? `rising ${one(-t)} feet per decade` : `${one(t)} feet per decade`];
+          if (Number(x.r.n_measurements) < 20) bits.push(`only ${x.r.n_measurements} readings`);
+          if (isStale(x)) bits.push(`last read in ${String(x.r.last_date).slice(0, 4)}`);
+          return `${link(x)} (${bits.join(', ')})`;
+        };
+        const table = `<table><thead><tr><th>County population</th><th>Counties with a long-term monitoring well</th><th>Share dropping</th><th>Share steady</th><th>Share rising</th><th>Typical drop where it is dropping</th></tr></thead><tbody>${bands
+          .map((b) => `<tr><td>${b.label}</td><td>${fmt(b.n)} of ${fmt(b.total)}</td><td>${b.dropPct}%</td><td>${100 - b.dropPct - b.risePct}%</td><td>${b.risePct}%</td><td>${one(b.medDrop)} ft per decade</td></tr>`)
+          .join('')}</tbody></table>`;
+        return [
+          {
+            h2: 'The short answer',
+            html: `<p>It depends on what you mean by faster. Small rural counties are more likely to have a falling water table. But when a big county's water is dropping, it usually drops more feet each decade.</p><p>This matters if your home gets its water from a private well of its own. If you pay a city or water company for your water, a falling water table will rarely reach your tap.</p><p>The water table is the top of the water soaked into the ground below you, and a household well only works while it reaches below that level. This website, ${site.name}, follows one long-running government monitoring well in each of ${fmt(withWell.length)} US counties and works out whether the water there has been getting deeper or shallower. Lining those counties up by how many people live in them gives the picture below.</p>`,
+          },
+          {
+            h2: 'County by county, sorted by population',
+            html: `${table}<p>"Share dropping" means the water at that county's monitoring well has been getting further from the surface by more than ${STABLE_BAND_FT_PER_DECADE} feet per decade. "Steady" means it moved less than that either way, and "rising" means it has come closer to the surface. "Typical drop" is the middle value among only the dropping counties in that row: half drop faster, half slower.</p><p>Counties of ${most.label} have the highest share dropping, at ${most.dropPct}%. Counties of ${least.label} have the lowest, at ${least.dropPct}%. So a mid-sized metro county is less likely to be losing groundwater than a farm county with a few thousand households.</p><p>The last column runs the other way. In counties of ${small.label}, a dropping water table typically falls ${one(small.medDrop)} feet per decade. In counties of ${huge.label}, it is ${one(huge.medDrop)} feet per decade, more than twice as fast.</p>`,
+          },
+          {
+            h2: 'Why small counties drop more often',
+            html: `<p>Population is not what pulls most groundwater out of the ground. In much of the country, farm irrigation does. The U.S. Geological Survey (USGS, the federal agency that measures the country's water) reports that irrigation is one of the largest uses of groundwater nationally, and irrigated farmland is mostly in counties with few residents. A county of 15,000 people sitting on top of thousands of irrigated acres can pump far more water than a suburb of 300,000 people.</p><p>Many large metro areas have also moved partly off local wells. Cities often pipe in river or reservoir water, or are under state limits on how much groundwater they can pump, and the monitoring wells there can hold steady or even recover as a result.</p><p>This site cannot tell you which of those is happening in a given county. Its data covers water levels, not who is pumping. If you want to know what is drawing your local water down, your state's water agency or geological survey is the place to ask.</p>`,
+          },
+          {
+            h2: 'The biggest counties, one by one',
+            html: `<p>${fmt(big.length)} counties with over a million residents have a long-term monitoring well. ${bigDrop.length} of them are dropping, ${bigStable} are stable and ${bigRise.length} are rising.</p><p>The dropping ones, fastest first:</p><ul>${bigDrop.map((x) => `<li>${bigNote(x)}</li>`).join('')}</ul><p>A few of those deserve care. A county with fewer than about 20 readings, or whose latest reading is more than five years old, rests on a thinner record than the rest, and its page says so on the first screen. Underground water is not one big pool. It sits in separate layers of sand, gravel and rock at different depths, and in a huge county the one monitoring well may draw from a different layer than the household wells near you, so your own well's level can be quite different. That is why the last step below is your own well's record.</p>${bigRise.length ? `<p>On the other side, these have water that has been coming closer to the surface:</p><ul>${bigRise.map((x) => `<li>${bigNote(x)}</li>`).join('')}</ul>` : ''}`,
+          },
+          {
+            h2: 'Where the very fastest drops are',
+            html: `<p>The top of the list belongs mostly to small places. Of the 15 counties dropping fastest, ${fastSmall} have fewer than 100,000 residents. Here are the five fastest: ${fastest
+              .slice(0, 5)
+              .map((x) => `${link(x)}, population ${fmt(x.pop)}, ${one(x.s.trendFtPerDecade)} feet per decade`)
+              .join('; ')}.</p><p>Very large numbers at a single well are worth checking before you act on them. A well near a quarry, a big irrigation system or a town supply well can fall much faster than the ground around it. The ${guideLink('fastest-moving-counties', 'fastest-moving counties guide')} goes through how to check whether a big number can be trusted.</p>`,
+          },
+          {
+            h2: 'How many people this touches',
+            html: `<p>About ${fmt(popDrop / 1e6)} million people live in a county whose monitoring well is dropping. Another ${fmt(popNone / 1e6)} million live in counties with no long-term monitoring well at all, so nobody can say from public records which way their water is going (the ${guideLink('no-data-and-artesian-readings', 'no-data guide')} explains what to do there).</p><p>Most of those people are on city water and will never notice. The numbers matter to the roughly 43 million Americans, about 15% of the population, who drink from a private well of their own, according to the USGS. For them, a falling water table means a pump that sits closer and closer to the water line.</p>`,
+          },
+          {
+            h2: 'What to do with this',
+            html: `<p>Do not read much into your county's size. A busy metro and a quiet farm county can both be dropping, and your own well can behave differently from the county's monitoring well either way. ${pageLink('', 'Look up your county')} to see its own trend, the date of its latest reading and how many readings it rests on. Then compare that with your well's driller's log (the report the company that drilled your well filed with the state). Most states let you search these free: search for your state's name plus "well log search", which usually turns up a page run by the state's water, geology or natural resources department. The ${guideLink('well-pump-risk', 'well-pump guide')} shows how to work out how much water is left above your pump.</p><p>All figures here come from the USGS National Water Information System and the National Ground-Water Monitoring Network, both free and public, and county populations from the U.S. Census Bureau. How the trend is drawn is in the ${guideLink('methodology', 'methodology guide')}.</p>`,
+          },
+        ];
+      })(),
+    },
   ];
 }
 
