@@ -1429,6 +1429,66 @@ export function guides() {
         ];
       })(),
     },
+    {
+      slug: 'my-well-stopped-working',
+      title: `My Well Stopped Working. Is It the Water Table or Something Else?`,
+      description: `Most wells that quit suddenly have a pump, power or pressure problem, not a water table that fell overnight. Here is how fast the water actually drops in the counties where it is falling, how to tell the causes apart, and what each fix involves.`,
+      // [R3][R10][R21][R31] Visitor question 5 in visitor-job.md: "my well
+      // quit, what now". Answered with the county rows: how many feet a year
+      // the water really falls, so a sudden outage can be read against it.
+      blocks: (() => {
+        const fmt = (n) => Math.round(n).toLocaleString('en-US');
+        const pct = (a, b) => (b ? Math.round((100 * a) / b) : 0);
+        const stName = (r) => r.state_name || (r.state === 'PR' ? 'Puerto Rico' : r.state);
+        const link = (r) => pageLink(r.slug, `${r.county}, ${stName(r)}`);
+        const year = (d) => String(d).slice(0, 4);
+        const down = trended.filter((r) => r.direction === 'declining');
+        const perYear = (r) => summaryBySlug.get(r.slug).trendFtPerDecade / 10;
+        const n = (r) => Number(r.n_measurements);
+        const medYr = median(down.map(perYear));
+        const under1 = down.filter((r) => perYear(r) < 1).length;
+        const oneToThree = down.filter((r) => perYear(r) >= 1 && perYear(r) < 3).length;
+        const over3 = down.filter((r) => perYear(r) >= 3).sort((a, b) => perYear(b) - perYear(a));
+        const area = trended.map((r) => Number(r.land_sq_mi)).filter((x) => Number.isFinite(x) && x > 0);
+        const medArea = median(area);
+        const bigCounties = area.filter((x) => x >= 1000).length;
+        const fastItem = (r) => `<li>${link(r)}: about ${ft(perYear(r))} feet lower each year, last read ${year(r.last_date)}${n(r) < 20 ? `, only ${n(r)} readings, so treat it loosely` : ''}</li>`;
+        return [
+          {
+            h2: 'The short answer',
+            html: `<p>This page is for people whose house gets its water from a private well that has just stopped giving water, or has started sputtering. ${site.name} gives every US county its own page showing which way the water table there has been moving, read from government monitoring wells. The water table is the top of the water-soaked ground, and it is what your well draws from.</p><p>If the water stopped all at once, the water table is rarely the whole story. In the ${fmt(down.length)} measured counties where the water is getting deeper, the typical drop is about ${ft(medYr)} feet a year. Water that falls a few inches a year does not empty a working well between Tuesday and Wednesday. A tripped breaker can, and so can a failed pump, or a fault at the pressure tank, the metal or blue tank in the basement or utility room where the water line comes into the house. Check those first (the steps are below), then look at the water table.</p>`,
+          },
+          {
+            h2: 'How fast the water really falls',
+            html: `<p>Of the ${fmt(down.length)} counties where the monitoring well shows the water getting deeper:</p><ul><li>${fmt(under1)} (${pct(under1, down.length)}%) are dropping by less than a foot a year.</li><li>${fmt(oneToThree)} are dropping by 1 to 3 feet a year.</li><li>${fmt(over3.length)} are dropping by 3 feet a year or more.</li></ul><p>Even in the fast group, a well that had 30 feet of water above its pump would take years to lose it. What the water table usually does is wear a well down slowly: a little less pressure each summer, a pump that runs longer, sputtering at the end of a long shower. Then one hot, dry week with the garden hose running pulls the level past the pump, and it feels sudden even though it took years.</p><p>The counties dropping 3 feet a year or more, fastest first:</p><ul>${over3.slice(0, 10).map(fastItem).join('')}</ul><p>${over3.length > 10 ? `That is the fastest 10 of ${over3.length}; the ${guideLink('fastest-moving-counties', 'fastest-moving counties guide')} lists more. ` : ''}If your county is on that list and your well has been weakening for a few summers, the water table is a real suspect.</p>`,
+          },
+          {
+            h2: 'Check these before blaming the water',
+            html: `<p>These take minutes and cost nothing:</p><ul><li>The breaker for the well pump. Pumps usually have their own circuit, often a double breaker in the main panel, and a storm or power surge can trip it.</li><li>The pressure gauge on the tank, usually near where the water line enters the house. If it reads zero and the pump is not running, the pump is not getting power or the pressure switch beside the tank is not telling it to start.</li><li>Whether the pump is running nonstop. A pump that sits in the basement or a well house you can hear directly. A pump down in the well is quiet, but the small gray box on the pipe by the tank (the pressure switch) clicks when it starts and stops it. If the pump seems to run and still no water comes, it may be pulling air, which is when the water level is worth checking.</li><li>A pump that clicks on and off every few seconds whenever a tap is open. That usually means the pressure tank has lost its air cushion and filled with water, which a well service company can fix without touching the well.</li><li>A clogged filter or water softener. A whole-house filter that has not been changed can choke the flow to a trickle.</li></ul><p>If the pump is running dry, switch it off at the breaker. A submersible pump that runs without water around it overheats and can burn out, which turns a cheap visit into a pump replacement.</p>`,
+          },
+          {
+            h2: 'Signs it is the water level',
+            html: `<p>The water table is a likely cause when several of these line up:</p><ul><li>The well weakened over months or years, worst in late summer, and recovered somewhat in wet seasons.</li><li>Water comes back after the well rests for a few hours, then runs out again during heavy use.</li><li>Neighbors on wells nearby are having the same trouble.</li><li>Your county page shows the water getting deeper, especially at a foot a year or more.</li></ul><p>A well that sputters after resting, or brings up sand or muddy water, can also have a clogged screen or a failing pump. Only a measurement of the water level inside your own well settles it. A licensed well contractor can take one, or you can do it yourself with a steel measuring tape or an electric water-level sounder after the pump has been off for a couple of hours.</p>`,
+          },
+          {
+            h2: 'Why your county page may not match your well',
+            html: `<p>One monitoring well stands in for the whole county, and counties are big. The typical county with a qualifying monitoring well covers about ${fmt(medArea)} square miles, and ${fmt(bigCounties)} of them cover 1,000 square miles or more. Your well could be 30 miles from the one the county number comes from, drilled into a different layer of rock, or sitting next to a big irrigation field or a town's supply wells that pull the water down nearby.</p><p>So a steady county does not prove the water under you is fine, and a dropping county does not prove your outage came from the water table. Use the county number as a clue, then get your own well's record: the driller's log, the report the company that drilled the well filed with the state when it was built. Most states let you search these free online, usually on the website of the state's department of natural resources, environmental quality or geological survey, under a name like "well log search". It shows how deep the well goes and where the water stood when it was drilled, which you can compare with a fresh measurement today.</p>`,
+          },
+          {
+            h2: 'If it is the water table, the fixes in order',
+            html: `<p>A licensed well contractor will usually work through these from cheapest to most expensive:</p><ul><li>Lower the pump. If the well was drilled deeper than the pump hangs, the pump can be moved down to where the water still is. This is often the whole fix.</li><li>Clean or rehabilitate the well. Mineral crust and fine sediment can clog the openings where water enters. Cleaning can bring back flow, and so can hydrofracturing: pumping plain water at high pressure into the rock to reopen the cracks that feed the well. It uses only water, not the chemicals of oil and gas fracking.</li><li>Deepen the existing well, if the rock and the casing allow it.</li><li>Drill a new well. This costs the most: roughly $6,000 to $16,000 for a 200-foot well by HomeServe's cost guide, and more for deeper wells, because the price rises with every foot. Ask for a written estimate that says how deep they expect to go and what each extra foot costs.</li></ul><p>Before agreeing to drill, ask how deep the water stands in other wells nearby, and compare it with your county's depth on this site. The ${guideLink('how-deep-is-the-water-table', 'depth guide')} explains what the depth numbers mean, and the ${guideLink('well-pump-risk', 'well-pump guide')} shows how to work out how much water sits above your pump today.</p>`,
+          },
+          {
+            h2: 'Who pays',
+            html: `<p>Read your homeowners policy closely before assuming it covers this. Standard policies usually exclude a well that goes dry because the water underground fell, though some cover a pump that fails from a sudden cause such as a lightning strike. Some states and counties have run drought relief programs for households whose wells went dry; your state's water or natural resources department will know whether one is open where you live. If you rent, the water supply is normally the landlord's job to fix, so tell them in writing.</p>`,
+          },
+          {
+            h2: 'Find your county',
+            html: `<p>To see whether the water is getting deeper where you live, how fast, and when it was last measured, ${pageLink('', 'type your county into the search on the home page')}. Every reading comes from the U.S. Geological Survey (USGS), the federal science agency that tracks the country's water, through its National Water Information System and the National Ground-Water Monitoring Network, both free and public. How each trend is worked out is in the ${guideLink('methodology', 'methodology guide')}.</p>`,
+          },
+        ];
+      })(),
+    },
   ];
 }
 
