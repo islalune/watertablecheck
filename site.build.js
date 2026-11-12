@@ -1734,6 +1734,87 @@ export function guides() {
         ];
       })(),
     },
+    {
+      slug: 'is-deep-water-safer',
+      title: `Is Deep Water Safer? How Far Down the Water Sits vs. How Often It Is Falling`,
+      description: `People assume a deep water table is a safe one. Across 1,449 measured U.S. counties it is the other way round: the deeper the water, the more likely it is dropping, and the faster. The numbers by depth, the counties that break the pattern, and what it means for your well.`,
+      // [R3][R21][R31][R29] visitor-job.md questions 2 and 3: how deep is the
+      // water here, and is my well at risk. Original cut of the site's own
+      // data: direction and speed of each county's trend grouped by how deep
+      // its water sits. Every figure is read from the same county rows the
+      // county pages use.
+      blocks: (() => {
+        const fmt = (n) => Math.round(n).toLocaleString('en-US');
+        const pct = (a, b) => (b ? Math.round((100 * a) / b) : 0);
+        const rate = (r) => summaryBySlug.get(r.slug).trendFtPerDecade;
+        const depth = (r) => Number(r.current_depth_ft);
+        const link = (r) => pageLink(r.slug, `${r.county}, ${r.state_name}`);
+        const thin = (r) => (Number(r.n_measurements) < 12 ? ', from only a few readings' : '');
+        const measured = trended.filter((r) => r.current_depth_ft !== '' && Number.isFinite(depth(r)));
+        const inBand = (lo, hi) => measured.filter((r) => depth(r) >= lo && depth(r) < hi);
+        const stats = (rs) => {
+          const down = rs.filter((r) => r.direction === 'declining');
+          const up = rs.filter((r) => r.direction === 'rising');
+          return { n: rs.length, down: down.length, up: up.length,
+            med: down.length ? median(down.map(rate)) : 0,
+            fast: down.filter((r) => rate(r) >= 10).length };
+        };
+        const above = stats(inBand(-Infinity, 0));
+        const s10 = stats(inBand(0, 10));
+        const s25 = stats(inBand(10, 25));
+        const s50 = stats(inBand(25, 50));
+        const s100 = stats(inBand(50, 100));
+        const s200 = stats(inBand(100, 200));
+        const s400 = stats(inBand(200, 400));
+        const sDeep = stats(inBand(400, Infinity));
+        const shallow = stats(inBand(0, 25));
+        const deep = stats(inBand(100, 400));
+        const allFast = measured.filter((r) => r.direction === 'declining' && rate(r) >= 10).length;
+        const deepFast = measured.filter((r) => depth(r) >= 100 && r.direction === 'declining' && rate(r) >= 10)
+          .sort((a, b) => (Number(a.n_measurements) < 12) - (Number(b.n_measurements) < 12) || rate(b) - rate(a));
+        const deepFastPop = deepFast.reduce((a, r) => a + Number(r.population || 0), 0);
+        const byState = new Map();
+        for (const r of deepFast) byState.set(r.state_name, (byState.get(r.state_name) ?? 0) + 1);
+        const topStates = [...byState].sort((a, b) => b[1] - a[1]).slice(0, 5);
+        const shallowFalling = measured.filter((r) => depth(r) >= 0 && depth(r) < 25 && r.direction === 'declining' && rate(r) >= 3)
+          .sort((a, b) => rate(b) - rate(a));
+        const row = (label, s) => `<li><strong>${label}:</strong> ${fmt(s.n)} counties. ${pct(s.down, s.n)}% are getting deeper, ${pct(s.up, s.n)}% shallower${s.down ? `. The typical one getting deeper loses ${ft(s.med)} feet per decade` : ''}.</li>`;
+        return [
+          {
+            h2: 'The short answer',
+            html: `<p>No. On this site's data, deep water is the water most likely to be running down. ${site.name} reads one long-running government monitoring well for each U.S. county that has one, and shows whether the water underground has been getting deeper or shallower over the years. That matters to anyone on a private well: if the water falls below the pump, the taps stop, and fixing it is the owner's bill. Standard homeowners insurance usually does not pay when a well runs dry. If you rent, the well is your landlord's, so tell them as soon as the pressure changes.</p><p>One well cannot describe every house in a county, and the water under your land can sit deeper or shallower than at the monitoring well. What it shows well is the direction the water around you has been moving for decades, and that is what this page compares.</p><p>Group the ${fmt(measured.length)} measured counties by how far down the water sits at their latest reading and a clear pattern shows. Where the water is less than 25 feet down, ${pct(shallow.down, shallow.n)}% of counties are getting deeper. Where it is 100 to 400 feet down, ${pct(deep.down, deep.n)}% are, and they are falling faster too. A deep water table is not a cushion. More often it is a sign of a long decline that is still going.</p><p>To see where your own county sits, ${pageLink('', 'type its name into the search on the home page')}. The big number is how fast the water is moving; the depth is in the line beside it.</p>`,
+          },
+          {
+            h2: 'The numbers, depth by depth',
+            html: `<p>Each county is placed by the depth to water at its monitoring well's most recent reading, then counted by which way its long-term trend points. "Getting deeper" means the water level has been falling over the well's whole record, not just last summer.</p><ul>${row('Less than 10 feet down', s10)}${row('10 to 25 feet', s25)}${row('25 to 50 feet', s50)}${row('50 to 100 feet', s100)}${row('100 to 200 feet', s200)}${row('200 to 400 feet', s400)}${row('400 feet or more', sDeep)}</ul><p>To judge whether a rate is a lot, set it against the room your well has. If the water stands 20 feet above your pump, a loss of 0.8 feet per decade would take more than two centuries to reach it; a loss of 8 feet per decade would take about 25 years. The rest of the counties are close enough to flat that this site calls them stable. Two things change together as you go down the list. The share that is falling climbs from about one in seven to about two in three. And the speed of the fall climbs from under a foot per decade to several feet. Of the ${fmt(allFast)} counties losing 10 feet or more per decade, ${fmt(deepFast.length)} have water at least 100 feet down.</p><p>The 400-foot group is small, only ${fmt(sDeep.n)} counties, so one or two wells can swing its split. Here it comes out even, ${pct(sDeep.down, sDeep.n)}% falling and ${pct(sDeep.up, sDeep.n)}% rising, which is too few counties to read as a sign that things get better at great depth.</p>`,
+          },
+          {
+            h2: 'Why shallow water mostly holds steady',
+            html: `<p>Water close to the surface is usually refilled by rain and snowmelt soaking down through the soil, so it gets back what pumping and dry spells take faster than deep water does. That fits the count: only ${fmt(shallow.down)} of the ${fmt(shallow.n)} counties with water under 25 feet are getting deeper.</p><p>Steady does not mean calm. Shallow water rises and falls more with the seasons than deep water does, so a dry summer can drop it several feet and a wet spring can bring it back. A pump that pulls water up by suction from above ground, called a jet pump, can only lift it about 25 feet. If you can see a pump motor in your basement, crawl space or well house, that is probably what you have; a submersible pump hangs out of sight down inside the well and can reach much deeper water. With a jet pump, so in shallow-water areas a few feet of seasonal drop can be what makes the taps sputter. The ${guideLink('dry-summer-or-long-decline', 'dry summer guide')} shows how to tell a bad season from a real decline.</p>`,
+          },
+          {
+            h2: 'Why deep water more often falls',
+            html: `<p>A county's water sits 100 or 200 feet down for one of two broad reasons. Either it was always that deep, often in a dry climate where little rain reaches it, or it used to be shallower and decades of pumping have drawn it down. Either way, the water that is left tends to be refilled slowly, so whatever is pumped out by farms, towns and homes is not replaced each year. A falling trend there does not reverse itself after a wet spring.</p><p>This site's numbers cannot say which of those is true for a given county; they only show the pattern across the country. For your own county, the monitoring well's graph usually makes it clear. A line that started shallow decades ago and has slid steadily downward is a pumped-down aquifer: the layer of water-soaked sand or rock the wells draw from is being emptied faster than rain refills it. The ${guideLink('look-up-your-countys-monitoring-well', 'guide to looking up your county\'s monitoring well')} shows how to open that graph in about a minute.</p>`,
+          },
+          {
+            h2: 'Deep and falling fast',
+            html: `<p>${fmt(deepFast.length)} counties have water at least 100 feet down that is also dropping 10 feet or more per decade. About ${fmt(Math.round(deepFastPop / 1e5) / 10)} million people live in them, by U.S. Census Bureau counts. The states with the most are ${topStates.map(([s, n]) => `${s} (${n})`).join(', ')}. The fastest with a well-measured record, before any read only a handful of times:</p><ul>${deepFast.slice(0, 8).map((r) => `<li>${link(r)}: water ${ft(depth(r))} feet down, getting about ${ft(rate(r))} feet deeper every ten years${thin(r)}</li>`).join('')}</ul><p>If you are on a well in one of these, the gap between the water and your pump is what to watch. The sum is short: take the feet of water above your pump and divide by your county's feet per decade. Twenty feet of room against 10 feet per decade is about two decades, and trouble starts a little sooner, because the water inside a well dips while the pump runs. The ${guideLink('well-pump-risk', 'well-pump guide')} works through it with an example, and the ${guideLink('how-deep-to-drill-a-new-well', 'new well guide')} covers what to ask a driller if you are drilling there.</p>`,
+          },
+          {
+            h2: 'The exceptions: shallow water that is falling',
+            html: `<p>The pattern is about odds, not a rule. ${fmt(shallowFalling.length)} counties have water less than 25 feet down that is still getting deeper by 3 feet or more per decade${shallowFalling.length ? '. The fastest:' : '.'}</p>${shallowFalling.length ? `<ul>${shallowFalling.slice(0, 6).map((r) => `<li>${link(r)}: water ${ft(depth(r))} feet down, about ${ft(rate(r))} feet deeper per decade${thin(r)}</li>`).join('')}</ul>` : ''}<p>These are the ones to take most seriously if you have a shallow well or a jet pump. There is little water above the pump to begin with, so a steady fall uses up the room quickly.</p><p>A few counties fall off the depth scale altogether: at ${fmt(above.n)} of them the monitoring well's water stands above the ground, because it is under pressure and rises up the pipe on its own. ${fmt(above.down)} of those are losing pressure over time. The ${guideLink('no-data-and-artesian-readings', 'no-data and overflowing wells guide')} explains how to read those.</p>`,
+          },
+          {
+            h2: 'What this means for your own well',
+            html: `<p>If your water is deep, do not take comfort from that alone. Check your county page for the direction and speed, and if it is falling, find out how far above your pump the water stands today. Your driller's log, the report the company that drilled your well filed with the state, gives the pump depth and the water level on drilling day; most states let you look it up free online, on the state's water, geology or natural resources department website under a name like "well log search". Minnesota's is the Minnesota Well Index, Texas has the Texas Groundwater Database, and Wisconsin's is run by the state Department of Natural Resources.</p><p>If your water is shallow and your county looks steady, the bigger risk is a dry season, not a long decline. Knowing your normal spring water level makes a bad summer much less frightening, because you can see whether the water has really dropped or whether the problem is in the pump.</p><p>Either way, the one number that settles it is a reading from your own well, taken once a year in the same month. In short: switch the pump off at its breaker for at least two hours, lift the well cap, lower a clean, chalked steel well tape until its end is in the water, and subtract the wet length from the mark you held at the top. The ${guideLink('measure-your-own-well', 'guide to measuring your own well')} goes through each step, including how to clean the tape so nothing reaches your drinking water.</p>`,
+          },
+          {
+            h2: 'Where these numbers come from',
+            html: `<p>Depths and trends come from the same monitoring wells behind the county pages, read from two free public U.S. Geological Survey databases: the National Water Information System and the National Ground-Water Monitoring Network. Populations come from the U.S. Census Bureau. Depth is the latest reading only, so a county near the edge of a group could move into the next one with its next reading. How each trend is drawn, and why a county counts as stable, is in the ${guideLink('methodology', 'methodology guide')}.</p>`,
+          },
+        ];
+      })(),
+    },
   ];
 }
 
