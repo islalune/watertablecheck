@@ -1664,7 +1664,7 @@ export function guides() {
           },
           {
             h2: `Where 30 years could change the picture most`,
-            html: `<p>Nothing special happens at exactly 100 or 200 feet; they are round marks. What matters is a big change compared with where the water is today, because a well and pump planned around today's level may not fit in 30 years. In ${fmt(past100.length)} dropping counties the water now sits 50 to 100 feet down, but at its long-term pace would be more than 100 feet down in 30 years. The ones with the biggest change:</p><ul>${past100.slice(0, 8).map(item).join('')}</ul><p>In ${fmt(past200.length)} counties the water is between 100 and 200 feet down now and and would pass 200 feet in 30 years:</p><ul>${past200.slice(0, 6).map(item).join('')}</ul><p>If you are drilling in one of these, ask the driller how far below the water they plan to set the pump, and whether going a little deeper now is cheaper than deepening later. The rough sum is simple once the driller tells you where the water stands and where the pump will hang: take the gap between the two in feet, and divide by your county's feet per decade. That is about how many decades before the resting water level reaches the pump. Trouble starts sooner, because the water inside a well dips while the pump runs. The ${guideLink('well-pump-risk', 'well-pump guide')} walks through it with an example.</p>`,
+            html: `<p>Nothing special happens at exactly 100 or 200 feet; they are round marks. What matters is a big change compared with where the water is today, because a well and pump planned around today's level may not fit in 30 years. In ${fmt(past100.length)} dropping counties the water now sits 50 to 100 feet down, but at its long-term pace would be more than 100 feet down in 30 years. The ones with the biggest change:</p><ul>${past100.slice(0, 8).map(item).join('')}</ul><p>In ${fmt(past200.length)} counties the water is between 100 and 200 feet down now and would pass 200 feet in 30 years:</p><ul>${past200.slice(0, 6).map(item).join('')}</ul><p>If you are drilling in one of these, ask the driller how far below the water they plan to set the pump, and whether going a little deeper now is cheaper than deepening later. The rough sum is simple once the driller tells you where the water stands and where the pump will hang: take the gap between the two in feet, and divide by your county's feet per decade. That is about how many decades before the resting water level reaches the pump. Trouble starts sooner, because the water inside a well dips while the pump runs. The ${guideLink('well-pump-risk', 'well-pump guide')} walks through it with an example.</p>`,
           },
           {
             h2: 'What to ask a driller before you sign',
@@ -1673,6 +1673,63 @@ export function guides() {
           {
             h2: 'Where these numbers come from',
             html: `<p>Every depth and trend on this page comes from the same USGS monitoring wells behind the county pages, read from two free public USGS databases: the National Water Information System and the National Ground-Water Monitoring Network. ${fmt(TRENDED_TOTAL)} counties have a well with a long enough record to give a trend; the rest are explained in the ${guideLink('no-data-and-artesian-readings', 'no-data guide')}. The 30-year figures are each county's trend carried forward, not a forecast by any agency. Which wells count, and how the trend is drawn, is in the ${guideLink('methodology', 'methodology guide')}.</p>`,
+          },
+        ];
+      })(),
+    },
+    {
+      slug: 'look-up-your-countys-monitoring-well',
+      title: `How to Look Up Your County's Monitoring Well Yourself, and What to Check on Its Graph`,
+      description: `Every county number on this site comes from one government well you can open yourself, free, on the USGS website. Where to find its ID, how to read its water-level graph, and four things on that graph that tell you how much to trust the number.`,
+      // [R21][R27][R31][R29][R33] visitor-job.md questions 1 and 4: is the
+      // number real, and is it a season or a decline. Shows the visitor how
+      // to check the source behind their county page. Figures are read from
+      // the same county rows the county pages use.
+      blocks: (() => {
+        const fmt = (n) => Math.round(n).toLocaleString('en-US');
+        const num = (r, k) => Number(r[k]);
+        const count = (f) => trended.filter(f).length;
+        const usgs = count((r) => /^USGS-/.test(r.well_id));
+        const other = TRENDED_TOTAL - usgs;
+        const nMed = median(trended.map((r) => num(r, 'n_measurements')));
+        const under12 = count((r) => num(r, 'n_measurements') < 12);
+        const over100 = count((r) => num(r, 'n_measurements') >= 100);
+        const over1000 = count((r) => num(r, 'n_measurements') >= 1000);
+        const spanMed = median(trended.map((r) => num(r, 'span_years')));
+        const span50 = count((r) => num(r, 'span_years') >= 50);
+        const recent = count((r) => (r.last_date || '') >= '2024');
+        const before2020 = count((r) => (r.last_date || '') < '2020');
+        const oldest = [...trended].sort((a, b) => a.first_date.localeCompare(b.first_date))[0];
+        const sample = trended.find((r) => /^USGS-\d+$/.test(r.well_id) && num(r, 'n_measurements') >= 100) || trended[0];
+        const sampleNo = sample.well_id.replace(/^USGS-/, '');
+        return [
+          {
+            h2: 'The short answer',
+            html: `<p>${site.name} shows, for each U.S. county, whether the water underground is getting deeper or shallower, which matters to anyone whose home runs on a private well: if the water falls below the pump, the taps stop. Every county page is built from one monitoring well: a government well drilled only so someone can measure how far down the water is, again and again, for years. You can open that well's full record yourself. It is free, there is no account, and it takes about a minute.</p><p>First, ${pageLink('', 'find your county with the search on the home page')}. On your county page, the line under the big number ends with "U.S. Geological Survey well" and an ID such as USGS-${sampleNo}. Copy the digits after "USGS-". Then go to Water Data for the Nation, the free website of the U.S. Geological Survey (USGS, the federal science agency that measures the country's water), and put them at the end of this address: <strong>waterdata.usgs.gov/monitoring-location/</strong>. For example, the well behind ${pageLink(sample.slug, `${sample.county}, ${sample.state_name}`)} is at <a href="https://waterdata.usgs.gov/monitoring-location/${sampleNo}/" rel="noopener">waterdata.usgs.gov/monitoring-location/${sampleNo}</a>; open it to see what yours will look like. The page shows a map pin, the well's name, and a graph of every water-level reading.</p>`,
+          },
+          {
+            h2: 'Why bother checking',
+            html: `<p>The county page boils the record down to one number: how many feet deeper (or shallower) the water has been getting every ten years. That hides a lot. Two counties can both show 3 feet per decade, one from a smooth line of monthly readings over 60 years and one from a dozen scattered readings that happen to slope down. The graph shows you which you have in a few seconds, and it shows the shape: a steady slide, a sudden drop in one decade, or a fall that has already levelled off. The number on the county page cannot tell those apart. Your eyes can.</p><p>If the graph shows a steady fall, the next question is how close the water is getting to your pump. If you know your pump depth and the water is within a few tens of feet of it, call a licensed well driller about lowering the pump before the taps sputter; it usually costs far less than a new well. The ${guideLink('well-pump-risk', 'well-pump guide')} shows how to work out the gap. A clear graph also helps when you talk to someone else about your well. A driller, a county health office or a neighbor will take "the USGS well a few miles from here has dropped 20 feet since 1990" more seriously than a number from a website.</p>`,
+          },
+          {
+            h2: 'If the ID starts with letters other than USGS',
+            html: `<p>Most county pages (${fmt(usgs)} of ${fmt(TRENDED_TOTAL)}) use a well that USGS itself measures. If yours is one of the other ${fmt(other)}, mostly in Ohio and Missouri, the well is measured by a state agency and shared with the National Ground-Water Monitoring Network, a joint map USGS runs for wells measured by many agencies. Their IDs start with a short agency code, like OH015 or MO005, instead of USGS. The USGS Water Data page does not open those. Instead, go to the network's map at <strong>apps.usgs.gov/ngwmn</strong>, zoom to your county, and click the well; the digits after the code match the well's ID on the map.</p>`,
+          },
+          {
+            h2: 'Four things to check on the graph',
+            html: `<p>On the well's page, look for the groundwater level graph, often labelled "depth to water level, feet below land surface". On most of these graphs, a line sloping down toward the bottom of the screen means the water is getting deeper. Glance at the side label to be sure: if it says "feet below land surface", down means deeper. Then check these four things.</p><ul><li><strong>How many dots there are.</strong> The typical well behind a county page has ${fmt(nMed)} readings. ${fmt(over100)} counties have 100 or more, and ${fmt(over1000)} have 1,000 or more, usually from an automatic sensor. ${fmt(under12)} have fewer than 12. With that few, one odd reading can swing the trend.</li><li><strong>How many years they cover.</strong> The typical record runs about ${fmt(spanMed)} years, and ${fmt(span50)} counties have 50 years or more. The oldest is in ${pageLink(oldest.slug, `${oldest.county}, ${oldest.state_name}`)}, starting in ${oldest.first_date.slice(0, 4)}. A long record is what lets a trend see past one dry summer.</li><li><strong>When the last dot is.</strong> ${fmt(recent)} counties have a reading from 2024 or later. ${fmt(before2020)} were last read before 2020, which means the trend says nothing about the years since. The county page warns about this on the first screen.</li><li><strong>Gaps and jumps.</strong> A long gap, or a sudden step up or down with nothing between, can mean the well was repaired, deepened or measured a different way. The trend treats every dot the same, so a jump like that can make a flat record look like a decline. If you see one, give the trend less weight.</li></ul>`,
+          },
+          {
+            h2: 'Wavy lines are normal',
+            html: `<p>A well that is read often will show a yearly wave: the water drops through the dry, high-use months and comes back up in the wet ones. That is not a decline. What matters is whether the bottoms of the waves, and the tops, are getting deeper year after year. Hold a ruler or the edge of a piece of paper along the low points. If it tilts, the water table is going somewhere. The ${guideLink('dry-summer-or-long-decline', 'dry summer or long decline guide')} goes through this with numbers from every county.</p>`,
+          },
+          {
+            h2: 'Finding other wells near you',
+            html: `<p>The well behind a county page is the one with the best long record, not the only one. On the same USGS site, the map lets you zoom to your area and switch on groundwater sites; many counties have several more wells, some with only a few readings. If a well closer to you shows the same direction, that is good news for how far you can trust the county number. If it shows the opposite, your area may sit over a different layer of water than the county's main well. The ${guideLink('can-you-use-the-next-countys-number', 'neighboring county guide')} shows how often nearby wells agree, which is less than you might expect.</p><p>Closest of all is your own well. The ${guideLink('measure-your-own-well', 'guide to measuring your own well')} shows how to take a reading you can compare with the government well's graph, and your state's free well-record search, linked from your county page, usually lists the depth your well was drilled to.</p>`,
+          },
+          {
+            h2: 'Where these numbers come from',
+            html: `<p>Every count on this page comes from the same well records the county pages use, taken from two free public USGS databases: the National Water Information System and the National Ground-Water Monitoring Network. How a well is chosen for a county, and how the trend is drawn through its readings, is in the ${guideLink('methodology', 'methodology guide')}. Counties without a usable well are covered in the ${guideLink('no-data-and-artesian-readings', 'no-data guide')}.</p>`,
           },
         ];
       })(),
