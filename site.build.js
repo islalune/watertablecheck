@@ -733,26 +733,56 @@ export function guides() {
     {
       slug: 'fastest-moving-counties',
       title: `The US Counties Where the Water Table Is Moving Fastest`,
-      description: `The fastest-declining and fastest-rising counties in ${site.name}'s dataset, ranked by the same per-well trend as every county page, not a regional guess.`,
+      description: `Which counties have underground water dropping or rising fastest, how much to trust each of those numbers, and why the fastest ones are often not the ones a household well owner should worry about most.`,
+      // [R3][R10][R28][R29] Rewritten for someone who has never heard of a
+      // monitoring well. Every figure is read from the same county rows the
+      // county pages use, so the guide cannot drift from the data.
       blocks: (() => {
-        const declining = [...trended].filter((r) => summaryBySlug.get(r.slug).severityTier.startsWith('declining')).reverse();
-        const rising = trended.filter((r) => summaryBySlug.get(r.slug).severityTier === 'rising');
-        const rowLine = (r) => {
-          const s = summaryBySlug.get(r.slug);
-          return `${pageLink(r.slug, `${s.county}, ${s.state}`)} (${ft(Math.abs(s.trendFtPerDecade))} ft/decade, well in place ${Math.round(s.spanYears)} years)`;
-        };
+        const all = trended.map((r) => ({ r, s: summaryBySlug.get(r.slug) }));
+        const down = all.filter((x) => x.s.severityTier.startsWith('declining'))
+          .sort((a, b) => b.s.trendFtPerDecade - a.s.trendFtPerDecade);
+        const up = all.filter((x) => x.s.severityTier === 'rising')
+          .sort((a, b) => a.s.trendFtPerDecade - b.s.trendFtPerDecade);
+        const fmt = (n) => Math.round(n).toLocaleString('en-US');
+        const yr = (d) => String(d).slice(0, 4);
+        const link = ({ r, s }) => pageLink(r.slug, `${s.county}, ${s.state}`);
+        const line = (x) => `<li>${link(x)}: ${ft(Math.abs(x.s.trendFtPerDecade))} feet per decade ${x.s.trendFtPerDecade > 0 ? 'deeper' : 'shallower'}, from ${fmt(x.s.nMeasurements)} readings between ${yr(x.s.firstDate)} and ${yr(x.s.lastDate)}, water now ${ft(x.s.currentDepthFt)} feet down${x.s.trendFtPerDecade > 0 && x.s.currentDepthFt < x.s.trendFtPerDecade * x.s.spanYears / 10 ? `. This is an artesian well: its water once pushed up the pipe above ground level by itself, and the drop is that push weakening (the ${guideLink('no-data-and-artesian-readings', 'guide to artesian wells')} explains)` : ''}</li>`;
+        const andList = (xs) => xs.length < 2 ? xs.join("") : `${xs.slice(0, -1).join(", ")} and ${xs.at(-1)}`;
+        const topDown = down.slice(0, 10);
+        const topUp = up.slice(0, 6);
+        const fast20 = down.filter((x) => x.s.trendFtPerDecade >= 20).length;
+        const rise10 = up.filter((x) => x.s.trendFtPerDecade <= -10).length;
+        const thinTop = topDown.filter((x) => x.s.nMeasurements < 12);
+        const staleTop = topDown.filter((x) => Number(yr(x.s.lastDate)) < 2021);
+        const deepTop = topDown.filter((x) => x.s.currentDepthFt !== null && x.s.currentDepthFt > 150).length;
+        const solid = down.filter((x) => x.s.nMeasurements >= 50 && Number(yr(x.s.lastDate)) >= 2024);
+        const solidTop = solid.slice(0, 3);
+        const first = topDown[0];
+        const big = [...topDown].sort((a, b) => (b.s.population || 0) - (a.s.population || 0))[0];
         return [
           {
-            h2: `Fastest decline, of ${declining.length} declining counties tracked`,
-            html: `<p>Ranked by the fitted trend at each county's representative well, fastest first: ${declining.slice(0, 8).map(rowLine).join(', ')}. These sit well above this dataset's own "severe" cutoff of ${DECLINE_TERCILES_FT_PER_DECADE.moderate} ft/decade, see the ${guideLink('methodology', 'methodology guide')} for how that cutoff was set.</p>`,
+            h2: 'What "moving fast" means here',
+            html: `<p>${site.name} is a free site that reads the U.S. Geological Survey's monitoring wells. The USGS is the federal science agency that tracks the country's water, and a monitoring well is a well nobody drinks from; it exists only so someone can measure, year after year, how far down the water stands. For each county with a long enough record, the site picks one monitoring well to stand for the whole county (the one with the longest record) and draws a straight line through all of its readings and reports how steeply it tilts, in feet per decade. ${pageLink('', 'Search for your county on the home page')} to see yours.</p><p>A county whose water is "dropping" is one where the water sits further below the ground each decade, so a household well there has to reach a little deeper to find it. "Rising" means the water is coming closer to the surface. This page lists the counties at both ends: where the water has moved furthest per decade, in either direction, out of the ${fmt(all.length)} counties with a qualifying well.</p><p>A fast number is not automatically the scariest number for a home well, and the sections below explain why. Read the list as the places worth a closer look, then check the reading count and date beside each one before you trust it.</p>`,
           },
           {
-            h2: `Fastest rise, of ${rising.length} rising counties tracked`,
-            html: `<p>Not every county is declining: ${rising.slice(0, 5).map(rowLine).join(', ')} all show a water table getting shallower over their well's full record. A rising table is not automatically good news, it can also mean flooding or waterlogging risk, which this site does not model. The counties at the other end of this list are exactly who the ${guideLink('well-pump-risk', 'well-pump risk guide')} is written for.</p>`,
+            h2: `The ${topDown.length} counties where the water is dropping fastest`,
+            html: `<p>Of ${fmt(down.length)} dropping counties, ${fmt(fast20)} are losing 20 feet or more per decade. These are the ten fastest:</p><ul>${topDown.map(line).join('')}</ul><p>For scale, the typical dropping county on this site goes down ${ft(median(down.map((x) => x.s.trendFtPerDecade)))} feet per decade. Every county on this list is moving many times faster than that.</p>`,
           },
           {
-            h2: 'Why this list changes if you check back',
-            html: `<p>Every figure here is read live from the same per-well trend each county page shows, not typed in once. If a well gets a new reading that shifts its slope, or ${site.name} adds more qualifying wells, this list updates with it rather than going stale.</p>`,
+            h2: 'How much to trust the top of the list',
+            html: `<p>A straight line through a handful of readings can tilt steeply for reasons that have nothing to do with a long decline: one reading taken while a nearby well was pumping hard, or a well that was repaired or deepened partway through its record. The fewer readings a line rests on, the more one odd reading moves it.</p><p>${thinTop.length ? `${andList(thinTop.map(link))} ${thinTop.length === 1 ? 'is' : 'are'} on the list with fewer than 12 readings. ${first && thinTop.includes(first) ? `${link(first)} tops the whole list on only ${fmt(first.s.nMeasurements)}, so treat its number as a reason to look at the raw readings on the USGS site, not as a settled fact. ` : ''}` : ''}${staleTop.length ? `${staleTop.length === 1 ? 'One county' : `${staleTop.length} counties`} on the list (${andList(staleTop.map(link))}) had ${staleTop.length === 1 ? 'its' : 'their'} last reading before 2021, so the line says nothing about recent wet or dry years.` : ''}</p><p>The steadiest evidence comes from wells read many times and recently. ${solidTop.length ? `Among dropping counties with 50 or more readings and a reading since 2024, the fastest are ${andList(solidTop.map((x) => `${link(x)} (${ft(x.s.trendFtPerDecade)} feet per decade over ${fmt(x.s.nMeasurements)} readings)`))}. Those are the declines on this page that are hardest to explain away.` : ''}</p>`,
+          },
+          {
+            h2: 'Why the fastest drops are often in deep wells',
+            html: `<p>In ${fmt(deepTop)} of the ten fastest-dropping counties, the monitoring well's water is more than 150 feet down. Deep wells like these usually tap a deep layer of water-bearing rock, called an aquifer, that towns, farms and factories pump from at the same time. When many big wells draw on one layer, its level can fall by feet every year.</p><p>A household well a few miles away may draw from a shallower layer that refills from rain and snowmelt and barely moves. So a fast county number tells you the deep water there is being pumped out faster than rain and snow can refill it. Whether your own well is affected depends on how deep your well goes and which layer it draws from, both of which are on your driller's log (the report the company that drilled your well filed with the state; most states let you search these free on their water or natural resources department's website).</p><p>${big ? `${link(big)} is the most populated county on the list, with about ${(big.s.population / 1e6).toFixed(1)} million residents, so its line is the one the most people live above. ` : ''}Our ${guideLink('well-pump-risk', 'guide to well pumps')} walks through comparing your own well's numbers with your county's trend.</p>`,
+          },
+          {
+            h2: `The ${topUp.length} counties where the water is rising fastest`,
+            html: `<p>${fmt(up.length)} counties have water coming closer to the surface, ${fmt(rise10)} of them by 10 feet or more per decade. The fastest:</p><ul>${topUp.map(line).join('')}</ul><p>A rise usually means the water is being refilled faster than it is pumped out: a town switched from wells to river water, a factory closed, irrigation cut back, or a run of wet years. It is mostly good news for a well owner. It is not always good news for a basement or a septic field, which can have trouble when water sits close to the surface. This site does not measure flooding or soggy ground, only how far down the water stands.</p>`,
+          },
+          {
+            h2: 'Checking any county on this list yourself',
+            html: `<p>Every county page prints its monitoring well's USGS identification number. Type it into the USGS National Water Information System website and you can see each reading the line was drawn through, with its date. If the readings bunch up in a few years, or one reading sits far from the rest, you will see it straight away.</p><p>The list on this page is rebuilt from the data every time the site is updated, so a new reading that changes a well's line changes its place here too. How the line is drawn and which wells qualify is in the ${guideLink('methodology', 'methodology guide')}, and counties with no qualifying well are covered in the ${guideLink('no-data-and-artesian-readings', 'no-data guide')}.</p>`,
           },
         ];
       })(),
