@@ -200,7 +200,7 @@ function pick(seed, variants) {
 
 const TIER_META = {
   'declining-severe': { badge: 'bad', word: 'declining faster than most declining counties', short: 'Declining fast' },
-  'declining-moderate': { badge: 'mid', word: 'declining at a typical pace for a declining county', short: 'Declining, typical pace' },
+  'declining-moderate': { badge: 'mid', word: 'dropping at about the usual rate for a county that is losing water', short: 'Declining, typical pace' },
   'declining-mild': { badge: 'mid', word: 'declining, slower than most declining counties', short: 'Declining slowly' },
   stable: { badge: 'good', word: 'holding roughly steady', short: 'Stable' },
   rising: { badge: 'good', word: 'rising, getting shallower over time', short: 'Rising' },
@@ -288,8 +288,8 @@ export function page(row) {
         `${tier.word}, based on ${s.nMeasurements} measurements since ${s.firstDate?.slice(0, 4)}.`,
     ]);
     const caveat = pick(slug + '-onewell', [
-      `One well stands in for ${county}'s whole aquifer here, the honest simplification every page on this site carries.`,
-      `This is one representative well, not a county-wide survey, the same grain limit every page here discloses.`,
+      `One well stands in for all the underground water in ${county}, and the water under your land can behave differently.`,
+      `This is one well, not a survey of the whole county, so wells a few miles apart can tell different stories.`,
     ]);
     // [R20][R21][R5] First screen, in reading order: the visitor's own
     // question (the h1), one giant local number with its where/when note set
@@ -311,7 +311,7 @@ export function page(row) {
     blocks.push({
       html: `<div class="wt-hero">${STRATA}
 <div class="wt-hero-num"><span class="wt-big">${ft(rate)}</span>
-<p class="wt-note">${feet} per decade ${flat ? 'of change' : falling ? 'deeper' : 'shallower'} since ${s.firstDate?.slice(0, 4)}.<br>Last read ${s.lastDate}, USGS well ${s.wellId}.</p></div>
+<p class="wt-note">${feet} per decade ${flat ? 'of change' : falling ? 'deeper' : 'shallower'} since ${s.firstDate?.slice(0, 4)}.<br>Last read ${s.lastDate}, U.S. Geological Survey well ${s.wellId}.</p></div>
 <p class="wt-means">${means}</p>
 ${stale}<p class="wt-do">Find your own well's drilled depth on your state's free well-record search and compare it with this.</p>
 </div>`,
@@ -335,16 +335,43 @@ ${stale}<p class="wt-do">Find your own well's drilled depth on your state's free
       h2: pick(slug + '-depth-h2', [`What the well actually measured`, `${county}'s source well, in detail`]),
       html: `<p>${depthLine} Readings span ${s.firstDate} to ${s.lastDate}, ${s.nMeasurements} measurements from ` +
         `${wellRef(s.wellId, s.wellName ? titleCase(s.wellName) : '')}. ` +
-        `The qualifying bar and the OLS fit behind this trend are documented in the ${guideLink('methodology', 'methodology guide')}.</p>`,
+        `Which wells count and how the trend line is drawn are explained in the ${guideLink('methodology', 'methodology guide')}.</p>`,
     });
+
+    // --- [R3][R10] how far to trust this number, from this well's own record ---
+    // A visitor deciding on a $10,000 well needs to know whether the trend is
+    // drawn through 900 readings or 20. Both branches come from the row itself.
+    {
+      const n = Number(s.nMeasurements);
+      const span = Math.max(Number(s.spanYears), 1);
+      const perYear = n / span;
+      const firstYear = Number(s.firstDate?.slice(0, 4));
+      const trust = [];
+      if (perYear >= 6) {
+        trust.push(`This well has been read ${n.toLocaleString('en-US')} times in ${Math.round(span)} years, about ${Math.round(perYear)} readings a year. With that many points, one odd reading cannot drag the trend line far, and the ups and downs between wet and dry seasons show up in the record instead of being mistaken for a long fall or rise.`);
+      } else if (perYear >= 1) {
+        trust.push(`Someone measured this well roughly ${perYear < 1.5 ? 'once' : `${Math.round(perYear)} times`} a year, ${n.toLocaleString('en-US')} readings in all. That is enough to see which way the water is heading. Single readings still bounce around the line, because a measurement taken late in a dry summer sits lower than one taken after a wet spring.`);
+      } else {
+        trust.push(`There are only ${n.toLocaleString('en-US')} readings across ${Math.round(span)} years here, so years went by between visits. The line is drawn through few points, which makes the direction more trustworthy than the exact ${ft(Math.abs(s.trendFtPerDecade))} feet. If one of those few visits fell in a drought, it pulls the line more than it would in a busier record.`);
+      }
+      if (firstYear && firstYear < 1960) {
+        trust.push(`The record goes back to ${firstYear}, so it runs through many droughts and wet decades. A single bad summer barely shifts a line that long.`);
+      } else if (firstYear && firstYear >= 2000) {
+        trust.push(`Readings only start in ${firstYear}. That clears the 15-year bar, but on a record this short a run of dry or wet years near either end tilts the trend more than it would on a well measured since the 1950s.`);
+      }
+      blocks.push({
+        h2: `How much weight ${county}'s number can carry`,
+        html: trust.map((p) => `<p>${p}</p>`).join('\n'),
+      });
+    }
 
     // --- national rank, genuinely per-row-unique ------------------------------
     const rr = trendRank.get(slug);
     const rankLine = pick(slug + '-rank', [
       `Of the ${TRENDED_TOTAL.toLocaleString('en-US')} US counties with a usable trend, ${county} ranks ${ordinal(rr)} ` +
-        `from fastest-rising to fastest-declining, 1 is the fastest-rising water table measured, ${TRENDED_TOTAL} the fastest-declining.`,
+        `from fastest-rising to fastest-falling. ${rr > TRENDED_TOTAL * 0.66 ? 'Near the bottom of that list means the water here is dropping faster than in most of the country.' : rr < TRENDED_TOTAL * 0.33 ? 'Near the top of that list means the water here is doing better than in most of the country.' : 'That is close to the middle of the country.'}`,
       `${county} sits at rank ${ordinal(rr)} of ${TRENDED_TOTAL.toLocaleString('en-US')} ranked counties, ordered ` +
-        `rising-to-declining, so a low number means a rising water table and a high one means fast decline.`,
+        `rising-to-declining. ${rr > TRENDED_TOTAL * 0.66 ? 'That puts it in the third of the country where the water is falling fastest.' : rr < TRENDED_TOTAL * 0.33 ? 'That puts it in the third of the country where the water is rising or holding best.' : 'That puts it in the middle third of the country.'}`,
     ]);
     const popLine = pick(slug + '-pop', [
       `${county}, ${stateName} is home to about ${pop(population)} people.`,
