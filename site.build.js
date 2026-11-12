@@ -291,11 +291,34 @@ export function page(row) {
       `One well stands in for ${county}'s whole aquifer here, the honest simplification every page on this site carries.`,
       `This is one representative well, not a county-wide survey, the same grain limit every page here discloses.`,
     ]);
+    // [R20][R21][R5] First screen, in reading order: the visitor's own
+    // question (the h1), one giant local number with its where/when note set
+    // beside it, one line on what the number means, one line on what to do.
+    // Sits on the same ground cross-section as the homepage, text in the sky.
+    const rate = Math.abs(s.trendFtPerDecade);
+    const falling = s.trendFtPerDecade > 0;
+    const flat = rate < 0.5;
+    const feet = ft(rate) === '1' ? 'foot' : 'feet';
+    const heroYear = Number(s.lastDate?.slice(0, 4));
+    const means = flat
+      ? `The water here has barely moved in ${Math.round(s.spanYears)} years.`
+      : falling
+        ? `Every ten years a well here needs about ${ft(rate)} more ${feet} of reach.`
+        : `The water here has been coming back up, about ${ft(rate)} ${feet} every ten years.`;
+    const stale = heroYear && heroYear < 2021
+      ? `<p class="wt-stale">This well was last read in ${heroYear}. The trend covers the years it was measured, not since.</p>`
+      : '';
     blocks.push({
-      h2: headlineH2,
-      html: `<div class="verdict"><span class="badge ${tier.badge}">${s.severityLabel}</span>
-<div class="figure">${ft(Math.abs(s.trendFtPerDecade))}<small>ft/decade</small></div>
-<p class="says">${trendLine}</p></div><p>${caveat}</p>`,
+      html: `<div class="wt-hero">${STRATA}
+<div class="wt-hero-num"><span class="wt-big">${ft(rate)}</span>
+<p class="wt-note">${feet} per decade ${flat ? 'of change' : falling ? 'deeper' : 'shallower'} since ${s.firstDate?.slice(0, 4)}.<br>Last read ${s.lastDate}, USGS well ${s.wellId}.</p></div>
+<p class="wt-means">${means}</p>
+${stale}<p class="wt-do">Find your own well's drilled depth on your state's free well-record search and compare it with this.</p>
+</div>`,
+    });
+    blocks.push({
+      h2: headlineH2 === `Is the water table dropping in ${county}, ${state}?` ? `What ${county}'s well shows` : headlineH2,
+      html: `<p>${trendLine} ${caveat}</p>`,
     });
 
     // --- depth + well detail --------------------------------------------------
@@ -420,6 +443,7 @@ export function page(row) {
   return {
     slug,
     title,
+    h1: s.hasQualifyingWell ? `Is the water table dropping in ${county}, ${state}?` : undefined,
     description: s.hasQualifyingWell
       ? `${county}, ${state}: depth to water is ${s.severityLabel.toLowerCase()}, ${ft(Math.abs(s.trendFtPerDecade))} ft/decade, from USGS's own long-term monitoring well.`
       : `${county}, ${state} has no USGS long-term monitoring well with enough history for a water-table trend yet.`,
@@ -713,6 +737,17 @@ export function guides() {
 // single horizontal band split into five unequal segments, sized by how many
 // counties actually fall in each tier - so a visitor sees the real national
 // distribution, not a decorative set of three lookalike boxes.
+// The ground cross-section: sky, soil, the water table, saturated rock.
+const STRATA = `<svg class="wt-strata" viewBox="0 0 1440 520" preserveAspectRatio="none" aria-hidden="true" focusable="false">
+    <path class="s-top" d="M0 58 C180 40 330 70 520 54 S880 34 1080 52 1340 66 1440 50 V150 H0Z"/>
+    <path class="s-clay" d="M0 150 H1440 V236 C1250 252 1060 222 860 240 S420 262 0 236Z"/>
+    <path class="s-sand" d="M0 236 C420 262 640 228 860 240 S1250 252 1440 236 V300 C1180 316 980 290 720 304 S260 318 0 300Z"/>
+    <path class="s-wet" d="M0 300 C260 318 460 290 720 304 S1180 316 1440 300 V520 H0Z"/>
+    <path class="s-line" d="M0 300 C260 318 460 290 720 304 S1180 316 1440 300"/>
+    <rect class="s-well" x="1118" y="30" width="9" height="380"/>
+    <rect class="s-screen" x="1118" y="330" width="9" height="80"/>
+  </svg>`;
+
 export function homeHtml({ headline, lede, placeholder, noun, count, browseLinks }) {
   const bands = SEVERITY_TIERS_ORDERED.filter((t) => t !== 'no-data').map((tier) => {
     const members = trended.filter((r) => summaryBySlug.get(r.slug).severityTier === tier);
@@ -728,15 +763,7 @@ export function homeHtml({ headline, lede, placeholder, noun, count, browseLinks
   // distribution sits down in the water itself. Flat fills only, no gradient.
   return `
 <section class="wt-scene">
-  <svg class="wt-strata" viewBox="0 0 1440 520" preserveAspectRatio="none" aria-hidden="true" focusable="false">
-    <path class="s-top" d="M0 58 C180 40 330 70 520 54 S880 34 1080 52 1340 66 1440 50 V150 H0Z"/>
-    <path class="s-clay" d="M0 150 H1440 V236 C1250 252 1060 222 860 240 S420 262 0 236Z"/>
-    <path class="s-sand" d="M0 236 C420 262 640 228 860 240 S1250 252 1440 236 V300 C1180 316 980 290 720 304 S260 318 0 300Z"/>
-    <path class="s-wet" d="M0 300 C260 318 460 290 720 304 S1180 316 1440 300 V520 H0Z"/>
-    <path class="s-line" d="M0 300 C260 318 460 290 720 304 S1180 316 1440 300"/>
-    <rect class="s-well" x="1118" y="30" width="9" height="380"/>
-    <rect class="s-screen" x="1118" y="330" width="9" height="80"/>
-  </svg>
+  ${STRATA}
   <div class="wt-surface">
     <h1>${headline}</h1>
     <div class="finder" id="find">
@@ -850,6 +877,28 @@ body.home main{max-width:none; padding:0}
 .wt-read p{font-size:1rem; line-height:1.65}
 .wt-browse{margin:24px 6vw 64px; max-width:1300px}
 body.home main > section > h2{margin-top:0}
+/* [R5][R20] County pages: the question and the number own the first screen,
+   edge to edge, on the ground cross-section; the rest reads across the width,
+   heading left and answer right, not in a narrow centred column. */
+main:has(.wt-hero){max-width:none; padding:0}
+main:has(.wt-hero) > h1{margin:0; padding:40px 6vw 0; background:#eef1ee; color:#1c2427;
+  font-size:clamp(2.4rem,5.4vw,4.6rem); line-height:1.02; letter-spacing:-.026em; max-width:none}
+main:has(.wt-hero) > section{margin:0}
+.wt-hero{position:relative; min-height:max(560px,74vh); padding:28px 6vw 0; background:#eef1ee; overflow:hidden}
+.wt-hero .wt-strata{position:absolute; left:0; right:0; bottom:0; width:100%; height:40%}
+.wt-hero-num{position:relative; display:flex; align-items:center; gap:28px; flex-wrap:wrap}
+.wt-big{font-size:clamp(7rem,16vw,14.5rem); line-height:.86; font-weight:700; letter-spacing:-.04em; color:#1c2427}
+.wt-note{margin:0; font-size:clamp(1.25rem,1.9vw,1.6rem); line-height:1.35; color:#1c2427; max-width:22ch}
+.wt-means{position:relative; margin:22px 0 0; font-size:clamp(1.5rem,2.6vw,2.2rem); line-height:1.2; color:#7a2a17;
+  font-weight:600; max-width:30ch}
+.wt-stale{position:relative; margin:14px 0 0; font-size:1.3rem; color:#6b4b10; max-width:44ch}
+.wt-do{position:relative; margin:14px 0 0; font-size:1.3rem; line-height:1.4; color:#3e4a4f; max-width:44ch}
+main:has(.wt-hero) > section:not(:first-of-type){display:grid; grid-template-columns:minmax(0,4fr) minmax(0,8fr);
+  column-gap:6vw; padding:40px 6vw; border-top:1px solid #d9dfdc}
+main:has(.wt-hero) > section:not(:first-of-type) > h2{margin:0; font-size:1.7rem; line-height:1.15}
+main:has(.wt-hero) > section:not(:first-of-type) > :not(h2){grid-column:2; font-size:1.25rem; line-height:1.6; max-width:52ch}
+main:has(.wt-hero) > section:not(:first-of-type) > :not(h2):first-child{grid-column:2}
+main:has(.wt-hero) .cta, main:has(.wt-hero) .disclosure{background:none; border:0; border-radius:0; padding:0; box-shadow:none}
 @media (max-width:760px){
   .wt-scene{min-height:0}
   .wt-surface{grid-template-columns:minmax(0,1fr); padding:36px 20px 0; row-gap:18px}
@@ -862,5 +911,12 @@ body.home main > section > h2{margin-top:0}
   .wt-seg{min-width:45%; flex-grow:1 !important}
   .wt-read{grid-template-columns:1fr; gap:8px; padding:40px 20px 8px}
   .wt-browse{margin:16px 20px 48px}
+  main:has(.wt-hero) > h1{padding:28px 20px 0; font-size:2.4rem}
+  .wt-hero{min-height:0; padding:18px 20px 150px}
+  .wt-hero .wt-strata{height:130px}
+  .wt-hero-num{gap:10px 18px}
+  main:has(.wt-hero) > section:not(:first-of-type){grid-template-columns:minmax(0,1fr); padding:30px 20px}
+  main:has(.wt-hero) > section:not(:first-of-type) > :not(h2){grid-column:1; font-size:1.25rem}
+  main:has(.wt-hero) > section:not(:first-of-type) > h2{margin-bottom:12px}
 }
 `;
