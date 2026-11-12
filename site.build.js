@@ -1354,6 +1354,81 @@ export function guides() {
         ];
       })(),
     },
+    {
+      slug: 'rising-water-table',
+      title: `Is a Rising Water Table Good News? What It Means for Your Well, Basement and Septic System`,
+      description: `A third of the measured US counties have water that is coming back up. Here is how fast, where it is rising close to the surface, where deep water pumped down for decades is recovering, and what it can mean for a basement or a septic system.`,
+      // [R3][R10][R21][R28][R29] The county pages tell a third of visitors
+      // their water is "rising" and stop there. This answers what that means
+      // for them. Every figure is computed from the same county rows.
+      blocks: (() => {
+        const fmt = (n) => Math.round(n).toLocaleString('en-US');
+        const pct = (a, b) => (b ? Math.round((100 * a) / b) : 0);
+        const stName = (r) => r.state_name || (r.state === 'PR' ? 'Puerto Rico' : r.state);
+        const link = (r) => pageLink(r.slug, `${r.county}, ${stName(r)}`);
+        const year = (d) => String(d).slice(0, 4);
+        const up = trended.filter((r) => r.direction === 'rising');
+        const rate = (r) => -summaryBySlug.get(r.slug).trendFtPerDecade;
+        const depth = (r) => Number(r.current_depth_ft);
+        const n = (r) => Number(r.n_measurements);
+        const thin = (r) => (n(r) < 20 ? `, only ${n(r)} readings, so treat it loosely` : '');
+        const band = (lo, hi) => up.filter((r) => rate(r) >= lo && rate(r) < hi).length;
+        const medUp = median(up.map(rate));
+        const shallow = up.filter((r) => depth(r) >= 0 && depth(r) < 10).sort((a, b) => rate(b) - rate(a));
+        const under25 = up.filter((r) => depth(r) >= 0 && depth(r) < 25).length;
+        const aboveGround = up.filter((r) => depth(r) < 0).length;
+        const deep = up.filter((r) => depth(r) >= 200).sort((a, b) => rate(b) - rate(a));
+        const lakeStates = deep.filter((r) => ['IL', 'WI'].includes(r.state));
+        const byState = new Map();
+        for (const r of trended) {
+          const s = byState.get(stName(r)) || { n: 0, u: 0 };
+          s.n += 1; if (r.direction === 'rising') s.u += 1;
+          byState.set(stName(r), s);
+        }
+        const topStates = [...byState].filter(([, s]) => s.n >= 10 && s.u / s.n >= 0.4)
+          .sort((a, b) => b[1].u / b[1].n - a[1].u / a[1].n);
+        const shItem = (r) => `<li>${link(r)}: water ${ft(depth(r))} feet below ground, coming up ${ft(rate(r))} feet per decade (last read ${year(r.last_date)}${thin(r)})</li>`;
+        const dpItem = (r) => `<li>${link(r)}: water ${fmt(depth(r))} feet down, coming up ${ft(rate(r))} feet per decade since records began in ${year(r.first_date)}${thin(r)}</li>`;
+        return [
+          {
+            h2: 'The short answer',
+            html: `<p>This page is for people whose home gets its water from a private well, or who live where the water underground sits close to the surface. ${site.name} gives every US county its own page showing which way the water table there has been moving, read from government monitoring wells. The water table is the top of the water-soaked ground under your feet, and it is what a private well draws from. In ${fmt(up.length)} of the ${fmt(trended.length)} counties with a long-running government monitoring well, about ${pct(up.length, trended.length)}%, the water has been coming closer to the surface.</p><p>For a well owner that is mostly good. More water above the pump means a well that is less likely to run short. But water that rises close to the surface brings its own problems for basements and septic systems, and in a few places a rise only means that water pumped down for decades is coming back. Which of those applies depends on how deep the water sits and how fast it is moving.</p>`,
+          },
+          {
+            h2: 'Most rises are slow',
+            html: `<p>The typical rising county is gaining about ${ft(medUp)} feet per decade, a few inches a year. The spread:</p><ul><li>${fmt(band(0, 3))} counties are coming up by less than 3 feet per decade.</li><li>${fmt(band(3, 10))} are coming up by 3 to 10 feet per decade.</li><li>${fmt(band(10, Infinity))} are coming up by 10 feet or more per decade.</li></ul><p>A slow rise like the typical one is often just wetter years in the record. The trend on each page uses at least 15 years of readings, so one rainy spring cannot make a county "rising" on its own, but a run of wet years can. The ${guideLink('dry-summer-or-long-decline', 'dry summer guide')} explains how seasons and long trends differ.</p>`,
+          },
+          {
+            h2: 'Rising water close to the surface',
+            html: `<p>Where the water is already near the top, a rise matters for what is built in the ground. In ${fmt(under25)} rising counties the monitoring well's water sits less than 25 feet down, and in ${fmt(shallow.length)} it sits less than 10 feet down. ${aboveGround ? `In ${fmt(aboveGround)} more, the water in the well stands above ground level, which happens when water is trapped under pressure and pushes up on its own. The data records these as a negative depth, and the ${guideLink('no-data-and-artesian-readings', 'guide to wells that overflow')} explains them.` : ''}</p><p>The rising counties with water under 10 feet down, fastest first:</p><ul>${shallow.slice(0, 10).map(shItem).join('')}</ul><p>${shallow.length > 10 ? `That is the fastest 10 of ${shallow.length}. ` : ''}A monitoring well is one spot in the county, and the water under your own lot can sit higher or lower depending on the lie of the land. Low ground near streams usually has the shallowest water.</p>`,
+          },
+          {
+            h2: 'What high water does to a basement',
+            html: `<p>When the water table comes up to the level of a basement floor, water pushes against the floor and walls from outside. That shows up as damp walls, seepage at the joint where the floor meets the wall, or a sump pump that runs far more often than it used to. A sump pump that starts running in dry weather, not just after storms, is a sign the water under the house is higher than it was.</p><p>The county figure cannot tell you whether your basement is at risk, because it measures one well that may be miles away. It can tell you which way the water has been heading in the area. If it is rising and the water there is shallow, keep gutters and downspouts carrying roof water well away from the house, make sure the ground slopes away from the walls, and check that the sump pump works before the wet season.</p>`,
+          },
+          {
+            h2: 'What high water does to a septic system',
+            html: `<p>A septic system sends household wastewater into a drainfield, a bed of pipes and gravel buried in the yard. The soil under it does the cleaning, and it can only do that while it is not soaked. State and county health rules generally require a few feet of unsaturated soil between the bottom of a drainfield and the highest point the water table reaches in a normal year.</p><p>If the water table rises into that gap, wastewater reaches the groundwater with less cleaning, and the drainfield can back up: slow drains, soggy patches or a sewage smell over the field. In a county where shallow water is rising, an older system built to the depth the water stood at decades ago is the one to watch. Your county or state health department keeps the permit for your system and can say how deep the drainfield was built.</p>`,
+          },
+          {
+            h2: 'Deep water coming back',
+            html: `<p>At the other end, ${fmt(deep.length)} rising counties have water more than 200 feet down. A rise this deep can mean that a layer of water pumped hard for years is recovering because the pumping eased. A run of wet years or a change in how nearby farms irrigate can do it too, and the record alone cannot say which:</p><ul>${deep.slice(0, 8).map(dpItem).join('')}</ul><p>${lakeStates.length >= 3 ? `${lakeStates.length} of these, ${lakeStates.map((r) => r.county).join(', ')}, are in Illinois and Wisconsin, around Chicago and Milwaukee. Towns there drew for many decades on a deep sandstone layer of water, and many have since switched to Lake Michigan water; Waukesha, Wisconsin, made that switch in 2023. With less water being pumped out, the deep layer has been refilling. ` : ''}For a well owner in one of these places the news is good, but the water is still far down, and a new well there still has to be drilled deep.</p>`,
+          },
+          {
+            h2: 'Where rising counties cluster',
+            html: `<p>${topStates.length ? `In these states, at least 4 in 10 of the counties with a monitoring well are rising (only states with 10 or more measured counties are listed):</p><ul>${topStates.map(([name, s]) => `<li>${name}: ${s.u} of ${s.n} measured counties rising</li>`).join('')}</ul><p>` : ''}Rising counties are spread across the country rather than packed into one region, and most sit next to counties that are steady or dropping. The ${guideLink('can-you-use-the-next-countys-number', 'guide to trusting the county next door')} shows how often neighbors disagree, and the ${guideLink('water-table-by-state', 'state-by-state guide')} has every state's split.</p>`,
+          },
+          {
+            h2: 'What to do with a rising number',
+            html: `<p>If you have a private well and your county is rising, your well is probably in no danger from the water table. Still check the well itself now and then, because a pump can fail and a well can clog no matter what the water does. The ${guideLink('well-pump-risk', 'well-pump guide')} shows how to work out how much water sits above your pump.</p><p>If the water in your county is also shallow, under about 25 feet, think about what is built below ground: the basement and the septic drainfield. Look for the warning signs above, and if you are buying a house, ask the seller whether the sump pump runs in dry weather and when the septic system was last inspected. The ${guideLink('buying-a-house-on-a-well', 'guide for buyers')} lists what else to ask for.</p><p>To see your own county's direction, depth and latest reading, ${pageLink('', 'type its name into the search on the home page')}.</p>`,
+          },
+          {
+            h2: 'Where these numbers come from',
+            html: `<p>Every reading on this page comes from the U.S. Geological Survey (USGS), the federal science agency that tracks the country's water, through its National Water Information System and the National Ground-Water Monitoring Network. Both are free and public. Which wells count, and how each trend line is drawn, is in the ${guideLink('methodology', 'methodology guide')}.</p>`,
+          },
+        ];
+      })(),
+    },
   ];
 }
 
