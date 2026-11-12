@@ -853,6 +853,81 @@ export function guides() {
         ];
       })(),
     },
+    {
+      slug: 'water-table-by-state',
+      title: `Is the Water Table Dropping in Your State? Every State and Territory Compared`,
+      description: `How many counties in each US state, plus Washington DC and Puerto Rico, have underground water dropping, holding steady or rising, from the same USGS monitoring wells behind every county page, and where the state picture has big gaps.`,
+      // [R2][R3][R10][R29] Answers the state-level question the county pages
+      // raise ("is this just my county?"). Every figure is computed from the
+      // same county rows the pages use, so the guide cannot drift.
+      blocks: (() => {
+        const fmt = (n) => Math.round(n).toLocaleString('en-US');
+        const andList = (xs) => xs.length < 2 ? xs.join('') : `${xs.slice(0, -1).join(', ')} and ${xs.at(-1)}`;
+        const stateOf = new Map();
+        for (const r of rows) {
+          const name = r.state_name || (r.state === 'PR' ? 'Puerto Rico' : r.state);
+          if (!stateOf.has(r.state)) stateOf.set(r.state, { code: r.state, name, total: 0, list: [] });
+          stateOf.get(r.state).total++;
+        }
+        for (const [code, list] of trendedByState) {
+          stateOf.get(code).list = list.map((r) => ({ r, s: summaryBySlug.get(r.slug) }));
+        }
+        const states = [...stateOf.values()].map((st) => {
+          const t = st.list.map((x) => x.s.trendFtPerDecade);
+          const down = st.list.filter((x) => x.s.severityTier.startsWith('declining'));
+          const up = st.list.filter((x) => x.s.severityTier === 'rising');
+          const fastest = [...down].sort((a, b) => b.s.trendFtPerDecade - a.s.trendFtPerDecade)[0] || null;
+          return { ...st, n: st.list.length, down: down.length, up: up.length,
+            steady: st.list.length - down.length - up.length,
+            med: t.length ? median(t) : null, fastest };
+        }).sort((a, b) => a.name.localeCompare(b.name));
+        const solid = states.filter((s) => s.n >= 10);
+        const mostlyDown = solid.filter((s) => s.down / s.n >= 0.5)
+          .sort((a, b) => b.down / b.n - a.down / a.n);
+        const mostlySteady = solid.filter((s) => s.steady / s.n >= 0.7)
+          .sort((a, b) => b.steady / b.n - a.steady / a.n);
+        const moreUp = solid.filter((s) => s.up > s.down).sort((a, b) => b.up - a.up);
+        const thin = states.filter((s) => s.total >= 50 && s.n / s.total < 0.25)
+          .sort((a, b) => a.n / a.total - b.n / b.total);
+        const pct = (a, b) => Math.round((a / b) * 100);
+        const link = ({ r, s }) => pageLink(r.slug, `${s.county}`);
+        const kansas = stateOf.get('KS') && states.find((s) => s.code === 'KS');
+        const texas = states.find((s) => s.code === 'TX');
+        const nDown = trended.filter((r) => summaryBySlug.get(r.slug).severityTier.startsWith('declining')).length;
+        const stateLine = (s) => {
+          if (!s.n) return `<li><strong>${s.name}</strong>: none of its ${fmt(s.total)} ${s.total === 1 ? 'county has' : 'counties have'} a qualifying monitoring well yet.</li>`;
+          const thinNote = s.fastest && s.fastest.s.nMeasurements < 12 ? ` That line rests on only ${fmt(s.fastest.s.nMeasurements)} readings${Number(String(s.fastest.s.lastDate).slice(0, 4)) < 2021 ? `, the last in ${String(s.fastest.s.lastDate).slice(0, 4)}` : ''}, so one odd reading can tilt it this far; open the raw readings before trusting it.` : '';
+          const f = s.fastest ? ` Fastest drop: ${link(s.fastest)}, ${ft(s.fastest.s.trendFtPerDecade)} feet per decade.${thinNote}` : '';
+          return `<li><strong>${s.name}</strong>: ${fmt(s.n)} of ${fmt(s.total)} ${s.total === 1 ? 'county' : 'counties'} measured. ${fmt(s.down)} dropping, ${fmt(s.steady)} steady, ${fmt(s.up)} rising.${f}</li>`;
+        };
+        return [
+          {
+            h2: 'What this page compares',
+            html: `<p>Under most of the country, water fills the cracks and gaps in the soil and rock some distance below the ground. The top of that water is called the water table. A household well works by reaching down past it, so if the water table sinks, the well has to reach further to find water.</p><p>The U.S. Geological Survey (USGS), the federal science agency that tracks the country's water, keeps monitoring wells: wells nobody drinks from, measured over and over for years so anyone can see whether the water is sinking or coming back up. This site, ${site.name}, is a free lookup that reads those wells. It picks one such well for each county that has a long enough record and draws a straight line through its readings. That line tells you how many feet the water has moved per decade. One well cannot speak for every property in a large county, since your well may tap a different layer of rock, but a well read for fifteen years or more shows which way the water in that area has been heading. ${pageLink('', 'Search for your county on the home page')} to see your own.</p><p>This page adds those county answers up by state. ${fmt(TRENDED_TOTAL)} counties have a qualifying well, and ${fmt(nDown)} of them are dropping. A county counts as steady here when its water moves less than ${STABLE_BAND_FT_PER_DECADE} feet per decade in either direction, which is too small to matter to a well.</p>`,
+          },
+          {
+            h2: 'States where most measured counties are dropping',
+            html: `<p>Among states with at least ten measured counties, these have half or more of them dropping:</p><ul>${mostlyDown.map((s) => `<li><strong>${s.name}</strong>: ${fmt(s.down)} of ${fmt(s.n)} measured counties dropping (${pct(s.down, s.n)}%), with the typical county moving ${ft(s.med)} feet per decade${s.fastest ? `. The fastest is ${link(s.fastest)}, at ${ft(s.fastest.s.trendFtPerDecade)} feet per decade` : ''}.</li>`).join('')}</ul><p>The list mixes dry Western states, where farms and growing towns pump from deep layers of water-bearing rock (called aquifers) that rain and snow refill slowly, with wetter Southern and Midwestern states where irrigation and town supplies draw on the same deep layers. "Half the counties dropping" does not mean every well there is in trouble. The typical drop in most of these states is a foot or two per decade, which a well with plenty of water above its pump can absorb for a long time. The ${guideLink('well-pump-risk', 'well-pump guide')} shows how to check that cushion for your own well.</p>`,
+          },
+          {
+            h2: 'States where the water is mostly holding steady',
+            html: `<p>${mostlySteady.length ? `In ${andList(mostlySteady.map((s) => `${s.name} (${fmt(s.steady)} of ${fmt(s.n)} steady)`))}, at least seven in ten measured counties are neither dropping nor rising in any way that matters.` : ''} These are mostly wetter states in the Northeast and upper Midwest, where shallow wells draw from sand, gravel and cracked rock that rain refills every year. Water levels there rise in spring and sink in late summer, but over fifteen years or more the line through the readings stays nearly flat.</p><p>A steady county can still have a dry well. A drought summer can drop a shallow well below its pump for a few weeks even when the long-term line is flat, and a single house well can fail for reasons that have nothing to do with the water table, like a worn pump or a clogged screen. The county line tells you whether the water is slowly leaving. It does not tell you about one bad season.</p>`,
+          },
+          {
+            h2: 'States where more counties are rising than dropping',
+            html: `<p>${moreUp.length ? `In ${andList(moreUp.map((s) => `${s.name} (${fmt(s.up)} rising, ${fmt(s.down)} dropping)`))}, more measured counties have water coming back toward the surface than sinking.` : 'No state with ten or more measured counties has more rising than dropping.'}</p><p>Water usually comes back when less is pumped out than rain and snow put in: a town switches its supply from wells to a river or reservoir, a big industrial user closes, or a region has a run of wet years. For a well owner that is good news. Where the water rises to within a few feet of the ground, it can seep into basements or keep a septic field from draining. This site tracks how far down the water stands, not flooding, so a rising county is mainly a reason to check that if your house sits low.</p>`,
+          },
+          {
+            h2: 'Where the state picture has big gaps',
+            html: `<p>A state's numbers are only as good as the counties that have a qualifying monitoring well, and some large states have very few. ${thin.length ? `${andList(thin.map((s) => `${s.name} (${fmt(s.n)} of ${fmt(s.total)} counties)`))} ${thin.length === 1 ? 'has' : 'have'} a qualifying well in fewer than one county in four.` : ''}</p><p>${kansas ? `Kansas is the sharpest example. Western Kansas sits on the High Plains aquifer, the huge underground water supply that irrigates farms from South Dakota to Texas, and it is one of the places in the country where people most worry about wells going dry. Yet only ${fmt(kansas.n)} of its ${fmt(kansas.total)} counties have a federal monitoring well that clears this site's bar. ` : ''}${texas ? `Texas has ${fmt(texas.total)} counties and only ${fmt(texas.n)} qualify. ` : ''}That is not because nobody measures there. States run their own well-measuring programs, and many of those readings never reach the federal network this site reads from.</p><p>So if your state has few measured counties, look up your state's own groundwater data too. The Kansas Geological Survey and the Texas Water Development Board both publish water-level readings for free, and most other states have a water, geology or natural resources department that does the same. The ${guideLink('no-data-and-artesian-readings', 'no-data guide')} explains what a county page shows when it has no well of its own.</p>`,
+          },
+          {
+            h2: 'Every state at a glance',
+            html: `<p>Each line shows how many of the state's counties have a qualifying well, how they split, and the county dropping fastest. Puerto Rico's areas are called municipios, Louisiana's parishes and Alaska's boroughs; they are counted the same way as counties.</p><ul>${states.map(stateLine).join('')}</ul><p>How each county's line is drawn and the full bar a well has to clear are in the ${guideLink('methodology', 'methodology guide')}. The ${guideLink('fastest-moving-counties', 'fastest-moving counties guide')} ranks the most extreme counties nationally.</p>`,
+          },
+        ];
+      })(),
+    },
   ];
 }
 
