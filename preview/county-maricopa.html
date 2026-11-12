@@ -1,0 +1,50 @@
+<!doctype html><html lang="en"><head><meta charset="utf-8"><meta name="viewport" content="width=device-width,initial-scale=1">
+<meta name="robots" content="noindex">
+<title>Preview: Maricopa County water table (for Olivia, not live)</title>
+<link href="https://fonts.googleapis.com/css2?family=Archivo:wdth,wght@62..125,500;62..125,600;62..125,800;62..125,900&family=Unbounded:wght@600;700&display=swap" rel="stylesheet">
+<style>
+html,body{margin:0;background:#f1ece1;color:#0d2a4a;font-family:"Archivo",sans-serif}
+.scene{position:relative;height:100vh;min-height:760px;overflow:hidden}
+svg{position:absolute;left:0;right:0;bottom:0;width:100%;height:30%}
+.s-top{fill:#b9a789}.s-clay{fill:#9c7f5f}.s-sand{fill:#c9b28a}.s-wet{fill:#4f6f7d}
+.s-line{fill:none;stroke:#cfe3ea;stroke-width:3;vector-effect:non-scaling-stroke}
+.s-well{fill:#3a3d40}
+.copy{position:absolute;left:6vw;top:6vh;right:6vw}
+h1{margin:0;font:800 clamp(40px,4.4vw,64px)/.95 "Archivo";font-stretch:75%;text-transform:uppercase;max-width:24ch}
+.grid{display:grid;grid-template-columns:auto 1fr;gap:5vw;align-items:start}
+.right{padding-top:4.4vw}
+.row{display:flex;align-items:flex-start;gap:28px;margin-top:2vh}
+.num{font:900 clamp(150px,16vw,236px)/.9 "Archivo";font-stretch:70%;letter-spacing:-.02em}
+.side{padding-top:3.2vw}
+.unit{font:800 clamp(40px,4.4vw,64px)/.9 "Archivo";font-stretch:75%;text-transform:uppercase}
+.where{margin-top:12px;max-width:24ch;font:600 22px/1.3 "Archivo"}
+.pink{margin:0;font:700 clamp(22px,2.1vw,30px)/1.2 "Unbounded";color:#ff1f8f;max-width:34ch}
+.act{margin:2.4vh 0 0;font:600 24px/1.35 "Archivo";max-width:44ch}
+.act a{color:#0d2a4a;text-decoration-thickness:2px;text-underline-offset:4px}
+@media (max-width:700px){
+ .scene{height:auto;min-height:0;padding-bottom:42vw}
+ svg{height:40vw}
+ .copy{position:static;padding:28px 22px 24px}
+ .grid{display:block}.right{padding-top:8px}
+ .row{gap:14px}.side{padding-top:22px}
+ .where{font-size:20px}.act{font-size:21px}
+}
+</style></head><body>
+<section class="scene">
+<svg viewBox="0 0 1440 520" preserveAspectRatio="none" aria-hidden="true">
+<path class="s-top" d="M0 58 C180 40 330 70 520 54 S880 34 1080 52 1340 66 1440 50 V150 H0Z"/>
+<path class="s-clay" d="M0 150 H1440 V236 C1250 252 1060 222 860 240 S420 262 0 236Z"/>
+<path class="s-sand" d="M0 236 C420 262 640 228 860 240 S1250 252 1440 236 V300 C1180 316 980 290 720 304 S260 318 0 300Z"/>
+<path class="s-wet" d="M0 300 C260 318 460 290 720 304 S1180 316 1440 300 V520 H0Z"/>
+<path class="s-line" d="M0 300 C260 318 460 290 720 304 S1180 316 1440 300"/>
+<rect class="s-well" x="1240" y="40" width="9" height="380"/>
+</svg>
+<div class="copy">
+<h1>Is the water table dropping in Maricopa County, Arizona?</h1>
+<div class="grid"><div><div class="row"><div class="num">28</div>
+<div class="side"><div class="unit">Feet deeper<br>every 10 years</div>
+<div class="where">One government test well, measured since 1941. Last read December 2020, so this number is six years old.</div></div></div></div>
+<div class="right"><p class="pink">Yes. A well here has to reach about 28 more feet down every decade.</p>
+<p class="act">Your move: look up your own well's drilled depth on <a href="https://www.azwater.gov/">Arizona's free well registry</a>. Water at the test well was 249 feet down. If your well isn't much deeper than that, call a licensed driller.</p></div></div>
+</div></section>
+</body></html>
