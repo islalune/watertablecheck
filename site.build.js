@@ -141,6 +141,16 @@ const ordinalSuffix = (n) => {
   }
 };
 const ordinal = (n) => `${n}${ordinalSuffix(n)}`;
+// NWIS well ids are AGENCY-SITENO. Nearly all are USGS; a few records were
+// contributed by another agency and carry its code, which a reader should not
+// have to decode.
+function wellRef(id, name) {
+  const m = /^([A-Z]+)-(\d+)$/.exec(id || '');
+  const tag = (no) => `${no}${name ? ` (${name})` : ''}`;
+  if (m && m[1] !== 'USGS') return `well ${tag(m[2])}, a record another agency contributed to the USGS National Water Information System`;
+  return `USGS well ${tag(m ? m[2] : id)}, part of the National Water Information System`;
+}
+
 // USGS well names arrive as raw site descriptions, often all caps
 // ("GLEN ALPINE NEAR CHARLOTTE NC") - a database value, not a sentence. Title
 // Case it before it reaches a reader, same as any other source field.
@@ -271,7 +281,7 @@ export function page(row) {
     blocks.push({
       h2: pick(slug + '-depth-h2', [`What the well actually measured`, `${county}'s source well, in detail`]),
       html: `<p>${depthLine} Readings span ${s.firstDate} to ${s.lastDate}, ${s.nMeasurements} measurements from ` +
-        `USGS well ${s.wellId}${s.wellName ? ` (${titleCase(s.wellName)})` : ''}, part of the National Water Information System. ` +
+        `${wellRef(s.wellId, s.wellName ? titleCase(s.wellName) : '')}. ` +
         `The qualifying bar and the OLS fit behind this trend are documented in the ${guideLink('methodology', 'methodology guide')}.</p>`,
     });
 
@@ -761,12 +771,13 @@ body.home main{max-width:none; padding:0}
 body.home main > section > h2{margin-top:0}
 @media (max-width:760px){
   .wt-scene{min-height:0}
-  .wt-strata{height:46%}
   .wt-surface{grid-template-columns:minmax(0,1fr); padding:36px 20px 0; row-gap:18px}
   .wt-surface h1{margin:0}
   .wt-lede{grid-column:1}
   .wt-name{display:none}
-  .wt-under{padding:150px 20px 28px}
+  .wt-strata{position:relative; order:1; height:170px; margin-top:28px; flex:none}
+  .wt-surface{order:0}
+  .wt-under{order:2; margin-top:0; padding:4px 20px 28px; background:#4f6f7d}
   .wt-seg{min-width:45%; flex-grow:1 !important}
   .wt-read{grid-template-columns:1fr; gap:8px; padding:40px 20px 8px}
   .wt-browse{margin:16px 20px 48px}
