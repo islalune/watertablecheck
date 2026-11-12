@@ -1489,6 +1489,83 @@ export function guides() {
         ];
       })(),
     },
+    {
+      slug: 'east-vs-west',
+      title: `Is a Falling Water Table Only a Problem Out West?`,
+      description: `Western counties are more likely to have a dropping water table, but more of the dropping counties, more of the fast drops and more of the people living over them are in the East. The county numbers from Pacific to Atlantic, and what they mean for a well east of the Plains.`,
+      // [R3][R10][R31] Visitor question 1 asked by someone east of the
+      // Plains who has only heard about aquifers running low in Arizona or
+      // Kansas: "does this happen here too?" Every figure is read from the
+      // same county rows the county pages use, split by each county's
+      // longitude, so the guide cannot drift from them.
+      blocks: (() => {
+        const fmt = (n) => Math.round(n).toLocaleString('en-US');
+        const pct = (a, b) => (b ? Math.round((100 * a) / b) : 0);
+        const stName = (r) => r.state_name || (r.state === 'PR' ? 'Puerto Rico' : r.state);
+        const link = (r) => pageLink(r.slug, `${r.county}, ${stName(r)}`);
+        const year = (d) => String(d).slice(0, 4);
+        const rate = (r) => summaryBySlug.get(r.slug).trendFtPerDecade;
+        const depth = (r) => Number(r.current_depth_ft);
+        const lon = (r) => Number(r.lon);
+        const zone = (lo, hi) => {
+          const all = trended.filter((r) => Number.isFinite(lon(r)) && lon(r) >= lo && lon(r) < hi);
+          const down = all.filter((r) => r.direction === 'declining');
+          return {
+            all,
+            down,
+            up: all.filter((r) => r.direction === 'rising').length,
+            medRate: median(down.map(rate)),
+            medDepth: median(all.map(depth).filter((d) => Number.isFinite(d) && d >= 0)),
+            people: down.reduce((a, r) => a + Number(r.population || 0), 0),
+            fast: down.filter((r) => rate(r) >= 10).length,
+          };
+        };
+        const west = zone(-200, -100);
+        const east = zone(-100, 0);
+        const bands = [
+          ['The Pacific states and most of Nevada', zone(-200, -115)],
+          ['The Rockies, Arizona, New Mexico and the western Plains', zone(-115, -100)],
+          ['The eastern Plains, most of the Midwest and the South from Texas to Alabama', zone(-100, -85)],
+          ['Most of Michigan, Ohio and Georgia, and everything east of them', zone(-85, 0)],
+        ];
+        const eastFast = [...east.down].sort((a, b) => rate(b) - rate(a)).slice(0, 8);
+        const eastShallowDown = east.down.filter((r) => depth(r) >= 0 && depth(r) < 25).length;
+        const westShallowDown = west.down.filter((r) => depth(r) >= 0 && depth(r) < 25).length;
+        const n = (r) => Number(r.n_measurements);
+        const fastItem = (r) => `<li>${link(r)}: about ${ft(rate(r))} feet deeper every ten years, water ${ft(depth(r))} feet down at the last reading in ${year(r.last_date)}${n(r) < 20 ? `, from only ${n(r)} readings, so read it loosely` : ''}${depth(r) >= 0 && depth(r) < 10 ? `. Water this close to the surface rises and falls a lot between readings, which can make a drop look steeper than it is, so look at the county page to see how many readings it rests on` : ''}</li>`;
+        const bandItem = ([label, z]) => `<li>${label}: ${fmt(z.down.length)} of ${fmt(z.all.length)} measured counties dropping (${pct(z.down.length, z.all.length)}%), ${fmt(z.up)} rising, typical drop ${ft(z.medRate)} feet per decade.</li>`;
+        return [
+          {
+            h2: 'The short answer',
+            html: `<p>No. News about wells going dry tends to come from Arizona, California or the Kansas wheat fields, so people in Ohio or Georgia often assume a falling water table is a desert problem. ${site.name} shows, for every US county with a long-running government monitoring well, whether the water underground there has been getting deeper. The water table is the top of the water-soaked ground, the level a private well draws from. Split those counties into West and East and the picture is not what the headlines suggest. If you only want your own county's answer, ${pageLink('', 'type it into the search on the home page')}; this page is about the national pattern.</p><p>A Western county is more likely to be dropping: ${pct(west.down.length, west.all.length)}% of measured Western counties are, against ${pct(east.down.length, east.all.length)}% in the East. But the East has far more counties, so it ends up with more of the dropping ones (${fmt(east.down.length)} against ${fmt(west.down.length)}), more of the fast drops, and more people living over them.</p>`,
+          },
+          {
+            h2: 'Where the line between West and East is drawn',
+            html: `<p>This page splits the country at the 100th meridian, the north-south line that runs through the middle of North Dakota, South Dakota, Nebraska, Kansas, Oklahoma and Texas. Geographers have long used it as the rough edge of the dry West: beyond it, most places get too little rain for farming without irrigation. Each county is placed by its center point, so a county straddling the line goes to whichever side its middle falls on.</p><p>That gives ${fmt(west.all.length)} measured counties in the West and ${fmt(east.all.length)} in the East. The East has about four times as many, mostly because its counties are smaller and far more numerous. The ${guideLink('methodology', 'methodology guide')} explains what counts.</p>`,
+          },
+          {
+            h2: 'West against East, side by side',
+            html: `<ul><li>Share of measured counties where the water is getting deeper: ${pct(west.down.length, west.all.length)}% West, ${pct(east.down.length, east.all.length)}% East.</li><li>Number of dropping counties: ${fmt(west.down.length)} West, ${fmt(east.down.length)} East.</li><li>Typical drop in those counties: ${ft(west.medRate)} feet per decade West, ${ft(east.medRate)} East.</li><li>Dropping 10 feet or more per decade: ${fmt(west.fast)} counties West, ${fmt(east.fast)} East.</li><li>People living in dropping counties: about ${(west.people / 1e6).toFixed(0)} million West, ${(east.people / 1e6).toFixed(0)} million East.</li><li>Typical depth to water at the monitoring well, all measured counties: ${ft(west.medDepth)} feet West, ${ft(east.medDepth)} feet East.</li></ul><p>So the West falls a bit faster and more often, but not by as much as the headlines suggest. A typical Eastern decline of ${ft(east.medRate)} feet per decade is not much gentler than the West's ${ft(west.medRate)}. The bigger difference is depth: Eastern water usually sits about half as far down.</p>`,
+          },
+          {
+            h2: 'From the Pacific to the Atlantic',
+            html: `<p>Cutting the country into four strips shows where the share peaks. It is highest in the Rockies and western Plains, lowest on the Atlantic side, and the typical rate barely changes once you are east of the Rockies:</p><ul>${bands.map(bandItem).join('')}</ul><p>The strip with the highest share takes in the western part of the High Plains aquifer (a huge underground layer of water-soaked sand and gravel) under Kansas, Nebraska, Colorado and the Texas Panhandle, where irrigation has pulled water out for decades.</p>`,
+          },
+          {
+            h2: 'The fastest drops east of the line',
+            html: `<p>${fmt(east.fast)} counties east of the 100th meridian are losing 10 feet or more per decade. The steepest eight are mostly in the middle of the country rather than on the East Coast, which is a reminder that "East" here means everything past the dry-West line:</p><ul>${eastFast.map(fastItem).join('')}</ul><p>Look at the depth beside each one. Nearly all of these monitoring wells read water far below the surface, which usually means a deep layer of rock that a city, a set of factories or a field of irrigation wells draws on at once. A household well a few miles away that takes water from a shallower layer may not be falling at that pace. Your driller's log, the report the company that drilled your well filed with the state, says how deep your well reaches, and the ${guideLink('fastest-moving-counties', 'fastest-moving counties guide')} explains why deep wells show the biggest swings. If the water does fall toward your pump, the usual fixes run from lowering the pump to deepening the well or drilling a new one; the ${guideLink('my-well-stopped-working', 'guide to a well that stopped working')} lists them in cost order.</p>`,
+          },
+          {
+            h2: 'Why a small drop can matter more in the East',
+            html: `<p>Where water is close to the surface, wells are often drilled shallow, with the pump set not far below where the water stood. That leaves less spare water above the pump. Among dropping counties, ${fmt(eastShallowDown)} in the East have their monitoring well's water less than 25 feet down, against ${fmt(westShallowDown)} in the West. Some homes in places like that still use a jet pump. If you can see a pump motor in your basement, crawl space or well house, that is probably what you have. It pulls water up by suction, which only works to about 25 feet, so a few feet of decline can put the water out of its reach. A submersible pump, hung down inside the well and out of sight, can reach much deeper water, though it still needs water above it.</p><p>A shallow water table also moves more with the weather. It drops through a dry summer and comes back after a wet spring, so one bad season can look like a trend from your kitchen tap. The ${guideLink('dry-summer-or-long-decline', 'dry summer guide')} shows how to tell the two apart.</p>`,
+          },
+          {
+            h2: 'What to do with your own county',
+            html: `<p>Whether you live in Nevada or New Jersey, the regional pattern is only background. ${pageLink('', 'Type your county into the search on the home page')} to see its own direction, how fast it is moving, how deep the water is and when it was last read. Then compare it with your own well's record, which the ${guideLink('well-pump-risk', 'well-pump guide')} walks through step by step.</p><p>Every reading on this page comes from the U.S. Geological Survey (USGS), the federal science agency that tracks the country's water, through its National Water Information System and the National Ground-Water Monitoring Network, both free and public. County populations come from the U.S. Census Bureau.</p>`,
+          },
+        ];
+      })(),
+    },
   ];
 }
 
