@@ -678,30 +678,57 @@ export function guides() {
     },
     {
       slug: 'well-pump-risk',
-      title: `What a Declining Water Table Means for a Residential Well Pump`,
-      description: `Why a deeper water table shortens a pump's working life, and what to check before it fails.`,
-      blocks: [
-        {
-          h2: 'Depth is what a pump actually works against',
-          html: `<p>A submersible pump has to lift water from whatever depth it currently sits at. As that depth increases, the pump runs longer per cycle and works harder against a longer column of water, both of which shorten a motor's working life. This is a mechanical fact independent of how fast the decline is, a county in this site's "mild" decline band still sees it, just more slowly than one in "severe." The exact bands come from this dataset's own distribution, see the ${guideLink('methodology', 'methodology guide')}.</p>`,
-        },
-        {
-          h2: 'What this site can and cannot tell a well owner',
-          html: `<p>This site reports a county's fitted trend from the nearest qualifying USGS well, not a reading from any individual property's own well. A property's actual depth to water can differ from the county figure. A well log or a direct measurement from a licensed well contractor is the only way to know a specific well's own numbers, especially in a county with no qualifying well at all, see the ${guideLink('no-data-and-artesian-readings', 'no-data guide')} for what that gap does and doesn't mean.</p>`,
-        },
-        {
-          h2: 'Three counties where this risk is live',
-          html: (() => {
-            const pumpRows = rows
-              .filter((r) => summaryBySlug.get(r.slug).pumpRiskRelevant)
-              .map((r) => ({ r, s: summaryBySlug.get(r.slug) }))
-              .sort((a, b) => b.s.trendFtPerDecade - a.s.trendFtPerDecade)
-              .slice(0, 3);
-            const link = ({ r }) => pageLink(r.slug, `${r.county}, ${r.state}`);
-            return `<p>${pumpRows.map(link).join(', ')} are among the counties where a declining water table is a real, measured trend rather than a general worry, each tracked by its own USGS well. A well owner in any of them is the person this guide is written for.</p>`;
-          })(),
-        },
-      ],
+      title: `What a Dropping Water Table Does to a Home Well Pump`,
+      description: `How a falling water table reaches a household well pump, how to work out from your own well record how much room your pump has left, and which counties are dropping fast enough for it to matter soon.`,
+      // [R3][R10][R29] Rewritten for someone who owns a well but has never
+      // thought about how the pump works. Every figure is read from the same
+      // county rows the county pages use, so the guide cannot drift from them.
+      blocks: (() => {
+        const dec = rows
+          .filter((r) => summaryBySlug.get(r.slug).pumpRiskRelevant)
+          .map((r) => ({ r, s: summaryBySlug.get(r.slug) }));
+        const trends = dec.map((x) => x.s.trendFtPerDecade);
+        const depths = dec.map((x) => x.s.currentDepthFt).filter((d) => d !== null && d >= 0);
+        const p30 = dec.map((x) => x.s.decline30yrFt).filter((d) => d !== null);
+        const fast10 = trends.filter((t) => t >= 10).length;
+        const shallow25 = depths.filter((d) => d < 25).length;
+        const deep100 = depths.filter((d) => d > 100).length;
+        const shallowSevere = dec.filter((x) => x.s.currentDepthFt !== null && x.s.currentDepthFt >= 0
+          && x.s.currentDepthFt < 50 && x.s.trendFtPerDecade >= DECLINE_TERCILES_FT_PER_DECADE.moderate);
+        const stale = dec.filter((x) => Number(String(x.s.lastDate).slice(0, 4)) < 2021).length;
+        const pop = dec.reduce((a, x) => a + (x.s.population || 0), 0);
+        const byState = {};
+        for (const x of dec) byState[x.s.stateName] = (byState[x.s.stateName] || 0) + 1;
+        const topStates = Object.entries(byState).sort((a, b) => b[1] - a[1]).slice(0, 3);
+        const fastest = [...dec].sort((a, b) => b.s.trendFtPerDecade - a.s.trendFtPerDecade).slice(0, 3);
+        const fmt = (n) => Math.round(n).toLocaleString('en-US');
+        const link = ({ r, s }) => pageLink(r.slug, `${s.county}, ${s.state}`);
+        const medTrend = median(trends);
+        const ex = shallowSevere.sort((a, b) => b.s.nMeasurements - a.s.nMeasurements)[0];
+        const exYears = ex ? Math.floor(ex.s.currentDepthFt / ex.s.trendFtPerDecade * 10) : null;
+        return [
+          {
+            h2: 'How the pump and the water table meet',
+            html: `<p>${site.name} is a free site that reads the U.S. Geological Survey's long-running monitoring wells (the federal agency's wells that exist only to track underground water) and shows, county by county, whether the water is getting deeper. ${pageLink('', 'Search for your county on the home page')} first: if its water is not dropping, most of this page does not apply to you. If it is, here is what that means for your pump.</p><p>Signs at the tap that a pump is struggling: sputtering or air in the lines, pressure that fades during a long shower or while watering, and a pump you can hear running longer than it used to. A falling water table is one cause. Age and wear are far more common ones, which is why the county trend is worth checking before you blame either.</p><p>Most homes on a private well have a submersible pump: a long, narrow motor and pump hung on a pipe deep inside the well, under the water. When you open a tap, it pushes water up the pipe to a pressure tank in the house. Older or very shallow wells sometimes use a jet pump instead, which sits above ground in a basement or well house and pulls water up by suction. If you can see a pump motor in your basement, crawl space or well house, you most likely have a jet pump. If all you see is a capped pipe coming out of the ground, the pump is down in the well.</p><p>Either way, the pump works from wherever the water currently stands. The water table is the top of the water-soaked ground, and in a well it shows up as the level the water settles at when nobody is pumping. If that level gets lower over the years, three things follow in order.</p><p>First, the pump has to lift the water further, so the same pump delivers a little less water per minute and runs a little longer to fill the tank. Second, the cushion of water sitting above the pump gets thinner. A submersible motor is cooled by water flowing past it, and it needs that cushion to stay covered while it runs, because the level inside a well dips while it is pumping. Third, if the level drops far enough that the pump starts pulling air, it can overheat and fail, and the house loses water until a well contractor comes out.</p><p>A jet pump hits its limit sooner. Suction can only raise water about 25 feet in practice, so once the water in a shallow well falls past that, a jet pump cannot reach it at all.</p>`,
+          },
+          {
+            h2: 'What the county numbers say about the size of the problem',
+            html: `<p>${fmt(dec.length)} counties on this site have a USGS monitoring well whose water is getting deeper. About ${(pop / 1e6).toFixed(0)} million people live in them. The most are in ${topStates.slice(0, -1).map(([n, c]) => `${n} (${c})`).join(', ')} and ${topStates.at(-1)[0]} (${topStates.at(-1)[1]}).</p><p>For most of them the change is slow. In the typical dropping county the water is going down ${ft(medTrend)} feet every ten years, and if that pace held for 30 years it would add up to about ${ft(median(p30))} feet. A pump hung with a normal margin below the water usually has room for that. But ${fmt(fast10)} counties are dropping 10 feet or more per decade, and at that pace 30 years means 30 feet or more. That is enough to matter for a pump that was set close to the water when the well was drilled.</p><p>How deep the water already sits changes the picture too. In ${fmt(shallow25)} of the dropping counties the monitoring well reads less than 25 feet to water, shallow enough that some homes there still run a jet pump. In ${fmt(deep100)} it reads more than 100 feet, where every extra foot of lift is added on top of an already long climb.</p>`,
+          },
+          {
+            h2: 'Working out how much room your own pump has',
+            html: `<p>Your county's page on this site (${pageLink('', 'find it from the home page')}) gives you how fast the water is dropping. Your own well record tells you how much room your pump has. You need three numbers, and all of them are usually on the driller's log, the form the company that drilled your well filed with the state:</p><ul><li>the water level when the well was drilled, often printed as "static water level" (how far down the water stood when no one was pumping),</li><li>the pump depth, often printed as "pump setting" (how far down the pump was hung),</li><li>the year the well was drilled.</li></ul><p>Most states let you look up driller's logs free online, usually on the website of the state's water, geology or natural resources department under a name like "well log search". If the pump was replaced since, the receipt or the contractor who did it will have the new setting depth.</p><p>One warning before the arithmetic: the county's monitoring well may draw from a different layer of rock than yours, so this gives a rough idea, not your exact number. Work it out in three steps:</p><ol><li>Pump depth minus the water level at drilling. That is the cushion of water the pump started with.</li><li>The county's drop per decade times the decades since drilling. That is roughly how much of the cushion is gone.</li><li>Step 1 minus step 2 is your cushion today. Divide it by the county's drop per decade to see how many decades are left before the water reaches the pump, if the trend holds.</li></ol><p>A worked example: a well drilled 20 years ago with the water at 60 feet and the pump at 120 feet started with 60 feet of cushion. In a county dropping 2 feet per decade it has lost about 4 feet, and still has decades of room. In a county dropping 15 feet per decade it has lost about 30 feet, and half its cushion is gone.</p><p>Treat the answer as a reason to look, not a forecast. Your water level also dips each time the pump runs, more so in a dry summer. Only a measurement in your own well says where your water actually is.</p>`,
+          },
+          {
+            h2: 'Where shallow water and a fast drop come together',
+            html: `<p>The tightest situation is water that starts close to the surface and is falling fast, because those wells were often drilled shallow with the pump set near the water. ${fmt(shallowSevere.length)} counties combine a monitoring-well reading under 50 feet with a drop of ${DECLINE_TERCILES_FT_PER_DECADE.moderate} feet or more per decade, the fastest third of dropping counties on this site.${ex ? ` ${link(ex)} is one of them: its monitoring well has ${fmt(ex.s.nMeasurements)} readings over ${Math.round(ex.s.spanYears)} years, the water sits ${ft(ex.s.currentDepthFt)} feet down, and it is going down ${ft(ex.s.trendFtPerDecade)} feet per decade. At that pace the water there would be twice as deep in about ${exYears} years.` : ''}</p><p>When you read your own county's page, look at how deep its monitoring well's water is before comparing it with yours. The fastest drops on the site, in ${fastest.slice(0, -1).map(link).join(', ')} and ${link(fastest.at(-1))}, come from monitoring wells hundreds of feet deep, reading a layer of rock that many large wells draw from at once, so a shallow household well nearby may not be falling as fast.</p><p>One more thing to check on any county page is the date of the latest reading. ${fmt(stale)} of the dropping counties have a monitoring well last read before 2021, and the trend says nothing about what has happened since.</p>`,
+          },
+          {
+            h2: 'What a well owner can actually do',
+            html: `<p>If your numbers say the cushion is getting thin, the usual fixes come from a licensed well contractor. They can measure the water level in your well directly, which settles the question. If there is still depth in the well below the pump, they can lower the pump further down. If the well itself is too shallow, the options are deepening it or drilling a new one, which costs far more, so it pays to find out early.</p><p>Signs at the tap that the pump is struggling include sputtering or air in the lines, pressure that drops off during long showers or watering, and a pump that runs longer than it used to. If you notice any of those and your county is marked as dropping, call before the pump fails.</p><p>The ${guideLink('methodology', 'methodology guide')} explains how each county's trend is worked out, and the ${guideLink('no-data-and-artesian-readings', 'no-data guide')} covers counties with no monitoring well at all.</p>`,
+          },
+        ];
+      })(),
     },
     {
       slug: 'fastest-moving-counties',
