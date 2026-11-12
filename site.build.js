@@ -631,53 +631,70 @@ export function homeHtml({ headline, lede, placeholder, noun, count, browseLinks
   const totalBanded = bands.reduce((a, b) => a + b.n, 0);
   const worstDeclining = trended[trended.length - 1];
 
+  // [R5][R6][R7] The homepage is one cross-section of the ground, edge to
+  // edge: sky, soil, the water table, the saturated rock under it. The search
+  // sits on the surface where a well would be drilled, and the national
+  // distribution sits down in the water itself. Flat fills only, no gradient.
   return `
-<section class="wt-ask">
-  <h1>${headline}</h1>
-  <div class="finder" id="find">
-    <div class="finder-row">
-      <input id="q" type="search" autocomplete="off" spellcheck="false"
-             placeholder="${placeholder}" aria-label="Find your ${noun}"
-             aria-describedby="q-hint" role="combobox" aria-expanded="false"
-             aria-controls="q-out" aria-autocomplete="list">
-      <button type="button" id="q-go">Check it</button>
+<section class="wt-scene">
+  <svg class="wt-strata" viewBox="0 0 1440 520" preserveAspectRatio="none" aria-hidden="true" focusable="false">
+    <path class="s-top" d="M0 58 C180 40 330 70 520 54 S880 34 1080 52 1340 66 1440 50 V150 H0Z"/>
+    <path class="s-clay" d="M0 150 H1440 V236 C1250 252 1060 222 860 240 S420 262 0 236Z"/>
+    <path class="s-sand" d="M0 236 C420 262 640 228 860 240 S1250 252 1440 236 V300 C1180 316 980 290 720 304 S260 318 0 300Z"/>
+    <path class="s-wet" d="M0 300 C260 318 460 290 720 304 S1180 316 1440 300 V520 H0Z"/>
+    <path class="s-line" d="M0 300 C260 318 460 290 720 304 S1180 316 1440 300"/>
+    <rect class="s-well" x="1118" y="30" width="9" height="380"/>
+    <rect class="s-screen" x="1118" y="330" width="9" height="80"/>
+  </svg>
+  <div class="wt-surface">
+    <h1>${headline}</h1>
+    <div class="finder" id="find">
+      <div class="finder-row">
+        <input id="q" type="search" autocomplete="off" spellcheck="false"
+               placeholder="${placeholder}" aria-label="Find your ${noun}"
+               aria-describedby="q-hint" role="combobox" aria-expanded="false"
+               aria-controls="q-out" aria-autocomplete="list">
+        <button type="button" id="q-go">Check it</button>
+      </div>
+      <div class="finder-meta">
+        <div id="q-hint" class="finder-h">All ${count.toLocaleString()} US counties. Start typing.</div>
+        <ul id="q-out" class="finder-out" role="listbox" hidden></ul>
+      </div>
     </div>
-    <div class="finder-meta">
-      <div id="q-hint" class="finder-h">All ${count.toLocaleString()} US counties. Start typing.</div>
-      <ul id="q-out" class="finder-out" role="listbox" hidden></ul>
-    </div>
+    <p class="wt-lede">${lede}</p>
   </div>
-  <p class="wt-lede">${lede}</p>
+  <a class="wt-name" href="/">${site.name}</a>
+  <div class="wt-under">
+    <p class="wt-tablelabel">Water table</p>
+    <h2>Where the ${totalBanded.toLocaleString()} counties with a trend actually land</h2>
+    <div class="wt-band" role="list">
+      ${bands.map((b) => `<a role="listitem" class="wt-seg wt-seg-${b.tier}" style="flex-grow:${b.n}"
+        href="${b.example ? `/${b.example.slug}` : '#find'}">
+        <span class="wt-seg-n">${b.n.toLocaleString()}</span>
+        <span class="wt-seg-l">${b.label}</span>
+      </a>`).join('\n      ')}
+    </div>
+    <p class="wt-cap">Each block is sized by how many counties fall in it, from USGS's own well
+    readings${worstDeclining ? `. The fastest decline on record is in ${worstDeclining.county}, ${worstDeclining.state}` : ''}.</p>
+  </div>
 </section>
 
-<aside class="wt-coverage">
-  <h3>Before you look: only ${COVERAGE_PCT}% of counties have an answer</h3>
-  <p>USGS has a monitoring well with enough history to call a trend for ${COVERAGE_WITH_DATA.toLocaleString()}
-  of ${COVERAGE_TOTAL.toLocaleString()} US counties. The rest get a page that says so plainly instead of a
-  number borrowed from somewhere else.</p>
-</aside>
+<div class="wt-read">
+  <section>
+    <h2>Only ${COVERAGE_PCT}% of counties have an answer</h2>
+    <p>USGS has a monitoring well with enough history to call a trend for ${COVERAGE_WITH_DATA.toLocaleString()}
+    of ${COVERAGE_TOTAL.toLocaleString()} US counties. The rest get a page that says so plainly instead of a
+    number borrowed from somewhere else.</p>
+  </section>
+  <section>
+    <h2>If your county turns out to be declining</h2>
+    <p>A dropping water table means a residential pump reaches deeper and works harder, which shortens its life
+    long before the well itself runs dry. That is a different, more useful question than "will it run dry," and
+    every declining county's page names the pace of decline so you can judge it rather than guess.</p>
+  </section>
+</div>
 
-<section class="wt-scale">
-  <h2>Where the ${totalBanded.toLocaleString()} counties with a trend actually land</h2>
-  <figure class="wt-band" role="list">
-    ${bands.map((b) => `<a role="listitem" class="wt-seg wt-seg-${b.tier}" style="flex-grow:${b.n}"
-      href="${b.example ? `/${b.example.slug}` : '#find'}">
-      <span class="wt-seg-n">${b.n.toLocaleString()}</span>
-      <span class="wt-seg-l">${b.label}</span>
-    </a>`).join('\n    ')}
-    <figcaption>Each segment is sized by how many counties actually fall there, from USGS's own well
-    readings${worstDeclining ? `; the fastest-declining on record is ${worstDeclining.county}, ${worstDeclining.state}` : ''}.</figcaption>
-  </figure>
-</section>
-
-<section class="wt-next">
-  <h2>If your county turns out to be declining</h2>
-  <p>A dropping water table means a residential pump reaches deeper and works harder, which shortens its life
-  long before the well itself runs dry. That is a different, more useful question than "will it run dry," and
-  every declining county's page names the pace of decline so you can judge it rather than guess.</p>
-</section>
-
-<details class="browse">
+<details class="browse wt-browse">
   <summary>Browse all ${count.toLocaleString()} counties by state</summary>
   <ul class="hublist">
 ${browseLinks}
@@ -685,35 +702,73 @@ ${browseLinks}
 </details>`;
 }
 
+// [R5] No logo-left / links-right bar. Inner pages open on the name alone,
+// centred, as the title of the piece; navigation lives in the footer. The
+// homepage carries the name inside the scene instead.
+export function masthead({ isHome, brandMark }) {
+  if (isHome) return '';
+  return `<header class="wt-mast"><a href="/" class="wt-mast-name">${brandMark}<span>${site.name}</span></a></header>`;
+}
+
 /** CSS for the above. Owned by this site, not the factory. */
 export const styles = `
-.wt-ask{padding:30px 0 4px}
-.wt-ask h1{font-size:clamp(1.9rem,5vw,2.7rem); line-height:1.14; letter-spacing:-.022em;
-  margin:0 0 22px; max-width:16ch; text-wrap:balance}
-.wt-ask .finder{margin:0 0 16px; max-width:none}
-.wt-lede{color:var(--ink-2); font-size:1rem; line-height:1.62; max-width:62ch; margin:0}
-.wt-coverage{border-left:3px solid var(--accent); padding:2px 0 2px 18px; margin:30px 0}
-.wt-coverage h3{font-size:1rem; margin:0 0 .5em}
-.wt-coverage p{margin:0; font-size:.95rem; line-height:1.6; color:var(--ink-2)}
-.wt-scale{margin:34px 0 8px}
-.wt-scale h2{font-size:1.06rem; margin:0 0 14px}
-.wt-band{margin:0; display:flex; gap:2px; border-radius:12px; overflow:hidden; flex-wrap:wrap}
-.wt-seg{display:flex; flex-direction:column; justify-content:flex-end; gap:4px; min-width:64px;
-  padding:16px 10px 12px; text-decoration:none; color:var(--ink); min-height:92px}
-.wt-seg-n{font-size:1.3rem; font-weight:600; letter-spacing:-.01em}
-.wt-seg-l{font-size:.74rem; line-height:1.3; color:inherit; opacity:.82}
-.wt-seg-declining-severe{background:var(--bad-bg); color:var(--bad)}
-.wt-seg-declining-moderate{background:var(--mid-bg); color:var(--mid)}
-.wt-seg-declining-mild{background:var(--accent-soft); color:var(--accent)}
-.wt-seg-stable{background:var(--line-2); color:var(--ink-2)}
-.wt-seg-rising{background:var(--good-bg); color:var(--good)}
-.wt-seg:hover{filter:brightness(0.95)}
-.wt-band figcaption{flex-basis:100%; font-size:.8rem; color:var(--muted); margin-top:10px}
-.wt-next{margin:30px 0}
-.wt-next h2{font-size:1.06rem; margin:0 0 .5em}
-.wt-next p{margin:0; font-size:.97rem; line-height:1.62; color:var(--ink-2); max-width:62ch}
-@media (max-width:620px){
-  .wt-ask{padding:18px 0 4px} .wt-ask h1{max-width:none}
+header.wt-mast{border:0; background:none; text-align:center; padding:34px 22px 0}
+.wt-mast-name{display:inline-flex; align-items:center; gap:10px; color:var(--ink); text-decoration:none;
+  font-size:.86rem; letter-spacing:.24em; text-transform:uppercase; font-weight:600}
+.wt-mast-name svg{width:22px; height:22px}
+body.home main{max-width:none; padding:0}
+.wt-scene{position:relative; min-height:max(640px,92vh); display:flex; flex-direction:column; overflow:hidden;
+  background:#eef1ee}
+.wt-strata{position:absolute; left:0; right:0; bottom:0; width:100%; height:58%}
+.s-top{fill:#b9a789} .s-clay{fill:#9c7f5f} .s-sand{fill:#c9b28a} .s-wet{fill:#4f6f7d}
+.s-line{fill:none; stroke:#cfe3ea; stroke-width:3; vector-effect:non-scaling-stroke}
+.s-well{fill:#3a3d40} .s-screen{fill:#cfe3ea; opacity:.6}
+.wt-surface{position:relative; display:grid; grid-template-columns:minmax(0,7fr) minmax(0,5fr);
+  column-gap:6vw; align-items:end; padding:64px 6vw 0}
+.wt-surface h1{grid-column:1 / -1; font-size:clamp(2.3rem,5.6vw,4.4rem); line-height:1.04; letter-spacing:-.026em;
+  margin:0 0 34px; max-width:20ch; color:#1c2427}
+.wt-surface .finder{grid-column:1; max-width:none; margin:0; padding:0; background:none; border:0;
+  border-radius:0; box-shadow:none}
+.wt-surface .finder-row{gap:0; border-bottom:2px solid #1c2427}
+.wt-surface .finder input, .wt-surface #q{margin:0; background:transparent; border:0; border-radius:0; padding:.55em 0;
+  font-size:1.25rem; color:#1c2427}
+.wt-surface .finder input:focus{box-shadow:none}
+.wt-surface .finder button{background:none; color:#1c2427; border-radius:0; padding:.55em 0 .55em 1em;
+  font-size:1rem; text-decoration:underline; text-underline-offset:4px}
+.wt-surface .finder-h{color:#4a5559}
+.wt-lede{grid-column:2; color:#3e4a4f; font-size:1rem; line-height:1.6; margin:0 0 6px}
+.wt-name{position:absolute; right:calc(22.4% + 26px); top:calc(42% + 70px); z-index:1;
+  font-family:var(--display, inherit); font-size:1.15rem; color:#3a2f22; text-decoration:none; font-style:italic}
+.wt-under{position:relative; margin-top:auto; padding:0 6vw 40px; color:#eaf2f4}
+.wt-tablelabel{margin:0 0 4px; font-size:.78rem; color:#cfe3ea; font-style:italic}
+.wt-under h2{color:#f4f8f9; font-size:1.15rem; margin:0 0 14px}
+.wt-band{display:flex; gap:3px; flex-wrap:wrap}
+.wt-seg{display:flex; flex-direction:column; justify-content:flex-end; gap:4px; min-width:70px;
+  padding:18px 12px 12px; text-decoration:none; min-height:96px}
+.wt-seg-n{font-size:1.45rem; font-weight:600; letter-spacing:-.01em}
+.wt-seg-l{font-size:.76rem; line-height:1.3; opacity:.9}
+.wt-seg-declining-severe{background:#f3d9d2; color:#7a2a17}
+.wt-seg-declining-moderate{background:#f1e4c8; color:#6b4b10}
+.wt-seg-declining-mild{background:#e6ece4; color:#34503a}
+.wt-seg-stable{background:#dfe6e8; color:#334247}
+.wt-seg-rising{background:#cfe3ea; color:#1f4a5a}
+.wt-seg:hover{filter:brightness(0.94)}
+.wt-cap{font-size:.82rem; color:#cfe3ea; margin:10px 0 0; max-width:none}
+.wt-read{display:grid; grid-template-columns:5fr 7fr; gap:7vw; padding:64px 6vw 20px; max-width:1300px}
+.wt-read h2{font-size:1.4rem; margin:0 0 .5em}
+.wt-read p{font-size:1rem; line-height:1.65}
+.wt-browse{margin:24px 6vw 64px; max-width:1300px}
+body.home main > section > h2{margin-top:0}
+@media (max-width:760px){
+  .wt-scene{min-height:0}
+  .wt-strata{height:46%}
+  .wt-surface{grid-template-columns:minmax(0,1fr); padding:36px 20px 0; row-gap:18px}
+  .wt-surface h1{margin:0}
+  .wt-lede{grid-column:1}
+  .wt-name{display:none}
+  .wt-under{padding:150px 20px 28px}
   .wt-seg{min-width:45%; flex-grow:1 !important}
+  .wt-read{grid-template-columns:1fr; gap:8px; padding:40px 20px 8px}
+  .wt-browse{margin:16px 20px 48px}
 }
 `;
