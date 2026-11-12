@@ -1815,6 +1815,75 @@ export function guides() {
         ];
       })(),
     },
+    {
+      slug: 'how-much-to-trust-your-countys-number',
+      title: `How Much Can You Trust Your County's Water Table Number?`,
+      description: `Three things on every county page tell you how solid its trend is: how many times the well was read, how many years the readings cover, and when it was last read. What each one changes across 1,449 U.S. counties, with the counties whose numbers rest on the least.`,
+      // [R3][R10][R21][R31][R29] visitor-job.md question 1 asks "is the water
+      // table dropping here, and how fast"; the next thing a careful visitor
+      // asks is whether to believe the answer. Original cut of the site's own
+      // data: direction and speed grouped by reading count, record length and
+      // date of the latest reading. Every figure comes from the county rows.
+      blocks: (() => {
+        const fmt = (n) => Math.round(n).toLocaleString('en-US');
+        const pct = (a, b) => (b ? Math.round((100 * a) / b) : 0);
+        const rate = (r) => summaryBySlug.get(r.slug).trendFtPerDecade;
+        const reads = (r) => Number(r.n_measurements);
+        const span = (r) => Number(r.span_years);
+        const lastYr = (r) => Number(String(r.last_date).slice(0, 4));
+        const firstYr = (r) => Number(String(r.first_date).slice(0, 4));
+        const link = (r) => pageLink(r.slug, `${r.county}, ${r.state_name}`);
+        const stats = (rs) => {
+          const down = rs.filter((r) => r.direction === 'declining');
+          return { n: rs.length, down: down.length,
+            up: rs.filter((r) => r.direction === 'rising').length,
+            flat: rs.filter((r) => r.direction === 'stable').length,
+            med: down.length ? median(down.map(rate)) : 0 };
+        };
+        const by = (f, lo, hi) => stats(trended.filter((r) => f(r) >= lo && f(r) < hi));
+        const r6 = by(reads, 6, 12), r12 = by(reads, 12, 30), r30 = by(reads, 30, 100),
+          r100 = by(reads, 100, 300), r300 = by(reads, 300, Infinity);
+        const sShort = by(span, 15, 40), sMid = by(span, 40, 80), sLong = by(span, 80, Infinity);
+        const fOld = by(firstYr, 0, 1950), fNew = by(firstYr, 1990, 3000);
+        const lOld = by(lastYr, 0, 2020), lMid = by(lastYr, 2020, 2024), lNew = by(lastYr, 2024, 3000);
+        const strong = trended.filter((r) => reads(r) >= 30 && span(r) >= 40 && lastYr(r) >= 2024);
+        const weak = trended.filter((r) => reads(r) < 12 || lastYr(r) < 2020);
+        const thinSteep = trended.filter((r) => reads(r) < 12 && r.direction === 'declining')
+          .sort((a, b) => rate(b) - rate(a));
+        const jones = trended.find((r) => r.slug === 'jones-county-ia');
+        const row = (label, s) => `<li><strong>${label}:</strong> ${fmt(s.n)} counties. ${pct(s.flat, s.n)}% come out stable, ${pct(s.down, s.n)}% getting deeper, ${pct(s.up, s.n)}% shallower.</li>`;
+        return [
+          {
+            h2: 'The short answer',
+            html: `<p>It depends on the well, and every county page shows you what you need to judge it. ${site.name} is a free website built on public U.S. Geological Survey records. It gives each county that has a long-running government monitoring well one number: how fast the water underground has been getting deeper or shallower, in feet per decade. If your home is on a private well, that number is an early warning. When the water drops below your pump, the taps sputter and then stop, and the fix is usually yours to pay for.</p><p>Next to that number, each page lists the well's ID, how many times the water level was measured, the year of the first reading and the date of the latest one. Those three facts decide how much weight the trend can carry. Of the ${fmt(trended.length)} counties with a number, ${fmt(strong.length)} have a well read at least 30 times, over 40 years or more, and read again since the start of 2024. Treat those as solid. ${fmt(weak.length)} rest on fewer than 12 readings or have not been read since before 2020. Treat those as a rough clue and check your own well before you spend money on it. Deepening a well or drilling a new one often runs $6,000 to $16,000 for 200 feet, by HomeServe's cost guide, and sometimes more, so a weak county number is not enough reason on its own.</p><p>To see where your county falls, ${pageLink('', 'search for it on the home page')} and look at the line under the big number.</p>`,
+          },
+          {
+            h2: 'Check 1: how many times the well was read',
+            html: `<p>A trend is a straight line drawn as close as possible to every reading on the well's chart. With hundreds of readings, one odd day barely moves it. With six, a single reading taken right after a long pumping spell, or in a drought year, can tilt the whole line.</p><p>In plain terms: if your county's well was read fewer than 12 times, its speed is a rough guess. You can see why in the data. Grouped by how many readings their well has:</p><ul>${row('6 to 11 readings', r6)}${row('12 to 29', r12)}${row('30 to 99', r30)}${row('100 to 299', r100)}${row('300 or more', r300)}</ul><p>The drop in stable results is steepest past 100 readings. Some of the gap may be real differences between places, but a good part is the line itself: drawn through a handful of points, it swings further from flat. The typical falling county with fewer than 12 readings loses ${ft(r6.med)} feet per decade on paper, against ${ft(r300.med)} for counties with 300 or more.</p>${jones ? `<p>The most extreme case is ${link(jones)}. Its well was read ${fmt(reads(jones))} times between ${firstYr(jones)} and ${lastYr(jones)}, and the line through those points says the water is getting about ${ft(rate(jones))} feet deeper every ten years. That would be one of the fastest declines in the country. It may be real, but six readings over almost three decades cannot show it, so read it as "probably falling, speed unknown".</p>` : ''}`,
+          },
+          {
+            h2: 'Check 2: how many years the readings cover',
+            html: `<p>Every well on this site has at least 15 years between its first and latest reading, because a shorter record mostly shows wet and dry years rather than a direction. Past that bar, a longer record tends to find more decline, not less:</p><ul>${row('15 to 39 years', sShort)}${row('40 to 79 years', sMid)}${row('80 years or more', sLong)}</ul><p>The typical falling county with a record of 80 years or more is getting ${ft(sLong.med)} feet deeper per decade, against ${ft(sShort.med)} for records under 40 years. To picture it: with 20 feet of water above your pump, 3 feet per decade leaves you roughly 60 years, and 10 feet per decade about 20. Split by when the readings began, wells first read before 1950 show water getting deeper in ${pct(fOld.down, fOld.n)}% of counties, and wells first read in 1990 or later in ${pct(fNew.down, fNew.n)}%.</p><p>This site's data cannot say why. One likely part of it is that a short record can sit entirely inside a wet or dry stretch, while a long one has to span both. Another possibility is where the oldest monitoring wells were put: some were drilled to watch places where heavy pumping was already a worry. Either way, a long record that slopes down is the hardest kind of result to explain away.</p>`,
+          },
+          {
+            h2: 'Check 3: when the well was last read',
+            html: `<p>A trend tells you which way the water was heading up to the latest reading. If that reading is old, a drought or a new irrigation field since then would not show.</p><ul>${row('Last read before 2020', lOld)}${row('Last read 2020 to 2023', lMid)}${row('Last read 2024 or later', lNew)}</ul><p>${fmt(lNew.n)} counties have a reading from 2024 or later, so for most visitors this is not the weak point. The ${fmt(lOld.n)} counties whose well was last read before 2020 are where it matters. Their page shows the date on the first screen, and the site stops giving a trend once the newest reading is more than 10 years old.</p>`,
+          },
+          {
+            h2: 'The numbers that rest on the least',
+            html: `<p>These are the falling counties with the steepest trend drawn from fewer than 12 readings. Each could be right, but none should be the reason you spend thousands of dollars on a new well:</p><ul>${thinSteep.slice(0, 8).map((r) => `<li>${link(r)}: about ${ft(rate(r))} feet deeper per decade, from ${fmt(reads(r))} readings between ${firstYr(r)} and ${lastYr(r)}</li>`).join('')}</ul><p>If you live in one, look at the next county over. The ${guideLink('can-you-use-the-next-countys-number', 'guide to borrowing a neighbouring county\'s number')} explains when that helps and when it misleads, and the ${guideLink('look-up-your-countys-monitoring-well', 'monitoring well guide')} shows how to open the well's full chart on the U.S. Geological Survey website, so you can see the readings with your own eyes.</p>`,
+          },
+          {
+            h2: 'What to do with a weak number',
+            html: `<p>A weak county number still tells you something. If the few readings there are all point down, the water is probably falling, even if nobody can say how fast. What it cannot do is tell you how many years of room your well has left.</p><p>For that you need your own well. Find the driller's log, which is the report the company that drilled your well filed with the state. It gives the well's depth, the pump depth and where the water stood the day it was drilled. Most states let you search these free on the website of the state's water, geology or natural resources department, under a name like "well log search". Then measure where the water stands today. In short: switch the pump off at its breaker for at least two hours, lift the well cap, lower a clean, chalked steel well tape until its end is in the water, and subtract the wet length from the mark you held at the top of the casing. The ${guideLink('measure-your-own-well', 'guide to measuring your own well')} covers each step, including how to clean the tape so nothing gets into your drinking water. If you would rather not open the well yourself, a licensed well driller can take the reading for you. The gap between the two readings, divided by the years between them, is a trend for your own property, and no county number can beat that.</p><p>If you rent, the well is your landlord's to look after, but you can still ask them for the driller's log.</p>`,
+          },
+          {
+            h2: 'Where these numbers come from',
+            html: `<p>Reading counts, dates and trends come from the same monitoring wells behind the county pages, read from two free public U.S. Geological Survey databases: the National Water Information System and the National Ground-Water Monitoring Network. The rules for which wells count and how each line is drawn are in the ${guideLink('methodology', 'methodology guide')}.</p>`,
+          },
+        ];
+      })(),
+    },
   ];
 }
 
