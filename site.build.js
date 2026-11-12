@@ -1128,6 +1128,78 @@ export function guides() {
         ];
       })(),
     },
+    {
+      slug: 'dry-summer-or-long-decline',
+      title: `Is It a Dry Summer or a Long Decline? How to Tell From Your County's Water Level`,
+      description: `Why a well can sputter in a dry August even where the water table is holding steady, how long the government records behind each county go back, and how to tell a bad season from water that is really leaving.`,
+      // [R3][R10][R21][R29] Answers the visitor's fourth question in
+      // visitor-job.md ("is it a dry season or a long decline?"). Every figure
+      // is computed from the same county rows the pages use.
+      blocks: (() => {
+        const fmt = (n) => Math.round(n).toLocaleString('en-US');
+        const andList = (xs) => xs.length < 2 ? xs.join('') : `${xs.slice(0, -1).join(', ')} and ${xs.at(-1)}`;
+        const link = (x) => pageLink(x.r.slug, `${x.s.county}, ${x.s.state}`);
+        const withWell = rows.filter((r) => hasQualifyingWell(r) && r.trend_ft_per_decade !== '')
+          .map((r) => ({ r, s: summaryBySlug.get(r.slug), span: Number(r.span_years), n: Number(r.n_measurements) }));
+        const year = (d) => Number(String(d).slice(0, 4));
+        const nowYear = Math.max(...withWell.map((x) => year(x.r.last_date)));
+        const spans = withWell.map((x) => x.span);
+        const medSpan = median(spans);
+        const spanBand = (lo, hi) => spans.filter((v) => v >= lo && v < hi).length;
+        const perYear = withWell.map((x) => x.n / x.span);
+        const medPerYear = median(perYear);
+        const lessThanYearly = perYear.filter((v) => v < 1).length;
+        const seasonal = perYear.filter((v) => v >= 4).length;
+        const monthly = perYear.filter((v) => v >= 12).length;
+        const before1950 = withWell.filter((x) => year(x.r.first_date) < 1950).length;
+        const oldest = withWell.reduce((a, b) => (year(b.r.first_date) < year(a.r.first_date) ? b : a));
+        const readThisYear = withWell.filter((x) => year(x.r.last_date) === nowYear).length;
+        const stale = withWell.filter((x) => nowYear - year(x.r.last_date) > 5).length;
+        const dropping = withWell.filter((x) => x.r.direction === 'declining')
+          .map((x) => ({ ...x, total: (x.s.trendFtPerDecade * x.span) / 10 }));
+        const totalAtLeast = (f) => dropping.filter((x) => x.total >= f).length;
+        const medTotal = median(dropping.map((x) => x.total));
+        const steady = withWell.filter((x) => x.r.direction === 'stable').length;
+        const ranked = [...dropping].sort((a, b) => b.total - a.total);
+        const biggest = ranked.filter((x) => x.n >= 20).slice(0, 6);
+        const thinTop = ranked.slice(0, 6).filter((x) => x.n < 20);
+        const bigLine = (x) => `<li>${link(x)}: about ${fmt(x.total)} feet deeper over ${fmt(x.span)} years of readings (${fmt(x.n)} readings in all)</li>`;
+        return [
+          {
+            h2: 'The short answer',
+            html: `<p>One dry summer can make a well sputter, but it does not change the long-term trend shown on ${site.name}. This website follows one government monitoring well in each of ${fmt(withWell.length)} US counties and draws each county's trend from every reading ever taken at that well, and the typical well here has been measured for ${fmt(medSpan)} years. A single low reading in August is one dot among many.</p><p>So if your county's page says the water is steady and your well is struggling in a drought, the likely story is a bad season, and the water should come back up once rain and snow return. If the page says the water has been getting deeper for decades, the trouble is less likely to go away on its own. ${pageLink('', 'Look up your county')} first. The rest of this page explains how to read what you find.</p>`,
+          },
+          {
+            h2: 'Why water levels go up and down every year',
+            html: `<p>The water table is the top of the water soaked into the ground below you. A household well only works while its pump sits below that line. In most of the country the line moves with the seasons. Spring rain and melting snow soak in and lift it. Through summer, plants drink much of the rain before it reaches the water, people pump more for lawns and crops, and the line sinks. Then autumn and winter refill it.</p><p>State advice to well owners says the same thing; Tennessee's drought guidance, for one, notes that levels normally fall in dry months and recover in wet ones. A shallow well is hit hardest, because it has only a few feet of water above the pump to spare. That is why neighbors' wells can all start to struggle in the same dry August and then all recover by spring.</p><p>A long decline is different. The yearly ups and downs still happen, but each year's low point is a little lower than the last, because more water leaves the ground than rain puts back. That usually takes heavy pumping from a deep layer of rock or sand that refills slowly, over many years.</p>`,
+          },
+          {
+            h2: 'How far back the records go',
+            html: `<p>Every trend on this site rests on a long record, which is what lets it ignore one dry season. Of the ${fmt(withWell.length)} counties with a long-running government monitoring well, this is how many years of readings their well has:</p><ul><li>Under 20 years: ${fmt(spanBand(0, 20))} counties</li><li>20 to 40 years: ${fmt(spanBand(20, 40))}</li><li>40 to 60 years: ${fmt(spanBand(40, 60))}</li><li>60 years or more: ${fmt(spanBand(60, Infinity))}</li></ul><p>${fmt(before1950)} of these wells were first measured before 1950. The oldest record on the site starts in ${year(oldest.r.first_date)}, at the well used for ${link(oldest)}. A record that long has been through many droughts and many wet years, and the trend line runs through all of them.</p><p>Recent readings matter too. ${fmt(readThisYear)} of these wells have already been read this year, in ${nowYear}. ${fmt(stale)} have not been read in more than five years, and their county pages say so on the first screen, because a drought that started after the last reading would not show up at all.</p>`,
+          },
+          {
+            h2: 'Some wells are read often enough to show the seasons, some are not',
+            html: `<p>The typical well here is read about ${fmt(medPerYear)} times a year, but that varies a lot:</p><ul><li>${fmt(lessThanYearly)} wells average less than one reading a year. Their record is long but patchy, so it shows which way the water level is slowly heading but cannot show the summer dip.</li><li>${fmt(seasonal)} wells are read four or more times a year, enough to catch the seasonal low and high.</li><li>${fmt(monthly)} of those are read at least once a month, often by an automatic sensor left in the well.</li></ul><p>This matters when you compare the county page with your own well. If your county's well is read once a year, always in spring, its latest depth may look better than what your well shows in late summer. Each county page lists the date of its latest reading, so check which season it came from. A reading taken in a wet April and a reading taken in a dry September at the same well can differ by several feet without anything being wrong.</p>`,
+          },
+          {
+            h2: 'What a long decline adds up to',
+            html: `<p>A few feet per decade sounds small. Over a long record it adds up. Taking each dropping county's average pace and multiplying it by the length of its record gives a rough total of how much deeper the water stands now than when measuring began:</p><ul><li>${fmt(dropping.length)} counties have water that is getting deeper.</li><li>The typical one is about ${fmt(medTotal)} feet deeper than at its first reading.</li><li>${fmt(totalAtLeast(25))} are 25 feet or more deeper, ${fmt(totalAtLeast(50))} are 50 feet or more deeper, and ${fmt(totalAtLeast(100))} are 100 feet or more deeper.</li></ul><p>No dry summer does that. These are the largest totals among wells with at least 20 readings:</p><ul>${biggest.map(bigLine).join('')}</ul><p>${thinTop.length ? `${andList(thinTop.map((x) => `${link(x)} (${fmt(x.n)} readings)`))} would also rank near the top, but with so few readings over so many years the total could be well off, so ${thinTop.length === 1 ? 'it is' : 'they are'} left out of this list. ` : ''}The totals are rough because water levels do not fall at an even pace. Some dropped fast decades ago and have since levelled off, and some only started falling recently. The county page's chart shows which. For comparison, ${fmt(steady)} counties are steady, meaning their water has moved less than ${STABLE_BAND_FT_PER_DECADE} feet per decade either way across the whole record.</p>`,
+          },
+          {
+            h2: 'Four signs it is a bad season, not a long decline',
+            html: `<ul><li>Your county page says the water is steady or rising.</li><li>The trouble started during a drought, and other wells nearby started struggling at the same time.</li><li>It comes and goes: the well is fine in spring and weak in late summer.</li><li>Your well is shallow. Your driller's log (the report the company that drilled your well filed with the state) shows how deep the well goes. Most states let you search these free: search for your state's name plus "well log search", which usually finds a page run by the state's water, geology or natural resources department. If the pump sits only a little below where the water stood, there is little to spare in a dry spell.</li></ul><p>If all four fit, the usual fixes are small ones: spread out laundry and watering, fix leaks, and hold off on filling a pool until the rain comes back.</p>`,
+          },
+          {
+            h2: 'Signs the water may be leaving for good',
+            html: `<ul><li>Your county page says the water has been getting deeper, especially at several feet per decade or more.</li><li>The well got weaker even through wet years.</li><li>Your driller's log shows the water stood much higher when the well was drilled than it does now. A licensed well contractor can measure today's level for you, or you can measure it yourself with a steel tape or an electric sounder after leaving the pump off for about two hours, the method that university well-owner guides describe (Oregon State University's and the University of Arizona's among them).</li></ul><p>In that case the water is unlikely to recover by itself. Before you spend money, rule out a worn pump or a leak, which state well-owner guidance (South Carolina's and Tennessee's, for example) puts first. Then the options run from cheapest to most expensive: lowering the pump, cleaning the well, deepening it, or drilling a new one. The ${guideLink('well-pump-risk', 'well-pump guide')} shows how to work out how much water is left above your pump, and the ${guideLink('fastest-moving-counties', 'fastest-moving counties guide')} covers the places where the water is falling quickest.</p>`,
+          },
+          {
+            h2: 'Where these numbers come from',
+            html: `<p>Every figure on this page comes from the U.S. Geological Survey (USGS), the federal science agency that tracks the country's water, through its National Water Information System and the National Ground-Water Monitoring Network. Both are free and public. Which wells count, and how each trend line is drawn, is in the ${guideLink('methodology', 'methodology guide')}.</p>`,
+          },
+        ];
+      })(),
+    },
   ];
 }
 
