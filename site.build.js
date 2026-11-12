@@ -955,6 +955,81 @@ export function guides() {
         ];
       })(),
     },
+    {
+      slug: 'how-deep-is-the-water-table',
+      title: `How Deep Is the Water Table? What the Latest Readings Show, County by County`,
+      description: `How far below the ground the water sits in every US county with a long-running government monitoring well, which states have the deepest and shallowest water, and what that depth means for a household well.`,
+      // [R3][R10][R21][R29] Answers the visitor's second question in
+      // visitor-job.md ("how deep is the water here right now?"). Every
+      // figure is computed from the same county rows the pages use.
+      blocks: (() => {
+        const fmt = (n) => Math.round(n).toLocaleString('en-US');
+        const link = (x) => pageLink(x.r.slug, `${x.s.county}, ${x.s.state}`);
+        const withWell = rows.filter((r) => hasQualifyingWell(r)).map((r) => ({ r, s: summaryBySlug.get(r.slug) }));
+        const measured = withWell.filter((x) => x.s.currentDepthFt !== null && x.s.currentDepthFt >= 0);
+        const depths = measured.map((x) => x.s.currentDepthFt).sort((a, b) => a - b);
+        const at = (p) => depths[Math.floor(p * (depths.length - 1))];
+        const band = (lo, hi) => depths.filter((d) => d >= lo && d < hi).length;
+        const artesian = withWell.filter((x) => x.s.isArtesian).length;
+        const atSurface = measured.filter((x) => x.s.currentDepthFt < 1).length;
+        const under25 = measured.filter((x) => x.s.currentDepthFt < 25);
+        const over200 = measured.filter((x) => x.s.currentDepthFt > 200);
+        const popOf = (xs) => xs.reduce((a, x) => a + (x.s.population || 0), 0);
+        const millions = (n) => `${Math.round(n / 1e6)} million`;
+        const byDir = (dir) => median(measured.filter((x) => x.r.direction === dir).map((x) => x.s.currentDepthFt));
+        const deepAndDropping = over200.filter((x) => x.s.trendFtPerDecade >= 5).length;
+        const shallowAndDropping = under25.filter((x) => x.s.trendFtPerDecade >= 2).length;
+        const stateDepth = new Map();
+        for (const x of measured) {
+          const name = x.s.stateName || (x.s.state === 'PR' ? 'Puerto Rico' : x.s.state);
+          if (!stateDepth.has(name)) stateDepth.set(name, []);
+          stateDepth.get(name).push(x.s.currentDepthFt);
+        }
+        const stateMed = [...stateDepth].filter(([, v]) => v.length >= 10)
+          .map(([name, v]) => ({ name, n: v.length, med: median(v) }))
+          .sort((a, b) => b.med - a.med);
+        const deepStates = stateMed.slice(0, 5);
+        const shallowStates = stateMed.slice(-5).reverse();
+        const deepest = [...measured].sort((a, b) => b.s.currentDepthFt - a.s.currentDepthFt).slice(0, 8);
+        const deepLine = (x) => `<li>${link(x)}: ${ft(x.s.currentDepthFt)} feet down at its latest reading in ${String(x.s.lastDate).slice(0, 4)}, from ${fmt(x.s.nMeasurements)} readings</li>`;
+        const fewReadings = deepest.filter((x) => x.s.nMeasurements < 12).map(link);
+        const stateLine = (st) => `<li><strong>${st.name}</strong>: typically ${ft(st.med)} feet, across ${fmt(st.n)} measured counties</li>`;
+        return [
+          {
+            h2: 'The short answer',
+            html: `<p>In the typical US county with a long-running government monitoring well, the water sits about ${ft(at(0.5))} feet below the ground. Half of those counties fall between ${ft(at(0.25))} and ${ft(at(0.75))} feet. A few read far deeper: ${fmt(band(200, Infinity))} counties are past 200 feet, and the deepest well on the site reads ${ft(depths.at(-1))} feet.</p><p>Why care? If your home is on city water, this is background about your area's supply rather than your own taps. If it runs on a private well, it is more direct: the well only works while its pump sits below the water. The deeper the water and the faster it falls, the sooner a well may need a lower pump or a deeper hole. To see the number for your own county, ${pageLink('', 'search for it on the home page')}. The rest of this page explains what the number means, where water is deep or shallow, and why it can differ from what you find in your own well.</p>`,
+          },
+          {
+            h2: 'What "depth to water" means',
+            html: `<p>Dig far enough almost anywhere in the country and you reach ground that is soaked with water. The top of that soaked layer is the water table. Depth to water is the distance from the ground surface down to it, measured in a well. A household well has to reach below that point to pull any water up, and the pump has to sit lower still.</p><p>The readings here come from the U.S. Geological Survey (USGS), the federal science agency that tracks the country's water. Its staff and partner agencies lower a marked tape or an electric sensor into monitoring wells, which exist only to be measured, and record how far down the water stands. Each county page uses one such well, the one with the longest record, and prints its latest reading and the date it was taken. One well cannot describe every property in a large county, so read its depth as a baseline for the area, not a measurement of the ground under your house.</p>`,
+          },
+          {
+            h2: 'How the counties spread out',
+            html: `<p>Of the ${fmt(measured.length)} counties whose well gives a normal depth reading, this is how deep the water was at the latest reading:</p><ul><li>Under 10 feet: ${fmt(band(0, 10))} counties</li><li>10 to 25 feet: ${fmt(band(10, 25))}</li><li>25 to 50 feet: ${fmt(band(25, 50))}</li><li>50 to 100 feet: ${fmt(band(50, 100))}</li><li>100 to 200 feet: ${fmt(band(100, 200))}</li><li>200 to 400 feet: ${fmt(band(200, 400))}</li><li>Over 400 feet: ${fmt(band(400, Infinity))}</li></ul><p>So most measured counties have water within 50 feet of the surface, and the counties with very deep water are a small group. This list leaves out ${fmt(artesian)} wells where the water underground is under so much pressure that it pushes up the pipe above ground level by itself. These are called artesian wells, and they have no ordinary depth to report; the ${guideLink('no-data-and-artesian-readings', 'guide to artesian wells')} covers them. ${atSurface ? `Of the counties under 10 feet, ${fmt(atSurface)} read less than a foot, meaning the water stood at or just below the ground when it was last measured.` : ''}</p>`,
+          },
+          {
+            h2: 'Where the water is deepest',
+            html: `<p>Among states with at least ten measured counties, these have the deepest water in their typical county:</p><ul>${deepStates.map(stateLine).join('')}</ul><p>Dry climates explain part of it. Where little rain soaks in, the water table sits lower to begin with, and decades of pumping for farms and growing towns can pull it lower again. Geology explains the rest. Some monitoring wells are drilled into a deep layer of water-bearing rock, called an aquifer, because that is the layer towns and farms pump from, and their readings describe that deep layer rather than the shallow water a few feet under the lawn.</p><p>These are the eight deepest readings on the site:</p><ul>${deepest.map(deepLine).join('')}</ul><p>${fewReadings.length ? `${fewReadings.length === 1 ? fewReadings[0] + ' has' : fewReadings.slice(0, -1).join(', ') + ' and ' + fewReadings.at(-1) + ' have'} fewer than a dozen readings on record, so the depth is real but which way the water there is heading over the years is less certain. ` : ''}A deep reading at the county's monitoring well does not mean every well there must go that deep. It means the layer that well taps sits that far down, and anyone drilling into the same layer should expect to go at least as far.</p>`,
+          },
+          {
+            h2: 'Where it is shallowest',
+            html: `<p>At the other end, these states have the shallowest water in their typical measured county:</p><ul>${shallowStates.map(stateLine).join('')}</ul><p>These are mostly wet states, or places with flat land, sandy soil and lots of lakes and rivers that keep the ground topped up. About ${millions(popOf(under25))} people live in counties whose well reads under 25 feet, compared with about ${millions(popOf(over200))} in counties past 200 feet.</p><p>Shallow water is easy to reach, which is why older wells in these areas are often shallow too. That cuts both ways. A shallow well costs less to drill, but it also has less water above its pump, so even a modest drop or a dry summer can leave it short. ${fmt(shallowAndDropping)} counties have water under 25 feet that is also getting deeper by at least 2 feet per decade, which is the combination a shallow-well owner should watch most closely: if the water falls below the pump, the taps run dry until the pump is lowered or the well is deepened.</p>`,
+          },
+          {
+            h2: 'Deep water and dropping water often go together',
+            html: `<p>In counties where the water table is dropping, the typical well reads ${ft(byDir('declining'))} feet. In counties where it is holding steady, the typical well reads ${ft(byDir('stable'))} feet, and in counties where it is rising, ${ft(byDir('rising'))} feet.</p><p>That is not a coincidence. Shallow water near the surface refills every year from rain and snowmelt, so it tends to bob up and down without going anywhere. Deep layers refill much more slowly, so when a city or a field of irrigation wells pumps from one for decades, the level keeps falling. ${fmt(deepAndDropping)} counties have water more than 200 feet down that is also getting deeper by 5 feet or more every ten years. Our ${guideLink('fastest-moving-counties', 'guide to the counties where water levels are changing fastest')} lists the most extreme of them.</p>`,
+          },
+          {
+            h2: 'Why your own well can read differently',
+            html: `<p>The county number is the depth at one government well, on the day it was last measured. Your well can read quite differently for a few ordinary reasons:</p><ul><li>Ground height. Depth is measured from the ground at each well. If your house sits on a hill 40 feet above the monitoring well, your water may be roughly 40 feet further down even though it is the same water underground.</li><li>A different layer. Your well may draw from a shallower or deeper aquifer than the monitoring well, and the two can sit at very different levels.</li><li>Nearby pumping. A well close to a town's supply wells or a large irrigation system can read lower while those pumps are running.</li><li>The season. Water levels usually drop through a dry summer and recover in a wet spring, so a single reading depends on when it was taken.</li></ul><p>The number that settles it is the level in your own well. Your driller's log (the report the company that drilled your well filed with the state) lists how deep the well goes and where the water stood when it was drilled. Most states let you search these logs free; searching for your state's name plus "well log search" usually finds the page, which is run by the state's water, geology or natural resources department. A licensed well contractor can measure today's level for you. Compare the two, then use the ${guideLink('well-pump-risk', 'well-pump guide')} to see how much water is left above your pump.</p>`,
+          },
+          {
+            h2: 'Where these numbers come from',
+            html: `<p>Every depth on this page is the latest reading from the same USGS monitoring wells behind the county pages, from the National Water Information System and the National Ground-Water Monitoring Network, both free and public. Some readings are years old; each county page shows the date of its latest one and warns on the first screen when it is more than about five years old. Which wells count, and how the trend is drawn, is in the ${guideLink('methodology', 'methodology guide')}. The ${guideLink('water-table-by-state', 'state-by-state guide')} shows which way the water is moving in each state.</p>`,
+          },
+        ];
+      })(),
+    },
   ];
 }
 
