@@ -1949,6 +1949,73 @@ export function guides() {
         ];
       })(),
     },
+    {
+      slug: 'my-county-says-stable',
+      title: `My County's Water Table Says "Stable." Will My Well Run Dry?`,
+      description: `About a third of U.S. counties with a monitoring well show a stable water table. What "stable" means on this site, why most stable readings come from shallow water, which stable counties are close to the line, and what a well owner there should still check.`,
+      // [R3][R10][R21][R31][R29] visitor-job.md question 3 ("is my own well
+      // at risk") asked by the visitor whose county page says Stable. Original
+      // cut of the site's own data: stable share by depth to water and by
+      // reading count, stable counties leaning each way near the edge of the
+      // band, and the thin or stale stable records listed.
+      blocks: (() => {
+        const fmt = (n) => Math.round(n).toLocaleString('en-US');
+        const pct = (a, b) => (b ? Math.round((100 * a) / b) : 0);
+        const rate = (r) => summaryBySlug.get(r.slug).trendFtPerDecade;
+        const depth = (r) => Number(r.current_depth_ft);
+        const reads = (r) => Number(r.n_measurements);
+        const link = (r) => pageLink(r.slug, `${r.county}, ${r.state_name}`);
+        const stable = trended.filter((r) => r.direction === 'stable');
+        const stablePop = stable.reduce((s, r) => s + Number(r.population || 0), 0);
+        const share = (f) => {
+          const g = trended.filter(f);
+          return { n: g.length, st: g.filter((r) => r.direction === 'stable').length };
+        };
+        const d1 = share((r) => depth(r) < 25), d2 = share((r) => depth(r) >= 25 && depth(r) < 50),
+          d3 = share((r) => depth(r) >= 50 && depth(r) < 100), d4 = share((r) => depth(r) >= 100 && depth(r) < 200),
+          d5 = share((r) => depth(r) >= 200);
+        const leanDeeper = stable.filter((r) => rate(r) > 0);
+        const leanShallower = stable.filter((r) => rate(r) < 0);
+        const nearEdge = stable.filter((r) => rate(r) >= 0.3).sort((a, b) => Number(b.population) - Number(a.population));
+        const thin = stable.filter((r) => reads(r) < 12).sort((a, b) => Number(b.population) - Number(a.population));
+        const stale = stable.filter((r) => String(r.last_date) < '2020');
+        const r1 = share((r) => reads(r) < 12), r4 = share((r) => reads(r) >= 300);
+        const band = STABLE_BAND_FT_PER_DECADE;
+        const dRow = (label, s) => `<li><strong>${label}:</strong> ${pct(s.st, s.n)}% of ${fmt(s.n)} counties read stable</li>`;
+        const feet = (n) => `${ft(n)} ${ft(n) === '1' ? 'foot' : 'feet'}`;
+        const yr = (d) => String(d).slice(0, 4);
+        return [
+          {
+            h2: 'The short answer',
+            html: `<p>Stable is good news for the ground under the monitoring well. It is not a promise about your own well. ${site.name} is a free website built on public U.S. Geological Survey records. For each county with a long-running government monitoring well, it shows how fast the water table, the level where the ground below is soaked with water, has been getting deeper or shallower. If the water has moved less than ${band} feet (6 inches) up or down per ten years, the county page says stable. Of the ${fmt(trended.length)} counties that have a monitoring well, ${fmt(stable.length)} are stable. Together they are home to about ${fmt(stablePop / 1e6)} million people.</p><p>The catch is depth. Stable readings come mostly from shallow water: ${pct(d1.st, d1.n)}% of counties where the water sits less than 25 feet down read stable, against ${pct(d5.st, d5.n)}% where it sits 200 feet or more down. If your well is drilled hundreds of feet into rock, the county's shallow well may be measuring a different supply from the one your pump sits in. Check how deep your county's reading is before you lean on it. And stable is only about how much water there is, not whether it is clean: a well can hold steady and still need a water test.</p>`,
+          },
+          {
+            h2: 'What to check if your county reads stable',
+            html: `<p>Open your county's page from the ${pageLink('', 'search on the home page')} and look at two numbers: the depth to water at the monitoring well, and the year of its last reading.</p><p>Then find your own well's driller's log, the report the drilling company filed with the state when the well was dug. You do not need to know who drilled it: state searches usually let you look it up by county, street location or owner name, and older homes may need the name of an earlier owner. It lists how deep the well goes, where the pump hangs and where the water stood the day it was drilled. Most states let you search these free on the website of the state's water, geology or natural resources department, under a name like "well log search". If the water in your log stood within a few dozen feet of the county's reading and your well is not much deeper, the county's stable trend probably describes your water too. If your well is several hundred feet deeper than the water the county well is measuring, treat the county number as a loose hint at best.</p><p>Either way, the surest check is your own well's water level, measured by a licensed well driller or by you: turn the pump off for two hours, then lower a clean steel tape or an electric water-level sounder down the well until it touches water, and read the depth. The ${guideLink('measure-your-own-well', 'guide to measuring your own well')} has the full steps, including how to keep the well clean while it is open. Write it down with the date and measure again the same month next year. Two or three years of your own readings beat any county number. If you rent, the well is your landlord's to look after, but you can ask them for the driller's log.</p>`,
+          },
+          {
+            h2: 'Why stable mostly means shallow',
+            html: `<p>Grouped by how far down the water sits at the county's monitoring well:</p><ul>${dRow('Less than 25 feet down', d1)}${dRow('25 to 49 feet', d2)}${dRow('50 to 99 feet', d3)}${dRow('100 to 199 feet', d4)}${dRow('200 feet or more', d5)}</ul><p>Water near the surface usually sits in sand and gravel that rain and nearby streams refill every year, so it rises and falls with the seasons but tends to come back to the same level. Deep water often sits in layers that refill over decades or longer, and when wells pump it out faster than that, the level keeps dropping. The ${guideLink('is-deep-water-safer', 'guide to deep water')} looks at the other side of this: counties with deep water are the ones most often falling.</p><p>So a stable reading from a 10-foot-deep water table in a river valley says the valley's water is holding. It says much less about a 400-foot well in the rock underneath.</p>`,
+          },
+          {
+            h2: 'Does stable mean the water level never moves?',
+            html: `<p>No. Stable describes the long straight line drawn through all of a well's readings, and in stable counties those records run a median of ${fmt(median(stable.map((r) => Number(r.span_years))))} years. A well can swing several feet between a wet spring and a dry late summer and still read stable, because those swings cancel out over the years. Shallow water swings the most, and during a hard drought it can drop fast enough to leave a shallow well short for a few weeks or months before rain brings it back. The ${guideLink('dry-summer-or-long-decline', 'guide to telling a dry summer from a long decline')} shows how to read those swings on your county's graph.</p><p>If your well sputters during a drought in a stable county, the fix is usually lowering the pump or waiting for the water to come back, not drilling a new well. Lowering a pump is a much smaller job than a new well, which runs roughly $6,000 to $16,000 for 200 feet according to HomeServe's cost guide, and it is the owner who pays: standard homeowners insurance usually does not cover a well that goes dry. Get a written estimate from a licensed well driller before you spend money, and first check the simple things yourself: the pump's circuit breaker and the pressure switch by the tank. The ${guideLink('my-well-stopped-working', 'guide for when a well stops working')} lists the rest in order.</p>`,
+          },
+          {
+            h2: 'Stable counties close to the line',
+            html: `<p>Stable does not mean the level is perfectly flat. It means the slow drift is under 6 inches per ten years either way. Of the ${fmt(stable.length)} stable counties, ${fmt(leanDeeper.length)} lean slightly deeper and ${fmt(leanShallower.length)} lean slightly shallower. Even at the deeper edge, ${band} feet per decade adds up to about ${feet(band * 3)} over 30 years. Whether that matters depends on how far below the water your pump hangs, which your driller's log shows. Still, ${fmt(nearEdge.length)} stable counties are getting deeper by 0.3 feet per decade or more, close enough that a few dry years could tip them into the declining group. The most populous of them:</p><ul>${nearEdge.slice(0, 8).map((r) => `<li>${link(r)}: about ${rate(r).toFixed(2)} feet deeper per decade, water ${feet(depth(r))} down, from ${fmt(reads(r))} readings taken ${yr(r.first_date)} to ${yr(r.last_date)}</li>`).join('')}</ul><p>For a well owner in one of these, nothing needs doing today. It is worth measuring your own well once a year so you would notice if the slow drift sped up.</p>`,
+          },
+          {
+            h2: 'When a stable reading deserves less trust',
+            html: `<p>A stable line drawn through few readings is a weaker answer than one drawn through hundreds. Counties with fewer than 12 readings read stable ${pct(r1.st, r1.n)}% of the time, against ${pct(r4.st, r4.n)}% for counties with 300 or more. That gap is mostly about which wells get measured often, not proof that the thin records are wrong, but a handful of readings can easily miss a slow change. ${fmt(thin.length)} stable counties rest on fewer than 12 readings, including ${thin.slice(0, 5).map((r) => `${link(r)} (${fmt(reads(r))})`).join(', ')}.</p><p>Age matters too. ${fmt(stale.length)} stable counties were last measured before 2020. A trend that stopped being checked years ago cannot tell you what the water has done since. The ${guideLink('how-much-to-trust-your-countys-number', 'guide to how much to trust your county\'s number')} goes through both problems for every county, stable or not.</p>`,
+          },
+          {
+            h2: 'Where these numbers come from',
+            html: `<p>Trends and depths come from the same monitoring wells behind the county pages, read from two free public U.S. Geological Survey databases: the National Water Information System and the National Ground-Water Monitoring Network. Population is the U.S. Census Bureau's county figure. A county reads stable when the straight line fitted through its well's readings moves less than ${band} feet per decade in either direction. The rules for which wells count are in the ${guideLink('methodology', 'methodology guide')}.</p>`,
+          },
+        ];
+      })(),
+    },
   ];
 }
 
