@@ -1200,6 +1200,73 @@ export function guides() {
         ];
       })(),
     },
+    {
+      slug: 'buying-a-house-on-a-well',
+      title: `Buying a House or Land on a Well? What Your County's Water Table Number Can Tell You`,
+      description: `How far the water under each county could fall over a 30-year mortgage at its current pace, where shallow water is falling fastest, how old the readings are, and what to ask the seller for before you sign.`,
+      // [R3][R10][R21][R29] Answers the second kind of visitor in
+      // visitor-job.md: someone buying a house or rural land on a well.
+      // Every figure is computed from the same county rows the pages use.
+      blocks: (() => {
+        const fmt = (n) => Math.round(n).toLocaleString('en-US');
+        const link = (x) => pageLink(x.r.slug, `${x.s.county}, ${x.s.state}`);
+        const year = (d) => Number(String(d).slice(0, 4));
+        const withWell = rows.filter((r) => hasQualifyingWell(r) && r.trend_ft_per_decade !== '')
+          .map((r) => ({ r, s: summaryBySlug.get(r.slug) }));
+        const nowYear = Math.max(...withWell.map((x) => year(x.r.last_date)));
+        const dropping = withWell.filter((x) => x.s.severityTier.startsWith('declining') && !x.s.isArtesian);
+        const thirty = (x) => x.s.trendFtPerDecade * 3;
+        const fall = (t) => dropping.filter((x) => thirty(x) >= t).length;
+        const medThirty = median(dropping.map(thirty));
+        const shallowFast = dropping.filter((x) => x.s.currentDepthFt >= 0 && x.s.currentDepthFt < 50 && thirty(x) >= 20)
+          .sort((a, b) => thirty(b) - thirty(a));
+        const deepFast = dropping.filter((x) => x.s.currentDepthFt >= 200 && x.s.trendFtPerDecade >= 10)
+          .sort((a, b) => b.s.trendFtPerDecade - a.s.trendFtPerDecade);
+        const depths = withWell.map((x) => x.s.currentDepthFt).filter((d) => d >= 0);
+        const under50 = depths.filter((d) => d < 50).length;
+        const over200 = depths.filter((d) => d >= 200).length;
+        const fresh = withWell.filter((x) => year(x.r.last_date) >= nowYear - 2).length;
+        const stale = withWell.filter((x) => year(x.r.last_date) < nowYear - 5).length;
+        const noWell = rows.filter((r) => !hasQualifyingWell(r));
+        const noWellPop = noWell.reduce((a, r) => a + (Number(r.population) || 0), 0);
+        const sfItem = (x) => `<li>${link(x)}: water ${ft(x.s.currentDepthFt)} feet down, falling ${ft(x.s.trendFtPerDecade)} feet per decade, so about ${fmt(thirty(x))} feet lower in 30 years at that pace (last read ${year(x.r.last_date)})</li>`;
+        const dfItem = (x) => `<li>${link(x)}: ${fmt(x.s.currentDepthFt)} feet down, falling ${ft(x.s.trendFtPerDecade)} feet per decade (last read ${year(x.r.last_date)})</li>`;
+        return [
+          {
+            h2: 'Why a buyer should look at this before the inspection',
+            html: `<p>When a house or a piece of land gets its water from a private well, nobody hands you a water bill that shows how much is left. The well reaches down to the water table, the top of the water-soaked ground under the property. If that water keeps getting deeper, the well may one day need its pump lowered, the hole drilled deeper, or a new well drilled. A new or deepened well commonly costs somewhere around $6,000 to $16,000 for 200 feet, and often more (from the cost guide of HomeServe, a home repair warranty company), and standard homeowners insurance usually does not pay when a well goes dry because the water table fell.</p><p>That makes the direction of the water table worth knowing before you make an offer, not after. Each county page on this site gives one figure for it, read from a long-running government monitoring well: how many feet the water has been getting deeper or shallower per decade. ${pageLink('', 'Search your county on the home page')} to see it. This guide explains how a buyer can use that figure, and where it stops being useful.</p>`,
+          },
+          {
+            h2: 'How far could the water fall while you own the place?',
+            html: `<p>A mortgage usually runs 30 years, so a fair question is how much deeper the water would be by the time it is paid off, if it keeps falling at the pace it has so far. That is a straight multiplication of the county's trend by three. It is not a forecast: rain, new pumping or new rules can speed a decline up or slow it down. It is just the record carried forward.</p><p>Only ${fmt(withWell.length)} of the ${fmt(rows.length)} US counties have a government monitoring well read for at least 15 years and within the last 10, long enough to show a real direction. Of those, ${fmt(dropping.length)} have water that is getting deeper. Carried forward 30 years, the typical one of those would be about ${ft(medThirty)} feet lower. Small, but the spread is wide:</p><ul><li>${fmt(fall(10))} counties would be 10 or more feet lower,</li><li>${fmt(fall(30))} would be 30 or more feet lower,</li><li>${fmt(fall(60))} would be 60 or more feet lower.</li></ul><p>If the county you are buying in is in the last two groups, ask the seller harder questions about the well (see the list near the end of this page). The ${guideLink('fastest-moving-counties', 'fastest-moving counties guide')} names the places at the very top.</p>`,
+          },
+          {
+            h2: 'Shallow water that is falling fast',
+            html: `<p>How deep the water is today matters as much as how fast it moves. In ${fmt(under50)} of the measured counties the water at the monitoring well sits less than 50 feet below ground. Where the water is that close, wells are often shallow too, and a shallow well has little water above its pump to lose, so even a moderate drop can leave it short in a dry summer.</p><p>${shallowFast.length ? `These ${shallowFast.length === 1 ? 'is the one county' : `are the ${shallowFast.length} counties`} where the water is under 50 feet down and would fall 20 feet or more in 30 years at its current pace:</p><ul>${shallowFast.map(sfItem).join('')}</ul><p>If you are looking at an older house with a shallow well in one of them, find out how deep that well actually is before you rely on it.` : `No measured county has water under 50 feet down that would also fall 20 feet or more in 30 years at its current pace, which is good news for buyers of older homes with shallow wells.`}</p>`,
+          },
+          {
+            h2: 'Deep water that is still falling',
+            html: `<p>At the other end, ${fmt(over200)} measured counties have water more than 200 feet down. Wells there are already deep, so a new one costs more to drill, and a falling water table adds to a bill that is already high.</p><p>${deepFast.length ? `${deepFast.length === 1 ? 'One county has' : `${deepFast.length} counties have`} water more than 200 feet down that is also falling 10 feet or more per decade:</p><ul>${deepFast.slice(0, 12).map(dfItem).join('')}</ul><p>${deepFast.length > 12 ? `That is the fastest 12 of ${deepFast.length}. ` : ''}Buying in one of these places is not a reason to walk away, but it is a reason to know how deep the existing well is and how far the pump sits below the water.` : 'No measured county has water that deep falling 10 feet or more per decade.'} The ${guideLink('how-deep-is-the-water-table', 'guide to how deep the water table is')} has the full picture by state.</p>`,
+          },
+          {
+            h2: 'Check how old the reading is',
+            html: `<p>Every county page shows the date of its well's latest reading. ${fmt(fresh)} of the ${fmt(withWell.length)} wells were read in ${nowYear - 2} or later, so their numbers are close to current. ${fmt(stale)} were last read before ${nowYear - 5}. For those, the trend still describes the long direction, but it cannot show a recent drought or a new irrigation field nearby. If the reading for your county is old, lean more on the property's own well record and on a fresh measurement of the water level in the well itself. The ${guideLink('dry-summer-or-long-decline', 'dry summer guide')} explains why one season does not move the trend.</p>`,
+          },
+          {
+            h2: 'When the county has no number at all',
+            html: `<p>${fmt(noWell.length)} counties, home to about ${fmt(noWellPop / 1e6)} million people, have no government monitoring well with a long enough record to draw a trend. Their pages say so rather than borrow a neighbor's figure, and show the nearest county that does have one. If you are buying in one of these counties, the property's own records are the only real evidence, which makes the list below more important, not less. The ${guideLink('no-data-and-artesian-readings', 'no-data guide')} explains why so many counties have no qualifying well.</p>`,
+          },
+          {
+            h2: 'What to ask for before you sign',
+            html: `<p>The county number tells you which way the water under the area has been heading. It cannot tell you about the well on the property you are buying. For that, ask for these:</p><ul><li><strong>The well record.</strong> This is the driller's log: the report the company that drilled the well filed with the state, giving the well's total depth and where the water stood when it was drilled. Most states let anyone search these free online, on the website of the state's water, geology or natural resources department. Minnesota's Well Index, the Texas Groundwater Database and the Wisconsin Department of Natural Resources are examples; for any other state, search the state's name plus "well log search". The seller may also have a paper copy.</li><li><strong>Today's water level in the well.</strong> Compare it with the level in the driller's log. If the water now stands much lower than when the well was drilled, that matches a falling table. A licensed well driller can measure it, or it can be done with a steel tape or an electric sounder after the pump has been off for about two hours, the method that Oregon State University's and the University of Arizona's well-owner guides describe.</li><li><strong>How deep the pump sits.</strong> The water above the pump is what the house can actually draw on. The ${guideLink('well-pump-risk', 'well-pump guide')} shows how to work this out.</li><li><strong>The well's history from the seller.</strong> Ask whether the pump was ever lowered, the well deepened, or water ever ran short in late summer. Any of those in a county that is dropping is a warning sign.</li></ul><p>Then put the two together. Take the gap between today's water level and the pump, and compare it with how far the county number says the water could fall while you own the house. If the gap is many times bigger, the county trend is unlikely to cause you trouble. If they are close, budget for well work, or ask for it to be reflected in the price.</p>`,
+          },
+          {
+            h2: 'Where these numbers come from',
+            html: `<p>Every figure on this page comes from the U.S. Geological Survey (USGS), the federal science agency that tracks the country's water, through its National Water Information System and the National Ground-Water Monitoring Network. Both are free and public. Population counts are from the U.S. Census Bureau. Which wells count, and how each trend line is drawn, is in the ${guideLink('methodology', 'methodology guide')}.</p>`,
+          },
+        ];
+      })(),
+    },
   ];
 }
 
