@@ -642,7 +642,19 @@ export function staticPages() {
   ];
 }
 
+// Two groups so a visitor finds their kind of question fast [R21]: what the
+// county number says, or what to do about their own well. Each holds 8+.
+const OWN_WELL = 'Your own well: risk, buying, measuring, drilling and fixing';
+const COUNTY_NUMBER = "Your county's number: what it says and how far to trust it";
+const OWN_WELL_GUIDES = new Set(['well-pump-risk', 'buying-a-house-on-a-well', 'my-well-stopped-working',
+  'measure-your-own-well', 'how-deep-to-drill-a-new-well', 'is-deep-water-safer',
+  'how-deep-is-the-water-table', 'my-county-says-stable']);
+
 export function guides() {
+  return guideList().map((g) => ({ ...g, group: OWN_WELL_GUIDES.has(g.slug) ? OWN_WELL : COUNTY_NUMBER }));
+}
+
+function guideList() {
   return [
     {
       slug: 'methodology',
