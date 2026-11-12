@@ -759,24 +759,66 @@ export function guides() {
     },
     {
       slug: 'no-data-and-artesian-readings',
-      title: `Why Some Counties Show No Data, and What a Negative Depth Means`,
-      description: `What it means when a ${site.name} county page has no qualifying well, and why a handful of wells report water above the surface instead of a depth.`,
+      title: `Why Some Counties Have No Groundwater Trend, and Why Some Wells Read Below Zero`,
+      description: `Why ${site.name} has no water-table number for more than half of US counties, what those county pages show instead, how far to trust a neighbor's well, and why a few wells report water standing above the ground.`,
+      // [R3][R10][R28][R29] Rewritten for someone who landed on a county page
+      // with no number and wants to know why. Every figure is computed from
+      // the same county rows the pages use, so the guide cannot drift.
       blocks: (() => {
-        const noDataCount = COVERAGE_TOTAL - COVERAGE_WITH_DATA;
-        const artesian = rows.filter((r) => summaryBySlug.get(r.slug).isArtesian);
-        const artesianLine = (r) => pageLink(r.slug, `${summaryBySlug.get(r.slug).county}, ${summaryBySlug.get(r.slug).state}`);
+        const NEARBY = 150;
+        const fmt = (n) => Math.round(n).toLocaleString('en-US');
+        const link = (r) => pageLink(r.slug, `${r.county}, ${r.state_name}`);
+        const none = rows.filter((r) => !hasQualifyingWell(r));
+        const near = none.map((r) => ({ r, n: nearestBySlug.get(r.slug) })).filter((x) => x.n);
+        const miles = near.map((x) => x.n.miles);
+        const within30 = miles.filter((m) => m <= 30).length;
+        const within60 = miles.filter((m) => m <= 60).length;
+        const tooFar = near.filter((x) => x.n.miles > NEARBY);
+        const crossState = near.filter((x) => x.n.row.state !== x.r.state).length;
+        const popAll = rows.reduce((a, r) => a + (Number(r.population) || 0), 0);
+        const popNone = none.reduce((a, r) => a + (Number(r.population) || 0), 0);
+        const bigNone = [...none].sort((a, b) => Number(b.population) - Number(a.population)).slice(0, 4);
+        const byState = new Map();
+        for (const r of rows) {
+          const v = byState.get(r.state_name) || { t: 0, q: 0 };
+          v.t += 1; if (hasQualifyingWell(r)) v.q += 1;
+          byState.set(r.state_name, v);
+        }
+        const states = [...byState].filter(([, v]) => v.t >= 20);
+        const low = [...states].sort((a, b) => a[1].q / a[1].t - b[1].q / b[1].t).slice(0, 3);
+        const high = [...states].sort((a, b) => b[1].q / b[1].t - a[1].q / a[1].t).slice(0, 3);
+        const covLine = ([n, v]) => `${n} (${v.q} of ${v.t})`;
+        const artesian = rows.filter((r) => summaryBySlug.get(r.slug).isArtesian)
+          .map((r) => ({ r, s: summaryBySlug.get(r.slug) }));
+        const highest = [...artesian].sort((a, b) => a.s.currentDepthFt - b.s.currentDepthFt)[0];
+        const losing = artesian.filter((x) => x.s.trendFtPerDecade > STABLE_BAND_FT_PER_DECADE);
+        const gaining = artesian.filter((x) => x.s.trendFtPerDecade < -STABLE_BAND_FT_PER_DECADE);
+        const fastLoss = [...losing].sort((a, b) => b.s.trendFtPerDecade - a.s.trendFtPerDecade)[0];
+        const aLink = (x) => pageLink(x.r.slug, `${x.s.county}, ${x.r.state_name}`);
         return [
           {
-            h2: `"No data" means no qualifying well, not no aquifer`,
-            html: `<p>${noDataCount.toLocaleString('en-US')} of ${COVERAGE_TOTAL.toLocaleString('en-US')} US counties have no USGS monitoring well that meets this site's bar (at least 15 years of record, a reading within the last 10 years, 6 or more usable measurements). That county's groundwater may well be moving, there is just no long-term well there to measure it. ${site.name} shows the nearest qualifying well's own trend as context on those pages, labeled as a neighbor's reading, never substituted for the county's own number. The exact bar is spelled out in the ${guideLink('methodology', 'methodology guide')}.</p>`,
+            h2: 'Why your county has no groundwater trend of its own',
+            html: `<p>You are on ${site.name}, a free site that shows, county by county, whether the water underground is getting deeper. The water table is the top of the water-soaked ground, and a household well only works if it reaches below it. Each number on the site comes from a monitoring well run by the U.S. Geological Survey (USGS, the federal science agency that tracks the country's water). Those wells exist only so someone can come back and measure the water level, year after year. This matters most if your home gets its water from its own private well. If you pay a city or water district for your water, the trend tells you about the ground under your area, not about your tap.</p><p>A county gets its own number only if one of its monitoring wells has a long, recent record: at least 15 years between the first and latest reading, a reading in the last 10 years, and at least 6 readings. This site calls a well like that a qualifying well. Most counties do not have one. ${fmt(none.length)} of the ${fmt(COVERAGE_TOTAL)} counties on this site fall short, and about ${(popNone / 1e6).toFixed(0)} million people live in them, roughly ${Math.round(popNone / popAll * 100)}% of the country.</p><p>That does not mean the county has no groundwater, and it does not mean nobody has ever measured it. USGS may have wells there that were read a handful of times, or read for years and then dropped. State agencies and water districts often keep their own records that never reach the federal database. What it means is that this site found nothing long and recent enough to draw a trend from, so it does not invent one.</p>`,
           },
           {
-            h2: `A negative depth is a real reading, not an error`,
-            html: `<p>${artesian.length} counties in this dataset, including ${artesian.slice(0, 4).map(artesianLine).join(', ')}, currently show a negative depth to water. That is not a data bug: it means the well is flowing or artesian, water stands above land surface under its own pressure rather than sitting below it. Those wells still get a fitted trend like any other, the sign just flips which direction counts as "the water table dropping."</p>`,
+            h2: 'It is not only quiet rural places',
+            html: `<p>You might expect the gaps to be in empty counties, and partly they are: the typical county without a qualifying well has about ${fmt(median(none.map((r) => Number(r.population))))} people, against about ${fmt(median(rows.filter((r) => hasQualifyingWell(r)).map((r) => Number(r.population))))} in counties with one. But some of the biggest counties in the country are on the list too, including ${bigNone.map(link).join(', ')}. A large population does not guarantee a long-running federal monitoring well, so a big county with no number here is not a sign that anything is wrong there, only that this particular record is missing.</p><p>Coverage also depends a lot on the state, because USGS runs many of these wells together with state agencies and each state chooses how many to keep up. Among states with 20 or more counties, the lowest share covered is in ${low.map(covLine).join(', ')}. The highest is in ${high.map(covLine).join(', ')}.</p>`,
           },
           {
-            h2: `What to do if your own county has no data`,
-            html: `<p>A county with no qualifying well is not evidence either way about a specific property's well. A local well log, a driller's record, or a direct measurement from a licensed well contractor is the only way to know what is happening under one property, the same limit that applies even to counties this site does track, just without a county-level trend to use as a starting point. If your county does have a trend and it's declining, the ${guideLink('well-pump-risk', 'well-pump risk guide')} covers what that means for a pump.</p>`,
+            h2: 'What a county page shows instead',
+            html: `<p>When a county has no qualifying well, its page shows the trend at the closest county that does have one, measured as a straight line between the two counties' centers. It is labeled as the neighbor's reading every time and is never passed off as the county's own.</p><p>For most of these counties the neighbour is close. Half are within ${fmt(median(miles))} miles of a qualifying well, ${fmt(within30)} are within 30 miles and ${fmt(within60)} are within 60. ${fmt(crossState)} of them borrow from a county in another state, which is fine, because water underground does not stop at a state line.</p><p>Past ${NEARBY} miles the page stops borrowing. A well that far away says more about its own area than about yours, so those ${tooFar.length} county pages say plainly that there is no useful nearby record. They are in ${(() => { const c = {}; for (const x of tooFar) c[x.r.state_name] = (c[x.r.state_name] || 0) + 1; const e = Object.entries(c).sort((a, b) => b[1] - a[1]); return e.length > 1 ? `${e.slice(0, -1).map(([n, k]) => `${n} (${k})`).join(', ')} and ${e.at(-1)[0]} (${e.at(-1)[1]})` : `${e[0][0]} (${e[0][1]})`; })()}. The most remote is the Aleutians West Census Area in Alaska (Alaska has no counties, so the Census Bureau divides it into areas like this one that stand in for them). It is more than a thousand miles from the nearest qualifying well.</p>`,
+          },
+          {
+            h2: 'How much to trust a neighbor\'s well',
+            html: `<p>Less than your own county's well, and even that is only a starting point. Two wells a short drive apart can tell very different stories. One may draw from shallow sand and gravel that refills after a wet spring. The other may reach down to a deep layer of rock that a city or a field of irrigation wells has been pumping for decades. Their water levels can move in opposite directions.</p><p>So read the neighbor's number as a hint about the region. If your home is on a private well, check it against something closer to home:</p><ul><li>Your own well record. The company that drilled your well filed a report with the state, often called a driller's log or well log, listing how deep the well goes and where the water stood when it was drilled. Most states let you search these free on the website of the state's water, geology or natural resources department.</li><li>A measurement in your own well. A licensed well contractor can measure where your water stands today. Comparing that with the level on the driller's log tells you how far it has moved since the well was drilled.</li><li>Your state's own monitoring. Some states keep observation wells that never made it into the federal data used here.</li></ul><p>If a neighbor's county is dropping and your well log is old, that is a good reason to get a measurement. Once you have those numbers, the ${guideLink('well-pump-risk', 'guide to well pumps on this site')} shows how to work out how much water is left above your pump.</p>`,
+          },
+          {
+            h2: 'When the water level reads above the ground',
+            html: `<p>A few county pages show a minus sign in front of the depth. That is a real reading, not a mistake. It comes from an artesian well, which taps water trapped under a layer of clay or rock and held under pressure. Drill through that cap and the water rises up the pipe on its own, and in some wells it rises past the top of the ground. Fit a tall enough pipe and the water would stand that many feet above the ground, so the site writes the depth as a negative number. A depth of minus 10 feet means the pressure would push the water 10 feet up a pipe above the ground.</p><p>${fmt(artesian.length)} of the monitoring wells on this site read that way at their latest measurement.${highest ? ` The highest is in ${aLink(highest)}, where water would stand about ${fmt(Math.abs(highest.s.currentDepthFt))} feet above the ground.` : ''} Most of the others are a few feet to a few dozen feet above it.</p>`,
+          },
+          {
+            h2: 'How to read the trend on an artesian well',
+            html: `<p>On an artesian well, what matters is whether the water still rises as high as it used to. If it rises less high each year, the pressure underground is weakening. The county page shows that the same way it shows any other drop: as feet lost per decade, marked as dropping. If the water rises higher than it used to, the page marks it as rising.</p><p>Of the ${fmt(artesian.length)} artesian wells here, ${fmt(losing.length)} are losing pressure, ${fmt(gaining.length)} are gaining it and the rest are within ${STABLE_BAND_FT_PER_DECADE} feet per decade either way, which the site counts as stable.${fastLoss ? ` The fastest loss is in ${aLink(fastLoss)}, where the water rises about ${ft(fastLoss.s.trendFtPerDecade)} feet less high every ten years. (Louisiana is divided into parishes instead of counties; they work the same way.)` : ''}</p><p>If your own well flows by itself, a falling trend in your county matters in a specific way. As the pressure drops, a flowing well can slow down and then stop flowing at the surface, and the house then needs a pump to get water out. Flowing wells that run all the time also waste the pressure everyone nearby relies on, which is why some states require owners to cap them or fit a valve. Your state's water or natural resources department can tell you the rule where you live.</p><p>How each trend is calculated, and the full bar a well has to clear, is in the ${guideLink('methodology', 'methodology guide')}. To see your own county, ${pageLink('', 'search for it on the home page')}.</p>`,
           },
         ];
       })(),
