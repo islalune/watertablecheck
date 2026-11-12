@@ -333,6 +333,11 @@ export function page(row) {
       ? `${county}, ${state}: depth to water is ${s.severityLabel.toLowerCase()}, ${ft(Math.abs(s.trendFtPerDecade))} ft/decade, from USGS's own long-term monitoring well.`
       : `${county}, ${state} has no USGS long-term monitoring well with enough history for a water-table trend yet.`,
     blocks,
+    // [R2][R10] A county with no qualifying well of its own can only borrow a
+    // neighbour's number, so its page is mostly the same few sentences with
+    // the name swapped. It stays up for the visitor who searches for it, but
+    // carries no ads, sits outside the sitemap and hubs, and is not indexed.
+    noindex: !s.hasQualifyingWell,
     schema: {
       '@context': 'https://schema.org',
       '@type': 'Article',
@@ -399,7 +404,7 @@ export function staticPages() {
         },
         {
           h2: 'Who runs this',
-          html: `<p>${site.name} is written by Olivia Wein, who built it to turn public USGS monitoring-well data into a straight answer for anyone wondering about their own well. It is not affiliated with USGS or any home-warranty or water-testing company. Where a page includes a sponsored link, that is disclosed on the page itself and in the ${pageLink('privacy', 'privacy policy')}.</p>`,
+          html: `<p>${site.name} turns public USGS monitoring-well data into a straight answer for anyone wondering about their own well. It is not affiliated with USGS or any home-warranty or water-testing company. Where a page includes a sponsored link, that is disclosed on the page itself and in the ${pageLink('privacy', 'privacy policy')}.</p>`,
         },
       ],
     },
