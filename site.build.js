@@ -1618,6 +1618,65 @@ export function guides() {
         ];
       })(),
     },
+    {
+      slug: 'how-deep-to-drill-a-new-well',
+      title: `Drilling a New Well: How Much Deeper Your County's Water Table Says to Plan For`,
+      description: `The water table is not the bottom of a well, but it decides how much room a new well has. What a county's long-term trend adds to the depth you ask a driller for, where 30 years of decline could carry the water past 100 or 200 feet, and what to ask before you sign.`,
+      // [R21][R27][R31][R29] A buyer's and a dry-well owner's question from
+      // visitor-job.md: how deep would a new well have to go. Every figure is
+      // read from the same county rows the county pages use.
+      blocks: (() => {
+        const fmt = (n) => Math.round(n).toLocaleString('en-US');
+        const rate = (r) => summaryBySlug.get(r.slug).trendFtPerDecade;
+        const depth = (r) => Number(r.current_depth_ft);
+        const link = (r) => pageLink(r.slug, `${r.county}, ${r.state_name}`);
+        const measured = trended.filter((r) => Number.isFinite(depth(r)) && depth(r) >= 0);
+        const band = (lo, hi) => measured.filter((r) => depth(r) >= lo && depth(r) < hi).length;
+        const down = measured.filter((r) => r.direction === 'declining');
+        const add30 = (r) => rate(r) * 3;
+        const medAdd = median(down.map(add30));
+        const add10 = down.filter((r) => add30(r) >= 10).length;
+        const add30ft = down.filter((r) => add30(r) >= 30).length;
+        const add60 = down.filter((r) => add30(r) >= 60).length;
+        const crossing = (line) => down
+          .filter((r) => depth(r) < line && depth(r) >= line / 2 && depth(r) + add30(r) >= line)
+          .sort((a, b) => add30(b) - add30(a));
+        const past100 = crossing(100);
+        const past200 = crossing(200);
+        const flag = (r) => (Number(r.n_measurements) < 12 ? ' (few readings, so treat it loosely)' : '');
+        const item = (r) => `<li>${link(r)}: water at ${ft(depth(r))} feet, about ${fmt(add30(r))} feet deeper in 30 years at its pace${flag(r)}</li>`;
+        return [
+          {
+            h2: 'The short answer',
+            html: `<p>A new well has to reach below the water table far enough to leave room for the pump, for the way the water level inside the well drops while the pump is running, and for whatever the water table does over the life of the well. The driller works out most of that on site. The last part is what ${site.name} can help with: how far the water under your county has been falling, and how far that could add up to over 30 years.</p><p>In most dropping counties it is not much. In the typical one, the water would sit about ${fmt(medAdd)} feet further down after 30 years at its long-term pace. But in ${fmt(add30ft)} counties it would be 30 feet or more, and in ${fmt(add60)} it would be 60 or more. If you are drilling there, those feet belong in the conversation with your driller. To see your county's rate, ${pageLink('', 'type its name into the search on the home page')}; it takes one step.</p>`,
+          },
+          {
+            h2: 'Water depth is not well depth',
+            html: `<p>The water table is the top of the ground that is soaked with water. A well drilled to exactly that depth would go dry the first dry summer. Drillers keep going until they reach a layer of sand, gravel or cracked rock that gives up enough water for a house, which can be just below the water table or a few hundred feet further down.</p><p>So the best guide to how deep your well will end up is not this site. It is the driller's logs for wells already drilled near you. A driller's log is the report a drilling company files with the state for each well, giving its total depth and where the water stood the day it was drilled. Most states let anyone search them free online, on the website of the state's water, geology or natural resources department, under a name like "well log search". Look up a few wells on your road. If they were all drilled to about the same depth, yours probably will be too. A local driller will already know this, and will usually quote a likely depth before starting.</p><p>What the logs cannot show is where the water will be in 20 years. A log only records the water level on the drilling day. That is where the county trend comes in.</p>`,
+          },
+          {
+            h2: 'What the county trend adds',
+            html: `<p>Each county page on this site gives the trend at a long-running U.S. Geological Survey monitoring well, a government well that exists only so the water level can be read again and again over decades. The trend is how many feet deeper (or shallower) the water has been getting every ten years. Multiply it by three and you get a rough figure for 30 years, about the life of a well and of a mortgage.</p><p>Across the ${fmt(down.length)} counties whose water is getting deeper:</p><ul><li>${fmt(down.length - add10)} would add less than 10 feet in 30 years. If your pump will hang many times that far below the water, this is unlikely to change anything.</li><li>${fmt(add10 - add30ft)} would add 10 to 30 feet. Worth mentioning to the driller, especially if neighbors' wells are shallow.</li><li>${fmt(add30ft - add60)} would add 30 to 60 feet.</li><li>${fmt(add60)} would add 60 feet or more.</li></ul><p>This assumes the water keeps falling at the same pace, which it may not. Rain, new pumping nearby, or towns switching to river water can speed a decline up or stop it. Treat the figure as a reason to ask questions, not a measurement of your own well.</p>`,
+          },
+          {
+            h2: 'How deep the water already sits',
+            html: `<p>The starting point matters as much as the trend. At the latest reading of each county's monitoring well, the water sat:</p><ul><li>less than 25 feet down in ${fmt(band(0, 25))} counties,</li><li>25 to 50 feet down in ${fmt(band(25, 50))},</li><li>50 to 100 feet down in ${fmt(band(50, 100))},</li><li>100 to 200 feet down in ${fmt(band(100, 200))},</li><li>200 to 400 feet down in ${fmt(band(200, 400))},</li><li>400 feet or more down in ${fmt(band(400, Infinity))}.</li></ul><p>Shallow water is cheaper to reach, but it reacts faster to a dry year, and a jet pump (one that sits above ground and pulls water up by suction) can only lift it about 25 feet. Below that, a well needs a submersible pump, which hangs down inside the well under the water. Deep water costs more to reach and to lift, and every foot it drops is added to an already long climb. The ${guideLink('how-deep-is-the-water-table', 'water depth guide')} goes through where the deepest and shallowest counties are.</p>`,
+          },
+          {
+            h2: `Where 30 years could change the picture most`,
+            html: `<p>Nothing special happens at exactly 100 or 200 feet; they are round marks. What matters is a big change compared with where the water is today, because a well and pump planned around today's level may not fit in 30 years. In ${fmt(past100.length)} dropping counties the water now sits 50 to 100 feet down, but at its long-term pace would be more than 100 feet down in 30 years. The ones with the biggest change:</p><ul>${past100.slice(0, 8).map(item).join('')}</ul><p>In ${fmt(past200.length)} counties the water is between 100 and 200 feet down now and and would pass 200 feet in 30 years:</p><ul>${past200.slice(0, 6).map(item).join('')}</ul><p>If you are drilling in one of these, ask the driller how far below the water they plan to set the pump, and whether going a little deeper now is cheaper than deepening later. The rough sum is simple once the driller tells you where the water stands and where the pump will hang: take the gap between the two in feet, and divide by your county's feet per decade. That is about how many decades before the resting water level reaches the pump. Trouble starts sooner, because the water inside a well dips while the pump runs. The ${guideLink('well-pump-risk', 'well-pump guide')} walks through it with an example.</p>`,
+          },
+          {
+            h2: 'What to ask a driller before you sign',
+            html: `<ul><li><strong>Are you licensed in this state?</strong> Most states license well drillers, and the state's water or natural resources department usually lists them online.</li><li><strong>How deep do you expect to go, and why?</strong> A good answer names nearby wells or a water-bearing layer, not a round number.</li><li><strong>How is the price worked out?</strong> Drilling is usually charged by the foot, with casing (the pipe that lines the hole), the pump and the hookup to the house often listed separately. Ask for a written estimate that shows each one, and what happens to the price if they have to go deeper than expected.</li><li><strong>Where will the pump hang, and how much water will be above it?</strong> Tell them your county's trend. If it is dropping fast, ask for more room above the pump.</li><li><strong>Will I get a copy of the driller's log?</strong> It records the depth and the water level on drilling day, and it is the baseline for every reading you take later.</li><li><strong>Is a water test included?</strong> A new well's water should be tested before the family drinks it. If the driller does not do it, your county or state health department can point you to a certified lab.</li></ul><p>Once the well is in, measuring its water level once a year, in the same month, is the cheapest way to see whether it is following the county. The ${guideLink('measure-your-own-well', 'guide to measuring your own well')} shows how.</p>`,
+          },
+          {
+            h2: 'Where these numbers come from',
+            html: `<p>Every depth and trend on this page comes from the same USGS monitoring wells behind the county pages, read from two free public USGS databases: the National Water Information System and the National Ground-Water Monitoring Network. ${fmt(TRENDED_TOTAL)} counties have a well with a long enough record to give a trend; the rest are explained in the ${guideLink('no-data-and-artesian-readings', 'no-data guide')}. The 30-year figures are each county's trend carried forward, not a forecast by any agency. Which wells count, and how the trend is drawn, is in the ${guideLink('methodology', 'methodology guide')}.</p>`,
+          },
+        ];
+      })(),
+    },
   ];
 }
 
