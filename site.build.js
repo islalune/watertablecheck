@@ -1267,6 +1267,93 @@ export function guides() {
         ];
       })(),
     },
+    {
+      slug: 'can-you-use-the-next-countys-number',
+      title: `On a Private Well, With No Water Table Reading for Your County? How Far to Trust the County Next Door`,
+      description: `We paired every measured US county with its nearest measured neighbor to see how often the two wells agree on whether the water is dropping. They agree less than half the time. Here is when a neighbor's number helps and when it misleads.`,
+      // [R3][R10][R21][R28][R29] Answers the visitor in a county with no
+      // qualifying well, whose page shows the nearest measured county. This
+      // tests that borrowing against the site's own data: every measured
+      // county is paired with its nearest measured neighbor and the two
+      // directions are compared. Every figure is computed from the same rows.
+      blocks: (() => {
+        const fmt = (n) => Math.round(n).toLocaleString('en-US');
+        const pct = (a, b) => (b ? Math.round((100 * a) / b) : 0);
+        const link = (r) => pageLink(r.slug, `${r.county}, ${r.state_name}`);
+        const pairs = trended.map((r) => ({ a: r, nb: nearestOtherQualifying(r) })).filter((p) => p.nb)
+          .map(({ a, nb }) => ({ a, b: nb.row, miles: nb.miles,
+            ta: summaryBySlug.get(a.slug).trendFtPerDecade, tb: summaryBySlug.get(nb.row.slug).trendFtPerDecade,
+            da: Number(a.current_depth_ft), db: Number(nb.row.current_depth_ft) }));
+        const agree = (p) => p.a.direction === p.b.direction;
+        const opposite = (p) => p.a.direction !== p.b.direction && p.a.direction !== 'stable' && p.b.direction !== 'stable';
+        const rate = (g) => pct(g.filter(agree).length, g.length);
+        const dirs = ['declining', 'stable', 'rising'];
+        const share = Object.fromEntries(dirs.map((d) => [d, trended.filter((r) => r.direction === d).length / trended.length]));
+        const chance = Math.round(100 * dirs.reduce((s, d) => s + share[d] ** 2, 0));
+        const opp = pairs.filter(opposite);
+        const band = (lo, hi) => pairs.filter((p) => p.miles >= lo && p.miles < hi);
+        const near = band(0, 30), mid = band(30, 60), far = band(60, Infinity);
+        const medMiles = median(pairs.map((p) => p.miles));
+        const sameState = pairs.filter((p) => p.a.state === p.b.state);
+        const crossState = pairs.filter((p) => p.a.state !== p.b.state);
+        const depthOk = pairs.filter((p) => p.da >= 0 && p.db >= 0);
+        const closeDepth = depthOk.filter((p) => Math.abs(p.da - p.db) < 25);
+        const farDepth = depthOk.filter((p) => Math.abs(p.da - p.db) >= 100);
+        // A neighbor falling fast: how often is the county beside it also falling?
+        const fastNb = pairs.filter((p) => p.tb >= 10 && p.b.direction === 'declining');
+        const fastNbAlsoDown = fastNb.filter((p) => p.a.direction === 'declining').length;
+        const slowNb = pairs.filter((p) => p.b.direction === 'declining' && p.tb < 3);
+        const slowNbAlsoDown = slowNb.filter((p) => p.a.direction === 'declining').length;
+        const rows3 = dirs.map((d) => {
+          const g = pairs.filter((p) => p.a.direction === d);
+          const word = { declining: 'dropping', stable: 'steady', rising: 'rising' };
+          const c = Object.fromEntries(dirs.map((x) => [x, g.filter((p) => p.b.direction === x).length]));
+          return `<li>Of the ${fmt(g.length)} ${word[d]} counties, the nearest measured neighbor is dropping in ${fmt(c.declining)}, steady in ${fmt(c.stable)} and rising in ${fmt(c.rising)}.</li>`;
+        }).join('');
+        const sharpest = [...opp].filter((p) => p.miles < 40 && Number(p.a.n_measurements) >= 20 && Number(p.b.n_measurements) >= 20)
+          .sort((x, y) => Math.abs(y.ta - y.tb) - Math.abs(x.ta - x.tb));
+        const seen = new Set();
+        const examples = sharpest.filter((p) => { const k = [p.a.slug, p.b.slug].sort().join('|'); if (seen.has(k)) return false; seen.add(k); return true; }).slice(0, 5);
+        const exItem = (p) => {
+          const d = p.ta > 0 ?{ r: p.a, t: p.ta, o: p.b, ot: p.tb } : { r: p.b, t: p.tb, o: p.a, ot: p.ta };
+          return `<li>In ${link(d.r)}, the water is sinking ${ft(d.t)} feet further below ground every ten years. In ${link(d.o)}, ${fmt(p.miles)} miles away, it is coming up ${ft(-d.ot)} feet every ten years.</li>`;
+        };
+        return [
+          {
+            h2: 'The short answer',
+            html: `<p>This page is for people whose home gets its water from a private well, or who are thinking of buying one. City tap water comes from a utility and is not what this is about.</p><p>Use the county next door as a weak hint, not as your answer. More than half of US counties have no government monitoring well with a long enough record to say whether the water table, the top of the water-soaked ground under your feet, is dropping. This website, ${site.name}, gives every US county a page showing which way its underground water has been moving. When a county has no such well, its page shows the reading from the nearest county that does, clearly labeled as the neighbor's.</p><p>To see how much that borrowed number is worth, we took all ${fmt(pairs.length)} counties that do have a long-running government monitoring well and checked each one against its nearest measured neighbor. The two wells pointed the same way, both dropping, both steady or both rising, in ${rate(pairs)}% of cases. If you paired counties at random from anywhere in the country, you would get about ${chance}%. So a neighbor's well does tell you something, but not much more than a guess.</p>`,
+          },
+          {
+            h2: 'How the test works',
+            html: `<p>Each measured county was matched with the closest other measured county, in a straight line between the centers of the two counties. The typical pair is ${fmt(medMiles)} miles apart. Both wells in a pair have at least 15 years of readings, with at least one in the last 10 years, which is the minimum this site asks of any well before it shows a trend. A well counts as "steady" if its water moved less than ${STABLE_BAND_FT_PER_DECADE} feet per decade either way, "dropping" if it is getting deeper by more than that, and "rising" if it is coming closer to the surface by more than that. How the trend line is drawn is in the ${guideLink('methodology', 'methodology guide')}.</p><p>That is exactly how a county page without its own well picks the neighbor it shows you, so this test measures how far you can trust that neighbor's number.</p>`,
+          },
+          {
+            h2: 'What we found',
+            html: `<ul>${rows3}</ul><p>In ${fmt(opp.length)} pairs the two wells point in opposite directions: one county's water is getting deeper while its neighbor's is coming back up. That is ${pct(opp.length, pairs.length)}% of all pairs.</p>${examples.length ? `<p>Some of the starkest cases, where the two counties are under 40 miles apart and both wells have at least 20 readings:</p><ul>${examples.map(exItem).join('')}</ul>` : ''}`,
+          },
+          {
+            h2: 'Being closer barely helps',
+            html: `<p>You would expect a county 15 miles away to say more about yours than one 80 miles away. In this data the difference is small:</p><ul><li>Neighbors under 30 miles away: ${fmt(near.length)} pairs, ${rate(near)}% agree.</li><li>30 to 60 miles: ${fmt(mid.length)} pairs, ${rate(mid)}% agree.</li><li>60 miles or more: ${fmt(far.length)} pairs, ${rate(far)}% agree.</li></ul><p>A state line does not hurt either. Pairs in the same state agree ${rate(sameState)}% of the time, and the ${fmt(crossState.length)} pairs that cross a state line agree ${rate(crossState)}% of the time. Water underground does not follow state borders, so a neighbor in another state is no worse a match.</p>`,
+          },
+          {
+            h2: 'Why wells a few miles apart disagree',
+            html: `<p>Underground water is not one big lake. It sits in separate layers of sand, gravel and cracked rock stacked at different depths, and a monitoring well reads only the layer it was drilled into. A shallow layer that rain refills every spring can hold steady while a deep layer below it, pumped by a town or a field of irrigation wells, keeps falling. Two wells a few miles apart can easily be reading different layers.</p><p>The depths show it. Where the water level in the two wells sits at about the same depth below ground, within 25 feet of each other, they agree ${rate(closeDepth)}% of the time (${fmt(closeDepth.length)} pairs). Where the water in one well stands 100 feet or more deeper than in the other, they agree ${rate(farDepth)}% of the time (${fmt(farDepth.length)} pairs). So the neighbor's number means more when its water sits at about the depth your own well reaches.</p>`,
+          },
+          {
+            h2: 'When the neighbor is worth taking seriously',
+            html: `<p>A fast decline next door is a stronger signal than a slow one. Where the neighbor's water is getting deeper by 10 feet or more per decade, the county beside it is dropping too in ${pct(fastNbAlsoDown, fastNb.length)}% of cases (${fmt(fastNbAlsoDown)} of ${fmt(fastNb.length)}). Where the neighbor is dropping by less than 3 feet per decade, that falls to ${pct(slowNbAlsoDown, slowNb.length)}% (${fmt(slowNbAlsoDown)} of ${fmt(slowNb.length)}). Heavy, long pumping from a deep layer tends to spread across a whole region, while slow drifts are often local to one well.</p><p>Putting it together, give a neighbor's reading more weight when it is falling fast and when its water sits at about the same depth as the water in your well. Each county page gives its well's latest depth to water. Being close by is not enough on its own. If neither is true, treat it as background.</p>`,
+          },
+          {
+            h2: 'What to do instead',
+            html: `<p>If you have a private well, the best evidence about it is the well itself. Start with its driller's log, the report the company that drilled it filed with the state, which records the total depth and where the water stood on the day it was drilled. Most states let anyone search these free: search for your state's name plus "well log search", which usually turns up a page run by the state's water, geology or natural resources department. Minnesota's Well Index and the Texas Groundwater Database are two examples.</p><p>Then find where the water stands today. A licensed well driller can measure it, or you can do it yourself with a steel tape or an electric sounder (a long measuring tape with a sensor on the end that beeps when it touches water) after leaving the pump off for about two hours, the method that Oregon State University's and the University of Arizona's well-owner guides describe. Compare the two. Water standing much lower now than on the drilling day is your own local trend, and it beats any county's number. The ${guideLink('well-pump-risk', 'well-pump guide')} shows how to work out how much water is left above your pump, and the ${guideLink('no-data-and-artesian-readings', 'no-data guide')} explains why so many counties have no qualifying well.</p><p>To see whether your county has its own reading or borrows one, ${pageLink('', 'type its name into the search on the home page')}.</p>`,
+          },
+          {
+            h2: 'Where these numbers come from',
+            html: `<p>Every reading on this page comes from the U.S. Geological Survey (USGS), the federal science agency that tracks the country's water, through its National Water Information System and the National Ground-Water Monitoring Network. Both are free and public. County centers are from the U.S. Census Bureau. The pairing and the agreement rates are our own analysis of those readings.</p>`,
+          },
+        ];
+      })(),
+    },
   ];
 }
 
