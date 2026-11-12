@@ -124,6 +124,36 @@ for (const r of rows) {
   if (!hasQualifyingWell(r)) nearestBySlug.set(r.slug, nearestQualifying(r));
 }
 
+// [R2][R3] In-state comparison for counties with their own well. A national
+// rank alone tells a well owner little; how the county sits against its own
+// state, and whether the nearest neighbouring well agrees, is the context
+// that actually changes how to read the number.
+const trendedByState = new Map();
+for (const r of trended) {
+  if (!trendedByState.has(r.state)) trendedByState.set(r.state, []);
+  trendedByState.get(r.state).push(r);
+}
+const median = (xs) => {
+  const s = [...xs].sort((a, b) => a - b);
+  const m = Math.floor(s.length / 2);
+  return s.length % 2 ? s[m] : (s[m - 1] + s[m]) / 2;
+};
+const stateStats = new Map([...trendedByState].map(([st, list]) => [st, {
+  list,
+  medianTrend: median(list.map((r) => summaryBySlug.get(r.slug).trendFtPerDecade)),
+  depths: list.map((r) => Number(r.current_depth_ft)).filter((d) => Number.isFinite(d) && d >= 0),
+}]));
+function nearestOtherQualifying(row) {
+  const lat = Number(row.lat), lon = Number(row.lon);
+  let best = null, bestDist = Infinity;
+  for (const r of trended) {
+    if (r.slug === row.slug) continue;
+    const d = haversineMiles(lat, lon, Number(r.lat), Number(r.lon));
+    if (d < bestDist) { bestDist = d; best = r; }
+  }
+  return best ? { row: best, miles: Math.round(bestDist) } : null;
+}
+
 // ---------------------------------------------------------------------------
 // Shared formatting helpers
 // ---------------------------------------------------------------------------
@@ -300,6 +330,57 @@ export function page(row) {
     blocks.push({
       h2: pick(slug + '-rank-h2', [`How ${county} compares nationally`, `Where ${county} ranks`]),
       html: `<p>${rankLine} ${popLine} See the ${guideLink('fastest-moving-counties', 'fastest-moving counties guide')} for how ${county} stacks up against the most extreme cases nationally.</p>`,
+    });
+
+    // --- against the rest of the state, and the nearest neighbour ----------------
+    const stats = stateStats.get(state);
+    const t = s.trendFtPerDecade;
+    const moveWord = (v) => (v > 0 ? 'of decline' : 'of rise');
+    const stateParas = [];
+    if (stats.list.length === 1) {
+      stateParas.push(`${county} is the only county in ${stateName} with a well that clears the qualifying bar, so there is no in-state comparison to make yet.`);
+    } else {
+      const n = stats.list.length;
+      const declineRank = n - stats.list.findIndex((r) => r.slug === slug);
+      const diff = t - stats.medianTrend;
+      const medTxt = `${ft(Math.abs(stats.medianTrend))} ft per decade ${moveWord(stats.medianTrend)}`;
+      let cmp;
+      if (Math.abs(diff) < 0.3) cmp = `That is close to the middle of the state: the median ${stateName} county shows ${medTxt}.`;
+      else if (diff > 0) cmp = `The water here is dropping ${ft(diff)} ft per decade faster than in the median ${stateName} county, which shows ${medTxt}.`;
+      else cmp = `That is ${ft(-diff)} ft per decade better than the median ${stateName} county, which shows ${medTxt}.`;
+      const rankTxt = declineRank === 1 && t > 0
+        ? `${county} has the fastest-falling water table of the ${n} ${stateName} counties with a qualifying well.`
+        : declineRank === n
+          ? `Of the ${n} ${stateName} counties with a qualifying well, ${county} has the slowest decline or the strongest rise.`
+          : `Ranked by how fast the water is falling, ${county} comes ${ordinal(declineRank)} of the ${n} ${stateName} counties with a qualifying well.`;
+      stateParas.push(`${rankTxt} ${cmp}`);
+      const d = Number(row.current_depth_ft);
+      if (!s.isArtesian && Number.isFinite(d) && stats.depths.length >= 3) {
+        const shallower = stats.depths.filter((x) => x < d).length;
+        const share = shallower / stats.depths.length;
+        stateParas.push(share >= 0.75
+          ? `At ${ft(d)} ft down, this well's water sits deeper than in ${shallower} of the ${stats.depths.length} ${stateName} wells used on this site. A deep table leaves less room before a shallow residential well loses its water, even at a modest rate of decline.`
+          : share <= 0.25
+            ? `Water in this well is only ${ft(d)} ft down, shallower than all but ${shallower} of the ${stats.depths.length} ${stateName} wells used here. A shallow table is easier to reach, and also quicker to feel a dry summer.`
+            : `The ${ft(d)} ft depth to water is unremarkable for ${stateName}: ${shallower} of the ${stats.depths.length} wells used here read shallower.`);
+      }
+    }
+    const nb = nearestOtherQualifying(row);
+    if (nb) {
+      const ns = summaryBySlug.get(nb.row.slug);
+      const where = nb.row.state === state ? nb.row.county : `${nb.row.county}, ${nb.row.state}`;
+      const sameWay = (ns.severityTier.startsWith('declining') && s.severityTier.startsWith('declining')) || ns.severityTier === s.severityTier;
+      stateParas.push(`The nearest other county with its own qualifying well is ${where}, ${nb.miles} miles away. ` + (sameWay
+        ? `Its well points the same way (${ft(Math.abs(ns.trendFtPerDecade))} ft per decade ${moveWord(ns.trendFtPerDecade)}), which makes ${county}'s reading look regional rather than a quirk of one well.`
+        : `Its well is ${TIER_META[ns.severityTier].word} instead, at ${ft(Math.abs(ns.trendFtPerDecade))} ft per decade. Neighbouring wells that disagree can be tapping different aquifers or sitting near different amounts of pumping, so ${county}'s own well is the better guide here.`));
+    }
+    const lastYear = Number(s.lastDate?.slice(0, 4));
+    if (lastYear && lastYear < 2021) {
+      stateParas.push(`One caution: this well's last reading is from ${lastYear}. The trend describes the years it was measured and says nothing about what the water has done since.`);
+    }
+    blocks.push({
+      h2: `${county} against the rest of ${stateName}`,
+      html: stateParas.map((p) => `<p>${p}</p>`).join('\n'),
     });
 
     // --- CTA: well-pump risk, only where the data supports it -----------------
