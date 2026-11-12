@@ -820,12 +820,11 @@ ${browseLinks}
 </details>`;
 }
 
-// [R5] No logo-left / links-right bar. Inner pages open on the name alone,
-// centred, as the title of the piece; navigation lives in the footer. The
-// homepage carries the name inside the scene instead.
-export function masthead({ isHome, brandMark }) {
-  if (isHome) return '';
-  return `<header class="wt-mast"><a href="/" class="wt-mast-name">${brandMark}<span>${site.name}</span></a></header>`;
+// [R5][R20] No top bar of any kind, not even a centred name: the first
+// screen opens on the visitor's question. The name and navigation live in
+// the footer; the homepage carries the name inside the scene.
+export function masthead() {
+  return '';
 }
 
 /** CSS for the above. Owned by this site, not the factory. */
@@ -884,8 +883,8 @@ main:has(.wt-hero){max-width:none; padding:0}
 main:has(.wt-hero) > h1{margin:0; padding:40px 6vw 0; background:#eef1ee; color:#1c2427;
   font-size:clamp(2.4rem,5.4vw,4.6rem); line-height:1.02; letter-spacing:-.026em; max-width:none}
 main:has(.wt-hero) > section{margin:0}
-.wt-hero{position:relative; min-height:max(560px,74vh); padding:28px 6vw 0; background:#eef1ee; overflow:hidden}
-.wt-hero .wt-strata{position:absolute; left:0; right:0; bottom:0; width:100%; height:40%}
+.wt-hero{position:relative; min-height:max(560px,74vh); padding:28px 6vw calc(30vh + 32px); background:#eef1ee; overflow:hidden}
+.wt-hero .wt-strata{position:absolute; left:0; right:0; bottom:0; width:100%; height:30vh}
 .wt-hero-num{position:relative; display:flex; align-items:center; gap:28px; flex-wrap:wrap}
 .wt-big{font-size:clamp(7rem,16vw,14.5rem); line-height:.86; font-weight:700; letter-spacing:-.04em; color:#1c2427}
 .wt-note{margin:0; font-size:clamp(1.25rem,1.9vw,1.6rem); line-height:1.35; color:#1c2427; max-width:22ch}
